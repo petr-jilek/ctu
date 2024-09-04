@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "charliermarsh.ruff",
+    "pkief.material-icon-theme",
+    "esbenp.prettier-vscode",
+    "ms-python.isort",
+    "mechatroner.rainbow-csv",
+    "janisdd.vscode-edit-csv",
+    "james-yu.latex-workshop"
+  ]
+}

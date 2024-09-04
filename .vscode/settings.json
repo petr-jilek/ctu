@@ -1,0 +1,41 @@
+{
+  "files.eol": "\n",
+  "workbench.tree.indent": 14,
+  "explorer.compactFolders": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always"
+    }
+  },
+  "[latex]": {
+    "editor.wordWrap": "on",
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
+  },
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.idea": true,
+    "tex/*.aux": true,
+    "tex/*.fdb_latexmk": true,
+    "tex/*.fls": true,
+    "tex/*.log": true,
+    "tex/*.synctex.gz": true,
+    "tex/*.snm": true,
+    "tex/*.out": true,
+    "tex/*.nav": true,
+    "tex/*.toc": true,
+    "tex/*.bbl": true,
+    "tex/*.blg": true,
+    "tex/*.bcf": true,
+    "tex/*.run.xml": true,
+    "tex/*.spl": true,
+    "tex/*.idx": true,
+    "tex/*.ilg": true,
+    "tex/*.ind": true,
+    "tex/*.lof": true,
+    "tex/*.lot": true
+  }
+}
