@@ -1,0 +1,162 @@
+\documentclass{article}
+\usepackage[czech]{babel}
+% \usepackage{graphicx}
+\usepackage{float}
+\usepackage{indentfirst}
+
+\title{\textbf{Cvičení 1}\\Elektroenergetika 3}
+\author{Petr Jílek}
+\date{Září 2024}
+
+\begin{document}
+
+\input{../shared/commands.tex}
+\input{../shared/units.tex}
+
+\maketitle
+
+\tableofcontents
+
+
+
+\section*{Znacky}
+
+\begin{itemize}
+    \item $c$ - Měrná tepelná kapacita (\ueqJperKGperK)
+    \item $\rho$ - Hustota (kg / m3)
+\end{itemize}
+
+\newpage
+
+
+
+\section*{Příklad 1}
+
+test
+
+\begin{itemize}
+    \item test
+    \item test
+\end{itemize}
+
+
+
+\section*{Příklad 2 - Tepelná kapacita materiálů}
+
+\textbf{Zadání}
+
+Na jakou teplotu by energie potřebná k vaření vody ohřála stejnou hmotnost / objem oceli a zlata? Voda je ohřívána z 10 \ueqCELS \myFS na 100 \ueqCELS.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|ll}
+        \hline
+        Mateiál    & $\rho$ (kg / m3) & $c$ (\ueqJperKGperK) \\
+        \hline
+        Voda (H2O) & 1 000            & 4 186                \\
+        Ocel       & 7 750 ??         & 450 ??               \\
+        Zlato      & 19 320           & 129                  \\
+        \hline
+    \end{tabular}
+    \caption {Hustota a měrná tepelná kapacita materiálů}
+\end{table}
+
+\textbf{Řešení}
+
+Měrná tepelná kapacita je definována jako množství tepla, které je potřeba k ohřátí jednoho kilogramu látky o jeden stupeň Kelvina:
+\begin{equation}
+    Q = m \cdot c \cdot \Delta T,
+\end{equation}
+kde:
+\begin{itemize}
+    \item $Q$ - množství tepla (J),
+    \item $m$ - hmotnost (kg),
+    \item $c$ - měrná tepelná kapacita (\ueqJperKGperK),
+    \item $\Delta T$ - změna teploty (K).
+\end{itemize}
+
+Rozdíl teplot pro vodu je:
+$$
+    \Delta T_{H2O} = 100 \myFS \uCELS - 10 \myFS \uCELS = 90 \myFS \uK.
+$$
+
+\textbf{Řeěení pro stejnou hmotnost}
+$$
+    m_{H2O} \cdot c_{H2O} \cdot \Delta T_{H2O} = m_{ocel} \cdot c_{ocel} \cdot \Delta T_{ocel} = m_{zlato} \cdot c_{zlato} \cdot \Delta T_{zlato}.
+$$
+
+A zároveň pro tento příklad hmotnosti jsou stejné:
+$$
+    m_{H2O} = m_{ocel} = m_{zlato} = m.
+$$
+
+Tedy:
+$$
+    m \cdot c_{H2O} \cdot \Delta T_{H2O} = m \cdot c_{ocel} \cdot \Delta T_{ocel} = m \cdot c_{zlato} \cdot \Delta T_{zlato}.
+$$
+
+Rovnici lze vydělit hmotností $m$ ($m >$ 0) a dostaneme:
+$$
+    c_{H2O} \cdot \Delta T_{H2O} = c_{ocel} \cdot \Delta T_{ocel} = c_{zlato} \cdot \Delta T_{zlato}.
+$$
+
+Pro ocel platí:
+$$
+    \Delta T_{ocel} = \Delta T_{H2O} \cdot \frac{c_{H2O}}{c_{ocel}} = 90 \cdot \frac{4 186}{450} \approx 837,2 \myFS \uK.
+$$
+
+Pro zlato platí:
+$$
+    \Delta T_{zlato} = \Delta T_{H2O} \cdot \frac{c_{H2O}}{c_{zlato}} = 90 \cdot \frac{4 186}{129} \approx 2 920,5 \myFS \uK.
+$$
+
+\textbf{Řeěení pro stejný objem}
+
+Hmotnost je definována jako:
+$$
+    m = V \cdot \rho,
+$$
+kde:
+\begin{itemize}
+    \item $m$ - hmotnost (kg),
+    \item $V$ - objem (m3),
+    \item $\rho$ - hustota (kg / m3).
+\end{itemize}
+
+Pro stejný objem platí:
+$$
+    V_{H2O} \cdot \rho_{H2O} \cdot c_{H2O} \cdot \Delta T_{H2O} = V_{ocel} \cdot \rho_{ocel} \cdot c_{ocel} \cdot \Delta T_{ocel} = V_{zlato} \cdot \rho_{zlato} \cdot c_{zlato} \cdot \Delta T_{zlato}.
+$$
+
+A zároveň pro tento příklad objemy jsou stejné:
+$$
+    V_{H2O} = V_{ocel} = V_{zlato} = V.
+$$
+
+Tedy:
+$$
+    V \cdot \rho_{H2O} \cdot c_{H2O} \cdot \Delta T_{H2O} = V \cdot \rho_{ocel} \cdot c_{ocel} \cdot \Delta T_{ocel} = V \cdot \rho_{zlato} \cdot c_{zlato} \cdot \Delta T_{zlato}.
+$$
+
+Rovnici lze vydělit objemem $V$ ($V >$ 0) a dostaneme:
+$$
+    \rho_{H2O} \cdot c_{H2O} \cdot \Delta T_{H2O} = \rho_{ocel} \cdot c_{ocel} \cdot \Delta T_{ocel} = \rho_{zlato} \cdot c_{zlato} \cdot \Delta T_{zlato}.
+$$
+
+Pro ocel platí:
+$$
+    \Delta T_{ocel} = \Delta T_{H2O} \cdot \frac{\rho_{H2O} \cdot c_{H2O}}{\rho_{ocel} \cdot c_{ocel}} = 90 \cdot \frac{1 000 \cdot 4 186}{7 750 \cdot 450} \approx 108,03 \myFS \uK.
+$$
+
+Pro zlato platí:
+$$
+    \Delta T_{zlato} = \Delta T_{H2O} \cdot \frac{\rho_{H2O} \cdot c_{H2O}}{\rho_{zlato} \cdot c_{zlato}} = 90 \cdot \frac{1 000 \cdot 4 186}{19 320 \cdot 129} \approx 1511,63 \myFS \uK.
+$$
+
+
+
+\section*{Příklad 3 - Průtokový ohřívač}
+
+
+
+\end{document}
