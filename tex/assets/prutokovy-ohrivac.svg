@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Vrstva_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160.93 94.28">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1d1d1b;
+        font-family: Matter-Regular, Matter;
+        font-size: 22.83px;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #1d1d1b;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" x="43.96" y=".5" width="71.55" height="71.55"/>
+  <g>
+    <line class="cls-2" x1="20.42" y1="31.41" x2="43.96" y2="31.41"/>
+    <line class="cls-2" x1="20.42" y1="41.14" x2="43.96" y2="41.14"/>
+  </g>
+  <rect class="cls-2" x="71.36" y="22.63" width="16.75" height="11.77"/>
+  <polyline class="cls-2" points="71.36 28.52 64.34 28.52 64.34 9.27"/>
+  <polyline class="cls-2" points="88 28.52 95.02 28.52 95.02 9.27"/>
+  <polyline class="cls-2" points="115.51 41.65 142.91 41.65 142.91 65.88 152.64 65.88 152.64 31.24 115.51 31.24"/>
+  <text class="cls-1" transform="translate(0 43.32)"><tspan x="0" y="0">→</tspan></text>
+  <text class="cls-1" transform="translate(8.34 62.95)"><tspan x="0" y="0">T1</tspan></text>
+  <text class="cls-1" transform="translate(120.82 72.91)"><tspan x="0" y="0">T2</tspan></text>
+  <text class="cls-1" transform="translate(141.53 72.05) rotate(90)"><tspan x="0" y="0">→</tspan></text>
+</svg>

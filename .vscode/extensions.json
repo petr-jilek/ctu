@@ -6,6 +6,7 @@
     "ms-python.isort",
     "mechatroner.rainbow-csv",
     "janisdd.vscode-edit-csv",
-    "james-yu.latex-workshop"
+    "james-yu.latex-workshop",
+    "simonsiefke.svg-preview"
   ]
 }
