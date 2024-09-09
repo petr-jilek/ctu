@@ -68,11 +68,122 @@ $$
 
 \textbf{Řešení b)}
 
-Vzorec pro potenciální energii je:
+Nejdříve si odvodíme vzorec pro gravitační zrychlení z Newtonova gravitačního zákona:
 $$
-    E_p = m \cdot g (r) \cdot h,
+    F = G \cdot \frac{m_1 \cdot m_2}{r^2},
+$$
+kde:
+\begin{itemize}
+    \item $F$ - gravitační síla (N),
+    \item $G$ - gravitační konstanta (N \myFS m2 \myFS kg\myFS -2),
+    \item $m_1$ - hmotnost prvního tělesa (kg),
+    \item $m_2$ - hmotnost druhého tělesa (kg),
+    \item $r$ - vzdálenost mezi tělesy (m).
+\end{itemize}
+
+Gravitační síla je definována jako:
+$$
+    F = m \cdot g,
 $$
 
+kde:
+\begin{itemize}
+    \item $m$ - hmotnost (kg),
+    \item $g$ - gravitační zrychlení (m / s2).
+\end{itemize}
+
+Dále budeme uvažovat, že hmotnost $m_1$ je hmotnost Země $M$ a hmotnost $m_2$ je hmotnost člověka $m$ a dosadíme do Newtonova gravitačního zákona:
+
+$$
+    m \cdot g = G \cdot \frac{M \cdot m}{r^2}.
+$$
+
+Poté gravitační zrychlení $g$ je:
+$$
+    g = G \cdot \frac{M}{r^2},
+$$
+
+Můžeme dosadit do vzorce pro potenciální energii:
+$$
+    E_p = m \cdot g \cdot h = m \cdot G \cdot \frac{M}{r^2} \cdot h.
+$$
+
+Nyní je třeba si uvědomit, že gravitační zrychlení $g$ je proměnné a závisí na výšce $h$. Je možné analyzovat kolik potřebujeme energie $\Delta E_p$ pro zvýšení výšky $h$ o $\Delta h$:
+
+$$
+    \Delta E_p = m \cdot G \cdot \frac{M}{r^2} \cdot \Delta h
+$$
+
+Zde se dopouštíme jisté nepřesnosti, jelikož pokud například $\Delta h$ bude 2 m, tak gravitační zrychlení (poloměr od středu země) se změní taky, ale to zde není zohledněno. Jedná se pouze o aproximaci. Pro získání přesného výsledku je třeba nahradit $\Delta h$ infinitesimálně malým $dh$ a $\Delta E_p$ bude infinitesimálně malé $dE_p$:
+
+$$
+    dE_p = m \cdot G \cdot \frac{M}{r^2} \cdot dh.
+$$
+
+Toto očividně vede na diferenciální rovnici, která lze snadno řešit separací proměnných, ale pozor. Nyní bychom brali poloměr $r$ jako konstantu. To je chyba, jelikož poloměr $r$ se mění s výškou $h$. Jeden z přístupů je možnost nahradit výšku $h$ poloměrem $r$ a místo posouvání se o výšku $dh$ se posuneme o poloměr $dr$. Ale musíme si poté zapamatovat, že počáteění mezí je poloměr země $R$. A vlastně rovnou můžeme říct, že konečná mez bude tedy $R + h$. Poté je možné řešit rovnici:
+
+$$
+    E_p = \int_{R}^{R + h} m \cdot G \cdot \frac{M}{r^2} \cdot dr.
+$$
+
+Hmotnost $m$ a $M$ a gravitační konstanta $G$ je konstantní, takže můžeme je vytknout z integrálu:
+
+$$
+    E_p = m \cdot G \cdot M \int_{R}^{R + h} \frac{1}{r^2} \cdot dr = m \cdot G \cdot M \left[ - \frac{1}{r} \right]_{R}^{R + h} = m \cdot G \cdot M \left( - \frac{1}{R + h} + \frac{1}{R} \right).
+$$
+
+Po úpravě dostaneme:
+$$
+    E_p = m \cdot G \cdot M \left( \frac{1}{R} - \frac{1}{R + h} \right).
+$$
+
+Nyní je třeba osamostatnit $h$:
+
+$$
+    E_p = m \cdot G \cdot M \left( \frac{R + h - R}{R \cdot (R + h)} \right) = m \cdot G \cdot M \left( \frac{h}{R \cdot (R + h)} \right).
+$$
+
+$$
+    E_p \cdot R \cdot (R + h) = m \cdot G \cdot M \cdot h.
+$$
+
+$$
+    E_p \cdot R^2 + E_p \cdot R \cdot h = m \cdot G \cdot M \cdot h.
+$$
+
+$$
+    E_p \cdot R \cdot h - m \cdot G \cdot M \cdot h = - E_p \cdot R^2.
+$$
+
+$$
+    h \cdot (E_p \cdot R - m \cdot G \cdot M) = - E_p \cdot R^2.
+$$
+
+$$
+    h = \frac{- E_p \cdot R^2}{E_p \cdot R - m \cdot G \cdot M}.
+$$
+
+$$
+    h = \frac{E_p \cdot R^2}{m \cdot G \cdot M - E_p \cdot R}.
+$$
+
+Poté dosadíme hodnoty:
+$$
+    h = \frac{3 \myFS 600 \myFS 000 \cdot 6 \myFS 371 \myFS 000^2}{80 \cdot 6,67430 \myFS 10^{-11} \cdot 5,97219 \myFS 10^{24} - 3 \myFS 600 \myFS 000 \cdot 6 \myFS 371 \myFS 000}
+$$
+
+Lze pokrátit některé řády (energie):
+$$
+    h = \frac{3,6 \cdot 6 \myFS 371 \myFS 000^2}{80 \cdot 6,67430 \myFS 10^{-11} \cdot 5,97219 \myFS 10^{18} - 3,6 \cdot 6 \myFS 371 \myFS 000}
+$$
+
+$$
+    h = \frac{3,6 \cdot 6 \myFS 371 \myFS 000^2}{80 \cdot 6,67430 \cdot 5,97219 \cdot 10^7 - 3,6 \cdot 6 \myFS 371 \myFS 000}
+$$
+
+$$
+    h \approx 4 \myFS 585,6 \myFS m.
+$$
 
 
 
