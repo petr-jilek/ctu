@@ -20,14 +20,181 @@
 
 \subsection{Odvození tepelného odporu}
 
+Tepelný odpor válce se skládá ze dvou částí:
+\begin{itemize}
+    \item odpor vedení tepla v materiálu válce $R_{\lambda}$,
+    \item odpor přenosu tepla z povrchu válce do okolí $R_{\alpha}$.
+\end{itemize}
+
+Pro odvození tepelného odporu $R_{\lambda}$ využijeme vztah pro tepelný odpor $R$:
+$$
+    R = \frac{d}{\lambda \cdot S},
+$$
+kde:\\
+$d$ - tloušťka materiálu (m),\\
+$\lambda$ - tepelná vodivost materiálu (W/m$\cdot$K),\\
+$S$ - plocha přenosu tepla (m$^2$).\\
+
+Zde $d$ nahradíme nekonečně malou částí poloměru válce:
+$$
+    d \rightarrow dr.
+$$
+
+Dále $S$ nahradíme plochou válce:
+$$
+    S \rightarrow 2 \pi r \cdot l \cdot dr,
+$$
+kde:\\
+$r$ - poloměr válce (m),\\
+$l$ - délka válce (m).\\
+
+Tepelný odpor $dR$ válce bude tedy:
+$$
+    dR = \frac{dr}{\lambda \cdot 2 \pi r \cdot l \cdot dr}.
+$$
+
+Pro získání celkového odporu $R_{\lambda}$ je třeba provést integraci od vnitřního poloměru izolace $r_1$ po vnější poloměr válce $r_2$:
+$$
+    R_{\lambda} = \int_{r_1}^{r_2} \frac{1}{\lambda \cdot 2 \pi r \cdot l} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \int_{r_1}^{r_2} \frac{1}{r} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left[ \ln |r| \right]_{r_1}^{r_2}
+$$
+
+Jelikož poloměry $r_1$ a $r_2$ jsou kladné (záporné poloměry nedávají fyzikální smysl), můžeme absolutní hodnotu u logaritmu zanedbat:
+$$
+    R_{\lambda} = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left[ \ln r \right]_{r_1}^{r_2} = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left( \ln r_2 - \ln r_1 \right) = \frac{1}{\lambda \cdot 2 \pi \cdot l} \ln \frac{r_2}{r_1} = \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1}.
+$$
+
+Pro odpor přenosu tepla z povrchu válce do okolí $R_{\alpha}$ využijeme vztah pro odpor přenosu tepla $R_{\alpha}$:
+$$
+    R_{\alpha} = \frac{1}{\alpha \cdot S},
+$$
+kde:\\
+$\alpha$ - koeficient prostupu tepla (W/m$^2 \cdot$K).\\
+
+Plochu $S$ nahradíme plochou válce:
+$$
+    S \rightarrow 2 \pi r_2 \cdot l.
+$$
+
+Odpor přenosu tepla z povrchu válce do okolí $R_{\alpha}$ bude tedy:
+$$
+    R_{\alpha} = \frac{1}{\alpha \cdot 2 \pi r_2 \cdot l} = \frac{1}{2 \pi l \alpha r_2}.
+$$
+
+Celkový tepelný odpor válce $R_{\Sigma}$ bude součtem obou odporů:
+$$
+    R_{\Sigma} = R_{\lambda} + R_{\alpha} = \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1} + \frac{1}{2 \pi l \alpha r_2}
+$$
+
 
 \subsection{Minimum tepelného odporu}
+
+Pro nalezení extrému tepelného odporu $R_{\Sigma}$ podle poloměru válce $r_2$ je třeba zjistit, kdy bude derivace $R_{\Sigma}$ podle $r_2$ rovna nule:
+$$
+    \frac{dR_{\Sigma}}{dr_2} = 0.
+$$
+
+Derivace $R_{\Sigma}$ podle $r_2$ bude:
+$$
+    \frac{dR_{\Sigma}}{dr_2} = \frac{dR_{\lambda}}{dr_2} + \frac{dR_{\alpha}}{dr_2}.
+$$
+
+Derivace $R_{\lambda}$ podle $r_2$ bude:
+$$
+    \frac{dR_{\lambda}}{dr_2} = \frac{d}{dr_2} \left( \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1} \right) = \frac{d}{dr_2} \left( \frac{1}{2 \pi l \lambda} \left(\ln r_2 - \ln r_1 \right) \right) =
+$$
+
+$$
+    = \frac{d}{dr_2} \left( \frac{1}{2 \pi l \lambda} \ln r_2 \right) = \frac{1}{2 \pi l \lambda r_2}.
+$$
+
+Derivace $R_{\alpha}$ podle $r_2$ bude:
+$$
+    \frac{dR_{\alpha}}{dr_2} = \frac{d}{dr_2} \left( \frac{1}{2 \pi l \alpha r_2} \right) = -\frac{1}{2 \pi l \alpha r_2^2}.
+$$
+
+Derivace $R_{\Sigma}$ podle $r_2$ bude tedy:
+$$
+    \frac{dR_{\Sigma}}{dr_2} = \frac{1}{2 \pi l \lambda r_2} - \frac{1}{2 \pi l \alpha r_2^2}.
+$$
+
+Nyní můžeme zjistit, kdy bude derivace $R_{\Sigma}$ podle $r_2$ rovna nule:
+$$
+    \frac{1}{2 \pi l \lambda r_2} - \frac{1}{2 \pi l \alpha r_2^2} = 0
+$$
+
+$$
+    \frac{1}{\lambda r_2} - \frac{1}{\alpha r_2^2} = 0
+$$
+
+$$
+    \frac{1}{\lambda r_2} = \frac{1}{\alpha r_2^2}
+$$
+
+$$
+    \frac{r_2}{\lambda} = \frac{1}{\alpha}
+$$
+
+$$
+    r_2 = \frac{\lambda}{\alpha}.
+$$
+
+V další části budeme zkoumat, zda se jedná o minimum nebo maximum. K tomu využijeme druhou derivaci $R_{\Sigma}$ podle $r_2$:
+$$
+    \frac{d^2R_{\Sigma}}{dr_2^2} = \frac{d}{dr_2} \left( \frac{1}{2 \pi l \lambda r_2} - \frac{1}{2 \pi l \alpha r_2^2} \right) = -\frac{1}{2 \pi l \lambda r_2^2} + \frac{1}{\pi l \alpha r_2^3}.
+$$
+
+Nyní dosadíme $r_2 = \frac{\lambda}{\alpha}$:
+$$
+    -\frac{1}{2 \pi l \lambda \left( \frac{\lambda}{\alpha} \right)^2} + \frac{1}{\pi l \alpha \left( \frac{\lambda}{\alpha} \right)^3} = -\frac{1}{2 \pi l \lambda \frac{\lambda^2}{\alpha^2}} + \frac{1}{\pi l \alpha \frac{\lambda^3}{\alpha^3}} =
+$$
+
+$$
+    = -\frac{\alpha^2}{2 \pi l \lambda^3} + \frac{\alpha^2}{\pi l \lambda^3} = \frac{-\alpha^2 + 2 \alpha^2}{2 \pi l \lambda^3} = \frac{\alpha^2}{2 \pi l \lambda^3}.
+$$
+
+Hodnoty $\alpha$ a $\lambda$ jsou kladné, tudíž druhá derivace je kladná. To znamená, že se jedná o minimum.
 
 
 \subsection{Ekonomie}
 
+Nyní můžeme porovnat rozdíl v rychlosti růstu tepelného odporu $R_{\Sigma}$ a objemu izolace v závislosti na poloměru válce $r_2$. Řešíme objem izolace, jelikož při konstrukci se platí za objem materiálu. Pro objem izolace platí:
+$$
+    V = \pi (r_2^2 - r_1^2) \cdot l = \pi r_2^2 \cdot l - \pi r_1^2 \cdot l.
+$$
 
-\subsection{Číselný příklad \spicy \spicy}
+Nyní provedeme zjednodušení vzorce podobně jako se provádí u časové složitosti algoritmů. Zkoumáme rychlost růstu objemu izolace v závislosti na poloměru válce $r_2$, tudíž vyřadíme konstantní členy, čímž dostaneme:
+$$
+    V \sim \pi r_2^2 \cdot l.
+$$
+
+Dále vyřadíme všechny násobící konstanty, čímž dostaneme:
+$$
+    V \sim r_2^2.
+$$
+
+Zde dostáváme, že objem roste s druhou mocninou poloměru válce $r_2$. Pro odpor $R_{\Sigma}$ platí:
+$$
+    R_{\Sigma} = \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1} + \frac{1}{2 \pi l \alpha r_2}.
+$$
+
+Zde druhý člen jde do nuly, když $r_2$ jde do nekonečna, tudíž ho můžeme vyřadit. Zbyde nám:
+$$
+    R_{\Sigma} \sim \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1}.
+$$
+
+Dále můžeme vyřadit konstantní členy a dostaneme:
+$$
+    R_{\Sigma} \sim \ln r_2.
+$$
+
+Zde vidíme, že odpor roste logaritmicky s poloměrem válce $r_2$. Pokud porovnáme rychlost růstu objemu izolace a rychlost růstu odporu $R_{\Sigma}$, zjistíme, že objem izolace roste rychleji než odpor $R_{\Sigma}$. To znamená, že při dimenzování izolace je třeba brát v potaz i ekonomické hledisko, jelikož při velkém přidání izolace nám dramaticky může narůst cena, ale odpor $R_{\Sigma}$ se nám příliš nezmění.
+
+
+\subsection{Číselný příklad 1 \spicy \spicy}
+
+
+
+\subsection{Číselný příklad 2 \spicy \spicy}
 
 
 
