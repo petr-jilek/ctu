@@ -27,8 +27,8 @@
         \draw[thick] (0,0) circle [radius=1];
 
         % r1 and r2 labels
-        \draw[->] (0, 0) -- (0, 1) node[midway, right] {$r_1$};
-        \draw[->] (0, 0) -- (-3, 0) node[midway, below right] {$r_2$};
+        \draw[->] (0, 0) -- (0, 1) node[midway, left] {$r_1$};
+        \draw[->] (0, 0) -- (2.121,2.121) node[midway, above left] {$r_2$};
 
         % Circuit
         \draw[thick] (1,0) -- (1.5,0) node[midway, above] {$T_1$};
@@ -43,6 +43,14 @@
         \draw[-{Triangle}] (2.4,0.7) -- (4.4,.7) node[midway, above] {$Q$};
     \end{tikzpicture}
 \end{center}
+
+Tepelný odpor válce se skládá ze dvou částí:
+\begin{itemize}
+    \item odpor vedení tepla v materiálu válce $R_{\lambda}$,
+    \item odpor přenosu tepla z povrchu válce do okolí $R_{\alpha}$.
+\end{itemize}
+
+Tepelné schéma válce bude vypadat následovně:
 
 \begin{center}
     \begin{tikzpicture}
@@ -60,38 +68,6 @@
         \draw[-{Triangle}] (2.4,0.7) -- (4.4,.7) node[midway, above] {$Q$};
     \end{tikzpicture}
 \end{center}
-
-\begin{center}
-    \begin{tikzpicture}
-        % First circle
-        \draw[thick] (0,0) circle [radius=3];
-        \draw[thick] (0,0) circle [radius=1];
-        \draw[thick] (0, 0) circle [radius=2.2];
-        \draw[thick] (0, 0) circle [radius=2.4];
-
-        % Second circle
-        \draw[thick] (6,1) circle [radius=2.4];
-
-        % Lines
-        \draw[thick] (0,3) -- (6,3.4);
-        \draw[thick] (0.6,-2.94) -- (6.6,-1.33) node[midway, below right] {$l$};
-
-        % r1 and r2 labels
-        \draw[->] (0, 0) -- (0, 1) node[midway, right] {$r_1$};
-        \draw[->] (0, 0) -- (-3, 0) node[midway, below right] {$r_2$};
-
-        % dr label
-        \draw[->] (0,2.7) -- (0,2.4);
-        \draw (0,2.4) -- (0,2.2);
-        \draw[<-] (0,2.2) -- (0,1.9) node[midway, below right] {$dr$};
-    \end{tikzpicture}
-\end{center}
-
-Tepelný odpor válce se skládá ze dvou částí:
-\begin{itemize}
-    \item odpor vedení tepla v materiálu válce $R_{\lambda}$,
-    \item odpor přenosu tepla z povrchu válce do okolí $R_{\alpha}$.
-\end{itemize}
 
 Pro odvození tepelného odporu $R_{\lambda}$ využijeme vztah pro tepelný odpor $R$:
 $$
@@ -119,6 +95,32 @@ Tepelný odpor $dR$ válce bude tedy:
 $$
     dR = \frac{dr}{\lambda \cdot 2 \pi r \cdot l \cdot dr}.
 $$
+
+\begin{center}
+    \begin{tikzpicture}
+        % First circle
+        \draw[thick] (0,0) circle [radius=3];
+        \draw[thick] (0,0) circle [radius=1];
+        \draw[thick] (0, 0) circle [radius=2.2];
+        \draw[thick] (0, 0) circle [radius=2.4];
+
+        % Second circle
+        \draw[thick] (6,1) circle [radius=2.4];
+
+        % Lines
+        \draw[thick] (0,3) -- (6,3.4);
+        \draw[thick] (0.6,-2.94) -- (6.6,-1.33) node[midway, below right] {$l$};
+
+        % r1 and r2 labels
+        \draw[->] (0, 0) -- (0, 1) node[midway, right] {$r_1$};
+        \draw[->] (0, 0) -- (-3, 0) node[midway, below right] {$r_2$};
+
+        % dr label
+        \draw[->] (0,2.7) -- (0,2.4);
+        \draw (0,2.4) -- (0,2.2);
+        \draw[<-] (0,2.2) -- (0,1.9) node[midway, below right] {$dr$};
+    \end{tikzpicture}
+\end{center}
 
 Pro získání celkového odporu $R_{\lambda}$ je třeba provést integraci od vnitřního poloměru izolace $r_1$ po vnější poloměr válce $r_2$:
 $$
@@ -222,21 +224,23 @@ $$
 Hodnoty $\alpha$ a $\lambda$ jsou kladné, tudíž druhá derivace je kladná. To znamená, že se jedná o minimum.
 
 \begin{center}
+
     \begin{tikzpicture}
         \begin{axis}[
+                title = {Závislost tepelného odporu $R_{\Sigma}$ na poloměru válce $r_2$},
                 axis lines = middle,
                 xlabel = $r_2$,
                 ylabel = {$R_{\Sigma}$},
                 samples=100,
                 domain=0:0.5,
                 xmin=0,
-                xmax=0.5,
+                xmax=0.4,
                 ymin=0,
-                ymax=300,
+                ymax=50,
                 legend pos=outer north east,
                 grid=both
             ]
-            \addplot[color=blue, thick] {(1/(2*pi*0.04))*ln(x/0.05) + 1/(2*pi*2*x)};
+            \addplot[color=blue, thick] {(1/(2*pi*0.04))*ln(x/0.05) + 1/(2*pi*0.5*x)};
         \end{axis}
     \end{tikzpicture}
 \end{center}
@@ -307,6 +311,10 @@ Zde vidíme, že odpor roste logaritmicky s poloměrem válce $r_2$. Pokud porov
 
 
 
+\newpage
+
+
+
 \section{Koule \spicy \spicy \spicy}
 
 
@@ -315,15 +323,27 @@ Zde vidíme, že odpor roste logaritmicky s poloměrem válce $r_2$. Pokud porov
 \begin{center}
     \begin{tikzpicture}
         % Draw the sphere
-        \shade[ball color=gray!30] (0,0) circle (2);
+        \shade[ball color=gray!30] (0,0) circle (3);
         \shade[ball color=orange!50] (0,0) circle (1);
 
         % Draw the radii
-        \draw[thick,->] (0,0) -- (1,0) node[midway, below]{$r_1$};
-        \draw[thick,->] (0,0) -- (1.414,1.414) node[midway, right]{$r_2$};
+        \draw[thick,->] (0,0) -- (0,1) node[midway, left]{$r_1$};
+        \draw[thick,->] (0,0) -- (2.121,2.121) node[midway, above left]{$r_2$};
 
         % Draw center point
         \filldraw (0,0) circle (2pt);
+
+        % Circuit
+        \draw[thick] (1,0) -- (1.5,0) node[midway, above] {$T_1$};
+        \draw[thick] (1.5,-0.3) rectangle (2.5,0.3) node[midway] {$R_{\lambda}$};
+        \draw[thick] (2.5,0) -- (3.5,0);
+        \draw[thick] (3.5,-0.3) rectangle (4.5,0.3) node[midway] {$R_{\alpha}$};
+        \draw[thick] (4.5,0) -- (5,0);
+        \draw[thick] (5,0) -- (5,-1);
+        \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$T_2$};
+
+        % Triangle arrow
+        \draw[-{Triangle}] (2.4,0.7) -- (4.4,.7) node[midway, above] {$Q$};
     \end{tikzpicture}
 \end{center}
 
@@ -332,6 +352,26 @@ Tepelný odpor koule se skládá ze dvou částí:
     \item odpor vedení tepla v materiálu koule $R_{\lambda}$,
     \item odpor přenosu tepla z povrchu koule do okolí $R_{\alpha}$.
 \end{itemize}
+
+Tepelné schéma koule bude vypadat následovně:
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[thick] (1,0) -- (1,-1);
+        \draw[thick] (0.5,-1) -- (1.5,-1) node[midway, below] {$T_1$};
+        \draw[thick] (1,0) -- (1.5,0);
+        \draw[thick] (1.5,-0.3) rectangle (2.5,0.3) node[midway] {$R_{\lambda}$};
+        \draw[thick] (2.5,0) -- (3.5,0);
+        \draw[thick] (3.5,-0.3) rectangle (4.5,0.3) node[midway] {$R_{\alpha}$};
+        \draw[thick] (4.5,0) -- (5,0);
+        \draw[thick] (5,0) -- (5,-1);
+        \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$T_2$};
+
+        % Triangle arrow
+        \draw[-{Triangle}] (2.4,0.7) -- (4.4,.7) node[midway, above] {$Q$};
+    \end{tikzpicture}
+\end{center}
+
 
 Pro odvození tepelného odporu $R_{\lambda}$ využijeme vztah pro tepelný odpor $R$:
 $$
@@ -459,6 +499,7 @@ V další části budeme zkoumat, zda se jedná o minimum nebo maximum. K tomu v
 \begin{center}
     \begin{tikzpicture}
         \begin{axis}[
+                title = {Závislost tepelného odporu $R_{\Sigma}$ na poloměru koule $r_2$},
                 axis lines = middle,
                 xlabel = $r_2$,
                 ylabel = {$R_{\Sigma}$},
@@ -478,6 +519,18 @@ V další části budeme zkoumat, zda se jedná o minimum nebo maximum. K tomu v
 
 
 \subsection{Ekonomie}
+
+Nyní můžeme porovnat rozdíl v rychlosti růstu tepelného odporu $R_{\Sigma}$ a objemu izolace v závislosti na poloměru koule $r_2$.
+$$
+    V = \frac{4}{3} \pi (r_2^3 - r_1^3).
+$$
+
+Po zjednodušení dostaneme:
+$$
+    V \sim r_2^3.
+$$
+
+Rychlost růstu objemu izolace je kubická a jde do někonečna, zatímco tepelný odpor dosáhne limitní hodnoty.
 
 
 \subsection{Číselný příklad}
