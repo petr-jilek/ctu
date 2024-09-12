@@ -13,15 +13,19 @@
 
 
 
+
 \section{Značení}
 
 \begin{itemize}
-    \item $T$ - Teplota (\ueqK \myFS -- Kelvin, \ueqCELS \myFS - Celsius)
+    \item $T$ - Teplota (\ueqK \myFS -- Kelvin / \ueqCELS \myFS - Stupeň Celsia)
     \item $\Delta T$ - Rozdíl teplot (\ueqK \myFS -- Kelvin)
     \item $l$ - Délka (\ueqM \myFS -- Metr)
+    \item $h$ - Výška (\ueqM \myFS -- Metr)
+    \item $d$ - Tloušťka / Průměr (\ueqM \myFS -- Metr)
+    \item $r$ - Poloměr (\ueqM \myFS -- Metr)
+    \item $S$ - Plocha (\ueqMsq \myFS -- Metr čtvereční)
     \item $c$ - Měrná tepelná kapacita (\ueqJandKGinvKinv \myFS -- Joule na kilogram na Kelvin)
     \item $\rho$ - Hustota (\ueqKGandMinvcu \myFS -- Kilogram na metr krychlový)
-    \item h - Výška (\ueqM \myFS -- Metr)
     \item $m$ - Hmotnost (\ueqKG \myFS -- Kilogram)
     \item $\dot{q}$ - Měrný tepelný tok (\ueqWandMinvsq \myFS -- Watt)
     \item $q$ - Měrná tepelná energie (\ueqJandMinvsq \myFS -- Joule na kilogram)
@@ -35,11 +39,18 @@
     \item $t$ - Čas (\ueqS \myFS -- Sekunda)
     \item $\lambda$ - Tepelná vodivost (\ueqWandMinvKinv \myFS -- Watt na metr na Kelvin)
     \item $\alpha_{\vartheta}$ - Součinitel prostupu tepla (\ueqWandMinvsqKinv \myFS -- Watt na metr čtvereční na Kelvin)
-    \item $R_{\vartheta}$ - Tepelný odpor (\ueqMsqKandWinv \myFS -- Metr čtvereční na Kelvin na Watt)
+    \item $R_{\vartheta}$ - Tepelný odpor (\ueqMsqKandWinv \myFS -- Metr čtvereční Kelvin na Watt)
+    \item $\rho_e$ - Měrný elektrický odpor (\ueqOHMandMinv \myFS -- Ohm na metr)
+    \item $\sigma_e$ - Měrná elektrická vodivost (\ueqMandOHMinv \myFS -- Metr na Ohm)
+    \item $U$ - Elektrické napětí (\ueqV \myFS -- Volt)
+    \item $I$ - Elektrický proud (\ueqA \myFS -- Ampér)
+    \item $R_e$ - Elektrický odpor (\ueqOHM \myFS -- Ohm)
+    \item $E$ - Energie (\ueqJ \myFS -- Joule)
+    \item $E_p$ - Potenciální energie (\ueqJ \myFS -- Joule)
+    \item $E_k$ - Kinetická energie (\ueqJ \myFS -- Joule)
 \end{itemize}
 
 \newpage
-
 
 
 
@@ -48,12 +59,124 @@
 
 
 
+\subsection{Potenciální energie}
+Potenciální energie je energie, kterou má těleso v důsledku své polohy v gravitačním poli. Vztah pro výpočet potenciální energie je:
+\begin{equation}
+    E_p = m \cdot g \cdot h,
+    \tagaddtext{(\ueqJ)}
+\end{equation}
+kde:\\
+$E_p$ -- Potenciální energie (\ueqJ),\\
+$m$ -- Hmotnost (\ueqKG),\\
+$g$ -- Gravitační zrychlení (\ueqMandSinvsq),\\
+$h$ -- Výška (\ueqM).
+
+
+
+\subsection{Kinetická energie}
+Kinetická energie je energie, kterou má těleso v důsledku své rychlosti. Vztah pro výpočet kinetické energie je:
+\begin{equation}
+    E_k = \frac{1}{2} \cdot m \cdot v^2,
+    \tagaddtext{(\ueqJ)}
+\end{equation}
+kde:\\
+$E_k$ -- Kinetická energie (\ueqJ),\\
+$m$ -- Hmotnost (\ueqKG),\\
+$v$ -- Rychlost (\ueqMandSinv).
+
+
+
+\subsection{Měrná tepelná energie}
+Měrná tepelná kapacita je definována jako množství tepla, které je potřeba k ohřátí jednoho kilogramu látky o jeden stupeň Kelvina:
+\begin{equation}
+    Q = m \cdot c \cdot \Delta T,
+    \tagaddtext{(\ueqJ)}
+\end{equation}
+kde:\\
+$Q$ -- Tepelná energie (\ueqJ),\\
+$m$ -- Hmotnost (\ueqKG),\\
+$c$ -- Měrná tepelná kapacita (\ueqJandKGinvKinv),\\
+$\Delta T$ -- Rozdíl teplot (\ueqK).
+
+
+
+
+\subsection{Vlastnosti materiálů}
+Následující tabulka obsahuje hustotu a měrnou tepelnou kapacitu některých materiálů:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|ll}
+        \hline
+        Mateiál    & $\rho$ (\ueqKGandMinvcu) & $c$ (\ueqJandKGinvKinv) \\
+        \hline
+        Voda (H2O) & 1 000                    & 4 186                   \\
+        Ocel       & 7 750                    & 450                     \\
+        Zlato      & 19 320                   & 129                     \\
+        \hline
+    \end{tabular}
+    \caption {Hustota a měrná tepelná kapacita materiálů}
+\end{table}
+
+
+\subsection{Výkon}
+Výkon je definován jako množství práce vykonané za jednotku času:
+\begin{equation}
+    P = \frac{dW}{dt},
+    \tagaddtext{(\ueqW)}
+\end{equation}
+kde:\\
+$P$ -- Výkon (\ueqW),\\
+$dW$ -- Infinitesimální práce (\ueqJ),\\
+$dt$ -- Infinitesimální čas (\ueqS).
+
+\newpage
+
+
+
 
 \section{Sdílení tepla}
 
 
 
+\subsection{Fourierova-Kirchhoffova rovnice}
+Fourierova-Kirchhoffova rovnice je základní rovnicí pro popis toku tepla:
+\begin{equation}
+    \rho \cdot c \cdot \left( \frac{\partial T}{\partial t} + \vec{v} \cdot \vec{\nabla} T \right) = \nabla \cdot \left( \lambda \cdot \vec{\nabla} T \right) + Q_v,
+    \tagaddtext{(\ueqWandMinvcu)}
+\end{equation}
+kde:\\
+$\rho$ -- Hustota (\ueqKGandMinvcu),\\
+$c$ -- Měrná tepelná kapacita (\ueqJandKGinvKinv),\\
+$T$ -- Teplota (\ueqK),\\
+$t$ -- Čas (\ueqS),\\
+$\vec{v}$ -- Rychlost (\ueqMandSinv),\\
+$\vec{\nabla} T$ -- Gradient teploty (\ueqKandMinv),\\
+$\nabla \cdot$ -- Divergence (\ueqMinv),\\
+$\lambda$ -- Tepelná vodivost (\ueqWandMinvKinv),\\
+$Q_v$ -- Objemový zdroj tepla (\ueqWandMinvcu).
+
+
+
+\subsection{Fourieruv zákon}
+Fourieruv zákon je základní rovnicí pro popis toku tepla:
+\begin{equation}
+    \dot{q} = - \lambda \cdot \vec{\nabla} T,
+    \tagaddtext{(\ueqWandMinvsq)}
+\end{equation}
+kde:\\
+$\dot{q}$ -- Měrný tepelný tok (\ueqWandMinvsq),\\
+$\lambda$ -- Tepelná vodivost (\ueqWandMinvKinv),\\
+$\vec{\nabla} T$ -- Gradient teploty (\ueqKandMinv).
+
+\newpage
+
+
+
+
 \section{Symetrizace}
+
+\newpage
 
 
 
