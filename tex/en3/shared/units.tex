@@ -1,0 +1,187 @@
+% --------------------
+% --------------------
+% Units
+% --------------------
+% --------------------
+
+% --------------------
+% Basic units
+% --------------------
+
+\newcommand{\uNOUNIT}{\te{--}} % No unit
+\newcommand{\uPERCENT}{\te{\%}} % Percent
+\newcommand{\uDEGREE}{^\circ} % Degree
+
+\newcommand{\uM}{\te{m}} % Meter
+\newcommand{\uMsq}{\uM^\te{2}} % Meter squared
+\newcommand{\uMcu}{\uM^\te{3}} % Meter cubed
+\newcommand{\uMinv}{\uM^{-1}} % Meter inverse
+\newcommand{\uMinvsq}{\uM^{-2}} % Meter inverse squared
+\newcommand{\uMinvcu}{\uM^{-3}} % Meter inverse cubed
+
+\newcommand{\uS}{\te{s}} % Second
+\newcommand{\uSinv}{\uS^{-1}} % Second inverse
+\newcommand{\uSinvsq}{\uS^{-2}} % Second inverse squared
+\newcommand{\uH}{\te{h}} % Hour
+\newcommand{\uHinv}{\te{h}^{-1}} % Hour inverse
+
+\newcommand{\uG}{\te{g}} % Gram
+\newcommand{\uKG}{\te{kg}} % Kilogram
+\newcommand{\uKGinv}{\uKG^{-1}} % Kilogram inverse
+
+\newcommand{\uLM}{\te{lm}} % Lumen
+
+\newcommand{\uK}{\te{K}} % Kelvin
+\newcommand{\uKinv}{\te{K}^{-1}} % Kelvin inverse
+\newcommand{\uCELS}{\uDEGREE \te{C}} % Celsius
+
+\newcommand{\uW}{\te{W}} % Watt
+\newcommand{\uWinv}{\uW^{-1}} % Watt inverse
+\newcommand{\uKW}{\te{kW}} % Kilo Watt
+\newcommand{\uMW}{\te{MW}} % Mega Watt
+
+\newcommand{\uJ}{\te{J}} % Joule
+\newcommand{\uKJ}{\te{kJ}} % Kilo Joule
+\newcommand{\uWH}{\te{Wh}} % Watt hour
+\newcommand{\uKWH}{\te{kWh}} % Kilo Watt hour
+\newcommand{\uCAL}{\te{cal}} % Calorie
+\newcommand{\uKCAL}{\te{kcal}} % Kilo Calorie
+
+\newcommand{\uA}{\te{A}} % Ampere
+\newcommand{\uV}{\te{V}} % Volt
+
+\newcommand{\uCCY}{\te{CCY}} % Currency
+\newcommand{\uCZK}{\te{CZK}} % Czech Crown
+
+% --------------------
+% Compound units
+% --------------------
+
+\newcommand{\uWandS}{\uW \myFS \uS} % Watt second
+\newcommand{\uWandMinvsq}{\uW \myFS \uMinvsq} % Watt per Meter squared
+\newcommand{\uJandMinvsq}{\uJ \myFS \uMinvsq} % Joule per Meter squared
+\newcommand{\uMandSinv}{\uM \myFS \uSinv} % Meter per Second inverse
+\newcommand{\uMandSinvsq}{\uM \myFS \uSinvsq} % Meter per Second squared
+
+\newcommand{\uKGandMinvcu}{\uKG \myFS \uMinvcu} % Kilogram per Meter cubed
+
+\newcommand{\uJandKGinvKinv}{\uJ \myFS \uKGinv \myFS \uKinv} % Joule per Kilogram per Kelvin
+\newcommand{\uWandMinvKinv}{\uW \myFS \uMinv \myFS \uKinv} % Watt per Meter inverse per Kelvin
+\newcommand{\uWandMinvsqKinv}{\uW \myFS \uMinvsq \myFS \uKinv} % Watt per Meter squared per Kelvin
+\newcommand{\uMsqKandWinv}{\uMsq \myFS \uK \myFS \uWinv} % Meter squared Kelvin per Watt
+
+
+% --------------------
+% --------------------
+% Unit equations
+% --------------------
+% --------------------
+
+% --------------------
+% Basic units
+% --------------------
+
+\newcommand{\ueqNOUNIT}{$\uNOUNIT$}
+\newcommand{\ueqPERCENT}{$\uPERCENT$}
+\newcommand{\ueqDEGREE}{$\uDEGREE$}
+
+\newcommand{\ueqM}{$\uM$}
+\newcommand{\ueqMsq}{$\uMsq$}
+\newcommand{\ueqMcu}{$\uMcu$}
+
+\newcommand{\ueqS}{$\uS$}
+\newcommand{\ueqH}{$\uH$}
+\newcommand{\ueqHinv}{$\uHinv$}
+
+\newcommand{\ueqG}{$\uG$}
+\newcommand{\ueqKG}{$\uKG$}
+
+\newcommand{\ueqLM}{$\uLM$}
+
+\newcommand{\ueqK}{$\uK$}
+\newcommand{\ueqCELS}{$\uCELS$}
+
+\newcommand{\ueqW}{$\uW$}
+\newcommand{\ueqWinv}{$\uWinv$}
+\newcommand{\ueqKW}{$\uKW$}
+\newcommand{\ueqMW}{$\uMW$}
+
+\newcommand{\ueqJ}{$\uJ$}
+\newcommand{\ueqKJ}{$\uKJ$}
+\newcommand{\ueqWH}{$\uWH$}
+\newcommand{\ueqKWH}{$\uKWH$}
+\newcommand{\ueqCAL}{$\uCAL$}
+\newcommand{\ueqKCAL}{$\uKCAL$}
+
+\newcommand{\ueqA}{$\uA$}
+\newcommand{\ueqV}{$\uV$}
+
+\newcommand{\ueqCCY}{$\uCCY$}
+\newcommand{\ueqCZK}{$\uCZK$}
+
+% --------------------
+% Compound units
+% --------------------
+
+\newcommand{\ueqWandS}{$\uWandS$}
+\newcommand{\ueqWandMinvsq}{$\uWandMinvsq$}
+\newcommand{\ueqJandMinvsq}{$\uJandMinvsq$}
+\newcommand{\ueqMandSinv}{$\uMandSinv$}
+\newcommand{\ueqMandSinvsq}{$\uMandSinvsq$}
+
+\newcommand{\ueqKGandMinvcu}{$\uKGandMinvcu$}
+
+\newcommand{\ueqJandKGinvKinv}{$\uJandKGinvKinv$}
+\newcommand{\ueqWandMinvKinv}{$\uWandMinvKinv$}
+\newcommand{\ueqWandMinvsqKinv}{$\uWandMinvsqKinv$}
+\newcommand{\ueqMsqKandWinv}{$\uMsqKandWinv$}
+
+
+
+
+% \newcommand{\ueqM}{$\uM$}
+% \newcommand{\ueqMsq}{$\uMsq$}
+% \newcommand{\ueqMcu}{$\uMcu$}
+% \newcommand{\ueqS}{$\uS$}
+% \newcommand{\ueqJ}{$\uJ$}
+% \newcommand{\ueqK}{$\uK$}
+% \newcommand{\ueqDEGREE}{$\uDEGREE$}
+% \newcommand{\ueqCELS}{$\uCELS$}
+% \newcommand{\ueqW}{$\uW$}
+% \newcommand{\ueqMW}{$\uMW$}
+% \newcommand{\ueqKW}{$\uKW$}
+% \newcommand{\ueqWH}{$\uWH$}
+% \newcommand{\ueqKWH}{$\uKWH$}
+% \newcommand{\ueqCCY}{$\uCCY$}
+% \newcommand{\ueqCZK}{$\uCZK$}
+% \newcommand{\ueqPERCENT}{$\uPERCENT$}
+% \newcommand{\ueqNOUNIT}{$\uNOUNIT$}
+% \newcommand{\ueqYEAR}{$\uYEAR$}
+% \newcommand{\ueqMONTH}{$\uMONTH$}
+% \newcommand{\ueqHOUR}{$\uHOUR$}
+% \newcommand{\ueqLM}{$\uLM$}
+% \newcommand{\ueqHinv}{$\uHinv$}
+
+% \newcommand{\ueqJperK}{$\uJperK$}
+% \newcommand{\ueqKperM}{$\uKperM$}
+% \newcommand{\ueqKperS}{$\uKperS$}
+% \newcommand{\ueqMsqperS}{$\uMsqperS$}
+% \newcommand{\ueqWperMsq}{$\uWperMsq$}
+% \newcommand{\ueqWperMperK}{$\uWperMperK$}
+% \newcommand{\ueqJperKGperK}{$\uJperKGperK$}
+% \newcommand{\ueqKperMsq}{$\uKperMsq$}
+% \newcommand{\ueqJperSperMperK}{$\uJperSperMperK$}
+% \newcommand{\ueqKGperMcu}{$\uKGperMcu$}
+% \newcommand{\ueqMsqKperW}{$\uMsqKperW$}
+% \newcommand{\ueqWperMsqperK}{$\uWperMsqperK$}
+% \newcommand{\ueqKWHperMsqperYEAR}{$\uKWHperMsqperYEAR$}
+% \newcommand{\ueqKWHperMsq}{$\uKWHperMsq$}
+% \newcommand{\ueqLMperW}{$\uLMperW$}
+% \newcommand{\ueqKWperMsq}{$\uKWperMsq$}
+% \newcommand{\ueqCCYperYEAR}{$\uCCYperYEAR$}
+% \newcommand{\ueqKWHperYEAR}{$\uKWHperYEAR$}
+% \newcommand{\ueqNOUNITperYEAR}{$\uNOUNITperYEAR$}
+% \newcommand{\ueqCCYperKWH}{$\uCCYperKWH$}
+% \newcommand{\ueqCZKperYEAR}{$\uCZKperYEAR$}
+% \newcommand{\ueqCZKperKWH}{$\uCZKperKWH$}
+% \newcommand{\ueqCZKperMONTH}{$\uCZKperMONTH$}
