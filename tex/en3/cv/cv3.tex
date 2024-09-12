@@ -221,6 +221,26 @@ $$
 
 Hodnoty $\alpha$ a $\lambda$ jsou kladné, tudíž druhá derivace je kladná. To znamená, že se jedná o minimum.
 
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                axis lines = middle,
+                xlabel = $r_2$,
+                ylabel = {$R_{\Sigma}$},
+                samples=100,
+                domain=0:0.5,
+                xmin=0,
+                xmax=0.5,
+                ymin=0,
+                ymax=300,
+                legend pos=outer north east,
+                grid=both
+            ]
+            \addplot[color=blue, thick] {(1/(2*pi*0.04))*ln(x/0.05) + 1/(2*pi*2*x)};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
 
 \subsection{Ekonomie}
 
@@ -291,6 +311,21 @@ Zde vidíme, že odpor roste logaritmicky s poloměrem válce $r_2$. Pokud porov
 
 
 \subsection{Odvození tepelného odporu}
+
+\begin{center}
+    \begin{tikzpicture}
+        % Draw the sphere
+        \shade[ball color=gray!30] (0,0) circle (2);
+        \shade[ball color=orange!50] (0,0) circle (1);
+
+        % Draw the radii
+        \draw[thick,->] (0,0) -- (1,0) node[midway, below]{$r_1$};
+        \draw[thick,->] (0,0) -- (1.414,1.414) node[midway, right]{$r_2$};
+
+        % Draw center point
+        \filldraw (0,0) circle (2pt);
+    \end{tikzpicture}
+\end{center}
 
 Tepelný odpor koule se skládá ze dvou částí:
 \begin{itemize}
@@ -420,6 +455,26 @@ $$
 $$
 
 V další části budeme zkoumat, zda se jedná o minimum nebo maximum. K tomu využijeme druhou derivaci $R_{\Sigma}$ podle $r_2$:
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                axis lines = middle,
+                xlabel = $r_2$,
+                ylabel = {$R_{\Sigma}$},
+                samples=100,
+                domain=0:0.5,
+                xmin=0,
+                xmax=0.5,
+                ymin=0,
+                ymax=300,
+                legend pos=outer north east,
+                grid=both
+            ]
+            \addplot[color=blue, thick] {(1/(4*pi*0.04))*(1/0.05-1/x) + 1/(4*pi*2*x^2)};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
 
 
 \subsection{Ekonomie}
