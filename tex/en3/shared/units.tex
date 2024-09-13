@@ -18,6 +18,7 @@
 \newcommand{\uMinv}{\uM^{-1}} % Meter inverse
 \newcommand{\uMinvsq}{\uM^{-2}} % Meter inverse squared
 \newcommand{\uMinvcu}{\uM^{-3}} % Meter inverse cubed
+\newcommand{\uKM}{\te{km}} % Kilometer
 
 \newcommand{\uS}{\te{s}} % Second
 \newcommand{\uSinv}{\uS^{-1}} % Second inverse
@@ -28,6 +29,7 @@
 \newcommand{\uG}{\te{g}} % Gram
 \newcommand{\uKG}{\te{kg}} % Kilogram
 \newcommand{\uKGinv}{\uKG^{-1}} % Kilogram inverse
+\newcommand{\uKGinvsq}{\uKG^{-2}} % Kilogram inverse squared
 
 \newcommand{\uLM}{\te{lm}} % Lumen
 
@@ -52,6 +54,8 @@
 \newcommand{\uOHM}{\te{\Omega}} % Ohm
 \newcommand{\uOHMinv}{\uOHM^{-1}} % Ohm inverse
 
+\newcommand{\uN}{\te{N}} % Newton
+
 \newcommand{\uCCY}{\te{CCY}} % Currency
 \newcommand{\uCZK}{\te{CZK}} % Czech Crown
 
@@ -59,22 +63,25 @@
 % Compound units
 % --------------------
 
-\newcommand{\uWandS}{\uW \myFS \uS} % Watt second
-\newcommand{\uWandMinvsq}{\uW \myFS \uMinvsq} % Watt per Meter squared
-\newcommand{\uJandMinvsq}{\uJ \myFS \uMinvsq} % Joule per Meter squared
-\newcommand{\uMandSinv}{\uM \myFS \uSinv} % Meter per Second inverse
-\newcommand{\uMandSinvsq}{\uM \myFS \uSinvsq} % Meter per Second squared
-\newcommand{\uOHMandMinv}{\uOHM \myFS \uMinv} % Ohm per Meter inverse
-\newcommand{\uMandOHMinv}{\uM \myFS \uOHMinv} % Meter per Ohm inverse
-\newcommand{\uWandMinvcu}{\uW \myFS \uMinvcu} % Watt per Meter cubed
-\newcommand{\uKandMinv}{\uK \myFS \uMinv} % Kelvin per Meter inverse
+\newcommand{\uWandS}{\uW \fs \uS} % Watt second
+\newcommand{\uWandMinvsq}{\uW \fs \uMinvsq} % Watt per Meter squared
+\newcommand{\uJandMinvsq}{\uJ \fs \uMinvsq} % Joule per Meter squared
+\newcommand{\uMandSinv}{\uM \fs \uSinv} % Meter per Second inverse
+\newcommand{\uMandSinvsq}{\uM \fs \uSinvsq} % Meter per Second squared
+\newcommand{\uOHMandMinv}{\uOHM \fs \uMinv} % Ohm per Meter inverse
+\newcommand{\uMandOHMinv}{\uM \fs \uOHMinv} % Meter per Ohm inverse
+\newcommand{\uWandMinvcu}{\uW \fs \uMinvcu} % Watt per Meter cubed
+\newcommand{\uKandMinv}{\uK \fs \uMinv} % Kelvin per Meter inverse
+\newcommand{\uJandKinv}{\uJ \fs \uKinv} % Joule per Kelvin
 
-\newcommand{\uKGandMinvcu}{\uKG \myFS \uMinvcu} % Kilogram per Meter cubed
+\newcommand{\uKGandMinvcu}{\uKG \fs \uMinvcu} % Kilogram per Meter cubed
 
-\newcommand{\uJandKGinvKinv}{\uJ \myFS \uKGinv \myFS \uKinv} % Joule per Kilogram per Kelvin
-\newcommand{\uWandMinvKinv}{\uW \myFS \uMinv \myFS \uKinv} % Watt per Meter inverse per Kelvin
-\newcommand{\uWandMinvsqKinv}{\uW \myFS \uMinvsq \myFS \uKinv} % Watt per Meter squared per Kelvin
-\newcommand{\uMsqKandWinv}{\uMsq \myFS \uK \myFS \uWinv} % Meter squared Kelvin per Watt
+\newcommand{\uJandKGinvKinv}{\uJ \fs \uKGinv \fs \uKinv} % Joule per Kilogram per Kelvin
+\newcommand{\uWandMinvKinv}{\uW \fs \uMinv \fs \uKinv} % Watt per Meter inverse per Kelvin
+\newcommand{\uWandMinvsqKinv}{\uW \fs \uMinvsq \fs \uKinv} % Watt per Meter squared per Kelvin
+\newcommand{\uMsqKandWinv}{\uMsq \fs \uK \fs \uWinv} % Meter squared Kelvin per Watt
+\newcommand{\uNandMsqKGinvsq}{\uN \fs \uMsq \fs \uKGinvsq} % Newton meter squared per Kilogram squared
+
 
 
 % --------------------
@@ -97,6 +104,7 @@
 \newcommand{\ueqMinv}{$\uMinv$}
 \newcommand{\ueqMinvsq}{$\uMinvsq$}
 \newcommand{\ueqMinvcu}{$\uMinvcu$}
+\newcommand{\ueqKM}{$\uKM$}
 
 \newcommand{\ueqS}{$\uS$}
 \newcommand{\ueqH}{$\uH$}
@@ -104,6 +112,8 @@
 
 \newcommand{\ueqG}{$\uG$}
 \newcommand{\ueqKG}{$\uKG$}
+\newcommand{\ueqKGinv}{$\uKGinv$}
+\newcommand{\ueqKGinvsq}{$\uKGinvsq$}
 
 \newcommand{\ueqLM}{$\uLM$}
 
@@ -127,6 +137,8 @@
 \newcommand{\ueqOHM}{$\uOHM$}
 \newcommand{\ueqOHMinv}{$\uOHMinv$}
 
+\newcommand{\ueqN}{$\uN$}
+
 \newcommand{\ueqCCY}{$\uCCY$}
 \newcommand{\ueqCZK}{$\uCZK$}
 
@@ -143,6 +155,7 @@
 \newcommand{\ueqMandOHMinv}{$\uMandOHMinv$}
 \newcommand{\ueqWandMinvcu}{$\uWandMinvcu$}
 \newcommand{\ueqKandMinv}{$\uKandMinv$}
+\newcommand{\ueqJandKinv}{$\uJandKinv$}
 
 \newcommand{\ueqKGandMinvcu}{$\uKGandMinvcu$}
 
@@ -150,6 +163,7 @@
 \newcommand{\ueqWandMinvKinv}{$\uWandMinvKinv$}
 \newcommand{\ueqWandMinvsqKinv}{$\uWandMinvsqKinv$}
 \newcommand{\ueqMsqKandWinv}{$\uMsqKandWinv$}
+\newcommand{\ueqNandMsqKGinvsq}{$\uNandMsqKGinvsq$}
 
 
 
