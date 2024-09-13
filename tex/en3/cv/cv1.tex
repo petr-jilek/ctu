@@ -16,7 +16,6 @@
 \section{Potenciální energie \spicy}
 Do jaké výšky vynese energie jedné Fidorky (30 g $\rightarrow$ 162 \ueqKCAL) 80 \ueqKG \fs člověka?
 
-
 \begin{enumerate}[a)]
     \item Gravitační zrychlení je konstantní s hodnotou 9,81 \ueqMandSinvsq.
     \item Počáteční výška je 0 m nad mořem a gravitační zrychlení je proměnné. Gravitační konstanta je $6,67430 \cdot 10^{-11} \fs \uNandMsqKGinvsq$, poloměr Země je $6 \fs 371 \fs \uKM$ a hmotnost Země je $5,97219 \cdot 10^{24} \fs \uKG$.
@@ -24,57 +23,38 @@ Do jaké výšky vynese energie jedné Fidorky (30 g $\rightarrow$ 162 \ueqKCAL)
 
 
 \subsection{a}
-
-Vzorec pro potenciální energii je:
+Energie jedné Fidorky:
 $$
-    E_p = m \cdot g \cdot h,
-$$
-kde:
-\begin{itemize}
-    \item $E_p$ - potenciální energie (J),
-    \item $m$ - hmotnost (kg),
-    \item $g$ - tíhové zrychlení (m / s2),
-    \item $h$ - výška (m).
-\end{itemize}
-
-Převod 1 kWh na Jouly:
-$$
-    1 \uKWH = 1000 Wh = 1000 W \cdot 3600 s = 3 \fs 600 \fs 000 J.
+    162 \fs \uKCAL = 162 \cdot 4 \fs 184 \fs \frac{\uJ}{\uKCAL} = 677 \fs 810 \fs \uJ.
 $$
 
-Poté výška $h$ je:
+Ze vzorce pro potenciální energii vyjádříme výšku:
 $$
-    h = \frac{E_p}{m \cdot g} = \frac{3 \fs 600 \fs 000 J}{80 \fs kg \cdot 9,81 \fs m/s^2} \approx 4 587 m.
+    E_p = m \cdot g \cdot \Delta h \Rightarrow \Delta h = \frac{E_p}{m \cdot g} = \frac{677 \fs 810 \fs \uJ}{80 \fs \uKG \cdot 9,81 \fs \uMandSinvsq} \approx 863,67 \fs m.
 $$
 
-\textbf{Řešení b)}
 
+\subsection{b \spicy \spicy \spicy}
 Nejdříve si odvodíme vzorec pro gravitační zrychlení z Newtonova gravitačního zákona:
 $$
     F = G \cdot \frac{m_1 \cdot m_2}{r^2},
 $$
-kde:
-\begin{itemize}
-    \item $F$ - gravitační síla (N),
-    \item $G$ - gravitační konstanta (N \fs m2 \fs kg\fs -2),
-    \item $m_1$ - hmotnost prvního tělesa (kg),
-    \item $m_2$ - hmotnost druhého tělesa (kg),
-    \item $r$ - vzdálenost mezi tělesy (m).
-\end{itemize}
+kde:\\
+$F$ -- gravitační síla (\ueqN),\\
+$G$ -- gravitační konstanta (\ueqNandMsqKGinvsq),\\
+$m_1$ -- hmotnost prvního tělesa (\ueqKG),\\
+$m_2$ -- hmotnost druhého tělesa (\ueqKG),\\
+$r$ -- vzdálenost mezi tělesy (\ueqM).\\
 
 Gravitační síla je definována jako:
 $$
     F = m \cdot g,
 $$
-
-kde:
-\begin{itemize}
-    \item $m$ - hmotnost (kg),
-    \item $g$ - gravitační zrychlení (m / s2).
-\end{itemize}
+kde:\\
+$m$ -- hmotnost (\ueqKG),\\
+$g$ -- gravitační zrychlení (\ueqMandSinvsq).\\
 
 Dále budeme uvažovat, že hmotnost $m_1$ je hmotnost Země $M$ a hmotnost $m_2$ je hmotnost člověka $m$ a dosadíme do Newtonova gravitačního zákona:
-
 $$
     m \cdot g = G \cdot \frac{M \cdot m}{r^2}.
 $$
@@ -84,31 +64,27 @@ $$
     g = G \cdot \frac{M}{r^2},
 $$
 
-Můžeme dosadit do vzorce pro potenciální energii:
+Takto můžeme dosadit do vzorce pro potenciální energii:
 $$
     E_p = m \cdot g \cdot h = m \cdot G \cdot \frac{M}{r^2} \cdot h.
 $$
 
 Nyní je třeba si uvědomit, že gravitační zrychlení $g$ je proměnné a závisí na výšce $h$. Je možné analyzovat kolik potřebujeme energie $\Delta E_p$ pro zvýšení výšky $h$ o $\Delta h$:
-
 $$
     \Delta E_p = m \cdot G \cdot \frac{M}{r^2} \cdot \Delta h
 $$
 
-Zde se dopouštíme jisté nepřesnosti, jelikož pokud například $\Delta h$ bude 2 m, tak gravitační zrychlení (poloměr od středu země) se změní taky, ale to zde není zohledněno. Jedná se pouze o aproximaci. Pro získání přesného výsledku je třeba nahradit $\Delta h$ infinitesimálně malým $dh$ a $\Delta E_p$ bude infinitesimálně malé $dE_p$:
-
+Zde se dopouštíme jisté nepřesnosti, jelikož pokud například $\Delta h$ bude 2 m, tak poloměr od středu země se změní taky, čímž se změní gravitační zrychlení. Pro získání přesného výsledku je třeba nahradit $\Delta h$ infinitesimálně malým $dh$ a $\Delta E_p$ bude infinitesimálně malé $dE_p$:
 $$
     dE_p = m \cdot G \cdot \frac{M}{r^2} \cdot dh.
 $$
 
-Toto očividně vede na diferenciální rovnici, která lze snadno řešit separací proměnných, ale pozor. Nyní bychom brali poloměr $r$ jako konstantu. To je chyba, jelikož poloměr $r$ se mění s výškou $h$. Jeden z přístupů je možnost nahradit výšku $h$ poloměrem $r$ a místo posouvání se o výšku $dh$ se posuneme o poloměr $dr$. Ale musíme si poté zapamatovat, že počáteění mezí je poloměr země $R$. A vlastně rovnou můžeme říct, že konečná mez bude tedy $R + h$. Poté je možné řešit rovnici:
-
+Toto očividně vede na diferenciální rovnici, která lze snadno řešit separací proměnných, ale pozor. Nyní bychom brali poloměr $r$ jako konstantu. To je chyba, jelikož poloměr $r$ se mění s výškou $h$. Jeden z přístupů je nahradit výšku $h$ poloměrem $r$ a místo posouvání se o výšku $dh$ se posuneme o poloměr $dr$. Ale musíme si poté zapamatovat, že počáteční mezí je poloměr země $R$ a konečná mez bude tedy $R + h$. Poté je možné řešit rovnici:
 $$
     E_p = \int_{R}^{R + h} m \cdot G \cdot \frac{M}{r^2} \cdot dr.
 $$
 
-Hmotnost $m$ a $M$ a gravitační konstanta $G$ je konstantní, takže můžeme je vytknout z integrálu:
-
+Hmotnost $m$ a $M$ a gravitační konstanta $G$ je konstantní, takže je můžeme vytknout před integrál:
 $$
     E_p = m \cdot G \cdot M \int_{R}^{R + h} \frac{1}{r^2} \cdot dr = m \cdot G \cdot M \left[ - \frac{1}{r} \right]_{R}^{R + h} = m \cdot G \cdot M \left( - \frac{1}{R + h} + \frac{1}{R} \right).
 $$
@@ -119,7 +95,6 @@ $$
 $$
 
 Nyní je třeba osamostatnit $h$:
-
 $$
     E_p = m \cdot G \cdot M \left( \frac{R + h - R}{R \cdot (R + h)} \right) = m \cdot G \cdot M \left( \frac{h}{R \cdot (R + h)} \right).
 $$
@@ -150,45 +125,41 @@ $$
 
 Poté dosadíme hodnoty:
 $$
-    h = \frac{3 \fs 600 \fs 000 \cdot 6 \fs 371 \fs 000^2}{80 \cdot 6,67430 \fs 10^{-11} \cdot 5,97219 \fs 10^{24} - 3 \fs 600 \fs 000 \cdot 6 \fs 371 \fs 000}
-$$
-
-Lze pokrátit některé řády (energie):
-$$
-    h = \frac{3,6 \cdot 6 \fs 371 \fs 000^2}{80 \cdot 6,67430 \fs 10^{-11} \cdot 5,97219 \fs 10^{18} - 3,6 \cdot 6 \fs 371 \fs 000}
+    h = \frac{677 \fs 810 \cdot 6 \fs 371 \fs 000^2}{80 \cdot 6,67430 \cdot 10^{-11} \cdot 5,97219 \cdot 10^{24} - 677 \fs 810 \cdot 6 \fs 371 \fs 000}
 $$
 
 $$
-    h = \frac{3,6 \cdot 6 \fs 371 \fs 000^2}{80 \cdot 6,67430 \cdot 5,97219 \cdot 10^7 - 3,6 \cdot 6 \fs 371 \fs 000}
+    h \approx
 $$
 
-$$
-    h \approx 4 \fs 585,6 \fs m.
-$$
+\newpage
 
 
 
-\section*{Příklad 2 - Tepelná kapacita materiálů}
+\section{Tepelná kapacita \spicy}
+Na jakou teplotu by energie potřebná k ohřátí vody z 10 \ueqCELS \fs na 100 \ueqCELS \fs ohřála ocel a zlato o stejné:
 
-\textbf{Zadání}
-
-Na jakou teplotu by energie potřebná k vaření vody ohřála stejnou hmotnost / objem oceli a zlata? Voda je ohřívána z 10 \ueqCELS \fs na 100 \ueqCELS.
+\begin{enumerate}[a)]
+    \item hmotnosti,
+    \item objemu.
+\end{enumerate}
 
 \begin{table}[H]
     \centering
     \begin{tabular}{l|ll}
         \hline
-        Mateiál    & $\rho$ (kg / m3) & $c$ (\ueqJandKGinvKinv) \\
+        Mateiál    & $\rho$ (\ueqKGandMinvcu) & $c$ (\ueqJandKGinvKinv) \\
         \hline
-        Voda (H2O) & 1 000            & 4 186                   \\
-        Ocel       & 7 750 ??         & 450 ??                  \\
-        Zlato      & 19 320           & 129                     \\
+        Voda (H2O) & 1 000                    & 4 186                   \\
+        Ocel       & 7 750                    & 450                     \\
+        Zlato      & 19 320                   & 129                     \\
         \hline
     \end{tabular}
     \caption {Hustota a měrná tepelná kapacita materiálů}
 \end{table}
 
-\textbf{Řešení}
+
+\subsection{a}
 
 Měrná tepelná kapacita je definována jako množství tepla, které je potřeba k ohřátí jednoho kilogramu látky o jeden stupeň Kelvina:
 \begin{equation}
