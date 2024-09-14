@@ -1,13 +1,11 @@
 \documentclass{article}
 \input{../shared/usings.tex}
 \input{../shared/commands.tex}
+\input{../shared/units.tex}
 
 \cvHead{3 - Sdílení tepla - Válec a koule}
 
 \begin{document}
-
-\input{../../shared/commands.tex}
-\input{../../shared/units.tex}
 
 \maketitle
 \tableofcontents
@@ -302,13 +300,28 @@ Zde vidíme, že odpor roste logaritmicky s poloměrem válce $r_2$. Pokud porov
 \end{center}
 
 
-\subsection{Číselný příklad -  \spicy \spicy}
+\subsection{Číselný příklad 1 \spicy \spicy}
+Mějme izolovaný vodič v rozvaděči, kde tepelná vodivost izolace je $\lambda = 0.159 \fs \uWandMinvKinv$, součinitel prostupu tepla do okolí je $u_{\vartheta} = 10 \fs \uWandMinvsqKinv$ Vypočítejte vnější poloměr válce $r_2$, kdy bude tepelný odpor $R_{\Sigma}$ minimální.
 
+\subsubsection{Řešení}
+Dosadíme do vzorce pro minimum tepelného odporu $R_{\Sigma}$:
+$$
+    r_2 = \frac{\lambda}{\alpha} = \frac{0.159}{10} = 0.0159 \fs \uM = 1,59 \fs \te{cm}.
+$$
+
+Z výsledku můžeme říct, že pokud máme vodič o poloměru $r_1$, který je menší, než $1,59 \fs \te{cm}$, pak pokud přidáme izolaci tak, aby vnější poloměr byl $1,59 \fs \te{cm}$, tak bude izolovaný vodič lépe odvádět teplo do okolí.
 
 
 \subsection{Číselný příklad 2 \spicy \spicy}
+Izolace horkovodního potrubí má tepelnou vodivost $\lambda = 0.02 \fs \uWandMinvKinv$ a součinitel prostupu tepla do okolí je $u_{\vartheta} = 5 \fs \uWandMinvsqKinv$. Vypočítejte vnější poloměr válce $r_2$, kdy bude tepelný odpor $R_{\Sigma}$ minimální.
 
+\subsubsection{Řešení}
+Dosadíme do vzorce pro minimum tepelného odporu $R_{\Sigma}$:
+$$
+    r_2 = \frac{\lambda}{\alpha} = \frac{0.02}{5} = 0.004 \fs \uM = 0.4 \fs \te{cm}.
+$$
 
+Z výsledku můžeme říct, že by vnitřní poloměr potrubí $r_1$ měl být menší než $0.4 \fs \te{cm}$, aby bylo výhodné přidat izolaci. Nicméně takto malý poloměr potrubí se v praxi nevyskytuje.
 
 \newpage
 
@@ -533,7 +546,12 @@ Rychlost růstu objemu izolace je kubická a jde do někonečna, zatímco tepeln
 
 
 \subsection{Číselný příklad}
+Mějme izolovanou kouli, kde tepelná vodivost izolace je $\lambda = 0.159 \fs \uWandMinvKinv$, součinitel prostupu tepla do okolí je $u_{\vartheta} = 10 \fs \uWandMinvsqKinv$ Vypočítejte vnější poloměr koule $r_2$, kdy bude tepelný odpor $R_{\Sigma}$ minimální.
 
-
+\subsubsection{Řešení}
+Dosadíme do vzorce pro minimum tepelného odporu $R_{\Sigma}$:
+$$
+    r_2 = \frac{2 \lambda}{\alpha} = \frac{2 \cdot 0.159}{10} = 0.0318 \fs \uM = 3.18 \fs \te{cm}.
+$$
 
 \end{document}
