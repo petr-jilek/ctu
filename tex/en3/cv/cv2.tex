@@ -15,6 +15,179 @@
 
 
 
+
+\section*{Příklad 4 - Fourierova-Kirchhoffova rovnice}
+
+\textbf{Zadání}
+
+Fourierova-Kirchhoffova rovnice je definována jako:
+\begin{equation}
+    \rho \cdot c \cdot \left( \frac{\partial T}{\partial t} + \vec{v} \cdot \vec{\nabla} T \right) = \nabla \cdot \left( \lambda \cdot \vec{\nabla} T \right) + Q_v,
+\end{equation}
+kde:
+\begin{itemize}
+    \item $\rho$ - hustota (kg / m3),
+    \item $c$ - měrná tepelná kapacita (\ueqJandKGinvKinv),
+    \item $T$ - teplota (K),
+    \item $t$ - čas (s),
+    \item $\vec{v}$ - rychlost (m / s),
+    \item $\lambda$ - tepelná vodivost (\ueqJandKGinvKinv),
+    \item $Q_v$ - objemový zdroj tepla (W / m3).
+\end{itemize}
+
+Řešte zjednodušenou rovnici pro tloušťku stěny $d$, kde:
+
+\begin{itemize}
+    \item $\lambda$ = konstanta,
+    \item $\vec{v}$ = 0.
+    \item $Q_v$ = 0,
+    \item T = T(x). ??
+\end{itemize}
+
+S okrajovými podmínkami:
+\begin{itemize}
+    \item $T(0) = T_0$,
+    \item $T(d) = T_1$.
+\end{itemize}
+
+\textbf{Řešení}
+
+Zjednodušená rovnice je definována jako:
+$$
+    0 = \nabla \cdot \left( \lambda \cdot \vec{\nabla} T \right) = \lambda \cdot \frac{d^2 T}{d x^2}.
+$$
+
+Tedy:
+$$
+    T^{''}(x) = 0.
+$$
+
+Rovnici lze řešit jednodušše řešit jako lineární hommoní rovnici, jejiž charakteristický polynom je:
+$$
+    \lambda^2 = 0.
+$$
+
+Tedy 0 je kořenem násobnosti 2. Poté je obecné řešení:
+$$
+    T(x) = c_0 \cdot e^{0 \cdot x} + c_1 \cdot x \cdot e^{0 \cdot x} = c_0 + c_1 \cdot x.
+$$
+
+S okrajovými podmínkami:
+\begin{itemize}
+    \item $T(0) = T_0$:
+          $$
+              T_0 = T(0) = c_0 + c_1 \cdot 0 = c_0 \Rightarrow c_0 = T_0.
+          $$
+    \item $T(d) = T_1$:
+          $$
+              T_1 = T(d) = T_0 + c_1 \cdot d \Rightarrow c_1 = \frac{T_1 - T_0}{d}.
+          $$
+\end{itemize}
+
+Řešení je tedy:
+$$
+    T(x) = T_0 + \frac{T_1 - T_0}{d} \cdot x.
+$$
+
+\textit{Poznámka}
+
+Pro kontrolu lze dosadit do řešení okrajové podmínky, čímž se ověří, že řešení je správné:
+$$
+    T(0) = T_0 + \frac{T_1 - T_0}{d} \cdot 0 = T_0.
+$$
+
+$$
+    T(d) = T_0 + \frac{T_1 - T_0}{d} \cdot d = T_1.
+$$
+
+
+
+\section*{Příklad 5 - Fourieruv zákon}
+
+\textbf{Zadání}
+
+Fourierův zákon je definován jako:
+\begin{equation}
+    \vec{q} = - \lambda \cdot \vec{\nabla} T,
+\end{equation}
+kde:
+\begin{itemize}
+    \item $\vec{q}$ - tepelný tok (\ueqWandMinvsq),
+    \item $\lambda$ - tepelná vodivost (\ueqWandMinvsqKinv),
+    \item $T$ - teplota (K).
+    \item $\vec{\nabla} T$ - gradient teploty (K / m).
+\end{itemize}
+
+Dosaďte řešení z příkladu 4 do Fourierova zákona.
+
+\textbf{Řešení}
+
+Dosaďme řešení z příkladu 4 do Fourierova zákona:
+$$
+    q_x = - \lambda  \frac{dT(x)}{dx} = - \lambda  \frac{d}{dx} \left( T_0 + \frac{T_1 - T_0}{d} \cdot x \right) = - \lambda  \frac{T_1 - T_0}{d} = \lambda  \frac{T_0 - T_1}{d}.
+$$
+
+Celkový tepelný tok $Q_x$ (W) je:
+$$
+    Q_x = q_x \cdot S = \lambda \frac{T_0 - T_1}{d} \cdot S = \lambda \frac{\Delta T}{d} \cdot S = \frac{\Delta T}{\frac{d}{\lambda \cdot S}}.
+$$
+
+Tepelný odpor $R_{th}$ je:
+$$
+    R_{th} = \frac{d}{\lambda \cdot S}.
+$$
+
+Poté je celkový tepelný tok:
+$$
+    Q_x = \frac{\Delta T}{R_{th}}.
+$$
+
+\textit{Poznámka}
+Tato rovnice je analogická s Ohmovým zákonem, kde:
+\begin{itemize}
+    \item $Q_x \rightarrow I$ (A) - proud,
+    \item $\Delta T \rightarrow U$ (V) - napětí,
+    \item $R_{th} \rightarrow R$ ($\Omega$) - odpor.
+\end{itemize}
+
+Ohmuv zákon je definován jako:
+$$
+    I = \frac{U}{R}.
+$$
+
+Zde elektrický odpor $R$ je:
+$$
+    R = \frac{d}{\sigma \cdot S}.
+$$
+
+Zde analogie je:
+\begin{itemize}
+    \item $d$ - tloušťka stěny (m) $\rightarrow$ $d$ - délka vodiče (m),
+    \item $\lambda$ - tepelná vodivost (\ueqWandMinvsqKinv) $\rightarrow$ $\sigma$ - elektrická vodivost (s / m = $1 / (\Omega \cdot m)$),
+    \item $S$ - plocha průřezu (m2) $\rightarrow$ $S$ - průřez vodiče (m2).
+\end{itemize}
+
+
+
+\section*{Příklad 6 - Tepelný odpor}
+
+\textbf{Zadání}
+
+\begin{itemize}
+    \item $T_1$ = 20 \ueqCELS,
+    \item $T_2$ = -10 \ueqCELS.
+\end{itemize}
+
+Mějme dva typy zdí:
+\begin{enumerate}[a)]
+    \item
+\end{enumerate}
+
+
+
+\end{document}
+
+
 \section{Zeď \spicy \spicy}
 
 

@@ -13,7 +13,7 @@
 
 
 
-\section{Potenciální energie \spicy}
+\section{\emoji{snow-capped-mountain} Potenciální energie \spicy}
 Do jaké výšky vynese energie jedné Fidorky (30 g $\rightarrow$ 162 \ueqKCAL) 80 \ueqKG \fs člověka?
 
 \begin{enumerate}[a)]
@@ -30,7 +30,7 @@ $$
 
 Ze vzorce pro potenciální energii vyjádříme výšku:
 $$
-    E_p = m \cdot g \cdot \Delta h \Rightarrow \Delta h = \frac{E_p}{m \cdot g} = \frac{677 \fs 810 \fs \uJ}{80 \fs \uKG \cdot 9,81 \fs \uMandSinvsq} \approx 863,67 \fs m.
+    E_p = m \cdot g \cdot \Delta h \Rightarrow \Delta h = \frac{E_p}{m \cdot g} = \frac{677 \fs 810 \fs \uJ}{80 \fs \uKG \cdot 9,81 \fs \uMandSinvsq} \approx 863,7 \fs m.
 $$
 
 
@@ -96,27 +96,27 @@ $$
 
 Nyní je třeba osamostatnit $h$:
 $$
-    E_p = m \cdot G \cdot M \left( \frac{R + h - R}{R \cdot (R + h)} \right) = m \cdot G \cdot M \left( \frac{h}{R \cdot (R + h)} \right).
+    E_p = m \cdot G \cdot M \left( \frac{R + h - R}{R \cdot (R + h)} \right) = m \cdot G \cdot M \left( \frac{h}{R \cdot (R + h)} \right)
 $$
 
 $$
-    E_p \cdot R \cdot (R + h) = m \cdot G \cdot M \cdot h.
+    E_p \cdot R \cdot (R + h) = m \cdot G \cdot M \cdot h
 $$
 
 $$
-    E_p \cdot R^2 + E_p \cdot R \cdot h = m \cdot G \cdot M \cdot h.
+    E_p \cdot R^2 + E_p \cdot R \cdot h = m \cdot G \cdot M \cdot h
 $$
 
 $$
-    E_p \cdot R \cdot h - m \cdot G \cdot M \cdot h = - E_p \cdot R^2.
+    E_p \cdot R \cdot h - m \cdot G \cdot M \cdot h = - E_p \cdot R^2
 $$
 
 $$
-    h \cdot (E_p \cdot R - m \cdot G \cdot M) = - E_p \cdot R^2.
+    h \cdot (E_p \cdot R - m \cdot G \cdot M) = - E_p \cdot R^2
 $$
 
 $$
-    h = \frac{- E_p \cdot R^2}{E_p \cdot R - m \cdot G \cdot M}.
+    h = \frac{- E_p \cdot R^2}{E_p \cdot R - m \cdot G \cdot M}
 $$
 
 $$
@@ -125,18 +125,41 @@ $$
 
 Poté dosadíme hodnoty:
 $$
-    h = \frac{677 \fs 810 \cdot 6 \fs 371 \fs 000^2}{80 \cdot 6,67430 \cdot 10^{-11} \cdot 5,97219 \cdot 10^{24} - 677 \fs 810 \cdot 6 \fs 371 \fs 000}
+    h = \frac{677 \fs 810 \cdot 6 \fs 371 \fs 000^2}{80 \cdot 6,67430 \cdot 10^{-11} \cdot 5,97219 \cdot 10^{24} - 677 \fs 810 \cdot 6 \fs 371 \fs 000}.
 $$
 
 $$
-    h \approx
+    h \approx 862,9 \fs m.
 $$
+
+Jako dodatek je možné si vytvořit graf závislosti gravitačního zrychlení na výšce $h$ nad mořem:
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                title = {Závislost gravitačního zrychlení na výšce $h$ nad mořem.},
+                axis lines = middle,
+                xlabel = $h (\uM)$,
+                ylabel = {$g (\uMandSinvsq)$},
+                samples=400,
+                domain=0:10000,
+                xmin=0,
+                xmax=10000,
+                ymin=9.76,
+                ymax=9.84,
+                legend pos=outer north east,
+                grid=both
+            ]
+            \addplot[color=blue, thick] {6.67430 * 10^(-11) * 5.97219 * 10^(24) / (6371000 + x)^2};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
 
 \newpage
 
 
 
-\section{Tepelná kapacita \spicy}
+\section{\emoji{fire} Tepelná kapacita \spicy}
 Na jakou teplotu by energie potřebná k ohřátí vody z 10 \ueqCELS \fs na 100 \ueqCELS \fs ohřála ocel a zlato o stejné:
 
 \begin{enumerate}[a)]
@@ -160,25 +183,12 @@ Na jakou teplotu by energie potřebná k ohřátí vody z 10 \ueqCELS \fs na 100
 
 
 \subsection{a}
-
-Měrná tepelná kapacita je definována jako množství tepla, které je potřeba k ohřátí jednoho kilogramu látky o jeden stupeň Kelvina:
-\begin{equation}
-    Q = m \cdot c \cdot \Delta T,
-\end{equation}
-kde:
-\begin{itemize}
-    \item $Q$ - množství tepla (J),
-    \item $m$ - hmotnost (kg),
-    \item $c$ - měrná tepelná kapacita (\ueqJandKGinvKinv),
-    \item $\Delta T$ - změna teploty (K).
-\end{itemize}
-
 Rozdíl teplot pro vodu je:
 $$
     \Delta T_{H2O} = 100 \fs \uCELS - 10 \fs \uCELS = 90 \fs \uK.
 $$
 
-\textbf{Řeěení pro stejnou hmotnost}
+Podle rovnice pro měrnou tepelnou kapacitu můžeme napsat:
 $$
     m_{H2O} \cdot c_{H2O} \cdot \Delta T_{H2O} = m_{ocel} \cdot c_{ocel} \cdot \Delta T_{ocel} = m_{zlato} \cdot c_{zlato} \cdot \Delta T_{zlato}.
 $$
@@ -208,22 +218,14 @@ $$
     \Delta T_{zlato} = \Delta T_{H2O} \cdot \frac{c_{H2O}}{c_{zlato}} = 90 \cdot \frac{4 186}{129} \approx 2 920,5 \fs \uK.
 $$
 
-\textbf{Řeěení pro stejný objem}
 
-Hmotnost je definována jako:
+\subsection{b}
+Podle rovnice pro měrnou tepelnou kapacitu můžeme napsat:
 $$
-    m = V \cdot \rho,
+    V_{H2O} \cdot \rho_{H2O} \cdot c_{H2O} \cdot \Delta T_{H2O} = V_{ocel} \cdot \rho_{ocel} \cdot c_{ocel} \cdot \Delta T_{ocel} =
 $$
-kde:
-\begin{itemize}
-    \item $m$ - hmotnost (kg),
-    \item $V$ - objem (m3),
-    \item $\rho$ - hustota (kg / m3).
-\end{itemize}
-
-Pro stejný objem platí:
 $$
-    V_{H2O} \cdot \rho_{H2O} \cdot c_{H2O} \cdot \Delta T_{H2O} = V_{ocel} \cdot \rho_{ocel} \cdot c_{ocel} \cdot \Delta T_{ocel} = V_{zlato} \cdot \rho_{zlato} \cdot c_{zlato} \cdot \Delta T_{zlato}.
+    = V_{zlato} \cdot \rho_{zlato} \cdot c_{zlato} \cdot \Delta T_{zlato}
 $$
 
 A zároveň pro tento příklad objemy jsou stejné:
@@ -233,7 +235,10 @@ $$
 
 Tedy:
 $$
-    V \cdot \rho_{H2O} \cdot c_{H2O} \cdot \Delta T_{H2O} = V \cdot \rho_{ocel} \cdot c_{ocel} \cdot \Delta T_{ocel} = V \cdot \rho_{zlato} \cdot c_{zlato} \cdot \Delta T_{zlato}.
+    V \cdot \rho_{H2O} \cdot c_{H2O} \cdot \Delta T_{H2O} = V \cdot \rho_{ocel} \cdot c_{ocel} \cdot \Delta T_{ocel} =
+$$
+$$
+    =  V \cdot \rho_{zlato} \cdot c_{zlato} \cdot \Delta T_{zlato}.
 $$
 
 Rovnici lze vydělit objemem $V$ ($V >$ 0) a dostaneme:
@@ -243,217 +248,107 @@ $$
 
 Pro ocel platí:
 $$
-    \Delta T_{ocel} = \Delta T_{H2O} \cdot \frac{\rho_{H2O} \cdot c_{H2O}}{\rho_{ocel} \cdot c_{ocel}} = 90 \cdot \frac{1 000 \cdot 4 186}{7 750 \cdot 450} \approx 108,03 \fs \uK.
+    \Delta T_{ocel} = \Delta T_{H2O} \cdot \frac{\rho_{H2O} \cdot c_{H2O}}{\rho_{ocel} \cdot c_{ocel}} = 90 \cdot \frac{1 000 \cdot 4 186}{7 750 \cdot 450} \approx 108,0 \fs \uK.
 $$
 
 Pro zlato platí:
 $$
-    \Delta T_{zlato} = \Delta T_{H2O} \cdot \frac{\rho_{H2O} \cdot c_{H2O}}{\rho_{zlato} \cdot c_{zlato}} = 90 \cdot \frac{1 000 \cdot 4 186}{19 320 \cdot 129} \approx 1511,63 \fs \uK.
+    \Delta T_{zlato} = \Delta T_{H2O} \cdot \frac{\rho_{H2O} \cdot c_{H2O}}{\rho_{zlato} \cdot c_{zlato}} = 90 \cdot \frac{1 000 \cdot 4 186}{19 320 \cdot 129} \approx 1511,6 \fs \uK.
 $$
 
+\newpage
 
 
-\section*{Příklad 3 - Průtokový ohřívač}
 
-\textbf{Zadání}
+\section{\emoji{shower} Průtokový ohřívač \spicy}
+Mějme průtokový ohřívač vody, který ohřívá studenou vodu o teplotě $10 \fs \uCELS$ \fs na teplotu $40 \fs \uCELS$. Při sprchování je spotřeba vody $10 \fs \uL$ za minutu.
 
-Mějme průtokový ohřívač vody, který ohřívá studenou vodu o teplotě 10 \ueqCELS \fs na teplotu 40 \ueqCELS. Při sprchování je spotřeba vody 10 l / min. Jaký musí být výkon ohřívače?
+\begin{enumerate}[a)]
+    \item Jaký je výkon ohřívače?
+    \item Uvažujme, že ohřívač je na jednu fázi $230 \fs \uV$. Bude nám stačit jistič na $16 \fs \uA$?
+\end{enumerate}
 
-\textbf{Řešení}
+
+\subsection{a}
 
 Objem protečené vody za 1 hodinu je:
 $$
-    V = 10 \frac{l}{min} = 10 \frac{m3}{1000} \cdot \frac{60}{h} = 0,6 \fs m3/h = 0,6 \fs m3.
+    V = 10 \fs \frac{\uL}{\te{min}} = 10 \fs \frac{\frac{\uMcu}{1000}}{\frac{\uH}{60}} = 10 \fs \frac{\uMcu}{1000} \cdot \frac{60}{\uH} = 0,6 \fs \frac{\uMcu}{\uH}.
 $$
 
 Hmotnost protečené vody za 1 hodinu je:
 $$
-    m = V \cdot \rho = 0,6 \fs m3/h \cdot 1 000 \fs kg/m3 = 600 \fs kg.
+    m = V \cdot \rho = 0,6 \fs \uMcu \cdot 1 000 \fs \frac{\uKG}{\uMcu} = 600 \fs \uKG.
 $$
 
-Množství energie potřebné k ohřátí vody je:
+Množství energie za 1 hodinu potřebné k ohřátí vody je:
 $$
     Q = m \cdot c \cdot \Delta T.
 $$
-
 $$
-    Q = 600 \fs kg/h \cdot 4 186 \fs J/ (kg \cdot K) \cdot (50 - 10) \fs K = 100 \fs 464 \fs 000 \fs J.
+    Q = 600 \fs \uKG \cdot 4 \fs 186 \fs \frac{\uJ}{\uKG \cdot \uK} \cdot 30 \fs \uK = 75 \fs 348 \fs 000 \fs \uJ
 $$
 
 Výkon ohřívače je:
 $$
-    P = \frac{Q}{t} = \frac{100 \fs 464 \fs 000 \fs J}{1 h} = \frac{100 \fs 464 \fs 000 \fs Ws}{3 \fs 600 \fs s} \approx 27 \fs 907 \fs W = 27,9 \fs kW.
+    P = \frac{Q}{t} = \frac{75 \fs 348 \fs 000 \fs \uJ}{1 \fs \uH} = \frac{75 \fs 348 \fs 000 \fs \te{Ws}}{3 \fs 600 \fs \uS} = 20 \fs 930 \fs \uW = 20,93 \fs \uKW.
 $$
 
 
+\subsection{b}
 
-\section*{Příklad 4 - Fourierova-Kirchhoffova rovnice}
-
-\textbf{Zadání}
-
-Fourierova-Kirchhoffova rovnice je definována jako:
-\begin{equation}
-    \rho \cdot c \cdot \left( \frac{\partial T}{\partial t} + \vec{v} \cdot \vec{\nabla} T \right) = \nabla \cdot \left( \lambda \cdot \vec{\nabla} T \right) + Q_v,
-\end{equation}
-kde:
-\begin{itemize}
-    \item $\rho$ - hustota (kg / m3),
-    \item $c$ - měrná tepelná kapacita (\ueqJandKGinvKinv),
-    \item $T$ - teplota (K),
-    \item $t$ - čas (s),
-    \item $\vec{v}$ - rychlost (m / s),
-    \item $\lambda$ - tepelná vodivost (\ueqJandKGinvKinv),
-    \item $Q_v$ - objemový zdroj tepla (W / m3).
-\end{itemize}
-
-Řešte zjednodušenou rovnici pro tloušťku stěny $d$, kde:
-
-\begin{itemize}
-    \item $\lambda$ = konstanta,
-    \item $\vec{v}$ = 0.
-    \item $Q_v$ = 0,
-    \item T = T(x). ??
-\end{itemize}
-
-S okrajovými podmínkami:
-\begin{itemize}
-    \item $T(0) = T_0$,
-    \item $T(d) = T_1$.
-\end{itemize}
-
-\textbf{Řešení}
-
-Zjednodušená rovnice je definována jako:
+Výkon ohřívače je:
 $$
-    0 = \nabla \cdot \left( \lambda \cdot \vec{\nabla} T \right) = \lambda \cdot \frac{d^2 T}{d x^2}.
+    P = U \cdot I,
+$$
+kde:\\
+$U$ -- napětí (\ueqV),\\
+$I$ -- proud (\ueqA).\\
+
+Z rovnice pro výkon ohřívače můžeme vyjádřit proud:
+$$
+    I = \frac{P}{U} = \frac{20,93 \fs \uKW}{230 \fs \uV} = \frac{20 \fs 930 \fs \uW}{230 \fs \uV} = 91 \fs \uA.
 $$
 
-Tedy:
-$$
-    T^{''}(x) = 0.
-$$
+Jistič na $16 \fs \uA$ tedy nestačí, jelikož proud je $91 \fs \uA$.
 
-Rovnici lze řešit jednodušše řešit jako lineární hommoní rovnici, jejiž charakteristický polynom je:
-$$
-    \lambda^2 = 0.
-$$
-
-Tedy 0 je kořenem násobnosti 2. Poté je obecné řešení:
-$$
-    T(x) = c_0 \cdot e^{0 \cdot x} + c_1 \cdot x \cdot e^{0 \cdot x} = c_0 + c_1 \cdot x.
-$$
-
-S okrajovými podmínkami:
-\begin{itemize}
-    \item $T(0) = T_0$:
-          $$
-              T_0 = T(0) = c_0 + c_1 \cdot 0 = c_0 \Rightarrow c_0 = T_0.
-          $$
-    \item $T(d) = T_1$:
-          $$
-              T_1 = T(d) = T_0 + c_1 \cdot d \Rightarrow c_1 = \frac{T_1 - T_0}{d}.
-          $$
-\end{itemize}
-
-Řešení je tedy:
-$$
-    T(x) = T_0 + \frac{T_1 - T_0}{d} \cdot x.
-$$
-
-\textit{Poznámka}
-
-Pro kontrolu lze dosadit do řešení okrajové podmínky, čímž se ověří, že řešení je správné:
-$$
-    T(0) = T_0 + \frac{T_1 - T_0}{d} \cdot 0 = T_0.
-$$
-
-$$
-    T(d) = T_0 + \frac{T_1 - T_0}{d} \cdot d = T_1.
-$$
+\newpage
 
 
 
-\section*{Příklad 5 - Fourieruv zákon}
+\section{\emoji{battery} Monočlánek \spicy}
+Mějme monočlánek s kapacitou $2 \fs 500 \fs \te{mAh}$ a napětím $1,2 \fs \uV$.
 
-\textbf{Zadání}
-
-Fourierův zákon je definován jako:
-\begin{equation}
-    \vec{q} = - \lambda \cdot \vec{\nabla} T,
-\end{equation}
-kde:
-\begin{itemize}
-    \item $\vec{q}$ - tepelný tok (\ueqWandMinvsq),
-    \item $\lambda$ - tepelná vodivost (\ueqWandMinvsqKinv),
-    \item $T$ - teplota (K).
-    \item $\vec{\nabla} T$ - gradient teploty (K / m).
-\end{itemize}
-
-Dosaďte řešení z příkladu 4 do Fourierova zákona.
-
-\textbf{Řešení}
-
-Dosaďme řešení z příkladu 4 do Fourierova zákona:
-$$
-    q_x = - \lambda  \frac{dT(x)}{dx} = - \lambda  \frac{d}{dx} \left( T_0 + \frac{T_1 - T_0}{d} \cdot x \right) = - \lambda  \frac{T_1 - T_0}{d} = \lambda  \frac{T_0 - T_1}{d}.
-$$
-
-Celkový tepelný tok $Q_x$ (W) je:
-$$
-    Q_x = q_x \cdot S = \lambda \frac{T_0 - T_1}{d} \cdot S = \lambda \frac{\Delta T}{d} \cdot S = \frac{\Delta T}{\frac{d}{\lambda \cdot S}}.
-$$
-
-Tepelný odpor $R_{th}$ je:
-$$
-    R_{th} = \frac{d}{\lambda \cdot S}.
-$$
-
-Poté je celkový tepelný tok:
-$$
-    Q_x = \frac{\Delta T}{R_{th}}.
-$$
-
-\textit{Poznámka}
-Tato rovnice je analogická s Ohmovým zákonem, kde:
-\begin{itemize}
-    \item $Q_x \rightarrow I$ (A) - proud,
-    \item $\Delta T \rightarrow U$ (V) - napětí,
-    \item $R_{th} \rightarrow R$ ($\Omega$) - odpor.
-\end{itemize}
-
-Ohmuv zákon je definován jako:
-$$
-    I = \frac{U}{R}.
-$$
-
-Zde elektrický odpor $R$ je:
-$$
-    R = \frac{d}{\sigma \cdot S}.
-$$
-
-Zde analogie je:
-\begin{itemize}
-    \item $d$ - tloušťka stěny (m) $\rightarrow$ $d$ - délka vodiče (m),
-    \item $\lambda$ - tepelná vodivost (\ueqWandMinvsqKinv) $\rightarrow$ $\sigma$ - elektrická vodivost (s / m = $1 / (\Omega \cdot m)$),
-    \item $S$ - plocha průřezu (m2) $\rightarrow$ $S$ - průřez vodiče (m2).
-\end{itemize}
-
-
-
-\section*{Příklad 6 - Tepelný odpor}
-
-\textbf{Zadání}
-
-\begin{itemize}
-    \item $T_1$ = 20 \ueqCELS,
-    \item $T_2$ = -10 \ueqCELS.
-\end{itemize}
-
-Mějme dva typy zdí:
 \begin{enumerate}[a)]
-    \item
+    \item Kolik litrů vody ohřeje z $10 \fs \uCELS$ na $100 \fs \uCELS$?
+    \item Jak vysoko vynese $80 \fs \uKG$ člověka?
 \end{enumerate}
 
 
+\subsection{a}
+Energie monočlánku je:
+$$
+    E = 1,2 \fs \uV \cdot 2 \fs 500 \fs \te{mAh} = 1,5 \fs \uV \cdot 2,5 \fs \uA = 3 \fs \uWH = 3 \cdot 3 \fs 600 \fs \uJ = 10 \fs 800 \fs \uJ.
+$$
+
+Množství energie potřebné k ohřátí vody je:
+$$
+    Q = V \cdot \rho \cdot c \cdot \Delta T
+$$
+
+Z rovnice pro měrnou tepelnou kapacitu můžeme vyjádřit objem:
+$$
+    m = \frac{Q}{\rho \cdot c \cdot \Delta T} = \frac{10 \fs 800 \fs \uJ}{1 000 \fs \uKGandMinvcu \cdot 4 \fs 186 \fs \uJandKGinvKinv \cdot 90 \fs \uK} =
+$$
+$$
+    = 2,87 \cdot 10^{-5} \fs \uMcu = 2,87 \cdot 10^{-2} \fs \uL = 28,7 \fs \uML.
+$$
+
+
+\subsection{b}
+Ze vzorce pro potenciální energii vyjádříme výšku:
+$$
+    E_p = m \cdot g \cdot \Delta h \Rightarrow \Delta h = \frac{E_p}{m \cdot g} = \frac{10 \fs 800 \fs \uJ}{80 \fs \uKG \cdot 9,81 \fs \uMandSinvsq} \approx 13,76 \fs \uM.
+$$
 
 \end{document}
