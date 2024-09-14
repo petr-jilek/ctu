@@ -152,19 +152,53 @@ Analogie jsou:
 
 Výpočet tepelného toku je analogický s Ohmovým zákonem:
 $$
-    I = \frac{U}{R},
+    I = \frac{U}{R_e},
 $$
 kde:\\
 $I$ -- proud (\ueqA),\\
 $U$ -- napětí (\ueqV),\\
-$R$ -- odpor (\ueqOHM).\\
+$R_e$ -- odpor (\ueqOHM).\\
 
 Analogie jsou:
 \begin{itemize}
     \item $\dot{Q_x}$ -- tepelný tok (\ueqW) $\rightarrow$ $I$ -- proud (\ueqA),
     \item $\Delta T$ -- rozdíl teplot (\ueqK) $\rightarrow$ $U$ -- napětí (\ueqV),
-    \item $R_{\vartheta}$ -- tepelný odpor (\ueqKandWinv) $\rightarrow$ $R$ -- elektrický odpor (\ueqOHM).
+    \item $R_{\vartheta}$ -- tepelný odpor (\ueqKandWinv) $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM).
 \end{itemize}
+
+Elektrické schéma můžeme znázornit následujícím obrázkem:
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[thick] (0.5,-1) -- (1.5,-1) node[midway, below] {$U$};
+        \draw[thick] (1,0) -- (1,-1);
+        \draw[thick] (1,0) -- (2.5,0);
+        \draw[thick] (2.5,-0.3) rectangle (3.5,0.3) node[midway] {$R_e$};
+        \draw[thick] (3.5,0) -- (5,0);
+        \draw[thick] (5,0) -- (5,-1);
+        \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$0$};
+
+        % Triangle arrow
+        \draw[-{Triangle}] (2,0.7) -- (4,.7) node[midway, above] {$I$};
+    \end{tikzpicture}
+\end{center}
+
+Analogicky můžeme vytvořit tepelné schéma:
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[thick] (0.5,-1) -- (1.5,-1) node[midway, below] {$T_1$};
+        \draw[thick] (1,0) -- (1,-1);
+        \draw[thick] (1,0) -- (2.5,0);
+        \draw[thick] (2.5,-0.3) rectangle (3.5,0.3) node[midway] {$R_{\vartheta}$};
+        \draw[thick] (3.5,0) -- (5,0);
+        \draw[thick] (5,0) -- (5,-1);
+        \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$T_2$};
+
+        % Triangle arrow
+        \draw[-{Triangle}] (2,0.7) -- (4,.7) node[midway, above] {$\dot{Q_x}$};
+    \end{tikzpicture}
+\end{center}
 
 
 \subsection{Součinitel prostupu tepla}
@@ -201,6 +235,90 @@ $$
 
 
 \section{\emoji{building-construction} Skládaná zeď \spicy \spicy}
+
+
+\subsection{Tepelné schéma}
+U skládané zdi máme několik vrstev zdi s různou tepelnou vodivostí a tloušťkou. Navíc počítáme s měrnými součinitely prostupu tepla na začátku (ze vnitř do zdi) a na konci (ze zdi ven).
+
+Mějme tedy n vrstev zdi, kde $i$-tá vrstva má tepelnou vodivost $\lambda_i$ a tloušťku $d_i$. Mějme měrný součinitel prostupu tepla na začátku $u_{\vartheta 1}$ a na konci $u_{\vartheta 2}$. Potom můžeme pro tuto situaci nakreslit následující tepelné schéma (pro zjednodušení budeme psát odpory pouze jako $r$ místo $r_{\vartheta}$ respektivě $R$ místo $R_{\vartheta}$ a automaticky budeme předpokládat, že se jedná o tepelné odpory):
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[thick] (0.5,-2) -- (1.5,-2) node[midway, below] {$T_1$};
+        \draw[thick] (1,0) -- (1,-2);
+
+        \draw[thick] (1,0) -- (1.5,0);
+        \draw[thick] (1.5,-0.3) rectangle (2.5,0.3) node[midway] {$R_{u,1}$};
+        \draw[thick] (2.5,0) -- (3,0);
+        \draw[thick] (3,-0.3) rectangle (4,0.3) node[midway] {$R_1$};
+        \draw[thick] (4,0) -- (4.5,0);
+
+        \draw[dotted] (5,0) -- (6,0);
+
+        \draw[thick] (6.5,0) -- (7,0);
+        \draw[thick] (7,-0.3) rectangle (8,0.3) node[midway] {$R_n$};
+        \draw[thick] (8,0) -- (8.5,0);
+        \draw[thick] (8.5,-0.3) rectangle (9.5,0.3) node[midway] {$R_{u,2}$};
+        \draw[thick] (9.5,0) -- (10,0);
+
+        \draw[thick] (10,0) -- (10,-2);
+        \draw[thick] (9.5,-2) -- (10.5,-2) node[midway, below] {$T_2$};
+
+        % Triangle arrow
+        \draw[-{Triangle}] (3,0.7) -- (8,.7) node[midway, above] {$\dot{Q_x}$};
+    \end{tikzpicture}
+\end{center}
+
+Měrný odpor $r_{\vartheta,1}$ vypočteme jako:
+$$
+    r_{\vartheta,1} = \frac{1}{u_{\vartheta,1}}.
+$$
+
+Měrný odpor $r_{\vartheta,2}$ vypočteme jako:
+$$
+    r_{\vartheta,2} = \frac{1}{u_{\vartheta,2}}.
+$$
+
+Měrný odpor $r_i$ vypočteme jako:
+$$
+    r_i = \frac{d_i}{\lambda_i}.
+$$
+
+Celkový měrný odpor $r$ zdi bez přechodů vypočteme jako:
+$$
+    r = r_1 + \ldots + r_n = \sum_{i=1}^{n} r_i.
+$$
+
+Celkový měrný odpor $r_{\Sigma}$ zdi s přechody vypočteme jako:
+$$
+    r_{\Sigma} = r_{\vartheta,1} + \sum_{i=1}^{n} r_i + r_{\vartheta,2}.
+$$
+
+Měrný součinitel prostupu tepla $u_{\Sigma}$ zdi s přechody vypočteme jako:
+$$
+    u_{\Sigma} = \frac{1}{r_{\Sigma}} = \frac{1}{r_{\vartheta,1} + \sum_{i=1}^{n} r_i + r_{\vartheta,2}} = \frac{1}{\frac{1}{u_{\vartheta,1}} + \sum_{i=1}^{n} \frac{d_i}{\lambda_i} + \frac{1}{u_{\vartheta,2}}} =
+$$
+$$
+    = \left ( \frac{1}{u_{\vartheta,1}} + \sum_{i=1}^{n} \frac{d_i}{\lambda_i} + \frac{1}{u_{\vartheta,2}} \right )^{-1}
+$$
+
+Měrný tepelný tok $\dot{q_x}$ zdi s přechody vypočteme pomocí měrných odporů jako:
+$$
+    \dot{q_x} = \frac{\Delta T}{r_{\Sigma}} = \frac{T_1 - T_2}{r_{\Sigma}}.
+$$
+
+Pomocí měrného součinitele prostupu tepla $u_{\Sigma}$ můžeme vypočítat měrný tepelný tok $\dot{q_x}$ jako:
+$$
+    \dot{q_x} = u_{\Sigma} \cdot \Delta T = u_{\Sigma} \cdot (T_1 - T_2).
+$$
+
+Celkový tepelný tok $\dot{Q_x}$ zdi s přechody vypočteme jako:
+$$
+    \dot{Q_x} = \dot{q_x} \cdot S.
+$$
+
+
+\subsection{Číselný příklad}
 
 
 \newpage
