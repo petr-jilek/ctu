@@ -588,6 +588,93 @@ Toto položení se rychleji vytopí, ale také se rychleji ochladí, jelikož iz
 
 
 \section{\emoji{factory} Cihlová pec \spicy \spicy \spicy \spicy}
+U cihlové pece je vysoký rozdíl teplot, tudíž tepelnou vodivost je třeba uvažovat jako proměnnou. Tepelnou vodivost $\lambda$ můžeme zapsat jako:
+$$
+    \lambda (x) = \lambda_0 + \lambda_1 \cdot T,
+$$
+
+Pro zeď o tloušťce $d$ budeme uvažovat následující zjednodušející předpoklady:
+\begin{itemize}
+    \item $\lambda (x) = \lambda_0 + \lambda_1 \cdot T$,
+    \item $\vec{v}$ = 0,
+    \item $Q_v$ = 0,
+    \item $\frac{\partial T}{\partial t}$ = 0,
+    \item T = T(x) - teplota závislá pouze na ose x.
+\end{itemize}
+
+Poté Fourierova-Kirchhoffova rovnice bude mít tvar:
+$$
+    0 = \frac{d}{dx} \left ( \lambda (T) \cdot \frac{dT}{dx} \right ).
+$$
+
+Fourieruv zákon pro tepelný tok bude mít tvar:
+$$
+    \dot{q_x} = - \lambda (T) \cdot \frac{dT}{dx}.
+$$
+
+Vynásobme rovnici mínus jedna:
+$$
+    - \dot{q_x} = \lambda (T) \cdot \frac{dT}{dx}.
+$$
+
+Pokud dosadíme do Fourierova-Kirchhoffovy rovnice, dostaneme:
+$$
+    0 = \frac{d}{dx} \left ( - \dot{q_x} \right ).
+$$
+
+Z toho vidíme, že měrný tepelný tok $\dot{q_x}$ je konstantní a nezávisí na poloze x. Můžeme tedy rozepsat Fourierův zákon jako:
+$$
+    - \dot{q_x} = \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot \frac{dT}{dx}.
+$$
+
+Můžeme řešit tuto diferenciální rovnici separací proměnných:
+$$
+    - \dot{q_x} \cdot dx = \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot dT.
+$$
+
+Nyní meze budou jak pro x, tak pro T:
+\begin{itemize}
+    \item $x = 0 \Rightarrow T = T_1$,
+    \item $x = d \Rightarrow T = T_2$.
+\end{itemize}
+
+Rovnici můžeme integrovat:
+$$
+    - \int_{0}^{d} \dot{q_x} \cdot dx = \int_{T_1}^{T_2} \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot dT
+$$
+$$
+    - \dot{q_x} \left[ x \right]_{0}^{d} = \lambda_0 \left[ T \right]_{T_1}^{T_2} + \frac{\lambda_1}{2} \left[ T^2 \right]_{T_1}^{T_2}
+$$
+$$
+    - \dot{q_x} \cdot d = \lambda_0 \cdot (T_2 - T_1) + \frac{\lambda_1}{2} \cdot (T_2^2 - T_1^2)
+$$
+$$
+    - \dot{q_x} \cdot d = \lambda_0 \cdot (T_2 - T_1) + \frac{\lambda_1}{2} \cdot (T_2 - T_1) \cdot (T_2 + T_1)
+$$
+$$
+    - \dot{q_x} \cdot d = (T_2 - T_1) \cdot \left( \lambda_0 + \frac{\lambda_1}{2} \cdot (T_2 + T_1) \right).
+$$
+
+Nyní odvoďme střední hodnotu tepelné vodivosti $\overline{\lambda}$:
+$$
+    \overline{\lambda} = \frac{1}{T_2 - T_1} \cdot \int_{T_1}^{T_2} \lambda (T) \cdot dT = \frac{1}{T_2 - T_1} \cdot \int_{T_1}^{T_2} \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot dT
+$$
+$$
+    = \frac{1}{T_2 - T_1} \cdot \left[ \lambda_0 \cdot T + \frac{\lambda_1}{2} \cdot T^2 \right]_{T_1}^{T_2} = \frac{1}{T_2 - T_1} \cdot \left( \lambda_0 \cdot (T_2 - T_1) + \frac{\lambda_1}{2} \cdot (T_2^2 - T_1^2) \right) =
+$$
+$$
+    = \lambda_0 + \frac{\lambda_1}{2} \cdot (T_2 + T_1).
+$$
+
+Nyní můžeme videt, že člen v závorce u vyřešené diferenciální rovnice je roven střední hodnotě tepelné vodivosti $\overline{\lambda}$:
+$$
+    - \dot{q_x} \cdot d = (T_2 - T_1) \cdot \overline{\lambda}.
+$$
+
+Nyní můžeme odvodit vztah pro měrný tepelný tok $\dot{q_x}$:
+$$
+    \dot{q_x} = \frac{T_1 - T_2}{d} \cdot \overline{\lambda}.
+$$
 
 \newpage
 
