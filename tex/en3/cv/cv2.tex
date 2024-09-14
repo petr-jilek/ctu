@@ -1,18 +1,15 @@
 \documentclass{article}
 \input{../shared/usings.tex}
 \input{../shared/commands.tex}
+\input{../shared/units.tex}
 
 \cvHead{2 - Sdílení tepla}
 
 \begin{document}
 
-\input{../../shared/commands.tex}
-\input{../../shared/units.tex}
-
 \maketitle
 \tableofcontents
 \newpage
-
 
 
 
@@ -185,13 +182,96 @@ Mějme dva typy zdí:
 
 
 
-\end{document}
-
-
 \section{Zeď \spicy \spicy}
 
 
 \subsection{Fourierova-Kirchhoffova rovnice \spicy \spicy \spicy}
+Pro zeď o tloušťce $d$ budeme uvažovat následující zjednodušející předpoklady:
+\begin{itemize}
+    \item $\lambda$ = konstanta,
+    \item $\vec{v}$ = 0,
+    \item $Q_v$ = 0,
+    \item $\frac{\partial T}{\partial t}$ = 0,
+    \item T = T(x) - teplota závislá pouze na ose x.
+\end{itemize}
+
+Poté Fourierova-Kirchhoffova rovnice bude mít tvar:
+$$
+    0 = \nabla \cdot \left( \lambda \cdot \vec{\nabla} T \right) = \lambda \cdot \frac{d^2 T}{d x^2}.
+$$
+
+Rovnici můžeme vydělit $\lambda$ ($\lambda > 0$) a získáme:
+$$
+    \frac{d^2 T}{d x^2} = 0.
+$$
+
+Tuto rovnici můžeme řešit dvojí integrací. První integrace bude vypadat následovně:
+$$
+    \frac{d T}{d x} = \int 0 \cdot dx = 0 + c_1 = c_1.
+$$
+
+Druhá integrace bude vypadat následovně:
+$$
+    T(x) = \int c_1 \cdot dx = c_1 \cdot x + c_2.
+$$
+
+Obecné řešení bude tedy:
+$$
+    T(x) = c_1 \cdot x + c_2.
+$$
+
+S okrajovými podmínkami:
+\begin{itemize}
+    \item $T(0) = T_1$:
+          $$
+              T_1 = T(0) = c_1 \cdot 0 + c_2 = c_2 \Rightarrow c_2 = T_1.
+          $$
+    \item $T(d) = T_2$:
+          $$
+              T_2 = T(d) = c_1 \cdot d + c_2 \Rightarrow c_1 = \frac{T_2 - c_2}{d} = \frac{T_2 - T_1}{d}.
+          $$
+\end{itemize}
+
+Řešení je tedy:
+$$
+    T(x) = \frac{T_2 - T_1}{d} \cdot x + T_1.
+$$
+
+Tuto situaci můžeme znázornit následujícím obrázkem:
+
+\begin{center}
+    \begin{tikzpicture}
+        % Variables
+        \def\TOne{4} % T1
+        \def\TTwo{1} % T2
+        \def\d{5} % width of the wall, d
+
+        % Axes
+        \draw[->] (0,0) -- (\d + 1,0) node[anchor=north] {$x$}; % x-axis
+        \draw[->] (0,0) -- (0,\TOne + 1) node[anchor=east] {$T(x)$}; % y-axis
+
+        % Line representing T(x)
+        \draw[thick, red] (-2,\TOne) -- (0,\TOne);
+        \draw[thick, red] (0,\TOne) -- (\d,\TTwo);
+        \draw[thick, red] (\d,\TTwo) -- (\d + 2,\TTwo);
+
+        % Dotted line
+        \draw[dashed] (0,\TOne) -- (1,\TOne);
+        \draw[dashed] (0,\TTwo) -- (\d,\TTwo);
+
+        % Wall lines
+        \draw[very thick] (0,0) -- (0,\TOne + 0.5);
+        \draw[very thick] (\d,0) -- (\d,\TOne - 1.5);
+        \draw[very thick] (\d,\TOne - 0.5) -- (\d,\TOne + 0.5);
+
+        % Labels
+        \node[anchor=south] at (4, 2.7) {$T(x) = \frac{T_2 - T_1}{d} \cdot x + T_1$};
+        \node[anchor=west] at (1, \TOne) {$T_1$};
+        \node[anchor=east] at (0, \TTwo) {$T_2$};
+        \node[anchor=north] at (\d, 0) {$d$};
+    \end{tikzpicture}
+\end{center}
+
 
 
 \subsection{Fourieruv zákon \spicy \spicy \spicy}
@@ -201,6 +281,9 @@ Mějme dva typy zdí:
 
 
 \subsection{Koeficient prostupu tepla}
+
+
+\subsection{Číselný příklad}
 
 
 
