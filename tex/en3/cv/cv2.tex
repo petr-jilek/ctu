@@ -100,6 +100,7 @@ Tuto situaci můžeme znázornit následujícím obrázkem:
         \node[anchor=west] at (1, \TOne) {$T_1$};
         \node[anchor=east] at (0, \TTwo) {$T_2$};
         \node[anchor=north] at (\d, 0) {$d$};
+        \node[anchor=north] at (0, 0) {$0$};
     \end{tikzpicture}
 \end{center}
 
@@ -474,12 +475,97 @@ $$
 
 
 \subsubsection{b}
+Změnu teploty v cihle vypočteme jako:
+$$
+    \Delta T_{cihla} = \dot{q_x} \cdot r_{cihla} = 16,55 \fs \uWandMinvsq \cdot 0,5625 \fs \uMsqKandWinv = 9,31 \fs \uK.
+$$
 
+Změnu teploty v izolaci vypočteme jako:
+$$
+    \Delta T_{izol} = \dot{q_x} \cdot r_{izol} = 16,55 \fs \uWandMinvsq \cdot 1,25 \fs \uMsqKandWinv = 20,69 \fs \uK.
+$$
 
+Obrázek pro případ izolace z venčí bude vypadat následovně:
 
+\begin{center}
+    \begin{tikzpicture}
+        % Variables
+        \def\kk{0.18}
+        \def\kkT{1.2}
+        \def\dOne{45 * \kk} % d1
+        \def\dTwo{5 * \kk} % d2
+        \def\TOne{20 * \kk * \kkT} % T1
+        \def\TTwo{-10 * \kk * \kkT} % T2
+        \def\deltaTcihla{9.31 * \kk * \kkT} % delta T cihla
+        \def\deltaTizol{20.69 * \kk * \kkT} % delta T izol
 
+        % Axes
+        \draw[->] (0,\TTwo - 1) -- (\dOne + \dTwo + 1,\TTwo - 1) node[anchor=north] {$x$}; % x-axis
+        \draw[->] (0,\TTwo - 1) -- (0,\TOne * 1.1) node[anchor=east] {$T(x)$}; % y-axis
 
+        % Wall lines
+        \draw[thick] (0,\TOne) -- (0,\TTwo - 1);
+        \draw[thick] (\dOne,\TOne) -- (\dOne,\TTwo - 1);
+        \draw[thick] (\dOne + \dTwo,\TOne) -- (\dOne + \dTwo,\TTwo - 1);
 
+        % Line representing T(x)
+        \draw[thick, red] (-1,\TOne) -- (0,\TOne);
+        \draw[thick, red] (0,\TOne) -- (\dOne,\TOne - \deltaTcihla);
+        \draw[thick, red] (\dOne,\TOne - \deltaTcihla) -- (\dOne + \dTwo,\TTwo);
+        \draw[thick, red] (\dOne + \dTwo,\TTwo) -- (\dOne + \dTwo + 1,\TTwo);
+
+        % Dashed lines
+        \draw[dashed] (0,\TOne) -- (2,\TOne) node[anchor=west] {$T_1 = 20 \fs \uCELS$};
+        \draw[dashed] (\dOne,\TOne - \deltaTcihla) -- (5,\TOne - \deltaTcihla) node[anchor=east] {$T_2 - \Delta T_{cihla} = 10,69 \fs \uCELS$};
+        \draw[dashed] (\dOne + \dTwo,\TTwo) -- (3,\TTwo) node[anchor=east] {$T_2 = -10 \fs \uCELS$};
+        \draw[dashed] (\dOne + \dTwo, \TTwo - 1) -- (\dOne + \dTwo, \TTwo - 2) node[anchor=north] {$d_{cihla} + d_{izol}$};
+
+        % % Labels
+        \node[anchor=north] at (0, \TTwo - 1) {$0$};
+        \node[anchor=north] at (\dOne, \TTwo - 1) {$d_{cihla}$};
+    \end{tikzpicture}
+\end{center}
+
+Obrázek pro případ izolace zevnitř bude vypadat následovně:
+
+\begin{center}
+    \begin{tikzpicture}
+        % Variables
+        \def\kk{0.18}
+        \def\kkT{1.2}
+        \def\dOne{45 * \kk} % d1
+        \def\dTwo{5 * \kk} % d2
+        \def\TOne{20 * \kk * \kkT} % T1
+        \def\TTwo{-10 * \kk * \kkT} % T2
+        \def\deltaTcihla{9.31 * \kk * \kkT} % delta T cihla
+        \def\deltaTizol{20.69 * \kk * \kkT} % delta T izol
+
+        % Axes
+        \draw[->] (0,\TTwo - 1) -- (\dOne + \dTwo + 1,\TTwo - 1) node[anchor=north] {$x$}; % x-axis
+        \draw[->] (0,\TTwo - 1) -- (0,\TOne * 1.1) node[anchor=east] {$T(x)$}; % y-axis
+
+        % Wall lines
+        \draw[thick] (0,\TOne) -- (0,\TTwo - 1);
+        \draw[thick] (\dTwo,\TOne) -- (\dTwo,\TTwo - 1);
+        \draw[thick] (\dOne + \dTwo,\TOne) -- (\dOne + \dTwo,\TTwo - 1);
+
+        % Line representing T(x)
+        \draw[thick, red] (-1,\TOne) -- (0,\TOne);
+        \draw[thick, red] (0,\TOne) -- (\dTwo,\TOne - \deltaTizol);
+        \draw[thick, red] (\dTwo,\TOne - \deltaTizol) -- (\dOne + \dTwo,\TTwo);
+        \draw[thick, red] (\dOne + \dTwo,\TTwo) -- (\dOne + \dTwo + 1,\TTwo);
+
+        % Dashed lines
+        \draw[dashed] (0,\TOne) -- (2,\TOne) node[anchor=west] {$T_1 = 20 \fs \uCELS$};
+        \draw[dashed] (\dTwo,\TOne - \deltaTizol) -- (3,\TOne - \deltaTizol) node[anchor=west] {$T_2 - \Delta T_{izol} = -0,69 \fs \uCELS$};
+        \draw[dashed] (\dOne + \dTwo,\TTwo) -- (4,\TTwo) node[anchor=east] {$T_2 = -10 \fs \uCELS$};
+        \draw[dashed] (\dOne + \dTwo, \TTwo - 1) -- (\dOne + \dTwo, \TTwo - 2) node[anchor=north] {$d_{izol} + d_{cihla}$};
+
+        % % Labels
+        \node[anchor=north] at (0, \TTwo - 1) {$0$};
+        \node[anchor=north] at (\dTwo, \TTwo - 1) {$d_{izol}$};
+    \end{tikzpicture}
+\end{center}
 
 \newpage
 
