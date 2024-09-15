@@ -15,11 +15,6 @@
     "editor.wordWrap": "on",
     "editor.defaultFormatter": "James-Yu.latex-workshop"
   },
-  "svgPreview.style": {
-    "html": {
-      "background": "white"
-    }
-  },
   "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
   "files.exclude": {
     "**/__pycache__": true,
