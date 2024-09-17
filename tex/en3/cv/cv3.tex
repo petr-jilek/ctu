@@ -30,9 +30,9 @@
 
         % Circuit
         \draw[thick] (1,0) -- (1.5,0) node[midway, above] {$T_1$};
-        \draw[thick] (1.5,-0.3) rectangle (2.5,0.3) node[midway] {$R_{\lambda}$};
+        \draw[thick] (1.5,-0.3) rectangle (2.5,0.3) node[midway] {$R_{\vartheta,\lambda}$};
         \draw[thick] (2.5,0) -- (3.5,0);
-        \draw[thick] (3.5,-0.3) rectangle (4.5,0.3) node[midway] {$R_{\alpha}$};
+        \draw[thick] (3.5,-0.3) rectangle (4.5,0.3) node[midway] {$R_{\vartheta,U}$};
         \draw[thick] (4.5,0) -- (5,0);
         \draw[thick] (5,0) -- (5,-1);
         \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$T_2$};
@@ -44,8 +44,8 @@
 
 Tepelný odpor válce se skládá ze dvou částí:
 \begin{itemize}
-    \item odpor vedení tepla v materiálu válce $R_{\lambda}$,
-    \item odpor přenosu tepla z povrchu válce do okolí $R_{\alpha}$.
+    \item tepelný odpor vedení tepla v materiálu válce $R_{\vartheta,\lambda}$,
+    \item tepelný odpor přenosu tepla z povrchu válce do okolí $R_{\vartheta,U}$.
 \end{itemize}
 
 Tepelné schéma válce bude vypadat následovně:
@@ -55,9 +55,9 @@ Tepelné schéma válce bude vypadat následovně:
         \draw[thick] (1,0) -- (1,-1);
         \draw[thick] (0.5,-1) -- (1.5,-1) node[midway, below] {$T_1$};
         \draw[thick] (1,0) -- (1.5,0);
-        \draw[thick] (1.5,-0.3) rectangle (2.5,0.3) node[midway] {$R_{\lambda}$};
+        \draw[thick] (1.5,-0.3) rectangle (2.5,0.3) node[midway] {$R_{\vartheta,\lambda}$};
         \draw[thick] (2.5,0) -- (3.5,0);
-        \draw[thick] (3.5,-0.3) rectangle (4.5,0.3) node[midway] {$R_{\alpha}$};
+        \draw[thick] (3.5,-0.3) rectangle (4.5,0.3) node[midway] {$R_{\vartheta,U}$};
         \draw[thick] (4.5,0) -- (5,0);
         \draw[thick] (5,0) -- (5,-1);
         \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$T_2$};
@@ -67,7 +67,7 @@ Tepelné schéma válce bude vypadat následovně:
     \end{tikzpicture}
 \end{center}
 
-Pro odvození tepelného odporu $R_{\lambda}$ využijeme vztah pro tepelný odpor $R$:
+Pro odvození tepelného odporu $R_{\vartheta,\lambda}$ využijeme vztah pro tepelný odpor $R$:
 $$
     R = \frac{d}{\lambda \cdot S},
 $$
@@ -89,9 +89,9 @@ kde:\\
 $r$ - poloměr válce (m),\\
 $l$ - délka válce (m).\\
 
-Tepelný odpor $dR$ válce bude tedy:
+Tepelný odpor $dR_{\vartheta,\lambda}$ válce bude tedy:
 $$
-    dR = \frac{dr}{\lambda \cdot 2 \pi r \cdot l \cdot dr}.
+    dR_{\vartheta,\lambda} = \frac{dr}{\lambda \cdot 2 \pi r \cdot l \cdot dr}.
 $$
 
 \begin{center}
@@ -120,114 +120,114 @@ $$
     \end{tikzpicture}
 \end{center}
 
-Pro získání celkového odporu $R_{\lambda}$ je třeba provést integraci od vnitřního poloměru izolace $r_1$ po vnější poloměr válce $r_2$:
+Pro získání celkového odporu $R_{\vartheta,\lambda}$ je třeba provést integraci od vnitřního poloměru izolace $r_1$ po vnější poloměr válce $r_2$:
 $$
-    R_{\lambda} = \int_{r_1}^{r_2} \frac{1}{\lambda \cdot 2 \pi r \cdot l} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \int_{r_1}^{r_2} \frac{1}{r} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left[ \ln |r| \right]_{r_1}^{r_2}
+    R_{\vartheta,\lambda} = \int_{r_1}^{r_2} \frac{1}{\lambda \cdot 2 \pi r \cdot l} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \int_{r_1}^{r_2} \frac{1}{r} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left[ \ln |r| \right]_{r_1}^{r_2}
 $$
 
 Jelikož poloměry $r_1$ a $r_2$ jsou kladné (záporné poloměry nedávají fyzikální smysl), můžeme absolutní hodnotu u logaritmu zanedbat:
 $$
-    R_{\lambda} = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left[ \ln r \right]_{r_1}^{r_2} = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left( \ln r_2 - \ln r_1 \right) = \frac{1}{\lambda \cdot 2 \pi \cdot l} \ln \frac{r_2}{r_1} = \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1}.
+    R_{\vartheta,\lambda} = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left[ \ln r \right]_{r_1}^{r_2} = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left( \ln r_2 - \ln r_1 \right) = \frac{1}{\lambda \cdot 2 \pi \cdot l} \ln \frac{r_2}{r_1} = \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1}.
 $$
 
-Pro odpor přenosu tepla z povrchu válce do okolí $R_{\alpha}$ využijeme vztah pro odpor přenosu tepla $R_{\alpha}$:
+Pro odpor přenosu tepla z povrchu válce do okolí $R_{\vartheta,U}$ využijeme vztah pro odpor přenosu tepla $R_{\vartheta,U}$:
 $$
-    R_{\alpha} = \frac{1}{\alpha \cdot S},
+    R_{\vartheta,U} = \frac{1}{U \cdot S},
 $$
 kde:\\
-$\alpha$ - koeficient prostupu tepla (W/m$^2 \cdot$K).\\
+$U$ - součinitel prostupu tepla (\ueqWandMinvsqKinv).\\
 
 Plochu $S$ nahradíme plochou válce:
 $$
     S \rightarrow 2 \pi r_2 \cdot l.
 $$
 
-Odpor přenosu tepla z povrchu válce do okolí $R_{\alpha}$ bude tedy:
+Odpor přenosu tepla z povrchu válce do okolí $R_{\vartheta,U}$ bude tedy:
 $$
-    R_{\alpha} = \frac{1}{\alpha \cdot 2 \pi r_2 \cdot l} = \frac{1}{2 \pi l \alpha r_2}.
+    R_{\vartheta,U} = \frac{1}{U \cdot 2 \pi r_2 \cdot l} = \frac{1}{2 \pi l U r_2}.
 $$
 
-Celkový tepelný odpor válce $R_{\Sigma}$ bude součtem obou odporů:
+Celkový tepelný odpor válce $R_{\vartheta, \Sigma}$ bude součtem obou odporů:
 $$
-    R_{\Sigma} = R_{\lambda} + R_{\alpha} = \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1} + \frac{1}{2 \pi l \alpha r_2}
+    R_{\vartheta,\Sigma} = R_{\vartheta,\lambda} + R_{\vartheta,U} = \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1} + \frac{1}{2 \pi l U r_2}
 $$
 
 
 \subsection{Minimum tepelného odporu}
 
-Pro nalezení extrému tepelného odporu $R_{\Sigma}$ podle poloměru válce $r_2$ je třeba zjistit, kdy bude derivace $R_{\Sigma}$ podle $r_2$ rovna nule:
+Pro nalezení extrému tepelného odporu $R_{\vartheta,\Sigma}$ podle poloměru válce $r_2$ je třeba zjistit, kdy bude derivace $R_{\vartheta,\Sigma}$ podle $r_2$ rovna nule:
 $$
-    \frac{dR_{\Sigma}}{dr_2} = 0.
-$$
-
-Derivace $R_{\Sigma}$ podle $r_2$ bude:
-$$
-    \frac{dR_{\Sigma}}{dr_2} = \frac{dR_{\lambda}}{dr_2} + \frac{dR_{\alpha}}{dr_2}.
+    \frac{dR_{\vartheta,\Sigma}}{dr_2} = 0.
 $$
 
-Derivace $R_{\lambda}$ podle $r_2$ bude:
+Derivace $R_{\vartheta,\Sigma}$ podle $r_2$ bude:
 $$
-    \frac{dR_{\lambda}}{dr_2} = \frac{d}{dr_2} \left( \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1} \right) = \frac{d}{dr_2} \left( \frac{1}{2 \pi l \lambda} \left(\ln r_2 - \ln r_1 \right) \right) =
+    \frac{dR_{\vartheta,\Sigma}}{dr_2} = \frac{dR_{\vartheta,\lambda}}{dr_2} + \frac{dR_{\vartheta,U}}{dr_2}.
+$$
+
+Derivace $R_{\vartheta,\lambda}$ podle $r_2$ bude:
+$$
+    \frac{dR_{\vartheta,\lambda}}{dr_2} = \frac{d}{dr_2} \left( \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1} \right) = \frac{d}{dr_2} \left( \frac{1}{2 \pi l \lambda} \left(\ln r_2 - \ln r_1 \right) \right) =
 $$
 
 $$
     = \frac{d}{dr_2} \left( \frac{1}{2 \pi l \lambda} \ln r_2 \right) = \frac{1}{2 \pi l \lambda r_2}.
 $$
 
-Derivace $R_{\alpha}$ podle $r_2$ bude:
+Derivace $R_{\vartheta,U}$ podle $r_2$ bude:
 $$
-    \frac{dR_{\alpha}}{dr_2} = \frac{d}{dr_2} \left( \frac{1}{2 \pi l \alpha r_2} \right) = -\frac{1}{2 \pi l \alpha r_2^2}.
-$$
-
-Derivace $R_{\Sigma}$ podle $r_2$ bude tedy:
-$$
-    \frac{dR_{\Sigma}}{dr_2} = \frac{1}{2 \pi l \lambda r_2} - \frac{1}{2 \pi l \alpha r_2^2}.
+    \frac{dR_{\vartheta,U}}{dr_2} = \frac{d}{dr_2} \left( \frac{1}{2 \pi l U r_2} \right) = -\frac{1}{2 \pi l U r_2^2}.
 $$
 
-Nyní můžeme zjistit, kdy bude derivace $R_{\Sigma}$ podle $r_2$ rovna nule:
+Derivace $R_{\vartheta,\Sigma}$ podle $r_2$ bude tedy:
 $$
-    \frac{1}{2 \pi l \lambda r_2} - \frac{1}{2 \pi l \alpha r_2^2} = 0
+    \frac{dR_{\vartheta,\Sigma}}{dr_2} = \frac{1}{2 \pi l \lambda r_2} - \frac{1}{2 \pi l U r_2^2}.
 $$
 
+Nyní můžeme zjistit, kdy bude derivace $R_{\vartheta,\Sigma}$ podle $r_2$ rovna nule:
 $$
-    \frac{1}{\lambda r_2} - \frac{1}{\alpha r_2^2} = 0
+    \frac{1}{2 \pi l \lambda r_2} - \frac{1}{2 \pi l U r_2^2} = 0
 $$
 
 $$
-    \frac{1}{\lambda r_2} = \frac{1}{\alpha r_2^2}
+    \frac{1}{\lambda r_2} - \frac{1}{U r_2^2} = 0
 $$
 
 $$
-    \frac{r_2}{\lambda} = \frac{1}{\alpha}
+    \frac{1}{\lambda r_2} = \frac{1}{U r_2^2}
 $$
 
 $$
-    r_2 = \frac{\lambda}{\alpha}.
-$$
-
-V další části budeme zkoumat, zda se jedná o minimum nebo maximum. K tomu využijeme druhou derivaci $R_{\Sigma}$ podle $r_2$:
-$$
-    \frac{d^2R_{\Sigma}}{dr_2^2} = \frac{d}{dr_2} \left( \frac{1}{2 \pi l \lambda r_2} - \frac{1}{2 \pi l \alpha r_2^2} \right) = -\frac{1}{2 \pi l \lambda r_2^2} + \frac{1}{\pi l \alpha r_2^3}.
-$$
-
-Nyní dosadíme $r_2 = \frac{\lambda}{\alpha}$:
-$$
-    -\frac{1}{2 \pi l \lambda \left( \frac{\lambda}{\alpha} \right)^2} + \frac{1}{\pi l \alpha \left( \frac{\lambda}{\alpha} \right)^3} = -\frac{1}{2 \pi l \lambda \frac{\lambda^2}{\alpha^2}} + \frac{1}{\pi l \alpha \frac{\lambda^3}{\alpha^3}} =
+    \frac{r_2}{\lambda} = \frac{1}{U}
 $$
 
 $$
-    = -\frac{\alpha^2}{2 \pi l \lambda^3} + \frac{\alpha^2}{\pi l \lambda^3} = \frac{-\alpha^2 + 2 \alpha^2}{2 \pi l \lambda^3} = \frac{\alpha^2}{2 \pi l \lambda^3}.
+    r_2 = \frac{\lambda}{U}.
 $$
 
-Hodnoty $\alpha$ a $\lambda$ jsou kladné, tudíž druhá derivace je kladná. To znamená, že se jedná o minimum.
+V další části budeme zkoumat, zda se jedná o minimum nebo maximum. K tomu využijeme druhou derivaci $R_{\vartheta,\Sigma}$ podle $r_2$:
+$$
+    \frac{d^2R_{\vartheta,\Sigma}}{dr_2^2} = \frac{d}{dr_2} \left( \frac{1}{2 \pi l \lambda r_2} - \frac{1}{2 \pi l U r_2^2} \right) = -\frac{1}{2 \pi l \lambda r_2^2} + \frac{1}{\pi l U r_2^3}.
+$$
+
+Nyní dosadíme $r_2 = \frac{\lambda}{U}$:
+$$
+    -\frac{1}{2 \pi l \lambda \left( \frac{\lambda}{U} \right)^2} + \frac{1}{\pi l U \left( \frac{\lambda}{U} \right)^3} = -\frac{1}{2 \pi l \lambda \frac{\lambda^2}{U^2}} + \frac{1}{\pi l U \frac{\lambda^3}{U^3}} =
+$$
+
+$$
+    = -\frac{U^2}{2 \pi l \lambda^3} + \frac{U^2}{\pi l \lambda^3} = \frac{-U^2 + 2 U^2}{2 \pi l \lambda^3} = \frac{U^2}{2 \pi l \lambda^3}.
+$$
+
+Hodnoty $U$ a $\lambda$ jsou kladné, tudíž druhá derivace je kladná. To znamená, že se jedná o minimum.
 
 \begin{center}
     \begin{tikzpicture}
         \begin{axis}[
-                title = {Závislost tepelného odporu $R_{\Sigma}$ na poloměru válce $r_2$},
+                title = {Závislost tepelného odporu $R_{\vartheta,\Sigma}$ na poloměru válce $r_2$},
                 axis lines = middle,
-                xlabel = $r_2$,
-                ylabel = {$R_{\Sigma}$},
+                xlabel = $r_2 \fs (\uM)$,
+                ylabel = {$R_{\vartheta,\Sigma} \fs (\uMsqKandWinv)$},
                 samples=100,
                 domain=0:0.5,
                 xmin=0,
