@@ -16,39 +16,38 @@
 \section{Značení}
 
 \begin{itemize}
-    \item $T$ - teplota (\ueqK \fs -- kelvin / \ueqCELS \fs - stupeň celsia)
-    \item $\Delta T$ - rozdíl teplot (\ueqK \fs -- kelvin)
+    \item $t$ - čas (\ueqS \fs -- sekunda)
     \item $l$ - délka (\ueqM \fs -- metr)
     \item $h$ - výška (\ueqM \fs -- metr)
-    \item $d$ - tloušťka / Průměr (\ueqM \fs -- metr)
+    \item $d$ - tloušťka / průměr (\ueqM \fs -- metr)
     \item $r$ - poloměr (\ueqM \fs -- metr)
     \item $S$ - plocha (\ueqMsq \fs -- metr čtvereční)
-    \item $c$ - měrná tepelná kapacita (\ueqJandKGinvKinv \fs -- joule na kilogram na kelvin)
-    \item $\rho$ - hustota (\ueqKGandMinvcu \fs -- kilogram na metr krychlový)
+    \item $V$ - objem (\ueqMcu \fs -- metr krychlový)
     \item $m$ - hmotnost (\ueqKG \fs -- kilogram)
-    \item $\dot{q}$ - měrný tepelný tok (\ueqWandMinvsq \fs -- watt)
-    \item $q$ - měrná tepelná energie (\ueqJandMinvsq \fs -- joule na kilogram)
-    \item $\dot{Q}$ - tepelný tok (\ueqW \fs -- watt)
-    \item $Q$ - tepelná energie (\ueqJ \fs -- joule)
+    \item $\rho$ - hustota (\ueqKGandMinvcu \fs -- kilogram na metr krychlový)
     \item $v$ - rychlost (\ueqMandSinv \fs -- metr za sekundu)
     \item $a$ - zrychlení (\ueqMandSinvsq \fs -- metr za sekundu na druhou)
-    \item $g$ - gravitační zrychlení (\ueqMandSinvsq \fs -- metr za sekundu na druhou)
-    \item $V$ - objem (\ueqMcu \fs -- metr krychlový)
+    \item $E$ - energie (\ueqJ \fs -- joule)
+    \item $E_p$ - potenciální energie (\ueqJ \fs -- joule)
+    \item $E_k$ - kinetická energie (\ueqJ \fs -- joule)
     \item $P$ - výkon (\ueqW \fs -- watt)
-    \item $t$ - čas (\ueqS \fs -- sekunda)
+    \item $T$ - teplota (\ueqK \fs -- kelvin / \ueqCELS \fs - stupeň celsia)
+    \item $\Delta T$ - rozdíl teplot (\ueqK \fs -- kelvin)
+    \item $\dot{q}$ - tepelný tok (\ueqWandMinvsq \fs -- watt)
+    \item $q$ - tepelná energie (\ueqJandMinvsq \fs -- joule na kilogram)
+    \item $\dot{Q}$ - absolutní tepelný tok (\ueqW \fs -- watt)
+    \item $Q$ - absolutní tepelná energie (\ueqJ \fs -- joule)
+    \item $c$ - měrná tepelná kapacita (\ueqJandKGinvKinv \fs -- joule na kilogram na kelvin)
     \item $\lambda$ - tepelná vodivost (\ueqWandMinvKinv \fs -- watt na metr na kelvin)
-    \item $u_{\vartheta}$ - měrný součinitel prostupu tepla (\ueqWandMinvsqKinv \fs -- watt na metr čtvereční na kelvin)
-    \item $U_{\vartheta}$ - součinitel prostupu tepla (\ueqWandKinv \fs -- watt na metr čtvereční na kelvin)
-    \item $r_{\vartheta}$ - měrný tepelný odpor (\ueqMsqKandWinv \fs -- metr čtvereční kelvin na watt)
-    \item $R_{\vartheta}$ - tepelný odpor (\ueqKandWinv \fs -- kelvin na watt)
+    \item $R_{\vartheta}$ - tepelný odpor (\ueqMsqKandWinv \fs -- metr čtvereční kelvin na watt)
+    \item $R_{\vartheta A}$ - absolutní tepelný odpor (\ueqKandWinv \fs -- kelvin na watt)
+    \item $U_{\vartheta}$ - součinitel prostupu tepla (\ueqWandMinvsqKinv \fs -- watt na metr čtvereční na kelvin)
+    \item $U_{\vartheta A}$ - absolutní součinitel prostupu tepla (\ueqWandKinv \fs -- watt na kelvin)
     \item $\rho_e$ - měrný elektrický odpor (\ueqOHMandMinv \fs -- ohm na metr)
     \item $\sigma_e$ - měrná elektrická vodivost (\ueqMandOHMinv \fs -- metr na ohm)
     \item $U$ - elektrické napětí (\ueqV \fs -- volt)
     \item $I$ - elektrický proud (\ueqA \fs -- ampér)
     \item $R_e$ - elektrický odpor (\ueqOHM \fs -- ohm)
-    \item $E$ - energie (\ueqJ \fs -- joule)
-    \item $E_p$ - potenciální energie (\ueqJ \fs -- joule)
-    \item $E_k$ - kinetická energie (\ueqJ \fs -- joule)
 \end{itemize}
 
 \newpage
@@ -164,7 +163,7 @@ Fourieruv zákon je základní rovnicí pro popis toku tepla:
     \tagaddtext{(\ueqWandMinvsq)}
 \end{equation}
 kde:\\
-$\vec{\dot{q}}$ -- měrný tepelný tok (\ueqWandMinvsq),\\
+$\vec{\dot{q}}$ -- tepelný tok (\ueqWandMinvsq),\\
 $\lambda$ -- tepelná vodivost (\ueqWandMinvKinv),\\
 $\vec{\nabla} T$ -- gradient teploty (\ueqKandMinv).
 

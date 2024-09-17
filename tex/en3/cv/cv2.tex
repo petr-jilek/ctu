@@ -576,6 +576,103 @@ Toto položení se rychleji vytopí, ale také se rychleji ochladí, jelikož iz
 
 
 \section{\emoji{scroll} PENB \spicy \spicy}
+Mějme dům s plochou střechou o parametrech:
+
+\begin{itemize}
+    \item plocha střechy $S_{strecha} = 100 \fs \uMsq$,
+    \item měrný součinitel prostupu tepla střechy $u_{strecha} = 0,3 \fs \uWandMinvsqKinv$,
+    \item plocha podlahy $S_{podlaha} = 100 \fs \uMsq$,
+    \item měrný součinitel prostupu tepla podlahy $u_{podlaha} = 0,8 \fs \uWandMinvsqKinv$,
+    \item plocha obvodových stěn $S_{zed} = 4 \cdot 10 \cdot 3 \fs \uMsq$ (4 stěny o výšce 2 metry a délce 10 metrů),
+    \item obvodová stěna je tvořena cihlou s tepelnou vodivostí $\lambda_{cihla} = 0,8 \fs \uWandMinvKinv$ a tloušťkou $d_{cihla} = 45 \fs \te{cm}$.
+\end{itemize}
+
+Zanedbejte ztráty tepla na začátku a na konci zdi a ztráty tepla na oknech a dveřích.
+
+\begin{enumerate}[a)]
+    \item Vypočítejte průměrný měrný součinitel prostupu tepla $u_{avg}$ pro celý dům.
+    \item Vypočítejte jak silnou izolaci $d_{izol}$ s tepelnou vodivostí $\lambda_{izol} = 0,04 \fs \uWandMinvKinv$ musíte použít, aby průměrný měrný součinitel prostupu tepla $u_{avg}^{*}$ byl $0,5 \fs \uWandMinvsqKinv$.
+\end{enumerate}
+
+
+\subsubsection{a}
+Plochu obvodových stěn $S_{zed}$ vypočteme jako:
+$$
+    S_{zed} = 4 \cdot 10 \cdot 3 = 120 \fs \uMsq.
+$$
+
+Celkovou plochu $S_{\Sigma}$ vypočteme jako:
+$$
+    S_{\Sigma} = S_{strecha} + S_{podlaha} + S_{zed} = 100 + 100 + 120 = 320 \fs \uMsq.
+$$
+
+Měrný součinitel prostupu tepla zdi $u_{cihla}$ vypočteme jako:
+$$
+    u_{cihla} = \frac{\lambda_{cihla}}{d_{cihla}} = \frac{0,8 \fs \uWandMinvKinv}{0,45 \fs \uM} = 1,778 \fs \uWandMinvsqKinv.
+$$
+
+Průměrný měrný součinitel prostupu tepla $u_{avg}$ vypočteme jako:
+$$
+    u_{avg} = \frac{1}{S_{\Sigma}} \cdot (u_{strecha} \cdot S_{strecha} + u_{podlaha} \cdot S_{podlaha} + u_{cihla} \cdot S_{zed}) =
+$$
+$$
+    = \frac{1}{320} \cdot \left( 0,3 \cdot 100 + 0,8 \cdot 100 + 1,778 \cdot 120 \right) = \frac{1}{320} \cdot (30 + 80 + 213,36) =
+$$
+$$
+    \frac{323,36}{320} \approx 1,01 \fs \uWandMinvsqKinv.
+$$
+
+
+\subsubsection{b}
+Měrný součinitel prostupu tepla zdi s izolací $u_{zed}$ vypočteme jako:
+$$
+    u_{zed} = \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1}
+$$
+
+Průměrný měrný součinitel prostupu tepla $u_{avg}^{*}$ vypočteme jako:
+$$
+    u_{avg}^{*} = \frac{1}{S_{\Sigma}} \cdot (u_{strecha} \cdot S_{strecha} + u_{podlaha} \cdot S_{podlaha} + u_{zed} \cdot S_{zed}) =
+$$
+$$
+    = \frac{1}{S_{\Sigma}} \cdot (u_{strecha} \cdot S_{strecha} + u_{podlaha} \cdot S_{podlaha} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
+$$
+
+Nyní je třeba vyřešit rovnici pro $d_{izol}$:
+$$
+    u_{avg}^{*} = \frac{1}{S_{\Sigma}} \cdot (u_{strecha} \cdot S_{strecha} + u_{podlaha} \cdot S_{podlaha} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
+$$
+$$
+    u_{avg}^{*} \cdot S_{\Sigma} =  (u_{strecha} \cdot S_{strecha} + u_{podlaha} \cdot S_{podlaha} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
+$$
+$$
+    u_{avg}^{*} \cdot S_{\Sigma} - u_{strecha} \cdot S_{strecha} - u_{podlaha} \cdot S_{podlaha} = \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed}
+$$
+$$
+    \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} = \frac{u_{avg}^{*} \cdot S_{\Sigma} - u_{strecha} \cdot S_{strecha} - u_{podlaha} \cdot S_{podlaha}}{S_{zed}}
+$$
+$$
+    \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} = \left( \frac{u_{avg}^{*} \cdot S_{\Sigma} - u_{strecha} \cdot S_{strecha} - u_{podlaha} \cdot S_{podlaha}}{S_{zed}} \right)^{-1}
+$$
+$$
+    \frac{d_{izol}}{\lambda_{izol}} = \left( \frac{u_{avg}^{*} \cdot S_{\Sigma} - u_{strecha} \cdot S_{strecha} - u_{podlaha} \cdot S_{podlaha}}{S_{zed}} \right)^{-1} - \frac{d_{cihla}}{\lambda_{cihla}}
+$$
+$$
+    d_{izol} = \lambda_{izol} \cdot \left( \left( \frac{u_{avg}^{*} \cdot S_{\Sigma} - u_{strecha} \cdot S_{strecha} - u_{podlaha} \cdot S_{podlaha}}{S_{zed}} \right)^{-1} - \frac{d_{cihla}}{\lambda_{cihla}} \right)
+$$
+
+Nyní můžeme dosadit a vypočítat:
+$$
+    d_{izol} = 0,04 \cdot \left( \left( \frac{0,5 \cdot 320 - 0,3 \cdot 100 - 0,8 \cdot 100}{120} \right)^{-1} - \frac{0,45}{0,8} \right) =
+$$
+$$
+    = 0,04 \cdot \left( \left( \frac{160 - 30 - 80}{120} \right)^{-1} - \frac{0,45}{0,8} \right) =
+$$
+$$
+    = 0,04 \cdot \left( \left( \frac{50}{120} \right)^{-1} - \frac{0,45}{0,8} \right) = 0,04 \cdot (2,4 - 0,5625) =
+$$
+$$
+    0,04 \cdot 1,8375 = 0,0735 \fs \uM = 7,35 \fs \te{cm}.
+$$
 
 \newpage
 
