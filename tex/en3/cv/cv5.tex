@@ -1,13 +1,11 @@
 \documentclass{article}
 \input{../shared/usings.tex}
 \input{../shared/commands.tex}
+\input{../shared/units.tex}
 
 \cvHead{5 - Aplikace}
 
 \begin{document}
-
-\input{../../shared/commands.tex}
-\input{../../shared/units.tex}
 
 \maketitle
 \tableofcontents
@@ -16,11 +14,141 @@
 
 
 \section{Průtokový ohřívač \spicy \spicy \spicy \spicy}
+Máme průtokový ohřívač tvořený dvěma obdelníkovými elektrodovými deskami o délce $l \fs (\uM)$ a šířce $b \fs (\uM)$. Vzdálenost mezi deskami je $d \fs (\uM)$. Mezi deskami je voda o rychlostí $v$. Voda má měrnou tepelnou kapacitu $c \fs (\uJandKGinvKinv)$ a hustotu $\rho \fs (\uKGandMinvcu)$. Elektrické napětí mezi deskami je $U \fs (\uV)$. Odvoďte změnu teploty vody $\Delta T \fs (\uK)$.
+
+Budou platit následující předpoklady:
+\begin{itemize}
+    \item $\frac{\partial T}{\partial t}$ = 0,
+    \item $\nabla \cdot (\lambda \cdot \vec{\nabla} T)$ = 0,
+\end{itemize}
+
+
+\subsection{Řešení}
+Foruier-Kirchhoffova rovnice:
+\begin{equation}
+    \rho \cdot c \cdot \vec{v} \cdot \vec{\nabla} T = Q_v,
+\end{equation}
+kde:\\
+$\rho$ -- hustota (\ueqKGandMinvcu),\\
+$c$ -- měrná tepelná kapacita (\ueqJandKGinvKinv),\\
+$\vec{v}$ -- rychlost (\ueqMandSinv),\\
+$\vec{\nabla} T$ -- gradient teploty (\ueqKandMinv),\\
+$Q_v$ -- objemový zdroj tepla (\ueqWandMinvcu).\\
+
+Vektor rychlosti $\vec{v}$ je:
+$$
+    \vec{v} = \begin{pmatrix} v_x \\ 0 \\ 0 \end{pmatrix}.
+$$
+
+Vektor rychlosti $\vec{v}$ má pouze složku $v_x$, protože voda teče pouze ve směru osy $x$. Můžeme tedy rovnici zjednodušit na:
+$$
+    \rho \cdot c \cdot v_x \cdot \frac{dT}{dx} = Q_v.
+$$
+
+Dále je třeba vyjádřit rychlost $v_x$ a objemový zdroj tepla $Q_v$. Rychlost $v_x$ je:
+$$
+    v_x = \frac{\dot{V}}{S} = \frac{\dot{V}}{d \cdot b},
+$$
+kde:\\
+$\dot{V}$ -- objemový průtok (\ueqMcuSinv).\\
+
+Objemový zdroj tepla $Q_v$ můžeme vyjádřit pomocí intenzity elektrického pole $E$ a proudové hustoty $J$:
+$$
+    Q_v = E \cdot J,
+$$
+kde:\\
+$E$ -- intenzita elektrického pole (\ueqVandMinv),\\
+$J$ -- proudová hustota (\ueqAandMinvsq).\\
+
+Proudovou hustotu $J$ můžeme vyjádřit pomocí Ohmova zákona v diferenciálním tvaru:
+$$
+    J = \gamma \cdot E,
+$$
+kde:\\
+$\gamma$ -- měrná elektrická vodivost (\ueqOHMandMinv).\\
+
+Dostaneme tedy:
+$$
+    Q_v = E \cdot \gamma \cdot E = \gamma \cdot E^2.
+$$
+
+Intenzitu elektrického pole $E$ můžeme vyjádřit pomocí napětí $U$ a vzdálenosti mezi deskami $d$:
+$$
+    E = \frac{U}{d}.
+$$
+
+Dostaneme tedy:
+$$
+    Q_v = \gamma \cdot \left( \frac{U}{d} \right)^2.
+$$
+
+Zde je třeba uvažovat měrnou elektrickou vodivost $\gamma$ jako proměrnou závislou na teplotě. U kovů se vzrůstající teplotou se měrná elektrická vodivost snižuje, jelikož volné nostiče náboje mají problém se v rozpohybované krystalové mřížce kvůli teplotě pohybovat. Naopak u iontových roztoku jako třeba u vody se měrná elektrická vodivost zvyšuje s teplotou. Nahradíme tedy $\gamma$ lineární funkcí teploty $\gamma(T)$:
+$$
+    \gamma = \gamma_0 + \gamma_1 \cdot T.
+$$
+
+Nyní můžeme dosadit vše do rovnice:
+$$
+    \rho \cdot c \cdot \frac{\dot{V}}{d \cdot b} \cdot \frac{dT}{dx} = \left( \gamma_0 + \gamma_1 \cdot T \right) \cdot \left( \frac{U}{d} \right)^2.
+$$
+
+Dostáváme diferenciální rovnici, kterou můžeme řešit separací proměnných:
+$$
+    \frac{dT}{\gamma_0 + \gamma_1 \cdot T} = \frac{U^2 \cdot b}{d \cdot \rho \cdot c \cdot \dot{V}} \cdot dx.
+$$
+
+Pravou staranu můžeme pro lepší čitelnost narhadit:
+$$
+    \xi = \frac{U^2 \cdot b}{d \cdot \rho \cdot c \cdot \dot{V}}.
+$$
+
+Dostáváme:
+$$
+    \frac{dT}{\gamma_0 + \gamma_1 \cdot T} = \xi \cdot dx.
+$$
+
+Integrujeme obě strany:
+$$
+    \int_{T_1}^{T_2} \frac{dT}{\gamma_0 + \gamma_1 \cdot T} = \int_{0}^{l} \xi \cdot dx,
+$$
+kde:\\
+$T_1$ -- počáteční teplota (\ueqK),\\
+$T_2$ -- konečná teplota (\ueqK),\\
+$l$ -- délka průtokového ohřívače (\ueqM).\\
+
+Dostáváme:
+$$
+    \left[ \frac{1}{\gamma_1} \cdot \ln \left( \gamma_0 + \gamma_1 \cdot T \right) \right]_{T_1}^{T_2} = \left[ \xi \cdot x \right]_0^l
+$$
+$$
+    \frac{1}{\gamma_1} \cdot \ln \left( \gamma_0 + \gamma_1 \cdot T_2 \right) - \frac{1}{\gamma_1} \cdot \ln \left( \gamma_0 + \gamma_1 \cdot T_1 \right) = \xi \cdot l
+$$
+$$
+    \ln \left( \frac{\gamma_0 + \gamma_1 \cdot T_2}{\gamma_0 + \gamma_1 \cdot T_1} \right) = \gamma_1 \cdot \xi \cdot l
+$$
+$$
+    \frac{\gamma_0 + \gamma_1 \cdot T_2}{\gamma_0 + \gamma_1 \cdot T_1} = e^{\gamma_1 \cdot \xi \cdot l}
+$$
+$$
+    \gamma_0 + \gamma_1 \cdot T_2 = \left( \gamma_0 + \gamma_1 \cdot T_1 \right) \cdot e^{\gamma_1 \cdot \xi \cdot l}
+$$
+$$
+    T_2 = \frac{\left( \gamma_0 + \gamma_1 \cdot T_1 \right) \cdot e^{\gamma_1 \cdot \xi \cdot l} - \gamma_0}{\gamma_1} = \frac{\gamma_0 \cdot e^{\gamma_1 \cdot \xi \cdot l} - \gamma_0 + \gamma_1 \cdot T_1 \cdot e^{\gamma_1 \cdot \xi \cdot l}}{\gamma_1} =
+$$
+$$
+    = \frac{\gamma_0 \cdot e^{\gamma_1 \cdot \xi \cdot l} - \gamma_0}{\gamma_1} + T_1 \cdot e^{\gamma_1 \cdot \xi \cdot l}.
+$$
+
+Pokud za $\xi$ dosadíme původní výraz, dostaneme:
+$$
+    T_2 = \frac{\gamma_0 \cdot e^{\gamma_1 \cdot \frac{U^2 \cdot b}{d \cdot \rho \cdot c \cdot \dot{V}} \cdot l} - \gamma_0}{\gamma_1} + T_1 \cdot e^{\gamma_1 \cdot \frac{U^2 \cdot b}{d \cdot \rho \cdot c \cdot \dot{V}} \cdot l}.
+$$
+
+\newpage
 
 
 
 \section{Indukční ohřev \spicy \spicy \spicy \spicy \spicy}
-
 
 
 \end{document}
