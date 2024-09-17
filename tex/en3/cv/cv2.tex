@@ -106,36 +106,31 @@ Tuto situaci můžeme znázornit následujícím obrázkem:
 
 
 \subsection{Fourieruv zákon \spicy \spicy \spicy}
-Nyní dosadíme řešení z předchozího příkladu do Fourierova zákona, kde za gradient teploty dosadíme derivaci teploty podle osy x:
+Nyní dosadíme řešení z předchozího příkladu do Fourierova zákona, kde za gradient teploty dosadíme derivaci teploty podle osy x, čímž získáme měrný tepelný tok $q_x$:
 $$
     \dot{q_x} = - \lambda  \frac{dT(x)}{dx} = - \lambda  \frac{d}{dx} \left( \frac{T_2 - T_1}{d} \cdot x + T_1 \right) = - \lambda  \frac{T_2 - T_1}{d} = \lambda  \frac{T_1 - T_2}{d} = \frac{\Delta T}{\frac{d}{\lambda}}.
 $$
 
 
 \subsection{Tepelný odpor}
-Dolní výraz z předchozí sekce $\frac{d}{\lambda}$ je měrný tepelný odpor $r_{\vartheta}$ s jednotkou \ueqMsqKandWinv. Je tedy definován jako:
+Dolní výraz z předchozí sekce $\frac{d}{\lambda}$ je tepelný odpor $R_{\vartheta}$ s jednotkou \ueqMsqKandWinv. Je tedy definován jako:
 $$
-    r_{\vartheta} = \frac{d}{\lambda}.
+    R_{\vartheta} = \frac{d}{\lambda}.
 $$
 
-Měrný tepelný tok $q_x$ má jednotku \ueqWandMinvsq. Tepelný tok $\dot{Q_x}$ s jednotkou \ueqW dostaneme vynásobením měrného tepelného toku plochou průřezu $S$:
+Měrný tepelný tok $q_x$ má jednotku \ueqWandMinvsq. Tepelný tok $\dot{Q_x}$ s jednotkou \ueqW \fs dostaneme vynásobením měrného tepelného toku plochou průřezu $S$:
 $$
     \dot{Q_x} = \dot{q_x} \cdot S = \lambda \frac{T_1 - T_2}{d} \cdot S = \lambda \frac{\Delta T}{d} \cdot S = \frac{\Delta T}{\frac{d}{\lambda \cdot S}}.
 $$
 
-Dolní výraz $\frac{d}{\lambda \cdot S}$ je tepelný odpor $R_{\vartheta}$ s jednotkou \ueqKandWinv. Je tedy definován jako:
+Dolní výraz $\frac{d}{\lambda \cdot S}$ je absolutní tepelný odpor $R_{\vartheta A}$ s jednotkou \ueqKandWinv. Je tedy definován jako:
 $$
-    R_{\vartheta} = \frac{d}{\lambda \cdot S}.
-$$
-
-Analogie mezi měrným tepelným odporem a tepelným odporem je:
-$$
-    R_{\vartheta} = \frac{r_{\vartheta}}{S}.
+    R_{\vartheta A} = \frac{d}{\lambda \cdot S} = \frac{R_{\vartheta}}{S}.
 $$
 
 \textit{Poznámka}\\
 
-Výpočet tepelného odporu je analogický jako výpočet elektrického odporu. Elektrický odpor $R_e$ má jednotku \ueqOHM a je definován jako:
+Výpočet tepelného odporu je analogický jako výpočet elektrického odporu. Elektrický odpor $R_e$ má jednotku \ueqOHM \fs a je definován jako:
 $$
     R_e = \frac{d}{\sigma_e \cdot S},
 $$
@@ -146,6 +141,7 @@ $S$ -- průřez vodiče (m2).\\
 
 Analogie jsou:
 \begin{itemize}
+    \item $R_{\vartheta A}$ -- absolutní tepelný odpor (\ueqKandWinv) $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM),
     \item $d$ -- tloušťka stěny (\ueqM) $\rightarrow$ $d$ -- délka vodiče (m),
     \item $\lambda$ -- tepelná vodivost (\ueqWandMinvsqKinv) $\rightarrow$ $\sigma_e$ -- elektrická vodivost (\ueqMandOHMinv),
     \item $S$ -- plocha průřezu (\ueqMsq) $\rightarrow$ $S$ -- průřez vodiče (m2).
@@ -158,13 +154,13 @@ $$
 kde:\\
 $I$ -- proud (\ueqA),\\
 $U$ -- napětí (\ueqV),\\
-$R_e$ -- odpor (\ueqOHM).\\
+$R_e$ -- elektrický odpor (\ueqOHM).\\
 
 Analogie jsou:
 \begin{itemize}
     \item $\dot{Q_x}$ -- tepelný tok (\ueqW) $\rightarrow$ $I$ -- proud (\ueqA),
     \item $\Delta T$ -- rozdíl teplot (\ueqK) $\rightarrow$ $U$ -- napětí (\ueqV),
-    \item $R_{\vartheta}$ -- tepelný odpor (\ueqKandWinv) $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM).
+    \item $R_{\vartheta A}$ -- absolutní tepelný odpor (\ueqKandWinv) $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM).
 \end{itemize}
 
 Elektrické schéma můžeme znázornit následujícím obrázkem:
@@ -203,19 +199,19 @@ Analogicky můžeme vytvořit tepelné schéma:
 
 
 \subsection{Součinitel prostupu tepla}
-Měrný součinitel prostupu tepla $u_{\vartheta}$ má jednotku \ueqWandMinvsqKinv. Je definován jako inverzní hodnota měrného tepelného odporu:
+Součinitel prostupu tepla $U_{\vartheta}$ má jednotku \ueqWandMinvsqKinv. Je definován jako inverzní hodnota tepelného odporu:
 $$
-    u_{\vartheta} = \frac{1}{r_{\vartheta}} = \frac{\lambda}{d}.
+    U_{\vartheta} = \frac{1}{R_{\vartheta}} = \frac{\lambda}{d}.
 $$
 
 Měrný tepelný tok $q_x$ se poté může zapsat jako:
 $$
-    \dot{q_x} = u_{\vartheta} \cdot \Delta T.
+    \dot{q_x} = U_{\vartheta} \cdot \Delta T.
 $$
 
-Součinitel prostupu tepla $U_{\vartheta}$ má jednotku \ueqKandWinv. Je definován jako inverzní hodnota tepelného odporu:
+Absolutní součinitel prostupu tepla $U_{\vartheta A}$ má jednotku \ueqKandWinv. Je definován jako inverzní hodnota absolutního tepelného odporu:
 $$
-    U_{\vartheta} = \frac{1}{R_{\vartheta}} = \frac{\lambda \cdot S}{d}.
+    U_{\vartheta A} = \frac{1}{R_{\vartheta A}} = \frac{\lambda \cdot S}{d} = U_{\vartheta} \cdot S.
 $$
 
 Tepelný tok $\dot{Q_x}$ se poté může zapsat jako:
@@ -223,45 +219,40 @@ $$
     \dot{Q_x} = U_{\vartheta} \cdot \Delta T.
 $$
 
-Analogie mezi měrným součinitelem prostupu tepla a součinitelem prostupu tepla je:
-$$
-    U_{\vartheta} = u_{\vartheta} \cdot S.
-$$
-
 
 \subsection{Číselný příklad}
 Teplota na začátku zdi je $T_1 = 20 \fs \uCELS$, teplota na konci zdi je $T_2 = -10 \fs \uCELS$. Zeď má tloušťku $d_{cihla} = 45 \fs \te{cm}$ a je tvořená obyčejnou cihlou s tepelná vodivostí $\lambda_{cihla} = 0,8 \fs \uWandMinvKinv$. Plocha průřezu zdi je $S = 20 \fs \uMsq$.
 
 \begin{enumerate}[a)]
-    \item Vypočítejte měrný tepelný odpor $r_{\vartheta}$,
-          tepelný odpor $R_{\vartheta}$, měrný součinitel prostupu tepla $u_{\vartheta}$, součinitel prostupu tepla $U_{\vartheta}$, měrný tepelný tok $\dot{q_x}$ a tepelný tok $\dot{Q_x}$.
+    \item Vypočítejte tepelný odpor $R_{\vartheta}$,
+          absolutní tepelný odpor $R_{\vartheta A}$, součinitel prostupu tepla $U_{\vartheta}$, absolutní součinitel prostupu tepla $U_{\vartheta A}$, měrný tepelný tok $\dot{q_x}$ a tepelný tok $\dot{Q_x}$.
     \item Uvažujte polystyrénovou izolaci s tepelnou vodivostí $\lambda_{izol} = 0,04 \fs \uWandMinvKinv$. Vypočítejte tloušťku izolace $d_{izol}$, která zajistí stejný měrný tepelný odpor (tím také zajistí stejný měrný tepelný tok).
 \end{enumerate}
 
 \subsubsection{a}
-Měrný tepelný odpor $r_{\vartheta}$ vypočteme jako:
-$$
-    r_{\vartheta} = \frac{d_{cihla}}{\lambda_{cihla}} = \frac{0,45 \fs \uM}{0,8 \fs \uWandMinvKinv} = 0,5625 \fs \uMsqKandWinv.
-$$
-
 Tepelný odpor $R_{\vartheta}$ vypočteme jako:
 $$
-    R_{\vartheta} = \frac{r_{\vartheta}}{S} \approx \frac{0,5625}{20} = 0,028 \fs \uKandWinv.
+    R_{\vartheta} = \frac{d_{cihla}}{\lambda_{cihla}} = \frac{0,45 \fs \uM}{0,8 \fs \uWandMinvKinv} = 0,5625 \fs \uMsqKandWinv.
 $$
 
-Měrný součinitel prostupu tepla $u_{\vartheta}$ vypočteme jako:
+Absolutní tepelný odpor $R_{\vartheta A}$ vypočteme jako:
 $$
-    u_{\vartheta} = \frac{1}{r_{\vartheta}} = \frac{1}{0,5625} \approx 1,778 \fs \uWandMinvsqKinv.
+    R_{\vartheta A} = \frac{R_{\vartheta}}{S} = \frac{0,5625}{20} \approx 0,028 \fs \uKandWinv.
 $$
 
 Součinitel prostupu tepla $U_{\vartheta}$ vypočteme jako:
 $$
-    U_{\vartheta} = \frac{1}{R_{\vartheta}} = \frac{1}{0,028} \approx 35,714 \fs \uKandWinv.
+    U_{\vartheta} = \frac{1}{R_{\vartheta}} = \frac{1}{0,5625} \approx 1,778 \fs \uWandMinvsqKinv.
+$$
+
+Absolutní součinitel prostupu tepla $U_{\vartheta A}$ vypočteme jako:
+$$
+    U_{\vartheta A} = \frac{1}{R_{\vartheta A}} = \frac{1}{0,028} \approx 35,714 \fs \uKandWinv.
 $$
 
 Měrný tepelný tok $\dot{q_x}$ vypočteme jako:
 $$
-    \dot{q_x} = \frac{\Delta T}{r_{\vartheta}} = \frac{T_1 - T_2}{r_{\vartheta}} = \frac{20 - (-10)}{0,5625} = \frac{30}{0,5625} \approx 53,33 \fs \uWandMinvsq.
+    \dot{q_x} = \frac{\Delta T}{R_{\vartheta}} = \frac{T_1 - T_2}{R_{\vartheta}} = \frac{20 - (-10)}{0,5625} = \frac{30}{0,5625} \approx 53,33 \fs \uWandMinvsq.
 $$
 
 Tepelný tok $\dot{Q_x}$ vypočteme jako:
@@ -272,7 +263,7 @@ $$
 \subsubsection{b}
 Aby se měrné tepelné odpory rovnaly, musí platit:
 $$
-    r_{\vartheta,cihla} = r_{\vartheta,izol}.
+    R_{\vartheta,cihla} = R_{\vartheta,izol}.
 $$
 $$
     \frac{d_{cihla}}{\lambda_{cihla}} = \frac{d_{izol}}{\lambda_{izol}}.
@@ -291,9 +282,9 @@ $$
 
 
 \subsection{Tepelné schéma}
-U skládané zdi máme několik vrstev zdi s různou tepelnou vodivostí a tloušťkou. Navíc počítáme s měrnými součinitely prostupu tepla na začátku (ze vnitř do zdi) a na konci (ze zdi ven).
+U skládané zdi máme několik vrstev zdi s různou tepelnou vodivostí a tloušťkou. Navíc počítáme se součinitely prostupu tepla na začátku (ze vnitř do zdi) a na konci (ze zdi ven).
 
-Mějme tedy n vrstev zdi, kde $i$-tá vrstva má tepelnou vodivost $\lambda_i$ a tloušťku $d_i$. Mějme měrný součinitel prostupu tepla na začátku $u_{\vartheta 1}$ a na konci $u_{\vartheta 2}$. Potom můžeme pro tuto situaci nakreslit následující tepelné schéma (pro zjednodušení budeme psát odpory pouze jako $r$ místo $r_{\vartheta}$ respektivě $R$ místo $R_{\vartheta}$ a automaticky budeme předpokládat, že se jedná o tepelné odpory):
+Mějme tedy n vrstev zdi, kde $i$-tá vrstva má tepelnou vodivost $\lambda_i$ a tloušťku $d_i$. Mějme součinitel prostupu tepla na začátku $U_{\vartheta,in}$ a na konci $U_{\vartheta,out}$. Potom můžeme pro tuto situaci nakreslit následující tepelné schéma:
 
 \begin{center}
     \begin{tikzpicture}
@@ -301,17 +292,17 @@ Mějme tedy n vrstev zdi, kde $i$-tá vrstva má tepelnou vodivost $\lambda_i$ a
         \draw[thick] (1,0) -- (1,-2);
 
         \draw[thick] (1,0) -- (1.5,0);
-        \draw[thick] (1.5,-0.3) rectangle (2.5,0.3) node[midway] {$R_{u,1}$};
+        \draw[thick] (1.5,-0.3) rectangle (2.5,0.3) node[midway] {$R_{\vartheta,in}$};
         \draw[thick] (2.5,0) -- (3,0);
-        \draw[thick] (3,-0.3) rectangle (4,0.3) node[midway] {$R_1$};
+        \draw[thick] (3,-0.3) rectangle (4,0.3) node[midway] {$R_{\vartheta,1}$};
         \draw[thick] (4,0) -- (4.5,0);
 
         \draw[dotted] (5,0) -- (6,0);
 
         \draw[thick] (6.5,0) -- (7,0);
-        \draw[thick] (7,-0.3) rectangle (8,0.3) node[midway] {$R_n$};
+        \draw[thick] (7,-0.3) rectangle (8,0.3) node[midway] {$R_{\vartheta,n}$};
         \draw[thick] (8,0) -- (8.5,0);
-        \draw[thick] (8.5,-0.3) rectangle (9.5,0.3) node[midway] {$R_{u,2}$};
+        \draw[thick] (8.5,-0.3) rectangle (9.5,0.3) node[midway] {$R_{\vartheta,out}$};
         \draw[thick] (9.5,0) -- (10,0);
 
         \draw[thick] (10,0) -- (10,-2);
@@ -322,57 +313,52 @@ Mějme tedy n vrstev zdi, kde $i$-tá vrstva má tepelnou vodivost $\lambda_i$ a
     \end{tikzpicture}
 \end{center}
 
-Měrný odpor $r_{\vartheta,1}$ vypočteme jako:
+Tepelný odpor $R_{\vartheta,in}$ vypočteme jako:
 $$
-    r_{\vartheta,1} = \frac{1}{u_{\vartheta,1}}.
-$$
-
-Měrný odpor $r_{\vartheta,2}$ vypočteme jako:
-$$
-    r_{\vartheta,2} = \frac{1}{u_{\vartheta,2}}.
+    R_{\vartheta,in} = \frac{1}{U_{\vartheta,in}}.
 $$
 
-Měrný odpor $r_i$ vypočteme jako:
+Tepelný odpor $R_{\vartheta,out}$ vypočteme jako:
 $$
-    r_i = \frac{d_i}{\lambda_i}.
-$$
-
-Celkový měrný odpor $r$ zdi bez přechodů vypočteme jako:
-$$
-    r = r_1 + \ldots + r_n = \sum_{i=1}^{n} r_i.
+    R_{\vartheta,out} = \frac{1}{U_{\vartheta,out}}.
 $$
 
-Celkový měrný odpor $r_{\Sigma}$ zdi s přechody vypočteme jako:
+Tepelný odpor $R_{\vartheta,i}$ vypočteme jako:
 $$
-    r_{\Sigma} = r_{\vartheta,1} + \sum_{i=1}^{n} r_i + r_{\vartheta,2}.
-$$
-
-Celkový tepelný odpor $R_{\Sigma}$ zdi s přechody vypočteme jako:
-$$
-    R_{\Sigma} = \frac{r_{\Sigma}}{S}.
+    R_{\vartheta,i} = \frac{d_i}{\lambda_i}.
 $$
 
-Měrný součinitel prostupu tepla $u_{\Sigma}$ zdi s přechody vypočteme jako:
+Celkový tepelný odpor $R_{\vartheta,\Sigma}$ zdi s přechody vypočteme jako:
 $$
-    u_{\Sigma} = \frac{1}{r_{\Sigma}} = \frac{1}{r_{\vartheta,1} + \sum_{i=1}^{n} r_i + r_{\vartheta,2}} = \frac{1}{\frac{1}{u_{\vartheta,1}} + \sum_{i=1}^{n} \frac{d_i}{\lambda_i} + \frac{1}{u_{\vartheta,2}}} =
-$$
-$$
-    = \left ( \frac{1}{u_{\vartheta,1}} + \sum_{i=1}^{n} \frac{d_i}{\lambda_i} + \frac{1}{u_{\vartheta,2}} \right )^{-1}
+    R_{\vartheta,\Sigma} = R_{\vartheta,in} + \sum_{i=1}^{n} R_{\vartheta,i} + R_{\vartheta,out}.
 $$
 
-Součinitel prostupu tepla $U_{\Sigma}$ zdi s přechody vypočteme jako:
+Celkový absolutní tepelný odpor $R_{\vartheta A,\Sigma}$ zdi s přechody vypočteme jako:
 $$
-    U_{\Sigma} = u_{\Sigma} \cdot S.
+    R_{\vartheta A,\Sigma} = \frac{R_{\vartheta,\Sigma}}{S}.
+$$
+
+Součinitel prostupu tepla $U_{\vartheta,\Sigma}$ zdi s přechody vypočteme jako:
+$$
+    U_{\vartheta,\Sigma} = \frac{1}{R_{\vartheta,\Sigma}} = \frac{1}{R_{\vartheta,in} + \sum_{i=1}^{n} R_{\vartheta,i} + R_{\vartheta,out}} = \frac{1}{\frac{1}{U_{\vartheta,in}} + \sum_{i=1}^{n} \frac{d_i}{\lambda_i} + \frac{1}{U_{\vartheta,out}}} =
+$$
+$$
+    = \left ( \frac{1}{U_{\vartheta,in}} + \sum_{i=1}^{n} \frac{d_i}{\lambda_i} + \frac{1}{U_{\vartheta,out}} \right )^{-1}
+$$
+
+Absolutní součinitel prostupu tepla $U_{\vartheta A,\Sigma}$ zdi s přechody vypočteme jako:
+$$
+    U_{\vartheta A,\Sigma} = U_{\vartheta,\Sigma} \cdot S.
 $$
 
 Měrný tepelný tok $\dot{q_x}$ zdi s přechody vypočteme pomocí měrných odporů jako:
 $$
-    \dot{q_x} = \frac{\Delta T}{r_{\Sigma}} = \frac{T_1 - T_2}{r_{\Sigma}}.
+    \dot{q_x} = \frac{\Delta T}{R_{\vartheta,\Sigma}} = \frac{T_1 - T_2}{R_{\vartheta,\Sigma}}.
 $$
 
-Pomocí měrného součinitele prostupu tepla $u_{\Sigma}$ můžeme vypočítat měrný tepelný tok $\dot{q_x}$ jako:
+Pomocí součinitele prostupu tepla $U_{\vartheta,\Sigma}$ můžeme vypočítat měrný tepelný tok $\dot{q_x}$ jako:
 $$
-    \dot{q_x} = u_{\Sigma} \cdot \Delta T = u_{\Sigma} \cdot (T_1 - T_2).
+    \dot{q_x} = U_{\vartheta,\Sigma} \cdot \Delta T = U_{\vartheta,\Sigma} \cdot (T_1 - T_2).
 $$
 
 Celkový tepelný tok $\dot{Q_x}$ zdi s přechody vypočteme jako:
@@ -397,7 +383,7 @@ Parametry polystyrénu jsou:
 Uvažujte, že izolace je na konci zdi (z venčí). Zanedbejte měrné součinitele prostupu tepla na začátku a na konci zdi.
 
 \begin{enumerate}[a)]
-    \item Nakreslete tepelné schéma a vypočítejte celkový měrný tepelný odpor $r_{\Sigma}$, celkový tepelný odpor $R_{\Sigma}$, měrný součinitel prostupu tepla $u_{\Sigma}$, součinitel prostupu tepla $U_{\Sigma}$, měrný tepelný tok $\dot{q_x}$ a tepelný tok $\dot{Q_x}$.
+    \item Nakreslete tepelné schéma a vypočítejte celkový tepelný odpor $R_{\vartheta,\Sigma}$, celkový absolutní tepelný odpor $R_{\vartheta A,\Sigma}$, součinitel prostupu tepla $U_{\vartheta,\Sigma}$, absolutní součinitel prostupu tepla $U_{\vartheta A,\Sigma}$, měrný tepelný tok $\dot{q_x}$ a tepelný tok $\dot{Q_x}$.
     \item Nakreslete graf závislosti teploty na ose x pro případ izolace z venčí a pro případ izolace zevnitř. Diskutujte výhody a nevýhody obou případů.
 \end{enumerate}
 
@@ -410,22 +396,22 @@ Tepelné schéma bude vypadat následovně:
         \draw[thick] (1,0) -- (1,-2);
 
         \draw[thick] (1,0) -- (1.5,0);
-        \draw[thick] (1.5,-0.3) rectangle (2.5,0.3) node[midway] {$R_{cihla}$};
-        \draw[thick] (2.5,0) -- (3.5,0);
-        \draw[thick] (3.5,-0.3) rectangle (4.5,0.3) node[midway] {$R_{izol}$};
-        \draw[thick] (4.5,0) -- (5,0);
+        \draw[thick] (1.5,-0.3) rectangle (3,0.3) node[midway] {$R_{\vartheta,cihla}$};
+        \draw[thick] (3,0) -- (4,0);
+        \draw[thick] (4,-0.3) rectangle (5.5,0.3) node[midway] {$R_{\vartheta,izol}$};
+        \draw[thick] (5.5,0) -- (6,0);
 
-        \draw[thick] (5,0) -- (5,-2);
-        \draw[thick] (4.5,-2) -- (5.5,-2) node[midway, below] {$T_2$};
+        \draw[thick] (6,0) -- (6,-2);
+        \draw[thick] (5.5,-2) -- (6.5,-2) node[midway, below] {$T_2$};
 
         % Triangle arrow
-        \draw[-{Triangle}] (2,0.7) -- (4,.7) node[midway, above] {$\dot{Q_x}$};
+        \draw[-{Triangle}] (2.5,0.7) -- (4.5,.7) node[midway, above] {$\dot{Q_x}$};
     \end{tikzpicture}
 \end{center}
 
-Měrný tepelný odpor cihly $r_{cihla}$ vypočteme jako:
+Tepelný odpor cihly $R_{\vartheta,cihla}$ vypočteme jako:
 $$
-    r_{cihla} = \frac{d_{cihla}}{\lambda_{cihla}} = \frac{0,45 \fs \uM}{0,8 \fs \uWandMinvKinv} = 0,5625 \fs \uMsqKandWinv.
+    R_{\vartheta,cihla} = \frac{d_{cihla}}{\lambda_{cihla}} = \frac{0,45 \fs \uM}{0,8 \fs \uWandMinvKinv} = 0,5625 \fs \uMsqKandWinv.
 $$
 
 Měrný tepelný odpor izolace $r_{izol}$ vypočteme jako:
