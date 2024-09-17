@@ -199,24 +199,24 @@ Analogicky můžeme vytvořit tepelné schéma:
 
 
 \subsection{Součinitel prostupu tepla}
-Součinitel prostupu tepla $U_{\vartheta}$ má jednotku \ueqWandMinvsqKinv. Je definován jako inverzní hodnota tepelného odporu:
+Součinitel prostupu tepla $U_\vartheta$ má jednotku \ueqWandMinvsqKinv. Je definován jako inverzní hodnota tepelného odporu:
 $$
-    U_{\vartheta} = \frac{1}{R_{\vartheta}} = \frac{\lambda}{d}.
+    U_\vartheta = \frac{1}{R_{\vartheta}} = \frac{\lambda}{d}.
 $$
 
 Měrný tepelný tok $q_x$ se poté může zapsat jako:
 $$
-    \dot{q_x} = U_{\vartheta} \cdot \Delta T.
+    \dot{q_x} = U_\vartheta \cdot \Delta T.
 $$
 
 Absolutní součinitel prostupu tepla $U_{\vartheta A}$ má jednotku \ueqKandWinv. Je definován jako inverzní hodnota absolutního tepelného odporu:
 $$
-    U_{\vartheta A} = \frac{1}{R_{\vartheta A}} = \frac{\lambda \cdot S}{d} = U_{\vartheta} \cdot S.
+    U_{\vartheta A} = \frac{1}{R_{\vartheta A}} = \frac{\lambda \cdot S}{d} = U_\vartheta \cdot S.
 $$
 
 Tepelný tok $\dot{Q_x}$ se poté může zapsat jako:
 $$
-    \dot{Q_x} = U_{\vartheta} \cdot \Delta T.
+    \dot{Q_x} = U_\vartheta \cdot \Delta T.
 $$
 
 
@@ -225,7 +225,7 @@ Teplota na začátku zdi je $T_1 = 20 \fs \uCELS$, teplota na konci zdi je $T_2 
 
 \begin{enumerate}[a)]
     \item Vypočítejte tepelný odpor $R_{\vartheta}$,
-          absolutní tepelný odpor $R_{\vartheta A}$, součinitel prostupu tepla $U_{\vartheta}$, absolutní součinitel prostupu tepla $U_{\vartheta A}$, měrný tepelný tok $\dot{q_x}$ a tepelný tok $\dot{Q_x}$.
+          absolutní tepelný odpor $R_{\vartheta A}$, součinitel prostupu tepla $U_\vartheta$, absolutní součinitel prostupu tepla $U_{\vartheta A}$, měrný tepelný tok $\dot{q_x}$ a tepelný tok $\dot{Q_x}$.
     \item Uvažujte polystyrénovou izolaci s tepelnou vodivostí $\lambda_{izol} = 0,04 \fs \uWandMinvKinv$. Vypočítejte tloušťku izolace $d_{izol}$, která zajistí stejný měrný tepelný odpor (tím také zajistí stejný měrný tepelný tok).
 \end{enumerate}
 
@@ -240,9 +240,9 @@ $$
     R_{\vartheta A} = \frac{R_{\vartheta}}{S} = \frac{0,5625}{20} \approx 0,028 \fs \uKandWinv.
 $$
 
-Součinitel prostupu tepla $U_{\vartheta}$ vypočteme jako:
+Součinitel prostupu tepla $U_\vartheta$ vypočteme jako:
 $$
-    U_{\vartheta} = \frac{1}{R_{\vartheta}} = \frac{1}{0,5625} \approx 1,778 \fs \uWandMinvsqKinv.
+    U_\vartheta = \frac{1}{R_{\vartheta}} = \frac{1}{0,5625} \approx 1,778 \fs \uWandMinvsqKinv.
 $$
 
 Absolutní součinitel prostupu tepla $U_{\vartheta A}$ vypočteme jako:
@@ -665,6 +665,55 @@ $$
 
 
 \section{\emoji{snowflake} Topná sezóna \spicy \spicy \spicy}
+Průměrná venkonví teplota v topné sezóně je $\overline{T}_{out} = 5 \fs \uCELS$. Vnitřní teplota je $T_{in} = 20 \fs \uCELS$. Doba topné sezóny je 200 dní. Celková plocha je $S = 300 \fs \uMsq$. Součinitel prostupu tepla je $U_\vartheta = 0,5 \fs \uWandMinvsqKinv$. Jaký množství tepla projde stěnami za celou topnou sezónu?
+
+\subsection{Řešení}
+Celkové množství tepla, které projde stěnami za celou topnou sezónu $Q$ vypočteme jako:
+$$
+    Q = \int_{t_1}^{t_2} \dot{Q} \cdot dt,
+$$
+kde:\\
+$\dot{Q}$ je tepelný tok (\ueqW),\\
+$t_1$ je začátek topné sezóny (\uH),\\
+$t_2$ je konec topné sezóny (\uH).
+
+Integrál můžeme rozepsat jako:
+$$
+    Q = \int_{t_1}^{t_2} U_\vartheta \cdot S \cdot (T_{in} - T_{out} (t)) \cdot dt = U_\vartheta \cdot S \cdot \int_{t_1}^{t_2} (T_{in} - T_{out} (t)) \cdot dt =
+$$
+$$
+    = U_\vartheta \cdot S \cdot T_{in} \cdot \int_{t_1}^{t_2} dt - U_\vartheta \cdot S \cdot \int_{t_1}^{t_2} T_{out} (t) \cdot dt =
+$$
+$$
+    = U_\vartheta \cdot S \cdot T_{in} \cdot (t_2 - t_1) - U_\vartheta \cdot S \cdot \int_{t_1}^{t_2} T_{out} (t) \cdot dt.
+$$
+
+Nyní uděláme odbočku, kde vyjádříme průměrnou venkovní teplotu $\overline{T}_{out}$ jako:
+$$
+    \overline{T}_{out} = \frac{1}{t_2 - t_1} \cdot \int_{t_1}^{t_2} T_{out} (t) \cdot dt.
+$$
+
+Vyjádříme daný integrál:
+$$
+    \int_{t_1}^{t_2} T_{out} (t) \cdot dt = \overline{T}_{out} \cdot (t_2 - t_1).
+$$
+
+Dosadíme zpět do původní rovnice:
+$$
+    Q = U_\vartheta \cdot S \cdot T_{in} \cdot (t_2 - t_1) - U_\vartheta \cdot S \cdot \overline{T}_{out} \cdot (t_2 - t_1) =
+$$
+$$
+    = U_\vartheta \cdot S \cdot (T_{in} - \overline{T}_{out}) \cdot (t_2 - t_1).
+$$
+
+Nyní můžeme dosadit a vypočítat:
+$$
+    Q = 0,5 \cdot 300 \cdot (20 - 5) \cdot (200 \cdot 24 \cdot 3 \fs 600 - 0) = 0,5 \cdot 300 \cdot 15 \cdot 200 \cdot 24 \cdot 3 \fs 600 =
+$$
+$$
+    = 38,9 \fs \te{GJ}.
+$$
+
 
 \newpage
 
