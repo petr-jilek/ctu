@@ -15,6 +15,230 @@
 
 \section{Symetrizace \spicy \spicy}
 
+$$
+    a = e^{\frac{2 \pi j}{3}} = \te{cos}(\frac{2 \pi}{3}) + j \cdot \te{sin}(\frac{2 \pi}{3}) = -\frac{1}{2} + j \cdot \frac{\sqrt{3}}{2}
+$$
+$$
+    a^2 = e^{\frac{4 \pi j}{3}} = \te{cos}(\frac{4 \pi}{3}) + j \cdot \te{sin}(\frac{4 \pi}{3}) = -\frac{1}{2} - j \cdot \frac{\sqrt{3}}{2}
+$$
+$$
+    a^3 = e^{\frac{6 \pi j}{3}} = e^{2 \pi j} = 1
+$$
+$$
+    a^4 = e^{\frac{8 \pi j}{3}} = e^{\frac{2 \pi j}{3}} \cdot e^{\frac{6 \pi j}{3}} = e^{\frac{2 \pi j}{3}} = a
+$$
+
+$$
+    j \cdot Y \cdot U \cdot (1 - a^2) - j \cdot Y \cdot U \cdot (1 - a) = k \cdot U
+$$
+$$
+    G \cdot U \cdot (a^2 - a) - j \cdot Y \cdot U \cdot (1 - a^2) = k \cdot U \cdot a^2
+$$
+$$
+    -G \cdot U \cdot (a^2 - a) + j \cdot Y \cdot U \cdot (1 - a) = k \cdot U \cdot a
+$$
+
+$$
+    j \cdot Y \cdot U \cdot (1 - a^2) - j \cdot Y \cdot U \cdot (1 - a) = k \cdot U
+$$
+$$
+    G \cdot U \cdot (a^2 - a) - j \cdot Y \cdot U \cdot (1 - a^2) = k \cdot U \cdot a^2
+$$
+
+$$
+    j \cdot Y \cdot (1 - a^2) - j \cdot Y \cdot (1 - a) = k
+$$
+$$
+    G \cdot (a^2 - a) - j \cdot Y \cdot (1 - a^2) = k \cdot a^2
+$$
+
+$$
+    -k + \left( j \cdot (1 - a^2) - j \cdot (1 - a) \right) \cdot Y = 0
+$$
+$$
+    -k \cdot a^2 - j \cdot (1 - a^2) \cdot Y = -G \cdot (a^2 - a)
+$$
+
+$$
+    \begin{pmatrix}
+        -1   & j (1 - a^2) - j (1 - a) \\
+        -a^2 & - j (1 - a^2)
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+        k \\
+        Y
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 \\
+        -G (a^2 - a)
+    \end{pmatrix}
+$$
+
+$$
+    \begin{pmatrix}
+        -1   & j - j a^2 - j + j a \\
+        -a^2 & - j + j a^2
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+        k \\
+        Y
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 \\
+        - G (a^2 - a)
+    \end{pmatrix}
+$$
+
+$$
+    \begin{pmatrix}
+        -1   & - j a^2 + j a \\
+        -a^2 & j a^2 - j
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+        k \\
+        Y
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 \\
+        - G (a^2 - a)
+    \end{pmatrix}
+$$
+
+$$
+    \begin{pmatrix}
+        -a^2 & - j a^4 + j a^3 \\
+        -a^2 & j a^2 - j
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+        k \\
+        Y
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 \\
+        - G (a^2 - a)
+    \end{pmatrix}
+$$
+
+$$
+    \begin{pmatrix}
+        -a^2 & - j a + j \\
+        -a^2 & j a^2 - j
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+        k \\
+        Y
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 \\
+        - G (a^2 - a)
+    \end{pmatrix}
+$$
+
+$$
+    \begin{pmatrix}
+        -a^2 & - j a + j           \\
+        0    & j a^2 - j + j a - j
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+        k \\
+        Y
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 \\
+        - G (a^2 - a)
+    \end{pmatrix}
+$$
+
+$$
+    \begin{pmatrix}
+        -a^2 & - j a + j         \\
+        0    & j a^2 + j a - 2 j
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+        k \\
+        Y
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 \\
+        - G (a^2 - a)
+    \end{pmatrix}
+$$
+
+$$
+    Y = \frac{- G (a^2 - a)}{j a^2 + j a - 2 j} = \frac{
+        - G \left( -\frac{1}{2} - j \frac{\sqrt{3}}{2} - \left( -\frac{1}{2} + j \frac{\sqrt{3}}{2} \right) \right)
+    }{
+        j \left( -\frac{1}{2} - j \frac{\sqrt{3}}{2} \right) + j \left( -\frac{1}{2} + j \frac{\sqrt{3}}{2} \right) - 2 j =
+    }
+$$
+$$
+    = \frac{
+        - G \left( -\frac{1}{2} - j \frac{\sqrt{3}}{2} + \frac{1}{2} - j \frac{\sqrt{3}}{2} \right)
+    }{
+        -j \frac{1}{2} + \frac{\sqrt{3}}{2} - j \frac{1}{2} - \frac{\sqrt{3}}{2} - 2 j
+    } = \frac{
+        - G \left( -j \sqrt{3} \right)
+    }{
+        -3 j
+    } = \frac{- G \sqrt{3}}{3} = -\frac{G}{\sqrt{3}}
+$$
+
+$$
+    -a^2 k + (-j a + j) Y = 0
+$$
+$$
+    k = \frac{- (-j a + j) Y}{-a^2} = \frac{(-j a + j) Y}{a^2} = \frac{(-j a + j) \left( -\frac{G}{\sqrt{3}} \right)}{a^2} =
+$$
+$$
+    = \frac{
+        \left( -j \left( -\frac{1}{2} + j \frac{\sqrt{3}}{2} \right) + j \right) \left( -\frac{G}{\sqrt{3}} \right)
+    }{
+        -\frac{1}{2} - j \frac{\sqrt{3}}{2}
+    } = \frac{
+        \left( j \frac{1}{2} + \frac{\sqrt{3}}{2} + j \right) \left( -\frac{G}{\sqrt{3}} \right)
+    }{
+        -\frac{1}{2} - j \frac{\sqrt{3}}{2}
+    } =
+$$
+$$
+    = \frac{
+        \left( j \frac{3}{2} + \frac{\sqrt{3}}{2} \right) \left( -\frac{G}{\sqrt{3}} \right)
+    }{
+        -\frac{1}{2} - j \frac{\sqrt{3}}{2}
+    } = \frac{
+        \left( - j \frac{3}{2 \sqrt{3}} - \frac{\sqrt{3}}{2 \sqrt{3}} \right) G
+    }{
+        -\frac{1}{2} - j \frac{\sqrt{3}}{2}
+    } =
+$$
+$$
+    = \frac{
+        \left( -\frac{1}{2} - j \frac{\sqrt{3}}{2} \right) G
+    }{
+        -\frac{1}{2} - j \frac{\sqrt{3}}{2}
+    } = G
+$$
+
+$$
+    k = G
+$$
+$$
+    Y = -\frac{G}{\sqrt{3}}
+$$
 
 
 \end{document}
