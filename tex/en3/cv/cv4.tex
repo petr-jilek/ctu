@@ -24,7 +24,7 @@ kde:\\
 $R$ - odpor zátěže $(\uOHM)$.\\
 
 \begin{center}
-    \begin{circuitikz}[european voltages]
+    \begin{circuitikz}[scale=0.8][european voltages]
         \draw
         (0,0) to [fullgeneric, -, l_=$G$] (6,0);
     \end{circuitikz}
@@ -33,7 +33,7 @@ $R$ - odpor zátěže $(\uOHM)$.\\
 Pokud bychom tuto zátěž připojily k 3 fázovému systému, tak by byla nesymetrická. Našim cílem je tuto zátěž symetrizovat. Z této zátěže vytvoříme 3 fázovou symetrickou zátěž následovně:
 
 \begin{center}
-    \begin{circuitikz}[european voltages]
+    \begin{circuitikz}[scale=0.8][european voltages]
         \draw
         (0,0)
         to [capacitor, *-, l_=$\hat{Y}_{1,3}$] (3,5)
@@ -380,19 +380,159 @@ $$
 
 
 \subsection{Obecná 3f nesymetrická zátěž}
+Mějme obecnou 3 fázovou nesymetrickou zátěž zadanou admitancemi podle obrázku:
+
+\begin{center}
+    \begin{circuitikz}[scale=0.8][european voltages]
+        \draw
+        (0,0)
+        to [fullgeneric, *-, l_=$\hat{Y}_{1,3}$] (3,5)
+        to [fullgeneric, *-, l_=$\hat{Y}_{1,2}$] (6,0)
+        to [fullgeneric, *-, l_=$\hat{Y}_{2,3}$] (0,0);
+
+        \node[anchor=west] at (3,5) {1};
+        \node[anchor=west] at (6,0) {2};
+        \node[anchor=east] at (0,0) {3};
+    \end{circuitikz}
+\end{center}
+
+Admitance můžeme zapsat jako:
+$$
+    \hat{Y}_{1,2} = G_{1,2} + j \cdot B_{1,2}
+$$
+$$
+    \hat{Y}_{1,3} = G_{1,3} + j \cdot B_{1,3}
+$$
+$$
+    \hat{Y}_{2,3} = G_{2,3} + j \cdot B_{2,3}.
+$$
+
+První krok je provést kompenzaci jalových částí. Stačí pouze vzít zápornou hodnotu jalové části zátěže:
+
+\begin{center}
+    \begin{circuitikz}[scale=0.8][european voltages]
+        \draw
+        (0,0)
+        to [fullgeneric, *-, l_=$-B_{1,2}$] (3,5)
+        to [fullgeneric, *-, l_=$-B_{1,3}$] (6,0)
+        to [fullgeneric, *-, l_=$-B_{2,3}$] (0,0);
+
+        \node[anchor=west] at (3,5) {1};
+        \node[anchor=west] at (6,0) {2};
+        \node[anchor=east] at (0,0) {3};
+    \end{circuitikz}
+\end{center}
+
+Dále je třeba provést symetrizaci pro každou část zvlášť. Nejprve pro větev 1--2, poté pro větev 1--3 a nakonec pro větev 2--3. Tento krok je znázorněn na obrázku:
+
+\begin{figure}[H]
+    \centering
+    \subfloat{
+        \begin{circuitikz}[scale=0.4][european voltages]
+            \draw
+            (0,0) to [short, *-] (0,0)
+            (3,5) to [fullgeneric, *-, l_=$\hat{Y}_{1,2}$]
+            (6,0) to [short, *-] (6,0);
+
+            \node[anchor=west] at (3,5) {1};
+            \node[anchor=west] at (6,0) {2};
+            \node[anchor=east] at (0,0) {3};
+        \end{circuitikz}
+    }
+    \qquad
+    \subfloat{
+        \begin{circuitikz}[scale=0.4][european voltages]
+            \draw
+            (0,0) to [fullgeneric, *-, l_=$\hat{Y}_{1,3}$] (3,5)
+            (3,5) to [short, *-] (3,5)
+            (6,0) to [short, *-] (6,0);
+
+            \node[anchor=west] at (3,5) {1};
+            \node[anchor=west] at (6,0) {2};
+            \node[anchor=east] at (0,0) {3};
+        \end{circuitikz}
+    }
+    \qquad
+    \subfloat{
+        \begin{circuitikz}[scale=0.4][european voltages]
+            \draw
+            (3,5) to [short, *-] (3,5)
+            (0,0) to [short, *-] (0,0)
+            (6,0) to [fullgeneric, *-, l_=$\hat{Y}_{2,3}$] (0,0);
+
+            \node[anchor=west] at (3,5) {1};
+            \node[anchor=west] at (6,0) {2};
+            \node[anchor=east] at (0,0) {3};
+        \end{circuitikz}
+    }
+\end{figure}
+
+Výsledná tabulka symetrizace bude vypadat následovně:
+\begin{center}
+    \begin{tabular}{l c c c}
+        \hline
+        Větev                      & 1--2                          & 1--3                          & 2--3                          \\
+        \hline                                                                                                                     \\
+        Kompenzace jalového výkonu & $-j B_{1,2}$                  & $-j B_{1,3}$                  & $-j B_{2,3}$                  \\~\\
+        Symetrizace 1--2           & 0                             & $-j \frac{G_{1,2}}{\sqrt{3}}$ & $j \frac{G_{1,2}}{\sqrt{3}}$  \\~\\
+        Symetrizace 1--3           & $j \frac{G_{1,3}}{\sqrt{3}}$  & 0                             & $-j \frac{G_{1,3}}{\sqrt{3}}$ \\~\\
+        Symetrizace 2--3           & $-j \frac{G_{2,3}}{\sqrt{3}}$ & $j \frac{G_{2,3}}{\sqrt{3}}$  & 0                             \\~\\
+        \hline
+    \end{tabular}
+\end{center}
+
+Symetrizační admitanci pro danou větev dostaneme jako součet všech symetrizačních admitancí (suma ve sloupci):
+$$
+    \hat{Y}_{s,1,2} = -j B_{1,2} + j \frac{G_{1,3}}{\sqrt{3}} - j \frac{G_{2,3}}{\sqrt{3}}
+$$
+$$
+    \hat{Y}_{s,1,3} = -j B_{1,3} - j \frac{G_{1,2}}{\sqrt{3}} + j \frac{G_{2,3}}{\sqrt{3}}
+$$
+$$
+    \hat{Y}_{s,2,3} = -j B_{2,3} + j \frac{G_{1,2}}{\sqrt{3}} - j \frac{G_{1,3}}{\sqrt{3}}
+$$
+
+Tyto admitance následně připojíme parallelně k odpovídajícím větvím. Výsledný obvod bude vypadat následovně:
+
+\begin{center}
+    \begin{circuitikz}[scale=0.8][european voltages]
+        \draw
+        (0,0)
+        to [fullgeneric, *-, l_=$\hat{Y}_{1,3}$] (3,5)
+        to [fullgeneric, *-, l_=$\hat{Y}_{1,2}$] (6,0)
+        to [fullgeneric, *-, l_=$\hat{Y}_{2,3}$] (0,0)
+
+        (0,0) to [short, -] (-5/3,1)
+        (-5/3,1) to [fullgeneric, -, l_=$\hat{Y}_{s,1,3}$] (4/3,6)
+        (4/3,6) to [short, -] (3,5)
+
+        (0,0) to [short, -] (0,-2)
+        (0,-2) to [fullgeneric, -, l_=$\hat{Y}_{s,2,3}$] (6,-2)
+        (6,-2) to [short, -] (6,0)
+
+        (3,5) to [short, -] (14/3,6)
+        (14/3,6) to [fullgeneric, -, l_=$\hat{Y}_{s,1,2}$] (23/3,1)
+        (23/3,1) to [short, -] (6,0);
+
+        \node[anchor=south] at (3,5) {1};
+        \node[anchor=west] at (6,0) {2};
+        \node[anchor=east] at (0,0) {3};
+    \end{circuitikz}
+\end{center}
 
 
 \subsection{Přepočet výkonů na admitance}
 Zátěže jsou často zadány pomocí: činného výkonu, úhlu $\te{cos} (\varphi) \fs$ a informací, zda je zátěž induktivní nebo kapacitní. Tyto informace můžeme převést na admitanci $\hat{Y} \fs (\uOHMinv)$ následovně:
 $$
-    \hat{Y} = \frac{P}{U^2} \cdot (1 - \te{tg} (\pm \varphi)),
+    \hat{Y} = \frac{P}{U^2} \cdot (1 - j \cdot \te{tg} (\pm \varphi)) = \frac{P}{U^2} \cdot (1 \pm j \cdot \te{tg} (\varphi)),
 $$
 kde:
 $P$ - činný výkon (\ueqW),\\
 $U$ - efektivní hodnota napětí (\ueqV),\\
+$j$ - imaginární jednotka,\\
 $\varphi$ - úhel $\te{cos} (\varphi)$,\\
-$+\varphi$ - induktivní zátěž,\\
-$-\varphi$ - kapacitní zátěž.
+$+$ - induktivní zátěž,\\
+$-$ - kapacitní zátěž.
 
 \subsubsection{Odvození \spicy \spicy \spicy}
 
@@ -402,7 +542,7 @@ $-\varphi$ - kapacitní zátěž.
 Mějme 3 fázovou nesymetrickou zátěž nazančenou na obrázku:
 
 \begin{center}
-    \begin{circuitikz}[european voltages]
+    \begin{circuitikz}[scale=0.8][european voltages]
         \draw
         (0,0)
         to [fullgeneric, *-, l_=$P_{1,3}$] (3,5)
@@ -415,16 +555,87 @@ Parametry:
 \begin{itemize}
     \item $U = 400 \uV$,
     \item $\te{cos} (\varphi) = 0.8$,
-    \item $P_{1,3} = 28 \fs \uKW$, induktivní,
     \item $P_{1,2} = 63 \fs \uKW$, induktivní,
+    \item $P_{1,3} = 28 \fs \uKW$, induktivní,
     \item $P_{2,3} = 26 \fs \uKW$, kapacitní.
 \end{itemize}
 
 Provete symetrizaci zátěže.
 
 \subsubsection{Řešení}
+Nejprve získáme úhel $\varphi$:
+$$
+    \varphi = \te{arccos} (0.8) \approx 0.644 \fs \te{rad}.
+$$
 
+Dále vypočítáme $\te{tg} (\varphi)$:
+$$
+    \te{tg} (\varphi) = \te{tg} (0.644) \approx 0.751.
+$$
 
+Následně získáme admitance:
+$$
+    Y_{1,2} = \frac{P_{1,2}}{U^2} \cdot (1 + j \cdot \te{tg} (\varphi)) = \frac{63 \fs 000}{400^2} \cdot (1 + j \cdot 0.751) = (0.394 + j \cdot 0.236) \fs \uOHMinv
+$$
+$$
+    Y_{1,3} = \frac{P_{1,3}}{U^2} \cdot (1 + j \cdot \te{tg} (\varphi)) = \frac{28 \fs 000}{400^2} \cdot (1 + j \cdot 0.751) = (0.175 + j \cdot 0.131) \fs \uOHMinv
+$$
+$$
+    Y_{2,3} = \frac{P_{2,3}}{U^2} \cdot (1 - j \cdot \te{tg} (\varphi)) = \frac{26 \fs 000}{400^2} \cdot (1 - j \cdot 0.751) = (0.163 - j \cdot 0.122) \fs \uOHMinv.
+$$
 
+Dále vytvoříme tabulku symetrizace:
+
+\begin{center}
+    \begin{tabular}{l l l l}
+        \hline
+        Větev                      & 1--2                        & 1--3                        & 2--3                        \\
+        \hline                                                                                                               \\
+        Kompenzace jalového výkonu & $-j 0.236$                  & $-j 0.131$                  & $j 0.122$                   \\~\\
+        Symetrizace 1--2           & 0                           & $-j \frac{0.394}{\sqrt{3}}$ & $j \frac{0.394}{\sqrt{3}}$  \\~\\
+        Symetrizace 1--3           & $j \frac{0.175}{\sqrt{3}}$  & 0                           & $-j \frac{0.175}{\sqrt{3}}$ \\~\\
+        Symetrizace 2--3           & $-j \frac{0.163}{\sqrt{3}}$ & $j \frac{0.163}{\sqrt{3}}$  & 0                           \\~\\
+        \hline
+    \end{tabular}
+\end{center}
+
+Symetrizační admitance:
+$$
+    Y_{s,1,2} = -j 0.236 + j \frac{0.175}{\sqrt{3}} - j \frac{0.163}{\sqrt{3}} = -j 0.236 + j 0.101 - j 0.094 = -j 0.229 \fs \uOHMinv
+$$
+$$
+    Y_{s,1,3} = -j 0.131 - j \frac{0.394}{\sqrt{3}} + j \frac{0.163}{\sqrt{3}} = -j 0.131 - j 0.227 + j 0.094 = -j 0.264 \fs \uOHMinv
+$$
+$$
+    Y_{s,2,3} = j 0.122 + j \frac{0.394}{\sqrt{3}} - j \frac{0.175}{\sqrt{3}} = j 0.122 + j 0.227 - j 0.101 = j 0.248 \fs \uOHMinv.
+$$
+
+Výsledné zapojení bude vypadat následovně:
+
+\begin{center}
+    \begin{circuitikz}[scale=0.8][european voltages]
+        \draw
+        (0,0)
+        to [fullgeneric, *-, l_=$\hat{Y}_{1,3}$] (3,5)
+        to [fullgeneric, *-, l_=$\hat{Y}_{1,2}$] (6,0)
+        to [fullgeneric, *-, l_=$\hat{Y}_{2,3}$] (0,0)
+
+        (0,0) to [short, -] (-5/3,1)
+        (-5/3,1) to [cute inductor, -, l_=$\hat{Y}_{s,1,3}$] (4/3,6)
+        (4/3,6) to [short, -] (3,5)
+
+        (0,0) to [short, -] (0,-2)
+        (0,-2) to [capacitor, -, l_=$\hat{Y}_{s,2,3}$] (6,-2)
+        (6,-2) to [short, -] (6,0)
+
+        (3,5) to [short, -] (14/3,6)
+        (14/3,6) to [cute inductor, -, l_=$\hat{Y}_{s,1,2}$] (23/3,1)
+        (23/3,1) to [short, -] (6,0);
+
+        \node[anchor=south] at (3,5) {1};
+        \node[anchor=west] at (6,0) {2};
+        \node[anchor=east] at (0,0) {3};
+    \end{circuitikz}
+\end{center}
 
 \end{document}
