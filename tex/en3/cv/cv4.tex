@@ -379,7 +379,7 @@ $$
 $$
 
 
-\subsection{Obecná 3f nesymetrická zátěž \spicy \spicy \spicy}
+\subsection{Obecná 3f nesymetrická zátěž}
 
 
 \subsection{Přepočet výkonů na admitance}
@@ -399,6 +399,28 @@ $-\varphi$ - kapacitní zátěž.
 
 
 \subsection{Číselný příklad}
+Mějme 3 fázovou nesymetrickou zátěž nazančenou na obrázku:
+
+\begin{center}
+    \begin{circuitikz}[european voltages]
+        \draw
+        (0,0)
+        to [fullgeneric, *-, l_=$P_{1,3}$] (3,5)
+        to [fullgeneric, *-, l_=$P_{1,2}$] (6,0)
+        to [fullgeneric, *-, l_=$P_{2,3}$] (0,0);
+    \end{circuitikz}
+\end{center}
+
+Parametry:
+\begin{itemize}
+    \item $U = 400 \uV$,
+    \item $\te{cos} (\varphi) = 0.8$,
+    \item $P_{1,3} = 28 \fs \uKW$, induktivní,
+    \item $P_{1,2} = 63 \fs \uKW$, induktivní,
+    \item $P_{2,3} = 26 \fs \uKW$, kapacitní.
+\end{itemize}
+
+Provete symetrizaci zátěže.
 
 \subsubsection{Řešení}
 
