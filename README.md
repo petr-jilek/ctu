@@ -19,3 +19,8 @@ This repository contains study materials for the subjects at the Czech Technical
 ## Contributing
 
 Contributions from others would be very much appreciated! Send issue / pull request. Thanks!
+
+When creating a branch use the following naming convention:
+
+- `feat/<your-feature-name>` for new features
+- `fix/<your-fix-name>` for bug fixes
