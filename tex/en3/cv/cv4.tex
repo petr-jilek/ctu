@@ -36,8 +36,8 @@ Pokud bychom tuto zátěž připojily k 3 fázovému systému, tak by byla nesym
     \begin{circuitikz}[european voltages]
         \draw
         (0,0)
-        to [capacitor, *-, l_=$Y_{1,3}$] (3,5)
-        to [cute inductor, *-, l_=$Y_{1,2}$] (6,0)
+        to [capacitor, *-, l_=$\hat{Y}_{1,3}$] (3,5)
+        to [cute inductor, *-, l_=$\hat{Y}_{1,2}$] (6,0)
         to [fullgeneric, *-, l_=$G$] (0,0);
     \end{circuitikz}
 \end{center}
@@ -56,8 +56,8 @@ Uvažujme následující zapojení prvku v 3 fázovém systému:
     \begin{circuitikz}[scale=0.8][european voltages]
         \draw
         (0,0)
-        to [fullgeneric, *-, l_=$Y_{1,3}$] (3,5)
-        to [fullgeneric, *-, l_=$Y_{1,2}$] (6,0)
+        to [fullgeneric, *-, l_=$\hat{Y}_{1,3}$] (3,5)
+        to [fullgeneric, *-, l_=$\hat{Y}_{1,2}$] (6,0)
         to [fullgeneric, *-, l_=$G$] (0,0)
 
         to [short, -] (0,-2)
@@ -97,54 +97,108 @@ Uvažujme následující zapojení prvku v 3 fázovém systému:
     \end{circuitikz}
 \end{center}
 
+Mezi uzly 2 a 3 je zapojena reálná zátěž, kterou chceme symetrizovat o vodivosti $G \fs (\uOHMinv) $. Požadujeme, aby po připojení admitancí $\hat{Y}_{1,2} \fs (\uOHMinv)$ a $\hat{Y_{1.3}} \fs (\uOHMinv)$ byla zátěž reálná a symetrická. Dalším požadavkem je, aby činný výkon odebíraný zátěží zůstal nezměněn. Matematicky to znamená:
+
+\begin{itemize}
+    \item zachování činného výkonu: $\hat{Y}_{1,2}$ a $\hat{Y}_{1,3}$ jsou ryze imaginární,
+    \item výsledné zapojení neodebírá jalový výkon: $\hat{Y}_{1,2} = - \hat{Y}_{1,3}$
+    \item symetrie odebíraných proudů: $\hat{I}_1 = k \cdot \hat{U}_1$, $\hat{I}_2 = k \cdot \hat{U_2}$, $\hat{I}_3 = k \cdot \hat{U}_3$.
+\end{itemize}
+
+Položme: $\hat{Y}_{1,2} = j \cdot Y$ a $\hat{Y}_{1,3} = -j \cdot Y$.\\
+
+Použijeme operátor pootočení o $120^\circ$ proti směru hodinových ručiček v komplexní rovině:
 $$
-    a = e^{\frac{2 \pi j}{3}} = \te{cos}(\frac{2 \pi}{3}) + j \cdot \te{sin}(\frac{2 \pi}{3}) = -\frac{1}{2} + j \cdot \frac{\sqrt{3}}{2}
+    \hat{a} = e^{\frac{2 \pi j}{3}} = \te{cos}(\frac{2 \pi}{3}) + j \cdot \te{sin}(\frac{2 \pi}{3}) = -\frac{1}{2} + j \cdot \frac{\sqrt{3}}{2}
 $$
 $$
-    a^2 = e^{\frac{4 \pi j}{3}} = \te{cos}(\frac{4 \pi}{3}) + j \cdot \te{sin}(\frac{4 \pi}{3}) = -\frac{1}{2} - j \cdot \frac{\sqrt{3}}{2}
+    \hat{a}^2 = e^{\frac{4 \pi j}{3}} = \te{cos}(\frac{4 \pi}{3}) + j \cdot \te{sin}(\frac{4 \pi}{3}) = -\frac{1}{2} - j \cdot \frac{\sqrt{3}}{2}
 $$
 $$
-    a^3 = e^{\frac{6 \pi j}{3}} = e^{2 \pi j} = 1
+    \hat{a}^3 = e^{\frac{6 \pi j}{3}} = e^{2 \pi j} = 1
 $$
 $$
-    a^4 = e^{\frac{8 \pi j}{3}} = e^{\frac{2 \pi j}{3}} \cdot e^{\frac{6 \pi j}{3}} = e^{\frac{2 \pi j}{3}} = a
+    \hat{a}^4 = e^{\frac{8 \pi j}{3}} = e^{\frac{2 \pi j}{3}} \cdot e^{\frac{6 \pi j}{3}} = e^{\frac{2 \pi j}{3}} = \hat{a}
+$$
+
+Poté fázory napětí můžeme vyjádřit jako:
+$$
+    \hat{U}_1 = \hat{U} \cdot \hat{a}
+$$
+$$
+    \hat{U}_2 = \hat{U} \cdot \hat{a}^2
+$$
+$$
+    \hat{U}_3 = \hat{U} \cdot \hat{a}
+$$
+
+Můžeme napsat rovnice pro proudy:
+$$
+    \hat{I}_1 = \hat{I}_{1,2} + \hat{I}_{1,3} = \hat{Y}_{1,2} \cdot \left( \hat{U}_1 - \hat{U}_2 \right) + \hat{Y}_{1,3} \cdot \left( \hat{U}_1 - \hat{U}_3 \right) =
+$$
+$$
+    = j \cdot Y \cdot U \cdot \left( 1 - \hat{a}^2 \right) - j \cdot Y \cdot U \cdot \left( 1 - \hat{a} \right) = k \cdot U
 $$
 
 $$
-    j \cdot Y \cdot U \cdot (1 - a^2) - j \cdot Y \cdot U \cdot (1 - a) = k \cdot U
+    \hat{I}_2 = \hat{I}_{2,3} - \hat{I}_{1,2} = G \cdot \left( \hat{U}_2 - \hat{U}_3 \right) - \hat{Y}_{1,2} \cdot \left( \hat{U}_1 - \hat{U}_2 \right) =
 $$
 $$
-    G \cdot U \cdot (a^2 - a) - j \cdot Y \cdot U \cdot (1 - a^2) = k \cdot U \cdot a^2
-$$
-$$
-    -G \cdot U \cdot (a^2 - a) + j \cdot Y \cdot U \cdot (1 - a) = k \cdot U \cdot a
+    = G \cdot U \cdot \left( \hat{a}^2 - \hat{a} \right) - j \cdot Y \cdot U \cdot \left( 1 - \hat{a}^2 \right) = k \cdot U \cdot \hat{a}^2
 $$
 
 $$
-    j \cdot Y \cdot U \cdot (1 - a^2) - j \cdot Y \cdot U \cdot (1 - a) = k \cdot U
+    \hat{I}_3 = - \hat{I}_{1,3} - \hat{I}_{2,3} = - \hat{Y}_{1,3} \cdot \left( \hat{U}_1 - \hat{U}_3 \right) - G \cdot \left( \hat{U}_2 - \hat{U}_3 \right) =
 $$
 $$
-    G \cdot U \cdot (a^2 - a) - j \cdot Y \cdot U \cdot (1 - a^2) = k \cdot U \cdot a^2
-$$
-
-$$
-    j \cdot Y \cdot (1 - a^2) - j \cdot Y \cdot (1 - a) = k
-$$
-$$
-    G \cdot (a^2 - a) - j \cdot Y \cdot (1 - a^2) = k \cdot a^2
+    = j \cdot Y \cdot U \cdot \left( 1 - \hat{a} \right) - G \cdot U \cdot \left( \hat{a}^2 - \hat{a} \right) = k \cdot U \cdot \hat{a}
 $$
 
+Vezmeme konce rovnic, čímž dostaneme:
 $$
-    -k + \left( j \cdot (1 - a^2) - j \cdot (1 - a) \right) \cdot Y = 0
+    j \cdot Y \cdot U \cdot \left( 1 - \hat{a}^2 \right) - j \cdot Y \cdot U \cdot \left( 1 - \hat{a} \right) = k \cdot U
 $$
 $$
-    -k \cdot a^2 - j \cdot (1 - a^2) \cdot Y = -G \cdot (a^2 - a)
+    G \cdot U \cdot \left( \hat{a}^2 - \hat{a} \right) - j \cdot Y \cdot U \cdot \left( 1 - \hat{a}^2 \right) = k \cdot U \cdot \hat{a}^2
+$$
+$$
+    j \cdot Y \cdot U \cdot \left( 1 - \hat{a} \right) - G \cdot U \cdot \left( \hat{a}^2 - \hat{a} \right) = k \cdot U \cdot \hat{a}
 $$
 
+Rovnice jsou lineárně závislé, jelikož součet pravých stran je roven nule:
+$$
+    k \cdot U + k \cdot U \cdot \hat{a} + k \cdot U \cdot \hat{a}^2 = k \cdot U \cdot \left( 1 + \hat{a} + \hat{a}^2 \right) = k \cdot U \cdot 0 = 0
+$$
+
+Díky lineární závislosti nám stačí vzít pouze dvě rovnice. Vezmeme první a druhou:
+$$
+    j \cdot Y \cdot U \cdot (1 - \hat{a}^2) - j \cdot Y \cdot U \cdot (1 - \hat{a}) = k \cdot U
+$$
+$$
+    G \cdot U \cdot (\hat{a}^2 - \hat{a}) - j \cdot Y \cdot U \cdot (1 - \hat{a}^2) = k \cdot U \cdot \hat{a}^2
+$$
+
+Můžeme pokrátit $U$:
+$$
+    j \cdot Y \cdot (1 - \hat{a}^2) - j \cdot Y \cdot (1 - \hat{a}) = k
+$$
+$$
+    G \cdot (\hat{a}^2 - \hat{a}) - j \cdot Y \cdot (1 - \hat{a}^2) = k \cdot \hat{a}^2
+$$
+
+Připravíme rovnice na maticový tvar:
+$$
+    -k + \left( j \cdot (1 - \hat{a}^2) - j \cdot (1 - \hat{a}) \right) \cdot Y = 0
+$$
+$$
+    -k \cdot \hat{a}^2 - j \cdot (1 - \hat{a}^2) \cdot Y = -G \cdot (\hat{a}^2 - \hat{a})
+$$
+
+Přepíšeme do maticového tvaru:
 $$
     \begin{pmatrix}
-        -1   & j (1 - a^2) - j (1 - a) \\
-        -a^2 & - j (1 - a^2)
+        -1         & j (1 - \hat{a}^2) - j (1 - \hat{a}) \\
+        -\hat{a}^2 & - j (1 - \hat{a}^2)
     \end{pmatrix}
     \cdot
     \begin{pmatrix}
@@ -154,14 +208,14 @@ $$
     =
     \begin{pmatrix}
         0 \\
-        -G (a^2 - a)
+        -G (\hat{a}^2 - \hat{a})
     \end{pmatrix}
 $$
 
 $$
     \begin{pmatrix}
-        -1   & j - j a^2 - j + j a \\
-        -a^2 & - j + j a^2
+        -1         & j - j \hat{a}^2 - j + j \hat{a} \\
+        -\hat{a}^2 & - j + j \hat{a}^2
     \end{pmatrix}
     \cdot
     \begin{pmatrix}
@@ -171,14 +225,14 @@ $$
     =
     \begin{pmatrix}
         0 \\
-        - G (a^2 - a)
+        - G (\hat{a}^2 - \hat{a})
     \end{pmatrix}
 $$
 
 $$
     \begin{pmatrix}
-        -1   & - j a^2 + j a \\
-        -a^2 & j a^2 - j
+        -1         & - j \hat{a}^2 + j \hat{a} \\
+        -\hat{a}^2 & j \hat{a}^2 - j
     \end{pmatrix}
     \cdot
     \begin{pmatrix}
@@ -188,14 +242,14 @@ $$
     =
     \begin{pmatrix}
         0 \\
-        - G (a^2 - a)
+        - G (\hat{a}^2 - \hat{a})
     \end{pmatrix}
 $$
 
 $$
     \begin{pmatrix}
-        -a^2 & - j a^4 + j a^3 \\
-        -a^2 & j a^2 - j
+        -\hat{a}^2 & - j \hat{a}^4 + j \hat{a}^3 \\
+        -\hat{a}^2 & j \hat{a}^2 - j
     \end{pmatrix}
     \cdot
     \begin{pmatrix}
@@ -205,14 +259,14 @@ $$
     =
     \begin{pmatrix}
         0 \\
-        - G (a^2 - a)
+        - G (\hat{a}^2 - \hat{a})
     \end{pmatrix}
 $$
 
 $$
     \begin{pmatrix}
-        -a^2 & - j a + j \\
-        -a^2 & j a^2 - j
+        -\hat{a}^2 & - j \hat{a} + j \\
+        -\hat{a}^2 & j \hat{a}^2 - j
     \end{pmatrix}
     \cdot
     \begin{pmatrix}
@@ -222,14 +276,14 @@ $$
     =
     \begin{pmatrix}
         0 \\
-        - G (a^2 - a)
+        - G (\hat{a}^2 - \hat{a})
     \end{pmatrix}
 $$
 
 $$
     \begin{pmatrix}
-        -a^2 & - j a + j           \\
-        0    & j a^2 - j + j a - j
+        -\hat{a}^2 & - j \hat{a} + j                 \\
+        0          & j \hat{a}^2 - j + j \hat{a} - j
     \end{pmatrix}
     \cdot
     \begin{pmatrix}
@@ -239,14 +293,14 @@ $$
     =
     \begin{pmatrix}
         0 \\
-        - G (a^2 - a)
+        - G (\hat{a}^2 - \hat{a})
     \end{pmatrix}
 $$
 
 $$
     \begin{pmatrix}
-        -a^2 & - j a + j         \\
-        0    & j a^2 + j a - 2 j
+        -\hat{a}^2 & - j \hat{a} + j               \\
+        0          & j \hat{a}^2 + j \hat{a} - 2 j
     \end{pmatrix}
     \cdot
     \begin{pmatrix}
@@ -256,12 +310,13 @@ $$
     =
     \begin{pmatrix}
         0 \\
-        - G (a^2 - a)
+        - G (\hat{a}^2 - \hat{a})
     \end{pmatrix}
 $$
 
+Vyřešíme rovnici pro $Y$:
 $$
-    Y = \frac{- G (a^2 - a)}{j a^2 + j a - 2 j} = \frac{
+    Y = \frac{- G (\hat{a}^2 - \hat{a})}{j \hat{a}^2 + j \hat{a} - 2 j} = \frac{
         - G \left( -\frac{1}{2} - j \frac{\sqrt{3}}{2} - \left( -\frac{1}{2} + j \frac{\sqrt{3}}{2} \right) \right)
     }{
         j \left( -\frac{1}{2} - j \frac{\sqrt{3}}{2} \right) + j \left( -\frac{1}{2} + j \frac{\sqrt{3}}{2} \right) - 2 j =
@@ -279,11 +334,12 @@ $$
     } = \frac{- G \sqrt{3}}{3} = -\frac{G}{\sqrt{3}}
 $$
 
+Vyřešíme rovnici pro $k$:
 $$
-    -a^2 k + (-j a + j) Y = 0
+    -\hat{a}^2 k + (-j \hat{a} + j) Y = 0
 $$
 $$
-    k = \frac{- (-j a + j) Y}{-a^2} = \frac{(-j a + j) Y}{a^2} = \frac{(-j a + j) \left( -\frac{G}{\sqrt{3}} \right)}{a^2} =
+    k = \frac{- (-j \hat{a} + j) Y}{-\hat{a}^2} = \frac{(-j \hat{a} + j) Y}{\hat{a}^2} = \frac{(-j \hat{a} + j) \left( -\frac{G}{\sqrt{3}} \right)}{\hat{a}^2} =
 $$
 $$
     = \frac{
