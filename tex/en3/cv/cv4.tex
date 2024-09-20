@@ -545,7 +545,28 @@ $$
 $$
 
 \subsubsection{Odvození \spicy \spicy \spicy}
+Ze vztahu pro napětí vyjádříme produ v závislosti na admitanci:
+$$
+    \hat{U} = \hat{I} \cdot \hat{Z} = \frac{\hat{I}}{\hat{Y}} \Rightarrow \hat{I} = \hat{U} \cdot \hat{Y}.
+$$
 
+Dále použijeme vztah pro zdánlivý výkon:
+$$
+    \hat{S} = \hat{U} \cdot \hat{I}^* = \hat{U} \cdot \left( \hat{U} \cdot \hat{Y} \right)^* = \hat{U} \cdot \hat{U}^* \cdot \hat{Y}^* = U^2 \cdot \hat{Y}^* \Rightarrow \hat{Y} = \frac{\hat{S}}{U^2}.
+$$
+$$
+    \hat{Y} = \frac{\left( P + j \cdot Q \right)^*}{U^2} = \frac{P - j \cdot Q}{U^2} = \frac{P - j \cdot P \cdot \te{tg} (\varphi)}{U^2}
+$$
+
+Úhel $\varphi$ je kladný pro induktivní zátěž a záporný pro kapacitní zátěž. Funkce $\te{tg} (\varphi)$ lichá:
+$$
+    \te{tg} (-\varphi) = \frac{\te{sin} (-\varphi)}{\te{cos} (-\varphi)} = \frac{-\te{sin} (\varphi)}{\te{cos} (\varphi)} = - \frac{\te{sin} (\varphi)}{\te{cos} (\varphi)} = - \te{tg} (\varphi).
+$$
+
+Tudíž můžeme výsledný vztah zapsat jako:
+$$
+    \hat{Y} = \frac{P}{U^2} \cdot (1 \mp j \cdot \te{tg} (\varphi)).
+$$
 
 
 \subsection{Číselný příklad}
