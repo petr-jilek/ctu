@@ -1,7 +1,8 @@
 \documentclass{article}
 \input{./shared/usings.tex}
 \input{./shared/commands.tex}
-\input{./shared/units.tex}
+\input{./shared/units/units.tex}
+\input{./shared/units/labels.tex}
 
 \head{Teorie}
 
@@ -19,8 +20,8 @@
     \item $t$ - čas (\ueqS \fs -- sekunda)
     \item $l$ - délka (\ueqM \fs -- metr)
     \item $h$ - výška (\ueqM \fs -- metr)
-    \item $d$ - tloušťka / průměr (\ueqM \fs -- metr)
     \item $r$ - poloměr (\ueqM \fs -- metr)
+    \item $d$ - tloušťka / průměr (\ueqM \fs -- metr)
     \item $S$ - plocha (\ueqMsq \fs -- metr čtvereční)
     \item $V$ - objem (\ueqMcu \fs -- metr krychlový)
     \item $m$ - hmotnost (\ueqKG \fs -- kilogram)
@@ -30,25 +31,26 @@
     \item $\dot{V}$ - objemový průtok (\ueqMcuSinv \fs -- metr krychlový za sekundu)
     \item $E_p$ - potenciální energie (\ueqJ \fs -- joule)
     \item $E_k$ - kinetická energie (\ueqJ \fs -- joule)
-    \item $Q$ - tepelná energie (\ueqJ \fs -- joule)
     \item $P$ - výkon (\ueqW \fs -- watt)
     \item $T$ - teplota (\ueqK \fs -- kelvin / \ueqCELS \fs - stupeň celsia)
     \item $\Delta T$ - rozdíl teplot (\ueqK \fs -- kelvin)
     \item $\dot{q}$ - měrný tepelný tok (\ueqWandMinvsq \fs -- watt)
     \item $q$ - měrná tepelná energie (\ueqJandMinvsq \fs -- joule na kilogram)
     \item $\dot{Q}$ - tepelný tok (\ueqW \fs -- watt)
+    \item $Q$ - tepelná energie (\ueqJ \fs -- joule)
     \item $c$ - měrná tepelná kapacita (\ueqJandKGinvKinv \fs -- joule na kilogram na kelvin)
     \item $\lambda$ - tepelná vodivost (\ueqWandMinvKinv \fs -- watt na metr na kelvin)
-    \item $R_{\vartheta}$ - tepelný odpor (\ueqMsqKandWinv \fs -- metr čtvereční kelvin na watt)
-    \item $R_{\vartheta A}$ - absolutní tepelný odpor (\ueqKandWinv \fs -- kelvin na watt)
+    \item $R_{\vartheta}$ - (měrný) tepelný odpor (\ueqMsqKandWinv \fs -- metr čtvereční kelvin na watt)
+    \item $R_{\vartheta A}$ - (absolutní) tepelný odpor (\ueqKandWinv \fs -- kelvin na watt)
+    \item $\alpha_{\vartheta}$ - součinitel přestupu tepla (\ueqWandMinvsqKinv \fs -- watt na metr čtvereční na kelvin)
     \item $U_{\vartheta}$ - součinitel prostupu tepla (\ueqWandMinvsqKinv \fs -- watt na metr čtvereční na kelvin)
-    \item $U_{\vartheta A}$ - absolutní součinitel prostupu tepla (\ueqWandKinv \fs -- watt na kelvin)
+    \item $U_{\vartheta A}$ - prostupu tepla (\ueqWandKinv \fs -- watt na kelvin)
     \item $\rho_e$ - měrný elektrický odpor (\ueqOHMandMinv \fs -- ohm na metr)
-    \item $\gamma$ - měrná elektrická vodivost (\ueqMinvOHMinv \fs -- metr na ohm)
-    \item $J$ - elektrická proudová hustota (\ueqAandMinvsq \fs -- ampér na metr čtvereční)
-    \item $E$ - intenzita elektrického pole (\ueqVandMinv \fs -- volt na metr)
-    \item $U$ - elektrické napětí (\ueqV \fs -- volt)
-    \item $I$ - elektrický proud (\ueqA \fs -- ampér)
+    \item $\sigma_e$ - měrná elektrická vodivost (\ueqMinvOHMinv \fs -- metr na ohm)
+    \item $J_e$ - elektrická proudová hustota (\ueqAandMinvsq \fs -- ampér na metr čtvereční)
+    \item $E_e$ - intenzita elektrického pole (\ueqVandMinv \fs -- volt na metr)
+    \item $U_e$ - elektrické napětí (\ueqV \fs -- volt)
+    \item $I_e$ - elektrický proud (\ueqA \fs -- ampér)
     \item $R_e$ - elektrický odpor (\ueqOHM \fs -- ohm)
 \end{itemize}
 
@@ -60,7 +62,7 @@
 
 \begin{itemize}
     \item gravitační zrychlení: $g = 9,81$ \ueqMandSinvsq \fs -- metr za sekundu na druhou
-    \item boltzmannova konstanta: $k_B = 1,38 \cdot 10^{-23}$ \ueqJandKinv \fs -- joule na kelvin
+    \item Stefanova-Boltzmannova konstanta: $\sigma = 5,67 \cdot 10^{-8}$ \ueqWandMinvsqKinvq \fs -- watt na metr čtvereční na kelvin na čtvrtou
 \end{itemize}
 
 \begin{table}[H]

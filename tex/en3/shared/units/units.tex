@@ -1,0 +1,264 @@
+% --------------------
+% --------------------
+% Units
+% --------------------
+% --------------------
+
+% --------------------
+% Basic units
+% --------------------  
+
+% no unit
+\newcommand{\uNOUNIT}{\te{--}} % no unit
+\newcommand{\uPERCENT}{\te{\%}} % percent
+\newcommand{\uDEGREE}{^\circ} % degree
+\newcommand{\uRAD}{\te{rad}} % radian
+
+% meter
+\newcommand{\uM}{\te{m}} % meter
+\newcommand{\uMsq}{\uM^\te{2}} % meter squared
+\newcommand{\uMcu}{\uM^\te{3}} % meter cubed
+\newcommand{\uMquar}{\uM^\te{4}} % meter quartic
+\newcommand{\uMinv}{\uM^{-1}} % meter inverse
+\newcommand{\uMinvsq}{\uM^{-2}} % meter inverse squared
+\newcommand{\uMinvcu}{\uM^{-3}} % meter inverse cubed
+\newcommand{\uMinvquar}{\uM^{-4}} % meter inverse quartic
+\newcommand{\uMM}{\te{mm}} % millimeter
+\newcommand{\uCM}{\te{cm}} % centimeter
+\newcommand{\uKM}{\te{km}} % kilometer
+
+% liter
+\newcommand{\uL}{\te{l}} % liter
+\newcommand{\uML}{\te{ml}} % milliliter
+
+% second
+\newcommand{\uS}{\te{s}} % second
+\newcommand{\uSinv}{\uS^{-1}} % second inverse
+\newcommand{\uSinvsq}{\uS^{-2}} % second inverse squared
+
+% hour
+\newcommand{\uH}{\te{h}} % hour
+\newcommand{\uHinv}{\te{h}^{-1}} % hour inverse
+
+% kilogram
+\newcommand{\uKG}{\te{kg}} % kilogram
+\newcommand{\uKGinv}{\uKG^{-1}} % kilogram inverse
+\newcommand{\uKGinvsq}{\uKG^{-2}} % kilogram inverse squared
+\newcommand{\uG}{\te{g}} % gram
+
+% lumen
+\newcommand{\uLM}{\te{lm}} % lumen
+
+% kelvin
+\newcommand{\uK}{\te{K}} % kelvin
+\newcommand{\uKsq}{\uK^\te{2}} % kelvin squared
+\newcommand{\uKcu}{\uK^\te{3}} % kelvin cubed
+\newcommand{\uKquar}{\uK^\te{4}} % kelvin quartic
+\newcommand{\uKinv}{\uK^{-1}} % kelvin inverse
+\newcommand{\uKinvsq}{\uK^{-2}} % kelvin inverse squared
+\newcommand{\uKinvcu}{\uK^{-3}} % kelvin inverse cubed
+\newcommand{\uKinvquar}{\uK^{-4}} % kelvin inverse quartic
+
+% degree celsius
+\newcommand{\uCELS}{\uDEGREE \te{C}} % degree celsius
+
+% watt
+\newcommand{\uW}{\te{W}} % watt
+\newcommand{\uKW}{\te{kW}} % kilowatt
+\newcommand{\uMW}{\te{MW}} % megawatt
+\newcommand{\uGW}{\te{GW}} % gigawatt
+\newcommand{\uWinv}{\uW^{-1}} % watt inverse
+
+% joule
+\newcommand{\uJ}{\te{J}} % joule
+\newcommand{\uKJ}{\te{kJ}} % kilojoule
+\newcommand{\uMJ}{\te{MJ}} % megajoule
+\newcommand{\uCAL}{\te{cal}} % calorie
+\newcommand{\uKCAL}{\te{kcal}} % kilocalorie
+\newcommand{\uWH}{\te{Wh}} % watt hour
+\newcommand{\uKWH}{\te{kWh}} % kilowatt hour
+\newcommand{\uWandS}{\te{Ws}} % watt second
+
+% ampere
+\newcommand{\uA}{\te{A}} % ampere
+
+% volt
+\newcommand{\uV}{\te{V}} % volt
+
+% ohm
+\newcommand{\uOHM}{\te{\Omega}} % ohm
+\newcommand{\uOHMinv}{\uOHM^{-1}} % ohm inverse
+
+% siemens
+\newcommand{\uSIE}{\te{S}} % siemens
+\newcommand{\uSIEinv}{\uSIE^{-1}} % siemens inverse
+
+% newton
+\newcommand{\uN}{\te{N}} % newton
+
+% currency
+\newcommand{\uCCY}{\te{CCY}} % currency
+\newcommand{\uCZK}{\te{CZK}} % czech crown
+
+% --------------------
+% Compound units
+% --------------------
+
+% velocity-acceleration
+\newcommand{\uKGandMinvcu}{\uKG \cdot \uMinvcu} % kilogram per meter cubed
+\newcommand{\uMandSinv}{\uM \cdot \uSinv} % meter per second
+\newcommand{\uMcuSinv}{\uMcu \cdot \uSinv} % meter cubed per second
+\newcommand{\uMandSinvsq}{\uM \cdot \uSinvsq} % meter per second squared
+
+% power-energy
+\newcommand{\uWandMinvsq}{\uW \cdot \uMinvsq} % watt per meter squared
+\newcommand{\uWandMinvcu}{\uW \cdot \uMinvcu} % watt per meter cubed
+\newcommand{\uJandMinvsq}{\uJ \cdot \uMinvsq} % joule per meter squared
+\newcommand{\uJandMinvcu}{\uJ \cdot \uMinvcu} % joule per meter cubed
+
+% heat
+\newcommand{\uJandKGinvKinv}{\uJ \cdot \uKGinv \cdot \uKinv} % joule per kilogram per kelvin
+\newcommand{\uWandMinvKinv}{\uW \cdot \uMinv \cdot \uKinv} % watt per meter per kelvin
+\newcommand{\uMsqKandWinv}{\uMsq \cdot \uK \cdot \uWinv} % meter squared kelvin per watt
+\newcommand{\uKandWinv}{\uK \cdot \uWinv} % kelvin per watt inverse
+\newcommand{\uWandMinvsqKinv}{\uW \cdot \uMinvsq \cdot \uKinv} % watt per meter squared per kelvin
+\newcommand{\uWandKinv}{\uW \cdot \uKinv} % watt per kelvin inverse
+
+% electricity
+\newcommand{\uOHMandMinv}{\uOHM \cdot \uMinv} % ohm per meter
+\newcommand{\uSIEandMinv}{\uSIE \cdot \uMinv} % siemens per meter
+\newcommand{\uAandMinvsq}{\uA \cdot \uMinvsq} % ampere per meter squared
+\newcommand{\uVandMinv}{\uV \cdot \uMinv} % volt per meter
+
+
+% --------------------
+% --------------------
+% Units in equation
+% --------------------
+% --------------------
+
+% --------------------
+% Basic units
+% --------------------
+
+% no unit
+\newcommand{\ueqNOUNIT}{$\uNOUNIT$} % no unit
+\newcommand{\ueqPERCENT}{$\uPERCENT$} % percent
+\newcommand{\ueqDEGREE}{$\uDEGREE$} % degree
+\newcommand{\ueqRAD}{$\uRAD$} % radian
+
+% meter
+\newcommand{\ueqM}{$\uM$} % meter
+\newcommand{\ueqMsq}{$\uMsq$} % meter squared
+\newcommand{\ueqMcu}{$\uMcu$} % meter cubed
+\newcommand{\ueqMquar}{$\uMquar$} % meter quartic
+\newcommand{\ueqMinv}{$\uMinv$} % meter inverse
+\newcommand{\ueqMinvsq}{$\uMinvsq$} % meter inverse squared
+\newcommand{\ueqMinvcu}{$\uMinvcu$} % meter inverse cubed
+\newcommand{\ueqMinvquar}{$\uMinvquar$} % meter inverse quartic
+\newcommand{\ueqMM}{$\uMM$} % millimeter
+\newcommand{\ueqCM}{$\uCM$} % centimeter
+\newcommand{\ueqKM}{$\uKM$} % kilometer
+
+% liter
+\newcommand{\ueqL}{$\uL$} % liter
+\newcommand{\ueqML}{$\uML$} % milliliter
+
+% second
+\newcommand{\ueqS}{$\uS$} % second
+\newcommand{\ueqSinv}{$\uSinv$} % second inverse
+\newcommand{\ueqSinvsq}{$\uSinvsq$} % second inverse squared
+
+% hour
+\newcommand{\ueqH}{$\uH$} % hour
+\newcommand{\ueqHinv}{$\uHinv$} % hour inverse
+
+% kilogram
+\newcommand{\ueqKG}{$\uKG$} % kilogram
+\newcommand{\ueqKGinv}{$\uKGinv$} % kilogram inverse
+\newcommand{\ueqKGinvsq}{$\uKGinvsq$} % kilogram inverse squared
+\newcommand{\ueqG}{$\uG$} % gram
+
+% lumen
+\newcommand{\ueqLM}{$\uLM$} % lumen
+
+% kelvin
+\newcommand{\ueqK}{$\uK$} % kelvin
+\newcommand{\ueqKsq}{$\uKsq$} % kelvin squared
+\newcommand{\ueqKcu}{$\uKcv$} % kelvin cubed
+\newcommand{\ueqKquar}{$\uKquar$} % kelvin quartic
+\newcommand{\ueqKinv}{$\uKinv$} % kelvin inverse
+\newcommand{\ueqKinvsq}{$\uKinvsq$} % kelvin inverse squared
+\newcommand{\ueqKinvcu}{$\uKinvcu$} % kelvin inverse cubed
+\newcommand{\ueqKinvquar}{$\uuKinvquar$} % kelvin inverse quartic
+
+% degree celsius
+\newcommand{\ueqCELS}{$\uCELS$} % degree celsius
+
+% watt
+\newcommand{\ueqW}{$\uW$} % watt
+\newcommand{\ueqKW}{$\uKW$} % kilowatt
+\newcommand{\ueqMW}{$\uMW$} % megawatt
+\newcommand{\ueqGW}{$\uGW$} % gigawatt
+\newcommand{\ueqWinv}{$\uWinv$} % watt inverse
+
+% joule
+\newcommand{\ueqJ}{$\uJ$} % joule
+\newcommand{\ueqKJ}{$\uKJ$} % kilojoule
+\newcommand{\ueqMJ}{$\uMJ$} % megajoule
+\newcommand{\ueqCAL}{$\uCAL$} % calorie
+\newcommand{\ueqKCAL}{$\uKCAL$} % kilocalorie
+\newcommand{\ueqWH}{$\uWH$} % watt hour
+\newcommand{\ueqKWH}{$\uKWH$} % kilowatt hour
+\newcommand{\ueqWandS}{$\uWandS$} % watt second
+
+% ampere
+\newcommand{\ueqA}{$\uA$} % ampere
+
+% volt
+\newcommand{\ueqV}{$\uV$} % volt
+
+% ohm
+\newcommand{\ueqOHM}{$\uOHM$} % ohm
+\newcommand{\ueqOHMinv}{$\uOHMinv$} % ohm inverse
+
+% siemens
+\newcommand{\ueqSIE}{$\uSIE$} % siemens
+\newcommand{\ueqSIEinv}{$\uSIEinv$} % siemens inverse
+
+% newton
+\newcommand{\ueqN}{$\uN$} % newton
+
+% currency
+\newcommand{\ueqCCY}{$\uCCY$} % currency
+\newcommand{\ueqCZK}{$\uCZK$} % czech crown
+
+% --------------------
+% Compound units
+% --------------------
+
+% velocity-acceleration
+\newcommand{\ueqKGandMinvcu}{$\uKGandMinvcu$} % kilogram per meter cubed
+\newcommand{\ueqMandSinv}{$\uMandSinv$} % meter per second
+\newcommand{\ueqMcuSinv}{$\uMcuSinv$} % meter cubed per second
+\newcommand{\ueqMandSinvsq}{$\uMandSinvsq$} % meter per second squared
+
+% power-energy
+\newcommand{\ueqWandMinvsq}{$\uWandMinvsq$} % watt per meter squared
+\newcommand{\ueqWandMinvcu}{$\uWandMinvcu$} % watt per meter cubed
+\newcommand{\ueqJandMinvsq}{$\uJandMinvsq$} % joule per meter squared
+\newcommand{\ueqJandMinvcu}{$\uJandMinvcu$} % joule per meter cubed
+
+% heat
+\newcommand{\ueqJandKGinvKinv}{$\uJandKGinvKinv$} % joule per kilogram per kelvin
+\newcommand{\ueqWandMinvKinv}{$\uWandMinvKinv$} % watt per meter per kelvin
+\newcommand{\ueqMsqKandWinv}{$\uMsqKandWinv$} % meter squared kelvin per watt
+\newcommand{\ueqKandWinv}{$\uKandWinv$} % kelvin per watt inverse
+\newcommand{\ueqWandMinvsqKinv}{$\uWandMinvsqKinv$} % watt per meter squared per kelvin
+\newcommand{\ueqWandKinv}{$\uWandKinv$} % watt per kelvin inverse
+
+% electricity
+\newcommand{\ueqOHMandMinv}{$\uOHMandMinv$} % ohm per meter
+\newcommand{\ueqSIEandMinv}{$\uSIEandMinv$} % siemens per meter
+\newcommand{\ueqAandMinvsq}{$\uAandMinvsq$} % ampere per meter squared
+\newcommand{\ueqVandMinv}{$\uVandMinv$} % volt per meter
