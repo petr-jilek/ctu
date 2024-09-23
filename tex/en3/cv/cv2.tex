@@ -132,18 +132,18 @@ $$
 
 Výpočet tepelného odporu je analogický jako výpočet elektrického odporu. Elektrický odpor $R_e$ má jednotku \ueqOHM \fs a je definován jako:
 $$
-    R_e = \frac{d}{\gamma \cdot S},
+    R_e = \frac{d}{\sigma_e \cdot S},
 $$
 kde:\\
 $d$ -- délka vodiče (\ueqM),\\
-$\gamma$ -- měrná elektrická vodivost (\ueqMinvOHMinv),\\
+$\sigma_e$ -- měrná elektrická vodivost (\ueqSIEandMinv),\\
 $S$ -- průřez vodiče (\ueqMsq).\\
 
 Analogie jsou:
 \begin{itemize}
     \item $R_{\vartheta A}$ -- absolutní tepelný odpor (\ueqKandWinv) $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM),
     \item $d$ -- tloušťka stěny (\ueqM) $\rightarrow$ $d$ -- délka vodiče (m),
-    \item $\lambda$ -- tepelná vodivost (\ueqWandMinvKinv) $\rightarrow$ $\gamma$ -- měrná elektrická vodivost (\ueqMinvOHMinv),
+    \item $\lambda$ -- tepelná vodivost (\ueqWandMinvKinv) $\rightarrow$ $\sigma_e$ -- měrná elektrická vodivost (\ueqSIEandMinv),
     \item $S$ -- plocha průřezu (\ueqMsq) $\rightarrow$ $S$ -- průřez vodiče (m2).
 \end{itemize}
 
@@ -830,7 +830,7 @@ Mějme destičku ve vesmíru, na kterou dopadá sluneční záření s následuj
     \item pohltivost $A$.
 \end{itemize}
 
-Destička má stejnou teplotu na obouch stranách (je nekonečně tenká). Sluneční záření má intenzitu $\dot{q} = 1348 \fs \uWandMinvsq$. Stefanova-Boltzmannova konstanta je $\sigma = 5,67 \cdot 10^{-8} \fs \uWandMinvsqKinvq$. Teplota vesmíru je $T_{space} = 3 \fs \uK$.\\
+Destička má stejnou teplotu na obouch stranách (je nekonečně tenká). Sluneční záření má intenzitu $\dot{q} = 1348 \fs \uWandMinvsq$. Stefanova-Boltzmannova konstanta je $\sigma = 5,67 \cdot 10^{-8} \fs \uWandMinvsqKinvquar$. Teplota vesmíru je $T_{space} = 3 \fs \uK$.\\
 
 Vypočítejte rovnovážnou teplotu destičky $T$.
 
