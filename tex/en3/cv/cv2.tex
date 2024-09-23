@@ -830,15 +830,83 @@ $$
 
 
 
-\section{\emoji{sun} Sálání (radiace) \spicy \spicy}
+\section{\emoji{sun} Sálavá clona \spicy \spicy}
+Mějme dvě desky. První deska má teplotu $T_1$ a druhá deska má teplotu $T_2$. Obě desky mají stejnou plochu $S$ a stejnou emisivitu $\varepsilon$.
+
+\begin{enumerate}[a)]
+    \item Jaký je sálavý výkon $P_{1 \rightarrow 2} \fs (\uW)$ sálání první desky na druhou desku?
+    \item Dejme mezi desky sálavou clonu o stejné ploše $S$ a emisivitě $\varepsilon$. Jaký je sálavý výkon $P_{1 \rightarrow 2} \fs (\uW)$ sálání první desky na druhou desku přes clonu a jaký je poměr tohoto výkonu k výkonu z bodu a)?
+\end{enumerate}
 
 
-\subsection{Sálavá clona}
+\subsection{a}
+Sálavý výkon $P_{1 \rightarrow 2}$ můžeme vypočítat pomocí:
+$$
+    P_{1 \rightarrow 2} = \frac{S \cdot \sigma \left( T_1^4 - T_2^4 \right)}{\frac{1}{\varepsilon_1} + \frac{1}{\varepsilon_2} - 1},
+$$
+kde:\\
+$S$ je plocha desek (\ueqMsq),\\
+$\sigma$ je Stefanova-Boltzmannova konstanta ($5,67 \cdot 10^{-8} \fs \uWandMinvsqKinv$),\\
+$T_1$ je teplota první desky (\uK),\\
+$T_2$ je teplota druhé desky (\uK),\\
+$\varepsilon_1$ je emisivita první desky,\\
+$\varepsilon_2$ je emisivita druhé desky.\\
+
+Emisivity $\varepsilon_1$ a $\varepsilon_2$ jsou stejné, tudíž:
+$$
+    P_{1 \rightarrow 2} = \frac{S \cdot \sigma \left( T_1^4 - T_2^4 \right)}{\frac{1}{\varepsilon} + \frac{1}{\varepsilon} - 1} = \frac{S \cdot \sigma \left( T_1^4 - T_2^4 \right)}{\frac{2}{\varepsilon} - 1} = k \cdot \left( T_1^4 - T_2^4 \right).
+$$
+
+
+\subsection{b}
+Sálavý výkon z destičky 1 na clonu:
+$$
+    P_{1 \rightarrow clona} = k \cdot \left( T_1^4 - T_{clona}^4 \right).
+$$
+
+Sálavý výkon z clony na destičku 2:
+$$
+    P_{clona \rightarrow 2} = k \cdot \left( T_{clona}^4 - T_2^4 \right).
+$$
+
+Tyto výkony se musí rovnat:
+$$
+    P_{1 \rightarrow clona} = P_{clona \rightarrow 2}
+$$
+$$
+    k \cdot \left( T_1^4 - T_{clona}^4 \right) = k \cdot \left( T_{clona}^4 - T_2^4 \right)
+$$
+$$
+    T_1^4 - T_{clona}^4 = T_{clona}^4 - T_2^4
+$$
+$$
+    2 \cdot T_{clona}^4 = T_1^4 + T_2^4
+$$
+$$
+    T_{clona}^4 = \frac{T_1^4 + T_2^4}{2}
+$$
+$$
+    T_{clona} = \sqrt[4]{\frac{T_1^4 + T_2^4}{2}}.
+$$
+
+Sálavý výkon z destičky 1 na destičku 2 přes clonu:
+$$
+    P_{1 \rightarrow 2} = k \cdot \left( T_1^4 - T_{clona}^4 \right) = k \cdot \left( T_1^4 - \frac{T_1^4 + T_2^4}{2} \right) =
+$$
+$$
+    = k \cdot \frac{2 \cdot T_1^4 - T_1^4 - T_2^4}{2} = k \cdot \frac{T_1^4 - T_2^4}{2}.
+$$
+
+Poměr tohoto výkonu k výkonu z bodu a):
+$$
+    \frac{P_{1 \rightarrow 2,a}}{P_{1 \rightarrow 2,b}} = \frac{k \cdot \frac{T_1^4 - T_2^4}{2}}{k \cdot \left( T_1^4 - T_2^4 \right)} = \frac{1}{2}.
+$$
+
+\newpage
 
 
 
-
-\subsection{Destička ve vesmíru}
+\section{\emoji{milky-way} Destička ve vesmíru \spicy \spicy}
 Mějme destičku ve vesmíru, na kterou dopadá sluneční záření s následujícími parametry:
 \begin{itemize}
     \item plocha $S = 1 \fs \uMsq$,
