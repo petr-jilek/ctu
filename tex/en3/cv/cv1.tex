@@ -30,20 +30,21 @@ Do jaké výšky vynese energie jedné Fidorky (30 g $\rightarrow$ 162 \ueqKCAL)
 \subsection{a}
 Energie jedné Fidorky:
 $$
-    162 \fs \uKCAL = 162 \cdot 4 \fs 184 \fs \frac{\uJ}{\uKCAL} = 677 \fs 810 \fs \uJ.
+    162 \fs \uKCAL = 162 \cdot 4 \fs 184 \fs \frac{\uJ}{\uKCAL} = 677 \fs 808 \fs \uJ.
 $$
 
 Ze vzorce pro potenciální energii vyjádříme výšku:
 $$
-    E_p = m \cdot g \cdot \Delta h \Rightarrow \Delta h = \frac{E_p}{m \cdot g} = \frac{677 \fs 810 \fs \uJ}{80 \fs \uKG \cdot 9,81 \fs \uMandSinvsq} \approx 863,7 \fs m.
+    E_p = m \cdot g \cdot \Delta h \Rightarrow \Delta h = \frac{E_p}{m \cdot g} = \frac{677 \fs 808 \fs \uJ}{80 \fs \uKG \cdot 9,81 \fs \uMandSinvsq} \approx 863,7 \fs m.
 $$
 
 
 \subsection{b \spicy \spicy \spicy}
 Nejdříve si odvodíme vzorec pro gravitační zrychlení z Newtonova gravitačního zákona:
-$$
+\begin{equation}
     F = G \cdot \frac{m_1 \cdot m_2}{r^2},
-$$
+    \unit{(\ueqN)}
+\end{equation}
 kde:\\
 $F$ -- gravitační síla (\ueqN),\\
 $G$ -- gravitační konstanta (\ueqNandMsqKGinvsq),\\
@@ -52,9 +53,10 @@ $m_2$ -- hmotnost druhého tělesa (\ueqKG),\\
 $r$ -- vzdálenost mezi tělesy (\ueqM).\\
 
 Gravitační síla je definována jako:
-$$
+\begin{equation}
     F = m \cdot g,
-$$
+    \unit{(\ueqN)}
+\end{equation}
 kde:\\
 $m$ -- hmotnost (\ueqKG),\\
 $g$ -- gravitační zrychlení (\ueqMandSinvsq).\\
@@ -130,11 +132,11 @@ $$
 
 Poté dosadíme hodnoty:
 $$
-    h = \frac{677 \fs 810 \cdot 6 \fs 371 \fs 000^2}{80 \cdot 6,67430 \cdot 10^{-11} \cdot 5,97219 \cdot 10^{24} - 677 \fs 810 \cdot 6 \fs 371 \fs 000}.
+    h = \frac{677 \fs 808 \cdot 6 \fs 371 \fs 000^2}{80 \cdot 6,67430 \cdot 10^{-11} \cdot 5,97219 \cdot 10^{24} - 677 \fs 808 \cdot 6 \fs 371 \fs 000}.
 $$
 
 $$
-    h \approx 862,9 \fs m.
+    h \approx 862,8 \fs m.
 $$
 
 Jako dodatek je možné si vytvořit graf závislosti gravitačního zrychlení na výšce $h$ nad mořem:
@@ -160,6 +162,12 @@ Jako dodatek je možné si vytvořit graf závislosti gravitačního zrychlení 
     \end{tikzpicture}
 \end{center}
 
+\textit{Poznámka}\\
+
+Gravitační zrychlení v grafu pro 0 metrů nad mořem je cca 9,82 $\uMandSinvsq \fs$ místo 9,81 $\uMandSinvsq \fs$. Vzorec pro Newtonuv gravitační zákon uvažuje sféricky symetrické rozložení hmoty země. V realitě hmota země sféricky symetricky rozložena není. V jádru země je běžne látka s vyšší hustotou než na povrchu země. Tento faktor způsobuje, že reálné gravitační zrychlení na povrchu země je o něco nižší, než spočítaná hodnota ze vzorce. Hodnota 9,81 $\uMandSinvsq \fs$ je hodnot změřená.
+
+Kvůli této nepřesnosti je i výsledná výška při počítání s proměnným gravitačním zrychlením o něco nižší, než výška při počítání s konstantním gravitačním zrychlením 9,81 \ueqMandSinvsq.
+
 \newpage
 
 
@@ -183,7 +191,7 @@ Na jakou teplotu by energie potřebná k ohřátí vody z 10 \ueqCELS \fs na 100
         Zlato      & 19 320                   & 129                     \\
         \hline
     \end{tabular}
-    \caption {Hustota a měrná tepelná kapacita materiálů}
+    \caption {Hustota a měrná tepelná kapacita materiálů.}
 \end{table}
 
 
@@ -338,7 +346,7 @@ $$
 
 Množství energie potřebné k ohřátí vody je:
 $$
-    Q = V \cdot \rho \cdot c \cdot \Delta T
+    Q = V \cdot \rho \cdot c \cdot \Delta T.
 $$
 
 Z rovnice pro měrnou tepelnou kapacitu můžeme vyjádřit objem:

@@ -17,9 +17,11 @@
 
 \makeatletter
 \providecommand\add@text{}
-\newcommand\tagaddtext[1]{%
-    \gdef\add@text{#1\gdef\add@text{}}}% 
-\renewcommand\tagform@[1]{%
+\newcommand\unit[1]{
+    \gdef\add@text{#1\gdef\add@text{}}}
+\renewcommand\tagform@[1]{
     \maketag@@@{\llap{\add@text\quad}(\ignorespaces#1\unskip\@@italiccorr)}%
 }
 \makeatother
+
+\newcommand{\pushright}[1]{\ifmeasuring@#1\else\omit\hfill$\displaystyle#1$\fi\ignorespaces}
