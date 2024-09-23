@@ -843,14 +843,13 @@ Mějme destičku ve vesmíru, na kterou dopadá sluneční záření s následuj
 \begin{itemize}
     \item plocha $S = 1 \fs \uMsq$,
     \item intenzita slunečního záření $\dot{q} = 1348 \fs \uWandMinvsq$,
-    \item úhel natočení vůči slunci $\alpha = 45^{\circ}$,
     \item emisivita $\varepsilon$,
     \item pohltivost $A$.
 \end{itemize}
 
 Destička má stejnou teplotu na obouch stranách (je nekonečně tenká). Sluneční záření má intenzitu $\dot{q} = 1348 \fs \uWandMinvsq$. Stefanova-Boltzmannova konstanta je $\sigma = 5,67 \cdot 10^{-8} \fs \uWandMinvsqKinvquar$. Teplota vesmíru je $T_{space} = 3 \fs \uK$.\\
 
-Vypočítejte rovnovážnou teplotu destičky $T$.
+Odvoďte vzorec pro rovnovážnou teplotu destičky $T$ v závislosti na úhlu natočení vůči slunci $\alpha$ a vypočítejte teplotu pro hodnoty $\alpha$: 0, 45 a 90 \ueqDEGREE.
 
 \subsubsection{Řešení}
 Tepelný to $\dot{Q}_{dop} \fs (\uW)$, který na destičku dopadne:
@@ -895,9 +894,24 @@ $$
     T = \sqrt[4]{\frac{\dot{q} \cdot \cos \alpha}{2 \cdot \sigma} + T_{space}^4}
 $$
 
-Nyní můžeme dosadit a vypočítat:
+Nyní můžeme dosadit do vzorce a získat vzorec pro teplotu $T$ v závislosti na úhlu natočení $\alpha$:
 $$
-    T = \sqrt[4]{\frac{1348 \cdot \cos 45^{\circ}}{2 \cdot 5,67 \cdot 10^{-8}} + 3^4} = \sqrt[4]{\frac{1348 \cdot \frac{\sqrt{2}}{2}}{2 \cdot 5,67 \cdot 10^{-8}} + 3^4} = 302,79 \fs \uK.
+    T = \sqrt[4]{\frac{1348 \cdot \cos \alpha}{2 \cdot 5,67 \cdot 10^{-8}} + 3^4} = \sqrt[4]{1,189 \cdot 10^{10} \cdot \cos \alpha + 81}.
+$$
+
+Nyní můžeme vypočítat teplotu pro hodnoty $\alpha$: 0, 45 a 90 \ueqDEGREE. Pro $\alpha = 0$:
+$$
+    T = \sqrt[4]{1,189 \cdot 10^{10} \cdot \cos 0 \uDEGREE + 81} = \sqrt[4]{1,189 \cdot 10^{10} + 81} = 330,21 \fs \uK.
+$$
+
+Pro $\alpha = 45$:
+$$
+    T = \sqrt[4]{1,189 \cdot 10^{10} \cdot \cos 45 \uDEGREE + 81} = \sqrt[4]{1,189 \cdot 10^{10} \cdot \frac{\sqrt{2}}{2} + 81} = 302,79 \fs \uK.
+$$
+
+Pro $\alpha = 90$:
+$$
+    T = \sqrt[4]{1,189 \cdot 10^{10} \cdot \cos 90 \uDEGREE + 81} = \sqrt[4]{1,189 \cdot 10^{10} \cdot 0 + 81} = \sqrt[4]{81} = 3 \fs \uK.
 $$
 
 \end{document}
