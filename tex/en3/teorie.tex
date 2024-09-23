@@ -1,8 +1,7 @@
 \documentclass{article}
 \input{./shared/usings.tex}
 \input{./shared/commands.tex}
-\input{./shared/units/units.tex}
-\input{./shared/units/labels.tex}
+\input{./shared/units.tex}
 
 \head{Teorie}
 
@@ -34,10 +33,11 @@
     \item $P$ - výkon (\ueqW \fs -- watt)
     \item $T$ - teplota (\ueqK \fs -- kelvin / \ueqCELS \fs - stupeň celsia)
     \item $\Delta T$ - rozdíl teplot (\ueqK \fs -- kelvin)
-    \item $\dot{q}$ - měrný tepelný tok (\ueqWandMinvsq \fs -- watt)
-    \item $q$ - měrná tepelná energie (\ueqJandMinvsq \fs -- joule na kilogram)
+    \item $\dot{q}$ - měrný tepelný tok (\ueqWandMinvsq \fs -- watt na metr čtvereční)
     \item $\dot{Q}$ - tepelný tok (\ueqW \fs -- watt)
+    \item $q$ - měrná tepelná energie (\ueqJandMinvsq \fs -- joule na metr čtvereční)
     \item $Q$ - tepelná energie (\ueqJ \fs -- joule)
+    \item $Q_v$ - objemový zdroj tepla (\ueqWandMinvcu \fs -- watt na metr krychlový)
     \item $c$ - měrná tepelná kapacita (\ueqJandKGinvKinv \fs -- joule na kilogram na kelvin)
     \item $\lambda$ - tepelná vodivost (\ueqWandMinvKinv \fs -- watt na metr na kelvin)
     \item $R_{\vartheta}$ - (měrný) tepelný odpor (\ueqMsqKandWinv \fs -- metr čtvereční kelvin na watt)
@@ -46,7 +46,7 @@
     \item $U_{\vartheta}$ - součinitel prostupu tepla (\ueqWandMinvsqKinv \fs -- watt na metr čtvereční na kelvin)
     \item $U_{\vartheta A}$ - prostupu tepla (\ueqWandKinv \fs -- watt na kelvin)
     \item $\rho_e$ - měrný elektrický odpor (\ueqOHMandMinv \fs -- ohm na metr)
-    \item $\sigma_e$ - měrná elektrická vodivost (\ueqMinvOHMinv \fs -- metr na ohm)
+    \item $\sigma_e$ - měrná elektrická vodivost (\ueqSIEandMinv \fs -- siemens na metr)
     \item $J_e$ - elektrická proudová hustota (\ueqAandMinvsq \fs -- ampér na metr čtvereční)
     \item $E_e$ - intenzita elektrického pole (\ueqVandMinv \fs -- volt na metr)
     \item $U_e$ - elektrické napětí (\ueqV \fs -- volt)
@@ -62,7 +62,7 @@
 
 \begin{itemize}
     \item gravitační zrychlení: $g = 9,81$ \ueqMandSinvsq \fs -- metr za sekundu na druhou
-    \item Stefanova-Boltzmannova konstanta: $\sigma = 5,67 \cdot 10^{-8}$ \ueqWandMinvsqKinvq \fs -- watt na metr čtvereční na kelvin na čtvrtou
+    \item Stefanova-Boltzmannova konstanta: $\sigma = 5,67 \cdot 10^{-8}$ \ueqWandMinvsqKinvquar \fs -- watt na metr čtvereční na kelvin na čtvrtou
 \end{itemize}
 
 \begin{table}[H]
@@ -170,20 +170,5 @@ kde:\\
 $\vec{\dot{q}}$ -- měrný tepelný tok (\ueqWandMinvsq),\\
 $\lambda$ -- tepelná vodivost (\ueqWandMinvKinv),\\
 $\vec{\nabla} T$ -- gradient teploty (\ueqKandMinv).
-
-\newpage
-
-
-
-\section{Symetrizace}
-
-\newpage
-
-
-
-\section{Aplikace}
-
-
-
 
 \end{document}
