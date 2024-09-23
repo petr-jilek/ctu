@@ -19,11 +19,11 @@
 \subsection{Fourierova-Kirchhoffova rovnice \spicy \spicy \spicy}
 Pro zeď o tloušťce $d$ budeme uvažovat následující zjednodušející předpoklady:
 \begin{itemize}
-    \item $\lambda$ = konstanta,
+    \item $\frac{\partial T}{\partial t}$ = 0,
     \item $\vec{v}$ = 0,
     \item $Q_v$ = 0,
-    \item $\frac{\partial T}{\partial t}$ = 0,
-    \item T = T(x) - teplota závislá pouze na ose x.
+    \item $\lambda$ = konstanta,
+    \item T = T(x) - teplota závislá pouze na x.
 \end{itemize}
 
 Poté Fourierova-Kirchhoffova rovnice bude mít tvar:
@@ -108,49 +108,65 @@ Tuto situaci můžeme znázornit následujícím obrázkem:
 \subsection{Fourieruv zákon \spicy \spicy \spicy}
 Nyní dosadíme řešení z předchozího příkladu do Fourierova zákona, kde za gradient teploty dosadíme derivaci teploty podle osy x, čímž získáme měrný tepelný tok $q_x$:
 $$
-    \dot{q_x} = - \lambda  \frac{dT(x)}{dx} = - \lambda  \frac{d}{dx} \left( \frac{T_2 - T_1}{d} \cdot x + T_1 \right) = - \lambda  \frac{T_2 - T_1}{d} = \lambda  \frac{T_1 - T_2}{d} = \frac{\Delta T}{\frac{d}{\lambda}}.
+    \dot{q_x} = - \lambda \cdot \frac{dT(x)}{dx} = - \lambda \cdot \frac{d}{dx} \left( \frac{T_2 - T_1}{d} \cdot x + T_1 \right) = - \lambda \cdot \frac{T_2 - T_1}{d} = \lambda \cdot \frac{T_1 - T_2}{d} = \frac{\Delta T}{\frac{d}{\lambda}}.
 $$
 
 
 \subsection{Tepelný odpor}
-Dolní výraz z předchozí sekce $\frac{d}{\lambda}$ je tepelný odpor $R_{\vartheta}$ s jednotkou \ueqMsqKandWinv. Je tedy definován jako:
-$$
+Dolní výraz z předchozí sekce $\frac{d}{\lambda}$ je tepelný odpor:
+\begin{equation}
     R_{\vartheta} = \frac{d}{\lambda}.
-$$
+    \unit{(\ueqMsqKandWinv)}
+\end{equation}
 
-Měrný tepelný tok $q_x$ má jednotku \ueqWandMinvsq. Tepelný tok $\dot{Q_x}$ s jednotkou \ueqW \fs dostaneme vynásobením měrného tepelného toku plochou průřezu $S$:
+Měrný tepelný tok $q_x$ můžeme tedy zapsat jako:
+\begin{equation}
+    \dot{q_x} = \frac{\Delta T}{R_{\vartheta}}.
+    \unit{(\ueqWandMinvsq)}
+\end{equation}
+
+Tepelný tok $\dot{Q_x}$ dostaneme vynásobením měrného tepelného toku plochou průřezu $S$:
+\begin{equation}
+    \dot{Q_x} = \dot{q_x} \cdot S.
+    \unit{(\ueqW)}
+\end{equation}
+
+Tepelný tok $\dot{Q_x}$ můžeme dále rozepsat:
 $$
     \dot{Q_x} = \dot{q_x} \cdot S = \lambda \frac{T_1 - T_2}{d} \cdot S = \lambda \frac{\Delta T}{d} \cdot S = \frac{\Delta T}{\frac{d}{\lambda \cdot S}}.
 $$
 
-Dolní výraz $\frac{d}{\lambda \cdot S}$ je absolutní tepelný odpor $R_{\vartheta A}$ s jednotkou \ueqKandWinv. Je tedy definován jako:
-$$
+Dolní výraz $\frac{d}{\lambda \cdot S}$ je absolutní tepelný odpor:
+\begin{equation}
     R_{\vartheta A} = \frac{d}{\lambda \cdot S} = \frac{R_{\vartheta}}{S}.
-$$
+    \unit{(\ueqKandWinv)}
+\end{equation}
 
 \textit{Poznámka}\\
 
-Výpočet tepelného odporu je analogický jako výpočet elektrického odporu. Elektrický odpor $R_e$ má jednotku \ueqOHM \fs a je definován jako:
-$$
-    R_e = \frac{d}{\sigma_e \cdot S},
-$$
+Výpočet tepelného odporu je analogický jako výpočet elektrického odporu. Elektrický odpor $R_e$ vypočteme jako:
+\begin{equation}
+    R_e = \frac{l}{\sigma_e \cdot S},
+    \unit{(\ueqOHM)}
+\end{equation}
 kde:\\
-$d$ -- délka vodiče (\ueqM),\\
+$l$ -- délka vodiče (\ueqM),\\
 $\sigma_e$ -- měrná elektrická vodivost (\ueqSIEandMinv),\\
 $S$ -- průřez vodiče (\ueqMsq).\\
 
 Analogie jsou:
 \begin{itemize}
     \item $R_{\vartheta A}$ -- absolutní tepelný odpor (\ueqKandWinv) $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM),
-    \item $d$ -- tloušťka stěny (\ueqM) $\rightarrow$ $d$ -- délka vodiče (m),
+    \item $d$ -- tloušťka stěny (\ueqM) $\rightarrow$ $l$ -- délka vodiče (m),
     \item $\lambda$ -- tepelná vodivost (\ueqWandMinvKinv) $\rightarrow$ $\sigma_e$ -- měrná elektrická vodivost (\ueqSIEandMinv),
     \item $S$ -- plocha průřezu (\ueqMsq) $\rightarrow$ $S$ -- průřez vodiče (m2).
 \end{itemize}
 
 Výpočet tepelného toku je analogický s Ohmovým zákonem:
-$$
+\begin{equation}
     I = \frac{U}{R_e},
-$$
+    \unit{(\ueqA)}
+\end{equation}
 kde:\\
 $I$ -- proud (\ueqA),\\
 $U$ -- napětí (\ueqV),\\
