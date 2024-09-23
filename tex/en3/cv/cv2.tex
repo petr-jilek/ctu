@@ -818,21 +818,31 @@ $$
 \subsection{Sálavá clona}
 
 
+
+
 \subsection{Destička ve vesmíru}
 Mějme destičku ve vesmíru, na kterou dopadá sluneční záření s následujícími parametry:
 \begin{itemize}
     \item plocha $S = 1 \fs \uMsq$,
     \item intenzita slunečního záření $\dot{q} = 1348 \fs \uWandMinvsq$,
-    \item úhel natočení vůči slunci $\alpha = 45^{\circ}$.
-    \item emisivita $\varepsilon = 0,9$.
+    \item úhel natočení vůči slunci $\alpha = 45^{\circ}$,
+    \item emisivita $\varepsilon$,
+    \item pohltivost $A$.
 \end{itemize}
 
-Destička má stejnou teplotu na obouch stranách (je nekonečně tenká). Sluneční záření má intenzitu $\dot{q} = 1348 \fs \uWandMinvsq$. Stefanova-Boltzmannova konstanta je $\sigma = 5,67 \cdot 10^{-8} \fs \uWandMinvsqKinvq$. Teplota vesmíru je $T_{space} = 3 \fs \uK$.
+Destička má stejnou teplotu na obouch stranách (je nekonečně tenká). Sluneční záření má intenzitu $\dot{q} = 1348 \fs \uWandMinvsq$. Stefanova-Boltzmannova konstanta je $\sigma = 5,67 \cdot 10^{-8} \fs \uWandMinvsqKinvq$. Teplota vesmíru je $T_{space} = 3 \fs \uK$.\\
+
+Vypočítejte rovnovážnou teplotu destičky $T$.
 
 \subsubsection{Řešení}
-Tepelný to $\dot{Q}_{in} \fs (\uW)$, který destička přijme:
+Tepelný to $\dot{Q}_{dop} \fs (\uW)$, který na destičku dopadne:
 $$
-    \dot{Q}_{in} = \dot{q} \cdot S \cdot \cos \alpha
+    \dot{Q}_{dop} = \dot{q} \cdot S \cdot \cos \alpha
+$$
+
+Tepelný tok, který destička příjme:
+$$
+    \dot{Q}_{in} = A \cdot \dot{Q}_{dop} = A \cdot \dot{q} \cdot S \cdot \cos \alpha
 $$
 
 Tepelný tok, který destička vyzařuje:
@@ -845,27 +855,31 @@ $$
     \dot{Q}_{in} = \dot{Q}_{out}
 $$
 $$
-    \dot{q} \cdot S \cdot \cos \alpha = 2 \cdot S \cdot \varepsilon \cdot \sigma \cdot \left( T^4 - T_{space}^4 \right)
+    A \cdot \dot{q} \cdot S \cdot \cos \alpha = 2 \cdot S \cdot \varepsilon \cdot \sigma \cdot \left( T^4 - T_{space}^4 \right)
+$$
+
+Při tepelné rovnováze platí:
+$$
+    A = \varepsilon.
+$$
+
+Dostaneme:
+$$
+    \dot{q} \cdot \cos \alpha = 2 \cdot \sigma \cdot \left( T^4 - T_{space}^4 \right)
 $$
 $$
-    \dot{q} \cdot \cos \alpha = 2 \cdot \varepsilon \cdot \sigma \cdot \left( T^4 - T_{space}^4 \right)
+    \frac{\dot{q} \cdot \cos \alpha}{2 \cdot \sigma} = T^4 - T_{space}^4
 $$
 $$
-    \frac{\dot{q} \cdot \cos \alpha}{2 \cdot \varepsilon \cdot \sigma} = T^4 - T_{space}^4
+    T^4 = \frac{\dot{q} \cdot \cos \alpha}{2 \cdot \sigma} + T_{space}^4
 $$
 $$
-    T^4 = \frac{\dot{q} \cdot \cos \alpha}{2 \cdot \varepsilon \cdot \sigma} + T_{space}^4
-$$
-$$
-    T = \sqrt[4]{\frac{\dot{q} \cdot \cos \alpha}{2 \cdot \varepsilon \cdot \sigma} + T_{space}^4}
+    T = \sqrt[4]{\frac{\dot{q} \cdot \cos \alpha}{2 \cdot \sigma} + T_{space}^4}
 $$
 
 Nyní můžeme dosadit a vypočítat:
 $$
-    T = \sqrt[4]{\frac{1348 \cdot \cos 45^{\circ}}{2 \cdot 0,9 \cdot 5,67 \cdot 10^{-8}} + 3^4} = \sqrt[4]{\frac{1348 \cdot \frac{\sqrt{2}}{2}}{2 \cdot 0,9 \cdot 5,67 \cdot 10^{-8}} + 3^4} =
-$$
-$$
-    \approx 310,87 \fs \uK.
+    T = \sqrt[4]{\frac{1348 \cdot \cos 45^{\circ}}{2 \cdot 5,67 \cdot 10^{-8}} + 3^4} = \sqrt[4]{\frac{1348 \cdot \frac{\sqrt{2}}{2}}{2 \cdot 5,67 \cdot 10^{-8}} + 3^4} = 302,79 \fs \uK.
 $$
 
 \end{document}
