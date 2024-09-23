@@ -15,7 +15,7 @@ fee1edb8d6d72a0ddff41e5f71a671c23ed924b9
 arm64
 ```
 
-- LaTeX Workshop: `v10.2.1`
+- LaTeX Workshop: `v10.3.2`
 
 ## Windows
 

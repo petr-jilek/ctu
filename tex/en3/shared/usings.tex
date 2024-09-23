@@ -1,0 +1,27 @@
+\usepackage[czech]{babel} % Czech language
+\usepackage[shortlabels]{enumitem} % Custom enumeration
+\usepackage{graphicx} % Import images
+\usepackage{float} % Use [H] to force figure position
+\usepackage{indentfirst} % Indent first paragraph
+\usepackage{emoji} % Emojis
+\usepackage{pgffor} % Loops
+\usepackage{tikz} % TikZ
+\usepackage{pgfplots} % TikZ plots
+\pgfplotsset{compat=1.7} % Compatibility
+\usepackage{circuitikz} % Use circuitikz for circuit diagrams
+\usepackage{amsmath} % Math
+\usepackage{amsfonts}
+\usepackage{hyperref} % Hyperlinks
+\usepackage{subfig}
+\usetikzlibrary{arrows.meta}
+
+\makeatletter
+\providecommand\add@text{}
+\newcommand\unit[1]{
+    \gdef\add@text{#1\gdef\add@text{}}}
+\renewcommand\tagform@[1]{
+    \maketag@@@{\llap{\add@text\quad}(\ignorespaces#1\unskip\@@italiccorr)}%
+}
+\makeatother
+
+\newcommand{\pushright}[1]{\ifmeasuring@#1\else\omit\hfill$\displaystyle#1$\fi\ignorespaces}

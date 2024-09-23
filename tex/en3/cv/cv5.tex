@@ -1,0 +1,148 @@
+\documentclass{article}
+\input{../shared/usings.tex}
+\input{../shared/commands.tex}
+\input{../shared/units.tex}
+
+\cvHead{5 - Aplikace}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+
+
+\section{\emoji{shower} Průtokový ohřívač \spicy \spicy \spicy \spicy}
+Máme průtokový ohřívač tvořený dvěma obdelníkovými elektrodovými deskami o délce $l \fs (\uM)$ a šířce $b \fs (\uM)$. Vzdálenost mezi deskami je $d \fs (\uM)$. Mezi deskami je voda produdící o rychlostí $v$ pouze ve směru $x$. Voda má měrnou tepelnou kapacitu $c \fs (\uJandKGinvKinv)$ a hustotu $\rho \fs (\uKGandMinvcu)$. Elektrické napětí mezi deskami je $U \fs (\uV)$. Odvoďte změnu teploty vody $T_2 \fs (\uK)$ na výstupu průtokového ohřívače, pokud na vstupu je voda o teplotě $T_1 \fs (\uK)$.\\
+
+Budou platit následující předpoklady:
+\begin{itemize}
+    \item $\frac{\partial T}{\partial t}$ = 0,
+    \item $\nabla \cdot (\lambda \cdot \vec{\nabla} T)$ = 0.
+\end{itemize}
+
+
+\subsection{Řešení}
+Foruier-Kirchhoffova rovnice:
+\begin{equation}
+    \rho \cdot c \cdot \vec{v} \cdot \vec{\nabla} T = \dot{Q}_v,
+    \unit{(\ueqWandMinvcu)}
+\end{equation}
+kde:\\
+$\rho$ -- hustota (\ueqKGandMinvcu),\\
+$c$ -- měrná tepelná kapacita (\ueqJandKGinvKinv),\\
+$\vec{v}$ -- rychlost (\ueqMandSinv),\\
+$\vec{\nabla} T$ -- gradient teploty (\ueqKandMinv),\\
+$\dot{Q}_v$ -- objemový zdroj tepla (\ueqWandMinvcu).\\
+
+Vektor rychlosti $\vec{v}$ je:
+$$
+    \vec{v} = \begin{pmatrix} v \\ 0 \\ 0 \end{pmatrix}.
+$$
+
+Vektor rychlosti $\vec{v}$ má pouze složku $v$, protože voda teče pouze ve směru osy $x$. Můžeme tedy rovnici zjednodušit na:
+$$
+    \rho \cdot c \cdot v \cdot \frac{dT}{dx} = Q_v.
+$$
+
+Dále je třeba vyjádřit rychlost $v$ a objemový zdroj tepla $Q_v$. Rychlost $v$ je:
+$$
+    v = \frac{\dot{V}}{S} = \frac{\dot{V}}{d \cdot b},
+$$
+kde:\\
+$\dot{V}$ -- objemový průtok (\ueqMcuSinv).\\
+
+Objemový zdroj tepla $Q_v$ můžeme vyjádřit pomocí intenzity elektrického pole $E$ a proudové hustoty $J$:
+$$
+    Q_v = E \cdot J,
+$$
+kde:\\
+$E$ -- intenzita elektrického pole (\ueqVandMinv),\\
+$J$ -- proudová hustota (\ueqAandMinvsq).\\
+
+Proudovou hustotu $J$ můžeme vyjádřit pomocí Ohmova zákona v diferenciálním tvaru:
+$$
+    J = \sigma_e \cdot E,
+$$
+kde:\\
+$\sigma_e$ -- měrná elektrická vodivost (\ueqOHMandMinv).\\
+
+Dostaneme tedy:
+$$
+    Q_v = E \cdot \sigma_e \cdot E = \sigma_e \cdot E^2.
+$$
+
+Intenzitu elektrického pole $E$ můžeme vyjádřit pomocí napětí $U$ a vzdálenosti mezi deskami $d$:
+$$
+    E = \frac{U}{d}.
+$$
+
+Dostaneme tedy:
+$$
+    Q_v = \sigma_e \cdot \left( \frac{U}{d} \right)^2.
+$$
+
+Zde je třeba uvažovat měrnou elektrickou vodivost $\sigma_e$ jako proměrnou závislou na teplotě. U kovů se vzrůstající teplotou se měrná elektrická vodivost snižuje, jelikož volné nostiče náboje mají problém se v rozpohybované krystalové mřížce kvůli teplotě pohybovat. Naopak u iontových roztoku jako třeba u vody se měrná elektrická vodivost zvyšuje s teplotou. Nahradíme tedy $\sigma_e$ lineární funkcí teploty $\sigma_e(T)$:
+$$
+    \sigma_e = \sigma_{e,0} + \sigma_{e,1} \cdot T.
+$$
+
+Nyní můžeme dosadit vše do rovnice:
+$$
+    \rho \cdot c \cdot \frac{\dot{V}}{d \cdot b} \cdot \frac{dT}{dx} = \left( \sigma_{e,0} + \sigma_{e,1} \cdot T \right) \cdot \left( \frac{U}{d} \right)^2.
+$$
+
+Dostáváme diferenciální rovnici, kterou můžeme řešit separací proměnných:
+$$
+    \frac{dT}{\sigma_{e,0} + \sigma_{e,1} \cdot T} = \frac{U^2 \cdot b}{d \cdot \rho \cdot c \cdot \dot{V}} \cdot dx.
+$$
+
+Pravou staranu můžeme pro lepší čitelnost narhadit:
+$$
+    \xi = \frac{U^2 \cdot b}{d \cdot \rho \cdot c \cdot \dot{V}}.
+$$
+
+Dostáváme:
+$$
+    \frac{dT}{\sigma_{e,0} + \sigma_{e,1} \cdot T} = \xi \cdot dx.
+$$
+
+Integrujeme obě strany:
+$$
+    \int_{T_1}^{T_2} \frac{dT}{\sigma_{e,0} + \sigma_{e,1} \cdot T} = \int_{0}^{l} \xi \cdot dx,
+$$
+kde:\\
+$T_1$ -- počáteční teplota (\ueqK),\\
+$T_2$ -- konečná teplota (\ueqK),\\
+$l$ -- délka průtokového ohřívače (\ueqM).\\
+
+Dostáváme:
+$$
+    \left[ \frac{1}{\sigma_{e,1}} \cdot \ln \left( \sigma_{e,0} + \sigma_{e,1} \cdot T \right) \right]_{T_1}^{T_2} = \left[ \xi \cdot x \right]_0^l
+$$
+$$
+    \frac{1}{\sigma_{e,1}} \cdot \ln \left( \sigma_{e,0} + \sigma_{e,1} \cdot T_2 \right) - \frac{1}{\sigma_{e,1}} \cdot \ln \left( \sigma_{e,0} + \sigma_{e,1} \cdot T_1 \right) = \xi \cdot l
+$$
+$$
+    \ln \left( \frac{\sigma_{e,0} + \sigma_{e,1} \cdot T_2}{\sigma_{e,0} + \sigma_{e,1} \cdot T_1} \right) = \sigma_{e,1} \cdot \xi \cdot l
+$$
+$$
+    \frac{\sigma_{e,0} + \sigma_{e,1} \cdot T_2}{\sigma_{e,0} + \sigma_{e,1} \cdot T_1} = e^{\sigma_{e,1} \cdot \xi \cdot l}
+$$
+$$
+    \sigma_{e,0} + \sigma_{e,1} \cdot T_2 = \left( \sigma_{e,0} + \sigma_{e,1} \cdot T_1 \right) \cdot e^{\sigma_{e,1} \cdot \xi \cdot l}
+$$
+$$
+    T_2 = \frac{\left( \sigma_{e,0} + \sigma_{e,1} \cdot T_1 \right) \cdot e^{\sigma_{e,1} \cdot \xi \cdot l} - \sigma_{e,0}}{\sigma_{e,1}} = \frac{\sigma_{e,0} \cdot e^{\sigma_{e,1} \cdot \xi \cdot l} - \sigma_{e,0} + \sigma_{e,1} \cdot T_1 \cdot e^{\sigma_{e,1} \cdot \xi \cdot l}}{\sigma_{e,1}} =
+$$
+$$
+    = \frac{\sigma_{e,0} \cdot e^{\sigma_{e,1} \cdot \xi \cdot l} - \sigma_{e,0}}{\sigma_{e,1}} + T_1 \cdot e^{\sigma_{e,1} \cdot \xi \cdot l}.
+$$
+
+Pokud za $\xi$ dosadíme původní výraz, dostaneme:
+$$
+    T_2 = \frac{\sigma_{e,0} \cdot e^{\sigma_{e,1} \cdot \frac{U^2 \cdot b}{d \cdot \rho \cdot c \cdot \dot{V}} \cdot l} - \sigma_{e,0}}{\sigma_{e,1}} + T_1 \cdot e^{\sigma_{e,1} \cdot \frac{U^2 \cdot b}{d \cdot \rho \cdot c \cdot \dot{V}} \cdot l}.
+$$
+
+\end{document}
