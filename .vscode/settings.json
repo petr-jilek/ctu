@@ -16,6 +16,7 @@
     "editor.defaultFormatter": "James-Yu.latex-workshop"
   },
   "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
+  "latex-workshop.formatting.latex": "latexindent",
   "files.exclude": {
     "**/__pycache__": true,
     "**/.idea": true,

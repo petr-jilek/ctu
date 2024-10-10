@@ -889,17 +889,35 @@ $$
     T_{clona} = \sqrt[4]{\frac{T_1^4 + T_2^4}{2}}.
 $$
 
-Sálavý výkon z destičky 1 na destičku 2 přes clonu:
+Sálavý výkon z destičky 1 na destičku 2 přes clonu je poté roven sálavému výkonu z clony na destičku 2, který je zároveň roven sálavému výkonu z destičky 1 na clonu:
 $$
-    P_{1 \rightarrow 2} = k \cdot \left( T_1^4 - T_{clona}^4 \right) = k \cdot \left( T_1^4 - \frac{T_1^4 + T_2^4}{2} \right) =
+    P_{1 \rightarrow 2,b} = P_{1 \rightarrow clona} = P_{clona \rightarrow 2}.
+$$
+
+Ověřme výpočet pro obě možnosti. Sálavý výkon z destičky 1 na clonu:
+$$
+    P_{1 \rightarrow clona} = k \cdot \left( T_1^4 - T_{clona}^4 \right) = k \cdot \left( T_1^4 - \frac{T_1^4 + T_2^4}{2} \right) =
 $$
 $$
-    = k \cdot \frac{2 \cdot T_1^4 - T_1^4 - T_2^4}{2} = k \cdot \frac{T_1^4 - T_2^4}{2}.
+    = k \cdot \frac{2 \cdot T_1^4 - T_1^4 - T_2^4}{2} = k \cdot \frac{T_1^4 - T_2^4}{2} = \frac{k}{2} \cdot \left( T_1^4 - T_2^4 \right).
+$$
+
+Sálavý výkon z clony na destičku 2:
+$$
+    P_{clona \rightarrow 2} = k \cdot \left( T_{clona}^4 - T_2^4 \right) = k \cdot \left( \frac{T_1^4 + T_2^4}{2} - T_2^4 \right) =
+$$
+$$
+    = k \cdot \frac{T_1^4 + T_2^4 - 2 \cdot T_2^4}{2} = k \cdot \frac{T_1^4 - T_2^4}{2} = \frac{k}{2} \cdot \left( T_1^4 - T_2^4 \right).
+$$
+
+Výkony jsou si rovny, tudíž sálavý výkon z destičky 1 na destičku 2 přes clonu je roven:
+$$
+    P_{1 \rightarrow 2,b} = \frac{k}{2} \cdot \left( T_1^4 - T_2^4 \right).
 $$
 
 Poměr tohoto výkonu k výkonu z bodu a):
 $$
-    \frac{P_{1 \rightarrow 2,a}}{P_{1 \rightarrow 2,b}} = \frac{k \cdot \frac{T_1^4 - T_2^4}{2}}{k \cdot \left( T_1^4 - T_2^4 \right)} = \frac{1}{2}.
+    \frac{P_{1 \rightarrow 2,b}}{P_{1 \rightarrow 2,a}} = \frac{\frac{k}{2} \cdot \left( T_1^4 - T_2^4 \right)}{k \cdot \left( T_1^4 - T_2^4 \right)} = \frac{1}{2}.
 $$
 
 \newpage

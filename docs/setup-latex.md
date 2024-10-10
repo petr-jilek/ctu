@@ -3,7 +3,7 @@
 ## Requirements
 
 - Visual Studio Code, tested on version:
-- LaTeX Workshop extension (`james-yu.latex-workshop`) in Visual Studio Code (Tested with: v9.20.1)
+- LaTeX Workshop extension (`james-yu.latex-workshop`) in Visual Studio Code (Tested with: v10.5.0)
 
 ### Versions used for macOS
 
