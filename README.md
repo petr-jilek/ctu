@@ -24,3 +24,7 @@ When creating a branch use the following naming convention:
 
 - `feat/<your-feature-name>` for new features
 - `fix/<your-fix-name>` for bug fixes
+
+## Contact
+
+If you have any questions, feedback, or ideas or need help, feel free to contact me via email `jilekpet@fel.cvut.cz`.

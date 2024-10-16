@@ -16,12 +16,15 @@
 \section{\emoji{electric-plug} Symetrizace \spicy \spicy}
 
 \subsection{1 fázová reálná zátěž}
-Mějme 1 fázovou reálnou zátěž zdanou reálnou admitancí $G \fs (\uOHMinv)$:
+Mějme 1 fázovou reálnou zátěž zdanou reálnou admitancí $G$:
 $$
     G = \frac{1}{R},
 $$
 kde:\\
+$G$ - vodivost zátěže $(\uSIE)$,\\
 $R$ - odpor zátěže $(\uOHM)$.\\
+
+Zátěž lze jednoduše nakreslit následovně:
 
 \begin{center}
     \begin{circuitikz}[scale=0.8][european voltages]
@@ -39,15 +42,22 @@ Pokud bychom tuto zátěž připojily k 3 fázovému systému, tak by byla nesym
         to [capacitor, *-, l_=$\hat{Y}_{1,3}$] (3,5)
         to [cute inductor, *-, l_=$\hat{Y}_{1,2}$] (6,0)
         to [fullgeneric, *-, l_=$G$] (0,0);
+
+        \node[anchor=west] at (3,5) {1};
+        \node[anchor=west] at (6,0) {2};
+        \node[anchor=east] at (0,0) {3};
     \end{circuitikz}
 \end{center}
 
+Vzorce pro výpočet admitancí jsou poté následující:
 $$
-    Y_{1,2} = -j \frac{G}{\sqrt{3}}
+    \hat{Y}_{1,2} = -j \frac{G}{\sqrt{3}},
 $$
 $$
-    Y_{1,3} = j \frac{G}{\sqrt{3}}
+    \hat{Y}_{1,3} = j \frac{G}{\sqrt{3}}.
 $$
+
+\textit{Poznámka: Sled fází jde po směru hodinových ručiček, a tento směr je třeba zachovat.}
 
 \subsubsection{Odvození \spicy \spicy \spicy \spicy}
 Uvažujme následující zapojení prvku v 3 fázovém systému:
@@ -97,11 +107,11 @@ Uvažujme následující zapojení prvku v 3 fázovém systému:
     \end{circuitikz}
 \end{center}
 
-Mezi uzly 2 a 3 je zapojena reálná zátěž, kterou chceme symetrizovat o vodivosti $G \fs (\uOHMinv) $. Požadujeme, aby po připojení admitancí $\hat{Y}_{1,2} \fs (\uOHMinv)$ a $\hat{Y_{1.3}} \fs (\uOHMinv)$ byla zátěž reálná a symetrická. Dalším požadavkem je, aby činný výkon odebíraný zátěží zůstal nezměněn. Matematicky to znamená:
+Mezi uzly 2 a 3 je zapojena reálná zátěž, kterou chceme symetrizovat o vodivosti $G \fs (\uSIE) $. Požadujeme, aby po připojení admitancí $\hat{Y}_{1,2} \fs (\uSIE)$ a $\hat{Y_{1.3}} \fs (\uSIE)$ byla zátěž reálná a symetrická. Dalším požadavkem je, aby činný výkon odebíraný zátěží zůstal nezměněn. Matematicky to znamená:
 
 \begin{itemize}
     \item zachování činného výkonu: $\hat{Y}_{1,2}$ a $\hat{Y}_{1,3}$ jsou ryze imaginární,
-    \item výsledné zapojení neodebírá jalový výkon: $\hat{Y}_{1,2} = - \hat{Y}_{1,3}$
+    \item výsledné zapojení neodebírá jalový výkon: $\hat{Y}_{1,2} = - \hat{Y}_{1,3}$,
     \item symetrie odebíraných proudů: $\hat{I}_1 = k \cdot \hat{U}_1$, $\hat{I}_2 = k \cdot \hat{U_2}$, $\hat{I}_3 = k \cdot \hat{U}_3$.
 \end{itemize}
 
