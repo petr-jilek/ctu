@@ -381,11 +381,12 @@ $$
     } = G
 $$
 
+Dostáváme tedy:
 $$
-    k = G
+    k = G,
 $$
 $$
-    Y = -\frac{G}{\sqrt{3}}
+    Y = -\frac{G}{\sqrt{3}}.
 $$
 
 
@@ -408,10 +409,10 @@ Mějme obecnou 3 fázovou nesymetrickou zátěž zadanou admitancemi podle obrá
 
 Admitance můžeme zapsat jako:
 $$
-    \hat{Y}_{1,2} = G_{1,2} + j \cdot B_{1,2}
+    \hat{Y}_{1,2} = G_{1,2} + j \cdot B_{1,2},
 $$
 $$
-    \hat{Y}_{1,3} = G_{1,3} + j \cdot B_{1,3}
+    \hat{Y}_{1,3} = G_{1,3} + j \cdot B_{1,3},
 $$
 $$
     \hat{Y}_{2,3} = G_{2,3} + j \cdot B_{2,3}.
@@ -493,13 +494,13 @@ Výsledná tabulka symetrizace bude vypadat následovně:
 
 Symetrizační admitanci pro danou větev dostaneme jako součet všech symetrizačních admitancí (suma ve sloupci):
 $$
-    \hat{Y}_{s,1,2} = -j B_{1,2} + j \frac{G_{1,3}}{\sqrt{3}} - j \frac{G_{2,3}}{\sqrt{3}}
+    \hat{Y}_{s,1,2} = -j B_{1,2} + j \frac{G_{1,3}}{\sqrt{3}} - j \frac{G_{2,3}}{\sqrt{3}},
 $$
 $$
-    \hat{Y}_{s,1,3} = -j B_{1,3} - j \frac{G_{1,2}}{\sqrt{3}} + j \frac{G_{2,3}}{\sqrt{3}}
+    \hat{Y}_{s,1,3} = -j B_{1,3} - j \frac{G_{1,2}}{\sqrt{3}} + j \frac{G_{2,3}}{\sqrt{3}},
 $$
 $$
-    \hat{Y}_{s,2,3} = -j B_{2,3} + j \frac{G_{1,2}}{\sqrt{3}} - j \frac{G_{1,3}}{\sqrt{3}}
+    \hat{Y}_{s,2,3} = -j B_{2,3} + j \frac{G_{1,2}}{\sqrt{3}} - j \frac{G_{1,3}}{\sqrt{3}}.
 $$
 
 Tyto admitance následně připojíme parallelně k odpovídajícím větvím. Výsledný obvod bude vypadat následovně:
@@ -532,11 +533,11 @@ Tyto admitance následně připojíme parallelně k odpovídajícím větvím. V
 
 
 \subsection{Přepočet výkonů na admitance}
-Zátěže jsou často zadány pomocí: činného výkonu, úhlu $\te{cos} (\varphi) \fs$ a informací, zda je zátěž induktivní nebo kapacitní. Tyto informace můžeme převést na admitanci $\hat{Y} \fs (\uOHMinv)$ následovně:
+Zátěže jsou často zadány pomocí: činného výkonu, úhlu $\te{cos} (\varphi) \fs$ a informací, zda je zátěž induktivní nebo kapacitní. Tyto informace můžeme převést na admitanci $\hat{Y} \fs (\uSIE)$ následovně:
 $$
     \hat{Y} = \frac{P}{U^2} \cdot (1 - j \cdot \te{tg} (\pm \varphi)) = \frac{P}{U^2} \cdot (1 \mp j \cdot \te{tg} (\varphi)),
 $$
-kde:
+kde:\\
 $P$ - činný výkon (\ueqW),\\
 $U$ - efektivní hodnota napětí (\ueqV),\\
 $j$ - imaginární jednotka,\\
@@ -546,12 +547,12 @@ dolní znaménko $\pm / \mp$ - kapacitní zátěž.\\
 
 Pro induktivní zátěž:
 $$
-    \hat{Y} = \frac{P}{U^2} \cdot (1 - j \cdot \te{tg} (\varphi))
+    \hat{Y} = \frac{P}{U^2} \cdot (1 - j \cdot \te{tg} (\varphi)).
 $$
 
 Pro kapacitní zátěž:
 $$
-    \hat{Y} = \frac{P}{U^2} \cdot (1 + j \cdot \te{tg} (\varphi))
+    \hat{Y} = \frac{P}{U^2} \cdot (1 + j \cdot \te{tg} (\varphi)).
 $$
 
 \subsubsection{Odvození \spicy \spicy \spicy}
@@ -601,7 +602,7 @@ Parametry:
     \item $P_{2,3} = 26 \fs \uKW$, kapacitní.
 \end{itemize}
 
-Provete symetrizaci zátěže.
+Proveďte symetrizaci zátěže.
 
 \subsubsection{Řešení}
 Nejprve získáme úhel $\varphi$:
@@ -616,13 +617,13 @@ $$
 
 Následně získáme admitance:
 $$
-    Y_{1,2} = \frac{P_{1,2}}{U^2} \cdot (1 - j \cdot \te{tg} (\varphi)) = \frac{63 \fs 000}{400^2} \cdot (1 - j \cdot 0.751) = (0.394 - j \cdot 0.236) \fs \uOHMinv
+    Y_{1,2} = \frac{P_{1,2}}{U^2} \cdot (1 - j \cdot \te{tg} (\varphi)) = \frac{63 \fs 000}{400^2} \cdot (1 - j \cdot 0.751) = (0.394 - j \cdot 0.236) \fs \uSIE,
 $$
 $$
-    Y_{1,3} = \frac{P_{1,3}}{U^2} \cdot (1 - j \cdot \te{tg} (\varphi)) = \frac{28 \fs 000}{400^2} \cdot (1 - j \cdot 0.751) = (0.175 - j \cdot 0.131) \fs \uOHMinv
+    Y_{1,3} = \frac{P_{1,3}}{U^2} \cdot (1 - j \cdot \te{tg} (\varphi)) = \frac{28 \fs 000}{400^2} \cdot (1 - j \cdot 0.751) = (0.175 - j \cdot 0.131) \fs \uSIE,
 $$
 $$
-    Y_{2,3} = \frac{P_{2,3}}{U^2} \cdot (1 + j \cdot \te{tg} (\varphi)) = \frac{26 \fs 000}{400^2} \cdot (1 + j \cdot 0.751) = (0.163 + j \cdot 0.122) \fs \uOHMinv.
+    Y_{2,3} = \frac{P_{2,3}}{U^2} \cdot (1 + j \cdot \te{tg} (\varphi)) = \frac{26 \fs 000}{400^2} \cdot (1 + j \cdot 0.751) = (0.163 + j \cdot 0.122) \fs \uSIE.
 $$
 
 Dále vytvoříme tabulku symetrizace:
@@ -642,13 +643,13 @@ Dále vytvoříme tabulku symetrizace:
 
 Symetrizační admitance:
 $$
-    Y_{s,1,2} = j 0.236 + j \frac{0.175}{\sqrt{3}} - j \frac{0.163}{\sqrt{3}} = j 0.236 + j 0.101 - j 0.094 = j 0.243 \fs \uOHMinv
+    Y_{s,1,2} = j 0.236 + j \frac{0.175}{\sqrt{3}} - j \frac{0.163}{\sqrt{3}} = j 0.236 + j 0.101 - j 0.094 = j 0.243 \fs \uSIE,
 $$
 $$
-    Y_{s,1,3} = j 0.131 - j \frac{0.394}{\sqrt{3}} + j \frac{0.163}{\sqrt{3}} = j 0.131 - j 0.227 + j 0.094 = -j 0.002 \fs \uOHMinv
+    Y_{s,1,3} = j 0.131 - j \frac{0.394}{\sqrt{3}} + j \frac{0.163}{\sqrt{3}} = j 0.131 - j 0.227 + j 0.094 = -j 0.002 \fs \uSIE,
 $$
 $$
-    Y_{s,2,3} = -j 0.122 + j \frac{0.394}{\sqrt{3}} - j \frac{0.175}{\sqrt{3}} = -j 0.122 + j 0.227 - j 0.101 = j 0.004 \fs \uOHMinv.
+    Y_{s,2,3} = -j 0.122 + j \frac{0.394}{\sqrt{3}} - j \frac{0.175}{\sqrt{3}} = -j 0.122 + j 0.227 - j 0.101 = j 0.004 \fs \uSIE.
 $$
 
 Výsledné zapojení bude vypadat následovně:
