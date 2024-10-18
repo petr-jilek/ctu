@@ -15,9 +15,7 @@
 
 
 \section{\emoji{snow-capped-mountain} Potenciální energie \spicy}
-
 Do jaké výšky vynese energie jedné Fidorky (30 g $\rightarrow$ 162 \ueqKCAL) 80 \ueqKG \fs člověka?
-
 \begin{enumerate}[a)]
     \item Gravitační zrychlení je konstantní s hodnotou 9,81 \ueqMandSinvsq.
     \item Počáteční výška je 0 m nad mořem a gravitační zrychlení je proměnné. Známe:
@@ -31,21 +29,19 @@ Do jaké výšky vynese energie jedné Fidorky (30 g $\rightarrow$ 162 \ueqKCAL)
 
 
 \subsection{a}
-
 Energie jedné Fidorky:
 $$
-    162 \fs \uKCAL = 162 \cdot 4 \fs 184 \fs \frac{\uJ}{\uKCAL} = 677 \fs 808 \fs \uJ.
+    162 \fs \uKCAL = 162 \fs \uKCAL \cdot 4 \fs 184 \fs \frac{\uJ}{\uKCAL} = 677 \fs 808 \fs \uJ.
 $$
 
 Ze vzorce pro potenciální energii vyjádříme výšku:
 $$
-    E_p = m \cdot g \cdot \Delta h \Rightarrow \Delta h = \frac{E_p}{m \cdot g} = \frac{677 \fs 808 \fs \uJ}{80 \fs \uKG \cdot 9,81 \fs \uMandSinvsq} \approx 863,7 \fs m.
+    E_p = m \cdot g \cdot \Delta h \Rightarrow \Delta h = \frac{E_p}{m \cdot g} = \frac{677 \fs 808}{80 \cdot 9,81} \approx 863,7 \fs m.
 $$
 
 
 
 \subsection{b \spicy \spicy \spicy}
-
 Nejdříve si odvodíme vzorec pro gravitační zrychlení z Newtonova gravitačního zákona:
 \begin{equation}
     F = G \cdot \frac{m_1 \cdot m_2}{r^2},
@@ -99,17 +95,17 @@ $$
 
 Hmotnost $m$ a $M$ a gravitační konstanta $G$ je konstantní, takže je můžeme vytknout před integrál:
 $$
-    E_p = m \cdot G \cdot M \int_{R}^{R + h} \frac{1}{r^2} \cdot dr = m \cdot G \cdot M \left[ - \frac{1}{r} \right]_{R}^{R + h} = m \cdot G \cdot M \left( - \frac{1}{R + h} + \frac{1}{R} \right).
+    E_p = m \cdot G \cdot M \int_{R}^{R + h} \frac{1}{r^2} \cdot dr = m \cdot G \cdot M \cdot \left[ - \frac{1}{r} \right]_{R}^{R + h} = m \cdot G \cdot M \cdot \left( - \frac{1}{R + h} + \frac{1}{R} \right).
 $$
 
 Po úpravě dostaneme:
 $$
-    E_p = m \cdot G \cdot M \left( \frac{1}{R} - \frac{1}{R + h} \right).
+    E_p = m \cdot G \cdot M \cdot \left( \frac{1}{R} - \frac{1}{R + h} \right).
 $$
 
 Nyní je třeba osamostatnit $h$:
 $$
-    E_p = m \cdot G \cdot M \left( \frac{R + h - R}{R \cdot (R + h)} \right) = m \cdot G \cdot M \left( \frac{h}{R \cdot (R + h)} \right)
+    E_p = m \cdot G \cdot M \cdot \left( \frac{R + h - R}{R \cdot (R + h)} \right) = m \cdot G \cdot M \cdot \left( \frac{h}{R \cdot (R + h)} \right)
 $$
 $$
     E_p \cdot R \cdot (R + h) = m \cdot G \cdot M \cdot h
@@ -132,14 +128,13 @@ $$
 
 Poté dosadíme hodnoty:
 $$
-    h = \frac{677 \fs 808 \cdot 6 \fs 371 \fs 000^2}{80 \cdot 6,67430 \cdot 10^{-11} \cdot 5,97219 \cdot 10^{24} - 677 \fs 808 \cdot 6 \fs 371 \fs 000}.
+    h = \frac{677 \fs 808 \cdot 6 \fs 371 \fs 000^2}{80 \cdot 6,67430 \cdot 10^{-11} \cdot 5,97219 \cdot 10^{24} - 677 \fs 808 \cdot 6 \fs 371 \fs 000} \approx
 $$
 $$
-    h \approx 862,8 \fs m.
+    \approx 862,8 \fs m.
 $$
 
 Jako dodatek je možné si vytvořit graf závislosti gravitačního zrychlení na výšce $h$ nad mořem:
-
 \begin{center}
     \begin{tikzpicture}
         \begin{axis}[
@@ -162,7 +157,7 @@ Jako dodatek je možné si vytvořit graf závislosti gravitačního zrychlení 
 \end{center}
 
 \begin{notebox}{Poznámka}
-    Gravitační zrychlení v grafu pro 0 metrů nad mořem je cca 9,82 $\uMandSinvsq \fs$ místo 9,81 $\uMandSinvsq \fs$. Vzorec pro Newtonuv gravitační zákon uvažuje sféricky symetrické rozložení hmoty země. V realitě hmota země sféricky symetricky rozložena není. V jádru země je běžne látka s vyšší hustotou než na povrchu země. Tento faktor způsobuje, že reálné gravitační zrychlení na povrchu země je o něco nižší, než spočítaná hodnota ze vzorce. Hodnota 9,81 $\uMandSinvsq \fs$ je hodnot změřená.
+    Gravitační zrychlení v grafu pro 0 metrů nad mořem je cca $9,82 \fs \uMandSinvsq \fs$ místo $9,81 \fs \uMandSinvsq$. Vzorec pro Newtonuv gravitační zákon uvažuje sféricky symetrické rozložení hmoty země. V realitě hmota země sféricky symetricky rozložena není. V jádru země je běžne látka s vyšší hustotou než na povrchu země. Tento faktor způsobuje, že reálné gravitační zrychlení na povrchu země je o něco nižší, než spočítaná hodnota ze vzorce. Hodnota 9,81 $\uMandSinvsq \fs$ je hodnot změřená.
 
     Kvůli této nepřesnosti je i výsledná výška při počítání s proměnným gravitačním zrychlením o něco nižší, než výška při počítání s konstantním gravitačním zrychlením 9,81 \ueqMandSinvsq.
 \end{notebox}
@@ -173,9 +168,7 @@ Jako dodatek je možné si vytvořit graf závislosti gravitačního zrychlení 
 
 
 \section{\emoji{fire} Tepelná kapacita \spicy}
-
 Na jakou teplotu by energie potřebná k ohřátí vody z 10 \ueqCELS \fs na 100 \ueqCELS \fs ohřála ocel a zlato o stejné:
-
 \begin{enumerate}[a)]
     \item hmotnosti,
     \item objemu.
@@ -198,7 +191,6 @@ Na jakou teplotu by energie potřebná k ohřátí vody z 10 \ueqCELS \fs na 100
 
 
 \subsection{a}
-
 Rozdíl teplot pro vodu je:
 $$
     \Delta T_{H2O} = 100 \fs \uCELS - 10 \fs \uCELS = 90 \fs \uK.
@@ -226,12 +218,12 @@ $$
 
 Pro ocel platí:
 $$
-    \Delta T_{ocel} = \Delta T_{H2O} \cdot \frac{c_{H2O}}{c_{ocel}} = 90 \cdot \frac{4 186}{450} \approx 837,2 \fs \uK.
+    \Delta T_{ocel} = \Delta T_{H2O} \cdot \frac{c_{H2O}}{c_{ocel}} = 90 \cdot \frac{4 \fs 186}{450} \approx 837,2 \fs \uK.
 $$
 
 Pro zlato platí:
 $$
-    \Delta T_{zlato} = \Delta T_{H2O} \cdot \frac{c_{H2O}}{c_{zlato}} = 90 \cdot \frac{4 186}{129} \approx 2 920,5 \fs \uK.
+    \Delta T_{zlato} = \Delta T_{H2O} \cdot \frac{c_{H2O}}{c_{zlato}} = 90 \cdot \frac{4 \fs 186}{129} \approx 2 \fs 920,5 \fs \uK.
 $$
 
 \begin{notebox}{Poznámka}
@@ -270,12 +262,12 @@ $$
 
 Pro ocel platí:
 $$
-    \Delta T_{ocel} = \Delta T_{H2O} \cdot \frac{\rho_{H2O} \cdot c_{H2O}}{\rho_{ocel} \cdot c_{ocel}} = 90 \cdot \frac{1 000 \cdot 4 186}{7 750 \cdot 450} \approx 108,0 \fs \uK.
+    \Delta T_{ocel} = \Delta T_{H2O} \cdot \frac{\rho_{H2O} \cdot c_{H2O}}{\rho_{ocel} \cdot c_{ocel}} = 90 \cdot \frac{1 \fs 000 \cdot 4 \fs 186}{7 \fs 750 \cdot 450} \approx 108,0 \fs \uK.
 $$
 
 Pro zlato platí:
 $$
-    \Delta T_{zlato} = \Delta T_{H2O} \cdot \frac{\rho_{H2O} \cdot c_{H2O}}{\rho_{zlato} \cdot c_{zlato}} = 90 \cdot \frac{1 000 \cdot 4 186}{19 320 \cdot 129} \approx 1511,6 \fs \uK.
+    \Delta T_{zlato} = \Delta T_{H2O} \cdot \frac{\rho_{H2O} \cdot c_{H2O}}{\rho_{zlato} \cdot c_{zlato}} = 90 \cdot \frac{1 \fs 000 \cdot 4 \fs 186}{19 \fs 320 \cdot 129} \approx 151,1 \fs \uK.
 $$
 
 \newpage
@@ -291,8 +283,8 @@ Mějme průtokový ohřívač vody, který ohřívá studenou vodu o teplotě $1
 \end{enumerate}
 
 
-\subsection{a}
 
+\subsection{a}
 Objem protečené vody za 1 hodinu je:
 $$
     V = 10 \fs \frac{\uL}{\te{min}} = 10 \fs \frac{\frac{\uMcu}{1000}}{\frac{\uH}{60}} = 10 \fs \frac{\uMcu}{1000} \cdot \frac{60}{\uH} = 0,6 \fs \frac{\uMcu}{\uH}.
@@ -308,7 +300,7 @@ $$
     Q = m \cdot c \cdot \Delta T.
 $$
 $$
-    Q = 600 \fs \uKG \cdot 4 \fs 186 \fs \frac{\uJ}{\uKG \cdot \uK} \cdot 30 \fs \uK = 75 \fs 348 \fs 000 \fs \uJ
+    Q = 600 \cdot 4 \fs 186 \cdot 30 \fs = 75 \fs 348 \fs 000 \fs \uJ
 $$
 
 Výkon ohřívače je:
@@ -317,15 +309,16 @@ $$
 $$
 
 
-\subsection{b}
 
+\subsection{b}
 Výkon ohřívače je:
 $$
-    P = U \cdot I,
+    P = U_e \cdot I_e,
 $$
 kde:\\
-$U$ -- napětí (\ueqV),\\
-$I$ -- proud (\ueqA).\\
+$P$ -- výkon (\ueqW),\\
+$U$ -- elektrické napětí (\ueqV),\\
+$I$ -- elektrický proud (\ueqA).\\
 
 Z rovnice pro výkon ohřívače můžeme vyjádřit proud:
 $$
@@ -338,19 +331,20 @@ Jistič na $16 \fs \uA$ tedy nestačí, jelikož proud je $91 \fs \uA$.
 
 
 
+
 \section{\emoji{battery} Monočlánek \spicy}
 Mějme monočlánek s kapacitou $2 \fs 500 \fs \te{mAh}$ a napětím $1,2 \fs \uV$.
-
 \begin{enumerate}[a)]
     \item Kolik litrů vody ohřeje z $10 \fs \uCELS$ na $100 \fs \uCELS$?
     \item Jak vysoko vynese $80 \fs \uKG$ člověka?
 \end{enumerate}
 
 
+
 \subsection{a}
 Energie monočlánku je:
 $$
-    E = 1,2 \fs \uV \cdot 2 \fs 500 \fs \te{mAh} = 1,5 \fs \uV \cdot 2,5 \fs \uA = 3 \fs \uWH = 3 \cdot 3 \fs 600 \fs \uJ = 10 \fs 800 \fs \uJ.
+    E = 1,2 \fs \uV \cdot 2 \fs 500 \fs \te{mAh} = 1,2 \fs \uV \cdot 2,5 \fs \te{Ah} = 3 \fs \uWH = 3 \cdot 3 \fs 600 \fs \uJ = 10 \fs 800 \fs \uJ.
 $$
 
 Množství energie potřebné k ohřátí vody je:
@@ -360,17 +354,18 @@ $$
 
 Z rovnice pro měrnou tepelnou kapacitu můžeme vyjádřit objem:
 $$
-    m = \frac{Q}{\rho \cdot c \cdot \Delta T} = \frac{10 \fs 800 \fs \uJ}{1 000 \fs \uKGandMinvcu \cdot 4 \fs 186 \fs \uJandKGinvKinv \cdot 90 \fs \uK} =
+    m = \frac{Q}{\rho \cdot c \cdot \Delta T} = \frac{10 \fs 800}{1 000 \cdot 4 \fs 186 \cdot 90} =
 $$
 $$
     = 2,87 \cdot 10^{-5} \fs \uMcu = 2,87 \cdot 10^{-2} \fs \uL = 28,7 \fs \uML.
 $$
 
 
+
 \subsection{b}
 Ze vzorce pro potenciální energii vyjádříme výšku:
 $$
-    E_p = m \cdot g \cdot \Delta h \Rightarrow \Delta h = \frac{E_p}{m \cdot g} = \frac{10 \fs 800 \fs \uJ}{80 \fs \uKG \cdot 9,81 \fs \uMandSinvsq} \approx 13,76 \fs \uM.
+    E_p = m \cdot g \cdot \Delta h \Rightarrow \Delta h = \frac{E_p}{m \cdot g} = \frac{10 \fs 800}{80 \cdot 9,81} \approx 13,76 \fs \uM.
 $$
 
 \end{document}
