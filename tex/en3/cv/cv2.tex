@@ -162,60 +162,61 @@ Tento případ lze reprezentovat tepelným obvodem následovně:
     \end{tikzpicture}
 \end{center}
 
-\textit{Poznámka}\\
+\begin{notebox}{Poznámka}
+    Výpočet tepelného odporu je analogický jako výpočet elektrického odporu. Elektrický odpor $R_e$ vypočteme jako:
+    \begin{equation}
+        R_e = \frac{l}{\sigma_e \cdot S},
+        \unit{(\ueqOHM)}
+    \end{equation}
+    kde:\\
+    $l$ -- délka vodiče (\ueqM),\\
+    $\sigma_e$ -- měrná elektrická vodivost (\ueqSIEandMinv),\\
+    $S$ -- průřez vodiče (\ueqMsq).\\
 
-Výpočet tepelného odporu je analogický jako výpočet elektrického odporu. Elektrický odpor $R_e$ vypočteme jako:
-\begin{equation}
-    R_e = \frac{l}{\sigma_e \cdot S},
-    \unit{(\ueqOHM)}
-\end{equation}
-kde:\\
-$l$ -- délka vodiče (\ueqM),\\
-$\sigma_e$ -- měrná elektrická vodivost (\ueqSIEandMinv),\\
-$S$ -- průřez vodiče (\ueqMsq).\\
+    Analogie jsou:
+    \begin{itemize}
+        \item $R_{\vartheta A}$ -- absolutní tepelný odpor (\ueqKandWinv)\\ $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM),
+        \item $d$ -- tloušťka stěny (\ueqM)\\ $\rightarrow$ $l$ -- délka vodiče (m),
+        \item $\lambda$ -- tepelná vodivost (\ueqWandMinvKinv)\\ $\rightarrow$ $\sigma_e$ -- měrná elektrická vodivost (\ueqSIEandMinv),
+        \item $S$ -- plocha průřezu (\ueqMsq)\\ $\rightarrow$ $S$ -- průřez vodiče (\ueqMsq).
+    \end{itemize}
+\end{notebox}
 
-Analogie jsou:
-\begin{itemize}
-    \item $R_{\vartheta A}$ -- absolutní tepelný odpor (\ueqKandWinv) $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM),
-    \item $d$ -- tloušťka stěny (\ueqM) $\rightarrow$ $l$ -- délka vodiče (m),
-    \item $\lambda$ -- tepelná vodivost (\ueqWandMinvKinv) $\rightarrow$ $\sigma_e$ -- měrná elektrická vodivost (\ueqSIEandMinv),
-    \item $S$ -- plocha průřezu (\ueqMsq) $\rightarrow$ $S$ -- průřez vodiče (m2).
-\end{itemize}
+\begin{notebox}{Poznámka}
+    Výpočet tepelného toku je analogický s Ohmovým zákonem pro elektrický proud, kde elektický proud $I_e$ vypočteme jako:
+    \begin{equation}
+        I_e = \frac{U_e}{R_e},
+        \unit{(\ueqA)}
+    \end{equation}
+    kde:\\
+    $I_e$ -- elektrický proud (\ueqA),\\
+    $U_e$ -- elektrické napětí (\ueqV),\\
+    $R_e$ -- elektrický odpor (\ueqOHM).\\
 
-Výpočet tepelného toku je analogický s Ohmovým zákonem:
-\begin{equation}
-    I = \frac{U}{R_e},
-    \unit{(\ueqA)}
-\end{equation}
-kde:\\
-$I$ -- proud (\ueqA),\\
-$U$ -- napětí (\ueqV),\\
-$R_e$ -- elektrický odpor (\ueqOHM).\\
+    Analogie jsou:
+    \begin{itemize}
+        \item $\dot{Q_x}$ -- tepelný tok (\ueqW)\\ $\rightarrow$ $I_e$ -- elektrický proud (\ueqA),
+        \item $\Delta T$ -- rozdíl teplot (\ueqK)\\ $\rightarrow$ $U_e$ -- elektrické napětí (\ueqV),
+        \item $R_{\vartheta A}$ -- absolutní tepelný odpor (\ueqKandWinv)\\ $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM).
+    \end{itemize}
 
-Analogie jsou:
-\begin{itemize}
-    \item $\dot{Q_x}$ -- tepelný tok (\ueqW) $\rightarrow$ $I$ -- proud (\ueqA),
-    \item $\Delta T$ -- rozdíl teplot (\ueqK) $\rightarrow$ $U$ -- napětí (\ueqV),
-    \item $R_{\vartheta A}$ -- absolutní tepelný odpor (\ueqKandWinv) $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM).
-\end{itemize}
+    Elektrické schéma můžeme znázornit následujícím obrázkem:
 
-Elektrické schéma můžeme znázornit následujícím obrázkem:
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[thick] (0.5,-1) -- (1.5,-1) node[midway, below] {$U$};
+            \draw[thick] (1,0) -- (1,-1);
+            \draw[thick] (1,0) -- (2.5,0);
+            \draw[thick] (2.5,-0.3) rectangle (3.5,0.3) node[midway] {$R_e$};
+            \draw[thick] (3.5,0) -- (5,0);
+            \draw[thick] (5,0) -- (5,-1);
+            \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$0$};
 
-\begin{center}
-    \begin{tikzpicture}
-        \draw[thick] (0.5,-1) -- (1.5,-1) node[midway, below] {$U$};
-        \draw[thick] (1,0) -- (1,-1);
-        \draw[thick] (1,0) -- (2.5,0);
-        \draw[thick] (2.5,-0.3) rectangle (3.5,0.3) node[midway] {$R_e$};
-        \draw[thick] (3.5,0) -- (5,0);
-        \draw[thick] (5,0) -- (5,-1);
-        \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$0$};
-
-        % Triangle arrow
-        \draw[-{Triangle}] (2,0.7) -- (4,.7) node[midway, above] {$I$};
-    \end{tikzpicture}
-\end{center}
-
+            % Triangle arrow
+            \draw[-{Triangle}] (2,0.7) -- (4,.7) node[midway, above] {$I$};
+        \end{tikzpicture}
+    \end{center}
+\end{notebox}
 
 
 
@@ -243,6 +244,7 @@ Tepelný tok $\dot{Q_x}$ se poté může zapsat jako:
     \dot{Q_x} = U_{\vartheta A} \cdot \Delta T.
     \unit{(\ueqW)}
 \end{equation}
+
 
 
 \subsection{Číselný příklad}
@@ -284,6 +286,7 @@ $$
     \dot{Q_x} = \dot{q_x} \cdot S = 53,33 \fs \uWandMinvsq \cdot 20 \fs \uMsq = 1066,6 \fs \uW \approx 1 \fs \uKW.
 $$
 
+
 \subsubsection{b}
 Aby se měrné tepelné odpory rovnaly, musí platit:
 $$
@@ -302,14 +305,15 @@ $$
 
 
 
+
 \section{\emoji{building-construction} Skládaná zeď \spicy \spicy}
+
 
 
 \subsection{Tepelné schéma}
 U skládané zdi máme několik vrstev zdi s různou tepelnou vodivostí a tloušťkou. Navíc počítáme se součinitely přestupu tepla na začátku (ze vnitř do zdi) a na konci (ze zdi ven).
 
 Mějme tedy n vrstev zdi, kde $i$-tá vrstva má tepelnou vodivost $\lambda_i$ a tloušťku $d_i$. Mějme součinitel přestupu tepla na začátku $\alpha_{\vartheta,in}$ a na konci $\alpha_{\vartheta,out}$. Potom můžeme pro tuto situaci nakreslit následující tepelné schéma:
-
 \begin{center}
     \begin{tikzpicture}
         \draw[thick] (0.5,-2) -- (1.5,-2) node[midway, below] {$T_1$};
@@ -391,6 +395,7 @@ $$
 $$
 
 
+
 \subsection{Číselný příklad}
 Teplota na začátku zdi je $T_1 = 20 \fs \uCELS$, teplota na konci zdi je $T_2 = -10 \fs \uCELS$. Plocha průřezu zdi je $S = 20 \fs \uMsq$. Uvažujme dvouvrstvou zeď složenou z cihly a polystyrénu. Parametry cihly jsou:
 \begin{itemize}
@@ -405,15 +410,14 @@ Parametry polystyrénu jsou:
 \end{itemize}
 
 Uvažujte, že izolace je na konci zdi (z venčí). Zanedbejte součinitele přestupu tepla na začátku a na konci zdi.
-
 \begin{enumerate}[a)]
     \item Nakreslete tepelné schéma a vypočítejte celkový tepelný odpor $R_{\vartheta,\Sigma}$, celkový absolutní tepelný odpor $R_{\vartheta A,\Sigma}$, součinitel prostupu tepla $U_{\vartheta,\Sigma}$, absolutní součinitel prostupu tepla $U_{\vartheta A,\Sigma}$, měrný tepelný tok $\dot{q_x}$ a tepelný tok $\dot{Q_x}$.
     \item Nakreslete graf závislosti teploty na ose x pro případ izolace z venčí a pro případ izolace zevnitř. Diskutujte výhody a nevýhody obou případů.
 \end{enumerate}
 
+
 \subsubsection{a}
 Tepelné schéma bude vypadat následovně:
-
 \begin{center}
     \begin{tikzpicture}
         \draw[thick] (0.5,-2) -- (1.5,-2) node[midway, below] {$T_1$};
@@ -496,7 +500,6 @@ $$
 $$
 
 Obrázek pro případ izolace z venčí bude vypadat následovně:
-
 \begin{center}
     \begin{tikzpicture}
         % Variables
@@ -539,7 +542,6 @@ Obrázek pro případ izolace z venčí bude vypadat následovně:
 Výhody toho položení je, že pokud je zeď zevnitř, tak funguje jako akumulátor tepla. Je to vhodné pro dlouhodobé vytápění. Nevýhodou je, že pokud se například jedná o chalupu, kam se jezdí pouze na víkend, tak nějákou dobu trvá, než se teplo naakumuluje a v místnoti bude teplo. Tento typ izolace se používá časteji.\\
 
 Obrázek pro případ izolace zevnitř bude vypadat následovně:
-
 \begin{center}
     \begin{tikzpicture}
         % Variables
@@ -585,9 +587,9 @@ Toto položení se rychleji vytopí, ale také se rychleji ochladí, jelikož iz
 
 
 
+
 \section{\emoji{scroll} PENB \spicy \spicy}
 Mějme dům s plochou střechou o parametrech:
-
 \begin{itemize}
     \item plocha střechy $S_{strecha} = 100 \fs \uMsq$,
     \item součinitel prostupu tepla střechy $U_{\vartheta,strecha} = 0,3 \fs \uWandMinvsqKinv$,
@@ -598,11 +600,11 @@ Mějme dům s plochou střechou o parametrech:
 \end{itemize}
 
 Zanedbejte součinitele přestupu tepla, ztráty tepla na oknech a dveřích. Berte v úvahu, že venkovní teplota je okolo celého domu včetně podlahy stejná.
-
 \begin{enumerate}[a)]
     \item Vypočítejte průměrný měrný součinitel prostupu tepla $U_{\vartheta,avg}$ pro celý dům.
     \item Vypočítejte jak silnou izolaci $d_{izol}$ s tepelnou vodivostí $\lambda_{izol} = 0,04 \fs \uWandMinvKinv$ musíte použít, aby průměrný součinitel prostupu tepla $U_{\vartheta,avg}^{*}$ byl $0,5 \fs \uWandMinvsqKinv$.
 \end{enumerate}
+
 
 
 \subsection{a}
@@ -631,6 +633,7 @@ $$
 $$
     \frac{323,36}{320} \approx 1,01 \fs \uWandMinvsqKinv.
 $$
+
 
 
 \subsection{b}
@@ -691,11 +694,11 @@ $$
 
 \section{\emoji{sun} Sálavá clona \spicy \spicy}
 Mějme dvě desky. První deska má teplotu $T_1$ a druhá deska má teplotu $T_2$. Obě desky mají stejnou plochu $S$ a stejnou emisivitu $\varepsilon$.
-
 \begin{enumerate}[a)]
     \item Jaký je sálavý výkon $P_{1 \rightarrow 2} \fs (\uW)$ sálání první desky na druhou desku?
     \item Dejme mezi desky sálavou clonu o stejné ploše $S$ a emisivitě $\varepsilon$. Jaký je sálavý výkon $P_{1 \rightarrow 2} \fs (\uW)$ sálání první desky na druhou desku přes clonu a jaký je poměr tohoto výkonu k výkonu z bodu a)?
 \end{enumerate}
+
 
 
 \subsection{a}
@@ -715,6 +718,7 @@ Emisivity $\varepsilon_1$ a $\varepsilon_2$ jsou stejné, tudíž:
 $$
     P_{1 \rightarrow 2} = \frac{S \cdot \sigma \left( T_1^4 - T_2^4 \right)}{\frac{1}{\varepsilon} + \frac{1}{\varepsilon} - 1} = \frac{S \cdot \sigma \left( T_1^4 - T_2^4 \right)}{\frac{2}{\varepsilon} - 1} = k \cdot \left( T_1^4 - T_2^4 \right).
 $$
+
 
 
 \subsection{b}
@@ -783,6 +787,7 @@ $$
 
 
 
+
 \section{\emoji{milky-way} Destička ve vesmíru \spicy \spicy}
 Mějme destičku ve vesmíru, na kterou dopadá sluneční záření s následujícími parametry:
 \begin{itemize}
@@ -795,6 +800,8 @@ Mějme destičku ve vesmíru, na kterou dopadá sluneční záření s následuj
 Destička má stejnou teplotu na obouch stranách (je nekonečně tenká). Sluneční záření má intenzitu $\dot{q} = 1348 \fs \uWandMinvsq$. Stefanova-Boltzmannova konstanta je $\sigma = 5,67 \cdot 10^{-8} \fs \uWandMinvsqKinvquar$. Teplota vesmíru je $T_{space} = 3 \fs \uK$.\\
 
 Odvoďte vzorec pro rovnovážnou teplotu destičky $T$ v závislosti na úhlu natočení vůči slunci $\alpha$ a vypočítejte teplotu pro hodnoty $\alpha$: 0, 45 a 90 \ueqDEGREE.
+
+
 
 \subsection{Řešení}
 Tepelný to $\dot{Q}_{dop} \fs (\uW)$, který na destičku dopadne:
