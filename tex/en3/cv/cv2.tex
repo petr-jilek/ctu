@@ -402,13 +402,13 @@ $$
 
 
 \subsection{Číselný příklad}
-Teplota na začátku zdi je $T_1 = 20 \fs \uCELS$, teplota na konci zdi je $T_2 = -10 \fs \uCELS$. Plocha průřezu zdi je $S = 20 \fs \uMsq$. Uvažujme dvouvrstvou zeď složenou z cihly a polystyrénu. Parametry cihly jsou:
+Teplota na začátku zdi je $T_1 = 20 \fs \uCELS$, teplota na konci zdi je $T_2 = -10 \fs \uCELS$. Plocha průřezu zdi je $S = 20 \fs \uMsq$. Uvažujme dvouvrstvou zeď složenou z cihly a izolace. Parametry cihly jsou:
 \begin{itemize}
     \item $\lambda_{cihla} = 0,8 \fs \uWandMinvKinv$,
     \item $d_{cihla} = 45 \fs \uCM$.
 \end{itemize}
 
-Parametry polystyrénu jsou:
+Parametry izolace jsou:
 \begin{itemize}
     \item $\lambda_{izol} = 0,04 \fs \uWandMinvKinv$,
     \item $d_{izol} = 5 \fs \uCM$.
@@ -416,8 +416,8 @@ Parametry polystyrénu jsou:
 
 Uvažujte, že izolace je na konci zdi (z venčí). Zanedbejte součinitele přestupu tepla na začátku a na konci zdi.
 \begin{enumerate}[a)]
-    \item Nakreslete tepelné schéma a vypočítejte celkový tepelný odpor $R_{\vartheta,\Sigma}$, celkový absolutní tepelný odpor $R_{\vartheta A,\Sigma}$, součinitel prostupu tepla $U_{\vartheta,\Sigma}$, absolutní součinitel prostupu tepla $U_{\vartheta A,\Sigma}$, měrný tepelný tok $\dot{q}$ a tepelný tok $\dot{Q}$.
-    \item Nakreslete graf závislosti teploty na ose x pro případ izolace z venčí a pro případ izolace zevnitř. Diskutujte výhody a nevýhody obou případů.
+    \item Nakreslete tepelné schéma a vypočítejte $R_{\vartheta,\Sigma}$, $R_{\vartheta A,\Sigma}$, $U_{\vartheta,\Sigma}$, $U_{\vartheta A,\Sigma}$, $\dot{q}$ a $\dot{Q}$.
+    \item Vypočítejte teplotní spády v cihle $T_{cihla}$ a v izolaci $T_{izol}$ a nakreslete graf závislosti teploty na ose x pro případ izolace z venčí a pro případ izolace zevnitř.
 \end{enumerate}
 
 
@@ -442,24 +442,24 @@ Tepelné schéma bude vypadat následovně:
     \end{tikzpicture}
 \end{center}
 
+Tloušťka cihly v metrech je:
+$$
+    d_{cihla} = 45 \fs \uCM = 0,45 \fs \uM.
+$$
+
+Tloušťka izolace v metrech je:
+$$
+    d_{izol} = 5 \fs \uCM = 0,05 \fs \uM.
+$$
+
 Tepelný odpor cihly $R_{\vartheta,cihla}$ vypočteme jako:
 $$
-    R_{\vartheta,cihla} = \frac{d_{cihla}}{\lambda_{cihla}} = \frac{0,45 \fs \uM}{0,8 \fs \uWandMinvKinv} = 0,5625 \fs \uMsqKandWinv.
+    R_{\vartheta,cihla} = \frac{d_{cihla}}{\lambda_{cihla}} = \frac{0,45}{0,8} = 0,5625 \fs \uMsqKandWinv.
 $$
 
 Tepelný odpor izolace $R_{\vartheta,izol}$ vypočteme jako:
 $$
-    R_{\vartheta,izol} = \frac{d_{izol}}{\lambda_{izol}} = \frac{0,05 \fs \uM}{0,04 \fs \uWandMinvKinv} = 1,25 \fs \uMsqKandWinv.
-$$
-
-Absolutní tepelný odpor cihly $R_{\vartheta A,cihla}$ vypočteme jako:
-$$
-    R_{\vartheta A,cihla} = \frac{R_{\vartheta,cihla}}{S} = \frac{0,5625}{20} \approx 0,028 \fs \uKandWinv.
-$$
-
-Absolutní tepelný odpor izolace $R_{\vartheta A,izol}$ vypočteme jako:
-$$
-    R_{\vartheta A,izol} = \frac{R_{\vartheta,izol}}{S} = \frac{1,25}{20} = 0,063 \fs \uKandWinv.
+    R_{\vartheta,izol} = \frac{d_{izol}}{\lambda_{izol}} = \frac{0,05}{0,04} = 1,25 \fs \uMsqKandWinv.
 $$
 
 Celkový tepelný odpor $R_{\vartheta,\Sigma}$ vypočteme jako:
@@ -469,17 +469,17 @@ $$
 
 Celkový absolutní tepelný odpor $R_{\vartheta A,\Sigma}$ vypočteme jako:
 $$
-    R_{\vartheta A,\Sigma} = R_{\vartheta A,cihla} + R_{\vartheta A,izol} = 0,028 + 0,063 = 0,091 \fs \uKandWinv.
+    R_{\vartheta A,\Sigma} = \frac{R_{\vartheta,\Sigma}}{S} = \frac{1,8125}{20} \approx 0,091 \fs \uKandWinv.
 $$
 
 Součinitel prostupu tepla $U_{\vartheta,\Sigma}$ vypočteme jako:
 $$
-    U_{\vartheta,\Sigma} = \frac{1}{R_{\vartheta,\Sigma}} = \frac{1}{1,8125} \approx 0,5517 \fs \uWandMinvsqKinv.
+    U_{\vartheta,\Sigma} = \frac{1}{R_{\vartheta,\Sigma}} = \frac{1}{1,8125} \approx 0,552 \fs \uWandMinvsqKinv.
 $$
 
-Absolutní součinitel prostupu tepla $U_{\vartheta A,\Sigma}$ vypočteme jako:
+Prostup tepla $U_{\vartheta A,\Sigma}$ vypočteme jako:
 $$
-    U_{\vartheta A,\Sigma} = U_{\vartheta,\Sigma} \cdot S = 0,5517 \fs \uWandMinvsqKinv \cdot 20 \fs \uMsq = 11,034 \fs \uWandKinv.
+    U_{\vartheta A,\Sigma} = U_{\vartheta,\Sigma} \cdot S \approx 0,552 \cdot 20 = 11,04 \fs \uWandKinv.
 $$
 
 Měrný tepelný tok $\dot{q}$ vypočteme jako:
@@ -489,20 +489,30 @@ $$
 
 Tepelný tok $\dot{Q}$ vypočteme jako:
 $$
-    \dot{Q} = \dot{q} \cdot S = 16,55 \uWandMinvsq \cdot 20 \fs \uMsq = 331 \fs \uW = 0,331 \fs \uKW.
+    \dot{Q} = \dot{q} \cdot S \approx 16,55 \fs \uWandMinvsq \cdot 20 \fs \uMsq = 331 \fs \uW = 0,331 \fs \uKW.
 $$
 
 
 \subsubsection{b}
 Změnu teploty v cihle vypočteme jako:
 $$
-    \Delta T_{cihla} = \dot{q} \cdot R_{\vartheta,cihla} = 16,55 \fs \uWandMinvsq \cdot 0,5625 \fs \uMsqKandWinv = 9,31 \fs \uK.
+    \Delta T_{cihla} = \dot{q} \cdot R_{\vartheta,cihla} \approx 16,55 \cdot 0,5625 = 9,31 \fs \uK.
 $$
 
 Změnu teploty v izolaci vypočteme jako:
 $$
-    \Delta T_{izol} = \dot{q} \cdot R_{\vartheta,izol} = 16,55 \fs \uWandMinvsq \cdot 1,25 \fs \uMsqKandWinv = 20,69 \fs \uK.
+    \Delta T_{izol} = \dot{q} \cdot R_{\vartheta,izol} \approx 16,55 \cdot 1,25 = 20,69 \fs \uK.
 $$
+
+\begin{notebox}{Poznámka}
+    Součet změn teplot v cihle a izolaci musí být roven rozdílu teplot na začátku a na konci zdi:
+    $$
+        \Delta T_{cihla} + \Delta T_{izol} = \Delta T = T_1 - T_2 = 20 - (-10) = 30.
+    $$
+    $$
+        9,31 + 20,69 = 30.
+    $$
+\end{notebox}
 
 Obrázek pro případ izolace z venčí bude vypadat následovně:
 \begin{center}
@@ -538,13 +548,15 @@ Obrázek pro případ izolace z venčí bude vypadat následovně:
         \draw[dashed] (\dOne + \dTwo,\TTwo) -- (3,\TTwo) node[anchor=east] {$T_2 = -10 \fs \uCELS$};
         \draw[dashed] (\dOne + \dTwo, \TTwo - 1) -- (\dOne + \dTwo, \TTwo - 2) node[anchor=north] {$d_{cihla} + d_{izol}$};
 
-        % % Labels
+        % Labels
         \node[anchor=north] at (0, \TTwo - 1) {$0$};
         \node[anchor=north] at (\dOne, \TTwo - 1) {$d_{cihla}$};
     \end{tikzpicture}
 \end{center}
 
-Výhody toho položení je, že pokud je zeď zevnitř, tak funguje jako akumulátor tepla. Je to vhodné pro dlouhodobé vytápění. Nevýhodou je, že pokud se například jedná o chalupu, kam se jezdí pouze na víkend, tak nějákou dobu trvá, než se teplo naakumuluje a v místnoti bude teplo. Tento typ izolace se používá časteji.\\
+\begin{notebox}{Poznámka}
+    Výhody toho položení je, že pokud je zeď zevnitř, tak funguje jako akumulátor tepla. Je to vhodné pro dlouhodobé vytápění. Nevýhodou je, že pokud se například jedná o chalupu, kam se jezdí pouze na víkend, tak nějákou dobu trvá, než se teplo naakumuluje a v místnoti bude teplo. Tento typ izolace se používá časteji.
+\end{notebox}
 
 Obrázek pro případ izolace zevnitř bude vypadat následovně:
 \begin{center}
@@ -580,13 +592,15 @@ Obrázek pro případ izolace zevnitř bude vypadat následovně:
         \draw[dashed] (\dOne + \dTwo,\TTwo) -- (4,\TTwo) node[anchor=east] {$T_2 = -10 \fs \uCELS$};
         \draw[dashed] (\dOne + \dTwo, \TTwo - 1) -- (\dOne + \dTwo, \TTwo - 2) node[anchor=north] {$d_{izol} + d_{cihla}$};
 
-        % % Labels
+        % Labels
         \node[anchor=north] at (0, \TTwo - 1) {$0$};
         \node[anchor=north] at (\dTwo, \TTwo - 1) {$d_{izol}$};
     \end{tikzpicture}
 \end{center}
 
-Toto položení se rychleji vytopí, ale také se rychleji ochladí, jelikož izolace nefunguje jako dobrý akumulátor tepla. Pokud například zasvítí slunce, tak se místnost rychleji zahřeje. Je zde riziko kondenzace a tvoření vlhkosti a plísní.
+\begin{notebox}{Poznámka}
+    Toto položení se rychleji vytopí, ale také se rychleji ochladí, jelikož izolace nefunguje jako dobrý akumulátor tepla. Pokud například zasvítí slunce, tak se místnost rychleji zahřeje. Je zde riziko kondenzace a tvoření vlhkosti a plísní.
+\end{notebox}
 
 \newpage
 
