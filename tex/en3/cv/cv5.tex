@@ -13,7 +13,163 @@
 
 
 
+
+\section{\emoji{snowflake} Topná sezóna \spicy \spicy \spicy}
+
+Průměrná venkonví teplota v topné sezóně je $\overline{T}_{out} = 5 \fs \uCELS$. Vnitřní teplota je $T_{in} = 20 \fs \uCELS$. Doba topné sezóny je 200 dní. Celková plocha je $S = 300 \fs \uMsq$. Součinitel prostupu tepla je $U_\vartheta = 0,5 \fs \uWandMinvsqKinv$. Jaký množství tepla projde stěnami za celou topnou sezónu?
+
+
+
+\subsection{Řešení}
+
+Celkové množství tepla, které projde stěnami za celou topnou sezónu $Q$ vypočteme jako:
+$$
+    Q = \int_{t_1}^{t_2} \dot{Q} \cdot dt,
+$$
+kde:\\
+$\dot{Q}$ je tepelný tok (\ueqW),\\
+$t_1$ je začátek topné sezóny (\uH),\\
+$t_2$ je konec topné sezóny (\uH).
+
+Integrál můžeme rozepsat jako:
+$$
+    Q = \int_{t_1}^{t_2} U_\vartheta \cdot S \cdot (T_{in} - T_{out} (t)) \cdot dt = U_\vartheta \cdot S \cdot \int_{t_1}^{t_2} (T_{in} - T_{out} (t)) \cdot dt =
+$$
+$$
+    = U_\vartheta \cdot S \cdot T_{in} \cdot \int_{t_1}^{t_2} dt - U_\vartheta \cdot S \cdot \int_{t_1}^{t_2} T_{out} (t) \cdot dt =
+$$
+$$
+    = U_\vartheta \cdot S \cdot T_{in} \cdot (t_2 - t_1) - U_\vartheta \cdot S \cdot \int_{t_1}^{t_2} T_{out} (t) \cdot dt.
+$$
+
+Nyní uděláme odbočku, kde vyjádříme průměrnou venkovní teplotu $\overline{T}_{out}$ jako:
+$$
+    \overline{T}_{out} = \frac{1}{t_2 - t_1} \cdot \int_{t_1}^{t_2} T_{out} (t) \cdot dt.
+$$
+
+Vyjádříme daný integrál:
+$$
+    \int_{t_1}^{t_2} T_{out} (t) \cdot dt = \overline{T}_{out} \cdot (t_2 - t_1).
+$$
+
+Dosadíme zpět do původní rovnice:
+$$
+    Q = U_\vartheta \cdot S \cdot T_{in} \cdot (t_2 - t_1) - U_\vartheta \cdot S \cdot \overline{T}_{out} \cdot (t_2 - t_1) =
+$$
+$$
+    = U_\vartheta \cdot S \cdot (T_{in} - \overline{T}_{out}) \cdot (t_2 - t_1).
+$$
+
+Nyní můžeme dosadit a vypočítat:
+$$
+    Q = 0,5 \cdot 300 \cdot (20 - 5) \cdot (200 \cdot 24 \cdot 3 \fs 600 - 0) = 0,5 \cdot 300 \cdot 15 \cdot 200 \cdot 24 \cdot 3 \fs 600 =
+$$
+$$
+    = 38,9 \fs \uGJ.
+$$
+
+\newpage
+
+
+
+
+\section{\emoji{factory} Cihlová pec \spicy \spicy \spicy}
+
+U cihlové pece je vysoký rozdíl teplot, tudíž tepelnou vodivost je třeba uvažovat jako proměnnou. Tepelnou vodivost $\lambda$ můžeme zapsat jako:
+$$
+    \lambda (x) = \lambda_0 + \lambda_1 \cdot T,
+$$
+
+Pro zeď o tloušťce $d$ budeme uvažovat následující zjednodušející předpoklady:
+\begin{itemize}
+    \item $\frac{\partial T}{\partial t}$ = 0,
+    \item $\vec{v}$ = 0,
+    \item $Q_v$ = 0,
+    \item $\lambda (x) = \lambda_0 + \lambda_1 \cdot T$,
+    \item $T = T(x)$ - teplota závislá pouze na ose x.
+\end{itemize}
+
+Poté Fourierova-Kirchhoffova rovnice bude mít tvar:
+$$
+    0 = \frac{d}{dx} \left ( \lambda (T) \cdot \frac{dT}{dx} \right ).
+$$
+
+Fourieruv zákon pro tepelný tok bude mít tvar:
+$$
+    \dot{q_x} = - \lambda (T) \cdot \frac{dT}{dx}.
+$$
+
+Vynásobme rovnici mínus jedna:
+$$
+    - \dot{q_x} = \lambda (T) \cdot \frac{dT}{dx}.
+$$
+
+Pokud dosadíme do Fourierova-Kirchhoffovy rovnice, dostaneme:
+$$
+    0 = \frac{d}{dx} \left ( - \dot{q_x} \right ).
+$$
+
+Z toho vidíme, že měrný tepelný tok $\dot{q_x}$ je konstantní a nezávisí na poloze x. Můžeme tedy rozepsat Fourierův zákon jako:
+$$
+    - \dot{q_x} = \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot \frac{dT}{dx}.
+$$
+
+Můžeme řešit tuto diferenciální rovnici separací proměnných:
+$$
+    - \dot{q_x} \cdot dx = \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot dT.
+$$
+
+Nyní meze budou jak pro x, tak pro T:
+\begin{itemize}
+    \item $x = 0 \Rightarrow T = T_1$,
+    \item $x = d \Rightarrow T = T_2$.
+\end{itemize}
+
+Rovnici můžeme integrovat:
+$$
+    - \int_{0}^{d} \dot{q_x} \cdot dx = \int_{T_1}^{T_2} \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot dT
+$$
+$$
+    - \dot{q_x} \left[ x \right]_{0}^{d} = \lambda_0 \left[ T \right]_{T_1}^{T_2} + \frac{\lambda_1}{2} \left[ T^2 \right]_{T_1}^{T_2}
+$$
+$$
+    - \dot{q_x} \cdot d = \lambda_0 \cdot (T_2 - T_1) + \frac{\lambda_1}{2} \cdot (T_2^2 - T_1^2)
+$$
+$$
+    - \dot{q_x} \cdot d = \lambda_0 \cdot (T_2 - T_1) + \frac{\lambda_1}{2} \cdot (T_2 - T_1) \cdot (T_2 + T_1)
+$$
+$$
+    - \dot{q_x} \cdot d = (T_2 - T_1) \cdot \left( \lambda_0 + \frac{\lambda_1}{2} \cdot (T_2 + T_1) \right).
+$$
+
+Nyní odvoďme střední hodnotu tepelné vodivosti $\overline{\lambda}$:
+$$
+    \overline{\lambda} = \frac{1}{T_2 - T_1} \cdot \int_{T_1}^{T_2} \lambda (T) \cdot dT = \frac{1}{T_2 - T_1} \cdot \int_{T_1}^{T_2} \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot dT
+$$
+$$
+    = \frac{1}{T_2 - T_1} \cdot \left[ \lambda_0 \cdot T + \frac{\lambda_1}{2} \cdot T^2 \right]_{T_1}^{T_2} = \frac{1}{T_2 - T_1} \cdot \left( \lambda_0 \cdot (T_2 - T_1) + \frac{\lambda_1}{2} \cdot (T_2^2 - T_1^2) \right) =
+$$
+$$
+    = \lambda_0 + \frac{\lambda_1}{2} \cdot (T_2 + T_1).
+$$
+
+Nyní můžeme videt, že člen v závorce u vyřešené diferenciální rovnice je roven střední hodnotě tepelné vodivosti $\overline{\lambda}$:
+$$
+    - \dot{q_x} \cdot d = (T_2 - T_1) \cdot \overline{\lambda}.
+$$
+
+Nyní můžeme odvodit vztah pro měrný tepelný tok $\dot{q_x}$:
+$$
+    \dot{q_x} = \frac{T_1 - T_2}{d} \cdot \overline{\lambda}.
+$$
+
+\newpage
+
+
+
+
 \section{\emoji{shower} Průtokový ohřívač \spicy \spicy \spicy \spicy}
+
 Máme průtokový ohřívač tvořený dvěma obdelníkovými elektrodovými deskami o délce $l \fs (\uM)$ a šířce $b \fs (\uM)$. Vzdálenost mezi deskami je $d \fs (\uM)$. Mezi deskami je voda produdící o rychlostí $v$ pouze ve směru $x$. Voda má měrnou tepelnou kapacitu $c \fs (\uJandKGinvKinv)$ a hustotu $\rho \fs (\uKGandMinvcu)$. Elektrické napětí mezi deskami je $U \fs (\uV)$. Odvoďte změnu teploty vody $T_2 \fs (\uK)$ na výstupu průtokového ohřívače, pokud na vstupu je voda o teplotě $T_1 \fs (\uK)$.\\
 
 Budou platit následující předpoklady:
@@ -23,7 +179,9 @@ Budou platit následující předpoklady:
 \end{itemize}
 
 
+
 \subsection{Řešení}
+
 Foruier-Kirchhoffova rovnice:
 \begin{equation}
     \rho \cdot c \cdot \vec{v} \cdot \vec{\nabla} T = \dot{Q}_v,

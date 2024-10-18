@@ -36,7 +36,7 @@
     \item $\dot{Q}$ - tepelný tok (\ueqW \fs -- watt)
     \item $q$ - měrná tepelná energie (\ueqJandMinvsq \fs -- joule na metr čtvereční)
     \item $Q$ - tepelná energie (\ueqJ \fs -- joule)
-    \item $Q_v$ - objemový zdroj tepla (\ueqWandMinvcu \fs -- watt na metr krychlový)
+    \item $\dot{Q}_V$ - objemový zdroj tepla (\ueqWandMinvcu \fs -- watt na metr krychlový)
     \item $c$ - měrná tepelná kapacita (\ueqJandKGinvKinv \fs -- joule na kilogram na kelvin)
     \item $\lambda$ - tepelná vodivost (\ueqWandMinvKinv \fs -- watt na metr na kelvin)
     \item $R_{\vartheta}$ - (měrný) tepelný odpor (\ueqMsqKandWinv \fs -- metr čtvereční kelvin na watt)
@@ -51,6 +51,10 @@
     \item $U_e$ - elektrické napětí (\ueqV \fs -- volt)
     \item $I_e$ - elektrický proud (\ueqA \fs -- ampér)
     \item $R_e$ - elektrický odpor (\ueqOHM \fs -- ohm)
+    \item $G_e$ - elektrická vodivost (\ueqSIE \fs -- siemens)
+    \item $\hat{Z}$ - impedance (\ueqOHM \fs -- ohm)
+    \item $\hat{Y}$ - admitance (\ueqSIE \fs -- siemens)
+    \item $B_e$ - elektrická susceptance (\ueqSIE \fs -- siemens)
 \end{itemize}
 
 \newpage
@@ -143,7 +147,7 @@ $dt$ -- infinitesimální čas (\ueqS).
 \subsection{Fourierova-Kirchhoffova rovnice}
 Fourierova-Kirchhoffova rovnice je základní rovnicí pro popis toku tepla:
 \begin{equation}
-    \rho \cdot c \cdot \left( \frac{\partial T}{\partial t} + \vec{v} \cdot \vec{\nabla} T \right) = \nabla \cdot \left( \lambda \cdot \vec{\nabla} T \right) + Q_v,
+    \rho \cdot c \cdot \left( \frac{\partial T}{\partial t} + \vec{v} \cdot \vec{\nabla} T \right) = \nabla \cdot \left( \lambda \cdot \vec{\nabla} T \right) + \dot{Q}_V,
     \unit{(\ueqWandMinvcu)}
 \end{equation}
 kde:\\
