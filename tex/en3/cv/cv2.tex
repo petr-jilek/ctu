@@ -596,17 +596,17 @@ Toto položení se rychleji vytopí, ale také se rychleji ochladí, jelikož iz
 \section{\emoji{scroll} PENB \spicy \spicy}
 Mějme dům s plochou střechou o parametrech:
 \begin{itemize}
-    \item plocha střechy $S_{strecha} = 100 \fs \uMsq$,
-    \item součinitel prostupu tepla střechy $U_{\vartheta,strecha} = 0,3 \fs \uWandMinvsqKinv$,
-    \item plocha podlahy $S_{podlaha} = 100 \fs \uMsq$,
-    \item měrný součinitel prostupu tepla podlahy $U_{\vartheta,podlaha} = 0,8 \fs \uWandMinvsqKinv$,
-    \item plocha obvodových stěn $S_{zed} = 4 \cdot 10 \cdot 3 \fs \uMsq$ (4 stěny o výšce 2 metry a délce 10 metrů),
-    \item obvodová stěna je tvořena cihlou s tepelnou vodivostí $\lambda_{cihla} = 0,8 \fs \uWandMinvKinv$ a tloušťkou $d_{cihla} = 45 \fs \uCM$.
+    \item plocha střechy $S_{str} = 100 \fs \uMsq$,
+    \item součinitel prostupu tepla střechy $U_{\vartheta,str} = 0,3 \fs \uWandMinvsqKinv$,
+    \item plocha podlahy $S_{pod} = 100 \fs \uMsq$,
+    \item měrný součinitel prostupu tepla podlahy $U_{\vartheta,pod} = 0,8 \fs \uWandMinvsqKinv$,
+    \item plocha obvodových stěn $S_{zed} = 4 \cdot 10 \cdot 3 \fs \uMsq$ (4 stěny o délce 10 metrů a výšce 3 metry),
+    \item obvodová stěna je tvořena cihlou s tepelnou vodivostí $\lambda_{cihla} = 0,8 \fs \uWandMinvKinv$ a má tloušťkou $d_{cihla} = 45 \fs \uCM$.
 \end{itemize}
 
 Zanedbejte součinitele přestupu tepla, ztráty tepla na oknech a dveřích. Berte v úvahu, že venkovní teplota je okolo celého domu včetně podlahy stejná.
 \begin{enumerate}[a)]
-    \item Vypočítejte průměrný měrný součinitel prostupu tepla $U_{\vartheta,avg}$ pro celý dům.
+    \item Vypočítejte průměrný součinitel prostupu tepla $U_{\vartheta,avg}$ pro celý dům.
     \item Vypočítejte jak silnou izolaci $d_{izol}$ s tepelnou vodivostí $\lambda_{izol} = 0,04 \fs \uWandMinvKinv$ musíte použít, aby průměrný součinitel prostupu tepla $U_{\vartheta,avg}^{*}$ byl $0,5 \fs \uWandMinvsqKinv$.
 \end{enumerate}
 
@@ -620,17 +620,17 @@ $$
 
 Celkovou plochu $S_{\Sigma}$ vypočteme jako:
 $$
-    S_{\Sigma} = S_{strecha} + S_{podlaha} + S_{zed} = 100 + 100 + 120 = 320 \fs \uMsq.
+    S_{\Sigma} = S_{str} + S_{pod} + S_{zed} = 100 + 100 + 120 = 320 \fs \uMsq.
 $$
 
 Součinitel prostupu tepla zdi $U_{\vartheta,cihla}$ vypočteme jako:
 $$
-    U_{\vartheta,cihla} = \frac{\lambda_{cihla}}{d_{cihla}} = \frac{0,8 \fs \uWandMinvKinv}{0,45 \fs \uM} = 1,778 \fs \uWandMinvsqKinv.
+    U_{\vartheta,cihla} = \frac{\lambda_{cihla}}{d_{cihla}} = \frac{0,8}{0,45} = 1,778 \fs \uWandMinvsqKinv.
 $$
 
 Průměrný součinitel prostupu tepla $U_{\vartheta,avg}$ vypočteme jako:
 $$
-    U_{\vartheta,avg} = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,strecha} \cdot S_{strecha} + U_{\vartheta,podlaha} \cdot S_{podlaha} + U_{\vartheta,cihla} \cdot S_{zed}) =
+    U_{\vartheta,avg} = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,str} \cdot S_{str} + U_{\vartheta,pod} \cdot S_{pod} + U_{\vartheta,cihla} \cdot S_{zed}) =
 $$
 $$
     = \frac{1}{320} \cdot \left( 0,3 \cdot 100 + 0,8 \cdot 100 + 1,778 \cdot 120 \right) = \frac{1}{320} \cdot (30 + 80 + 213,36) =
@@ -649,47 +649,47 @@ $$
 
 Průměrný součinitel prostupu tepla $U_{\vartheta,avg}^{*}$ vypočteme jako:
 $$
-    U_{\vartheta,avg}^{*} = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,strecha} \cdot S_{strecha} + U_{\vartheta,podlaha} \cdot S_{podlaha} + U_{\vartheta,zed} \cdot S_{zed}) =
+    U_{\vartheta,avg}^{*} = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,str} \cdot S_{str} + U_{\vartheta,pod} \cdot S_{pod} + U_{\vartheta,zed} \cdot S_{zed}) =
 $$
 $$
-    = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,strecha} \cdot S_{strecha} + U_{\vartheta,podlaha} \cdot S_{podlaha} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
+    = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,str} \cdot S_{str} + U_{\vartheta,pod} \cdot S_{pod} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
 $$
 
 Nyní je třeba vyřešit rovnici pro $d_{izol}$:
 $$
-    U_{\vartheta,avg}^{*} = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,strecha} \cdot S_{strecha} + U_{\vartheta,podlaha} \cdot S_{podlaha} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
+    U_{\vartheta,avg}^{*} = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,str} \cdot S_{str} + U_{\vartheta,pod} \cdot S_{pod} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
 $$
 $$
-    U_{\vartheta,avg}^{*} \cdot S_{\Sigma} =  (U_{\vartheta,strecha} \cdot S_{strecha} + U_{\vartheta,podlaha} \cdot S_{podlaha} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
+    U_{\vartheta,avg}^{*} \cdot S_{\Sigma} =  (U_{\vartheta,str} \cdot S_{str} + U_{\vartheta,pod} \cdot S_{pod} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
 $$
 $$
-    U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,strecha} \cdot S_{strecha} - U_{\vartheta,podlaha} \cdot S_{podlaha} = \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed}
+    U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,str} \cdot S_{str} - U_{\vartheta,pod} \cdot S_{pod} = \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed}
 $$
 $$
-    \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} = \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,strecha} \cdot S_{strecha} - u_{podlaha} \cdot S_{podlaha}}{S_{zed}}
+    \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} = \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,str} \cdot S_{str} - u_{pod} \cdot S_{pod}}{S_{zed}}
 $$
 $$
-    \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} = \left( \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,strecha} \cdot S_{strecha} - U_{\vartheta,podlaha} \cdot S_{podlaha}}{S_{zed}} \right)^{-1}
+    \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} = \left( \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,str} \cdot S_{str} - U_{\vartheta,pod} \cdot S_{pod}}{S_{zed}} \right)^{-1}
 $$
 $$
-    \frac{d_{izol}}{\lambda_{izol}} = \left( \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,strecha} \cdot S_{strecha} - U_{\vartheta,podlaha} \cdot S_{podlaha}}{S_{zed}} \right)^{-1} - \frac{d_{cihla}}{\lambda_{cihla}}
+    \frac{d_{izol}}{\lambda_{izol}} = \left( \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,str} \cdot S_{str} - U_{\vartheta,pod} \cdot S_{pod}}{S_{zed}} \right)^{-1} - \frac{d_{cihla}}{\lambda_{cihla}}
 $$
 $$
-    d_{izol} = \lambda_{izol} \cdot \left( \left( \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,strecha} \cdot S_{strecha} - U_{\vartheta,podlaha} \cdot S_{podlaha}}{S_{zed}} \right)^{-1} - \frac{d_{cihla}}{\lambda_{cihla}} \right)
+    d_{izol} = \lambda_{izol} \cdot \left( \left( \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,str} \cdot S_{str} - U_{\vartheta,pod} \cdot S_{pod}}{S_{zed}} \right)^{-1} - \frac{d_{cihla}}{\lambda_{cihla}} \right)
+$$
+$$
+    d_{izol} = \lambda_{izol} \cdot \left( \frac{S_{zed}}{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,str} \cdot S_{str} - U_{\vartheta,pod} \cdot S_{pod}} - \frac{d_{cihla}}{\lambda_{cihla}} \right)
 $$
 
 Nyní můžeme dosadit a vypočítat:
 $$
-    d_{izol} = 0,04 \cdot \left( \left( \frac{0,5 \cdot 320 - 0,3 \cdot 100 - 0,8 \cdot 100}{120} \right)^{-1} - \frac{0,45}{0,8} \right) =
+    d_{izol} = 0,04 \cdot \left( \frac{120}{0,5 \cdot 320 - 0,3 \cdot 100 - 0,8 \cdot 100} - \frac{0,45}{0,8} \right) =
 $$
 $$
-    = 0,04 \cdot \left( \left( \frac{160 - 30 - 80}{120} \right)^{-1} - \frac{0,45}{0,8} \right) =
+    = 0,04 \cdot \left( \frac{120}{160 - 30 - 80} - \frac{0,45}{0,8} \right) = 0,04 \cdot \left( \frac{120}{50} - \frac{0,45}{0,8} \right) =
 $$
 $$
-    = 0,04 \cdot \left( \left( \frac{50}{120} \right)^{-1} - \frac{0,45}{0,8} \right) = 0,04 \cdot (2,4 - 0,5625) =
-$$
-$$
-    0,04 \cdot 1,8375 = 0,0735 \fs \uM = 7,35 \fs \uCM.
+    0,04 \cdot (2,4 - 0,5625) = 0,04 \cdot 1,8375 = 0,0735 \fs \uM = 7,35 \fs \uCM.
 $$
 
 \newpage
