@@ -21,11 +21,19 @@
 
 
 
+
 \section{\emoji{optical-disk} Válec \spicy \spicy \spicy}
 
 
-\subsection{Odvození tepelného odporu}
 
+\subsection{Odvození tepelného odporu}
+Tepelný odpor válce se skládá ze dvou částí:
+\begin{itemize}
+    \item tepelný odpor vedení tepla v materiálu válce $R_\lambda$,
+    \item tepelný odpor přestupu tepla z povrchu válce do okolí $R_\alpha$.
+\end{itemize}
+
+Ilustrace válce bude vypadat následovně:
 \begin{center}
     \begin{tikzpicture}
         % First circle
@@ -50,14 +58,7 @@
     \end{tikzpicture}
 \end{center}
 
-Tepelný odpor válce se skládá ze dvou částí:
-\begin{itemize}
-    \item tepelný odpor vedení tepla v materiálu válce $R_\lambda$,
-    \item tepelný odpor přestupu tepla z povrchu válce do okolí $R_\alpha$.
-\end{itemize}
-
 Tepelné schéma válce bude vypadat následovně:
-
 \begin{center}
     \begin{tikzpicture}
         \draw[thick] (1,0) -- (1,-1);
@@ -81,9 +82,9 @@ Pro odvození tepelného odporu $R_\lambda$ využijeme vztah pro absolutní tepe
     \unit{(\ueqKandWinv)}
 \end{equation}
 kde:\\
-$d$ - tloušťka materiálu (\uM),\\
-$\lambda$ - tepelná vodivost materiálu (\ueqWandMinvKinv),\\
-$S$ - plocha přenosu tepla (\ueqMsq).\\
+$d$ -- tloušťka materiálu (\uM),\\
+$\lambda$ -- tepelná vodivost materiálu (\ueqWandMinvKinv),\\
+$S$ -- plocha přenosu tepla (\ueqMsq).\\
 
 Zde $d$ nahradíme nekonečně malou částí poloměru válce:
 $$
@@ -95,8 +96,8 @@ $$
     S \rightarrow 2 \pi r \cdot l \cdot dr,
 $$
 kde:\\
-$r$ - poloměr válce (m),\\
-$l$ - délka válce (m).\\
+$r$ -- poloměr válce (m),\\
+$l$ -- délka válce (m).\\
 
 Tepelný odpor $dR_\lambda$ válce bude tedy:
 $$
@@ -129,24 +130,23 @@ $$
     \end{tikzpicture}
 \end{center}
 
-Pro získání celkového odporu $R_\lambda$ je třeba provést integraci od vnitřního poloměru izolace $r_1$ po vnější poloměr válce $r_2$:
+Pro získání celkového tepelného odporu $R_\lambda$ je třeba provést integraci od vnitřního poloměru izolace $r_1$ po vnější poloměr válce $r_2$:
 $$
-    R_\lambda = \int_{r_1}^{r_2} \frac{1}{\lambda \cdot 2 \pi r \cdot l} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \int_{r_1}^{r_2} \frac{1}{r} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left[ \ln |r| \right]_{r_1}^{r_2}
+    R_\lambda = \int_{r_1}^{r_2} \frac{1}{\lambda \cdot 2 \pi r \cdot l} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \int_{r_1}^{r_2} \frac{1}{r} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \cdot \left[ \ln |r| \right]_{r_1}^{r_2}.
 $$
 
 Jelikož poloměry $r_1$ a $r_2$ jsou kladné (záporné poloměry nedávají fyzikální smysl), můžeme absolutní hodnotu u logaritmu zanedbat:
 $$
-    R_\lambda = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left[ \ln r \right]_{r_1}^{r_2} = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left( \ln r_2 - \ln r_1 \right) = \frac{1}{\lambda \cdot 2 \pi \cdot l} \ln \frac{r_2}{r_1} = \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1}.
+    R_\lambda = \frac{1}{\lambda \cdot 2 \pi \cdot l} \cdot \left[ \ln r \right]_{r_1}^{r_2} = \frac{1}{\lambda \cdot 2 \pi \cdot l} \cdot \left( \ln r_2 - \ln r_1 \right) = \frac{1}{\lambda \cdot 2 \pi \cdot l} \cdot \ln \frac{r_2}{r_1} = \frac{1}{2 \pi l \lambda} \cdot \ln \frac{r_2}{r_1}.
 $$
 
-Pro odpor přenosu tepla z povrchu válce do okolí $R_\alpha$ využijeme vztah pro odpor přenosu tepla $R_\alpha$:
+Pro odpor přestupu tepla z povrchu válce do okolí $R_\alpha$ využijeme vztah pro odpor přestupu tepla $R_\alpha$:
 \begin{equation}
     R_\alpha = \frac{1}{\alpha \cdot S},
     \unit{(\ueqKandWinv)}
 \end{equation}
-
 kde:\\
-$\alpha$ - součinitel přestupu tepla (\ueqWandMinvsqKinv).\\
+$\alpha$ -- součinitel přestupu tepla (\ueqWandMinvsqKinv).\\
 
 Plochu $S$ nahradíme plochou válce:
 $$
@@ -160,12 +160,12 @@ $$
 
 Celkový tepelný odpor válce $R_{\vartheta, \Sigma}$ bude součtem obou odporů:
 $$
-    R_\Sigma = R_\lambda + R_\alpha = \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1} + \frac{1}{2 \pi l \alpha r_2}
+    R_\Sigma = R_\lambda + R_\alpha = \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1} + \frac{1}{2 \pi l \alpha r_2}.
 $$
 
 
-\subsection{Minimum tepelného odporu}
 
+\subsection{Minimum tepelného odporu}
 Pro nalezení extrému tepelného odporu $R_\Sigma$ podle poloměru válce $r_2$ je třeba zjistit, kdy bude derivace $R_\Sigma$ podle $r_2$ rovna nule:
 $$
     \frac{dR_\Sigma}{dr_2} = 0.
