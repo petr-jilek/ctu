@@ -318,7 +318,7 @@ $$
 \subsection{Tepelné schéma}
 U skládané zdi máme několik vrstev zdi s různou tepelnou vodivostí a tloušťkou. Navíc počítáme se součinitely přestupu tepla na začátku (ze vnitř do zdi) a na konci (ze zdi ven).
 
-Mějme tedy n vrstev zdi, kde $i$-tá vrstva má tepelnou vodivost $\lambda_i$ a tloušťku $d_i$. Mějme součinitel přestupu tepla na začátku $\alpha_{\vartheta,in}$ a na konci $\alpha_{\vartheta,out}$. Potom můžeme pro tuto situaci nakreslit následující tepelné schéma:
+Mějme tedy $n$ vrstev zdi, kde $i$-tá vrstva má tepelnou vodivost $\lambda_i$ a tloušťku $d_i$. Mějme součinitel přestupu tepla na začátku $\alpha_{\vartheta,in}$ a na konci $\alpha_{\vartheta,out}$. Potom můžeme pro tuto situaci nakreslit následující tepelné schéma:
 \begin{center}
     \begin{tikzpicture}
         \draw[thick] (0.5,-2) -- (1.5,-2) node[midway, below] {$T_1$};
@@ -700,24 +700,24 @@ $$
 \section{\emoji{sun} Sálavá clona \spicy \spicy}
 Mějme dvě desky. První deska má teplotu $T_1$ a druhá deska má teplotu $T_2$. Obě desky mají stejnou plochu $S$ a stejnou emisivitu $\varepsilon$.
 \begin{enumerate}[a)]
-    \item Jaký je sálavý výkon $P_{1 \rightarrow 2} \fs (\uW)$ sálání první desky na druhou desku?
-    \item Dejme mezi desky sálavou clonu o stejné ploše $S$ a emisivitě $\varepsilon$. Jaký je sálavý výkon $P_{1 \rightarrow 2} \fs (\uW)$ sálání první desky na druhou desku přes clonu a jaký je poměr tohoto výkonu k výkonu z bodu a)?
+    \item Jaký je sálavý výkon $P_{1 \rightarrow 2,a} \fs (\uW)$ sálání první desky na druhou desku?
+    \item Dejme mezi desky sálavou clonu o stejné ploše $S$ a stejné emisivitě $\varepsilon$. Jaký je sálavý výkon $P_{1 \rightarrow 2,b} \fs (\uW)$ sálání první desky na druhou desku přes clonu a jaký je poměr tohoto výkonu k výkonu z bodu a)?
 \end{enumerate}
 
 
 
 \subsection{a}
-Sálavý výkon $P_{1 \rightarrow 2}$ můžeme vypočítat pomocí:
+Sálavý výkon $P_{1 \rightarrow 2,a}$ můžeme vypočítat pomocí:
 $$
-    P_{1 \rightarrow 2} = \frac{S \cdot \sigma \left( T_1^4 - T_2^4 \right)}{\frac{1}{\varepsilon_1} + \frac{1}{\varepsilon_2} - 1},
+    P_{1 \rightarrow 2,a} = \frac{S \cdot \sigma \left( T_1^4 - T_2^4 \right)}{\frac{1}{\varepsilon_1} + \frac{1}{\varepsilon_2} - 1},
 $$
 kde:\\
-$S$ je plocha desek (\ueqMsq),\\
-$\sigma$ je Stefanova-Boltzmannova konstanta ($5,67 \cdot 10^{-8} \fs \uWandMinvsqKinv$),\\
-$T_1$ je teplota první desky (\uK),\\
-$T_2$ je teplota druhé desky (\uK),\\
-$\varepsilon_1$ je emisivita první desky,\\
-$\varepsilon_2$ je emisivita druhé desky.\\
+$S$ -- plocha desek (\ueqMsq),\\
+$\sigma$ -- Stefanova-Boltzmannova konstanta ($5,67 \cdot 10^{-8} \fs \uWandMinvsqKinv$),\\
+$T_1$ -- teplota první desky (\uK),\\
+$T_2$ -- teplota druhé desky (\uK),\\
+$\varepsilon_1$ -- emisivita první desky,\\
+$\varepsilon_2$ -- emisivita druhé desky.\\
 
 Emisivity $\varepsilon_1$ a $\varepsilon_2$ jsou stejné, tudíž:
 $$
@@ -737,13 +737,15 @@ $$
     P_{clona \rightarrow 2} = k \cdot \left( T_{clona}^4 - T_2^4 \right).
 $$
 
-Tyto výkony se musí rovnat:
+V rovnovážném stavu se tyto výkony musejí rovnat (pokud by nebyly rovny, tak by se teplota clony měnila):
 $$
     P_{1 \rightarrow clona} = P_{clona \rightarrow 2}
 $$
 $$
     k \cdot \left( T_1^4 - T_{clona}^4 \right) = k \cdot \left( T_{clona}^4 - T_2^4 \right)
 $$
+
+Nyní můžeme vyjádřit teplotu clony $T_{clona}$:
 $$
     T_1^4 - T_{clona}^4 = T_{clona}^4 - T_2^4
 $$
@@ -757,7 +759,7 @@ $$
     T_{clona} = \sqrt[4]{\frac{T_1^4 + T_2^4}{2}}.
 $$
 
-Sálavý výkon z destičky 1 na destičku 2 přes clonu je poté roven sálavému výkonu z clony na destičku 2, který je zároveň roven sálavému výkonu z destičky 1 na clonu:
+Sálavý výkon z destičky 1 na destičku 2 přes clonu je poté roven sálavému výkonu ze clony na destičku 2, který je zároveň roven sálavému výkonu z destičky 1 na clonu:
 $$
     P_{1 \rightarrow 2,b} = P_{1 \rightarrow clona} = P_{clona \rightarrow 2}.
 $$
@@ -788,6 +790,13 @@ $$
     \frac{P_{1 \rightarrow 2,b}}{P_{1 \rightarrow 2,a}} = \frac{\frac{k}{2} \cdot \left( T_1^4 - T_2^4 \right)}{k \cdot \left( T_1^4 - T_2^4 \right)} = \frac{1}{2}.
 $$
 
+\begin{notebox}{Poznámka}
+    Pokud by takto za sebou bylo $n$ sálavých clon, tak poměr výkonů by byl roven:
+    $$
+        \frac{P_{1 \rightarrow 2,n}}{P_{1 \rightarrow 2,a}} = \frac{1}{2^n}.
+    $$
+\end{notebox}
+
 \newpage
 
 
@@ -798,13 +807,13 @@ Mějme destičku ve vesmíru, na kterou dopadá sluneční záření s následuj
 \begin{itemize}
     \item plocha $S = 1 \fs \uMsq$,
     \item intenzita slunečního záření $\dot{q} = 1348 \fs \uWandMinvsq$,
-    \item emisivita $\varepsilon$,
-    \item pohltivost $A$.
+    \item emisivita destičky $\varepsilon$,
+    \item pohltivost destičky $A$.
 \end{itemize}
 
-Destička má stejnou teplotu na obouch stranách (je nekonečně tenká). Sluneční záření má intenzitu $\dot{q} = 1348 \fs \uWandMinvsq$. Stefanova-Boltzmannova konstanta je $\sigma = 5,67 \cdot 10^{-8} \fs \uWandMinvsqKinvquar$. Teplota vesmíru je $T_{space} = 3 \fs \uK$.\\
+Destička má stejnou teplotu na obouch stranách (je nekonečně tenká). Sluneční záření má intenzitu $\dot{q} = 1348 \fs \uWandMinvsq$. Stefanova-Boltzmannova konstanta je $\sigma = 5,67 \cdot 10^{-8} \fs \uWandMinvsqKinvquar$. Teplota vesmíru je $T_{space} = 3 \fs \uK$.
 
-Odvoďte vzorec pro rovnovážnou teplotu destičky $T$ v závislosti na úhlu natočení vůči slunci $\alpha$ a vypočítejte teplotu pro hodnoty $\alpha$: 0, 45 a 90 \ueqDEGREE.
+Odvoďte vzorec pro rovnovážnou teplotu destičky $T$ v závislosti na úhlu natočení vůči slunci $\alpha$ a vypočítejte teplotu pro hodnoty $\alpha$: 0\ueqDEGREE, 45\ueqDEGREE a 90\ueqDEGREE.
 
 
 
@@ -819,12 +828,12 @@ $$
     \dot{Q}_{in} = A \cdot \dot{Q}_{dop} = A \cdot \dot{q} \cdot S \cdot \cos \alpha
 $$
 
-Tepelný tok, který destička vyzařuje:
+Tepelný tok, který destička vyzařuje (z obou stran):
 $$
     \dot{Q}_{out} = 2 \cdot S \cdot \varepsilon \cdot \sigma \cdot \left( T^4 - T_{space}^4 \right)
 $$
 
-Budeme hledat teplotu $T$, při které bude tepelný tok $\dot{Q}_{in}$ roven tepelnému toku $\dot{Q}_{out}$:
+V rovnovážném stavu platí, že tepelný tok, který destička příjme, je roven tepelnému toku, který vyzařuje:
 $$
     \dot{Q}_{in} = \dot{Q}_{out}
 $$
@@ -832,15 +841,17 @@ $$
     A \cdot \dot{q} \cdot S \cdot \cos \alpha = 2 \cdot S \cdot \varepsilon \cdot \sigma \cdot \left( T^4 - T_{space}^4 \right)
 $$
 
-Při tepelné rovnováze platí:
+Dále při tepelné rovnováze platí:
 $$
-    A = \varepsilon.
+    A = \varepsilon
 $$
 
-Dostaneme:
+Můžeme tedy zkrátit emisivitu $A$ a plochy $S$, čímž dostaneme:
 $$
     \dot{q} \cdot \cos \alpha = 2 \cdot \sigma \cdot \left( T^4 - T_{space}^4 \right)
 $$
+
+Nyní je třeba vyřešit rovnici pro teplotu $T$:
 $$
     \frac{\dot{q} \cdot \cos \alpha}{2 \cdot \sigma} = T^4 - T_{space}^4
 $$
@@ -856,14 +867,14 @@ $$
     T = \sqrt[4]{\frac{1348 \cdot \cos \alpha}{2 \cdot 5,67 \cdot 10^{-8}} + 3^4} = \sqrt[4]{1,189 \cdot 10^{10} \cdot \cos \alpha + 81}.
 $$
 
-Nyní můžeme vypočítat teplotu pro hodnoty $\alpha$: 0, 45 a 90 \ueqDEGREE. Pro $\alpha = 0$:
+Pro $\alpha = 0$:
 $$
     T = \sqrt[4]{1,189 \cdot 10^{10} \cdot \cos 0 \uDEGREE + 81} = \sqrt[4]{1,189 \cdot 10^{10} + 81} = 330,21 \fs \uK.
 $$
 
 Pro $\alpha = 45$:
 $$
-    T = \sqrt[4]{1,189 \cdot 10^{10} \cdot \cos 45 \uDEGREE + 81} = \sqrt[4]{1,189 \cdot 10^{10} \cdot \frac{\sqrt{2}}{2} + 81} = 302,79 \fs \uK.
+    T = \sqrt[4]{1,189 \cdot 10^{10} \cdot \cos 45 \uDEGREE + 81} = \sqrt[4]{1,189 \cdot 10^{10} \cdot \frac{\sqrt{2}}{2} + 81} = 302,81 \fs \uK.
 $$
 
 Pro $\alpha = 90$:
