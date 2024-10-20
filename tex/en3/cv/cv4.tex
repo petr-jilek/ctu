@@ -17,6 +17,20 @@
 \tableofcontents
 \vspace{1cm}
 
+\begin{dangerbox}{Úprava značení}
+    \begin{itemize}
+        \item Elektrické napětí: $U_e \rightarrow U$ (\ueqV \fs -- volt)
+        \item Elektrický proud: $I_e \rightarrow I$ (\ueqA \fs -- ampér)
+        \item Elektrický odpor: $R_e \rightarrow R$ (\ueqOHM \fs -- ohm)
+        \item Elektrická vodivost: $G_e \rightarrow G$ (\ueqSIE \fs -- siemens)
+        \item Impedance: $\hat{Z}_e \rightarrow Z$ (\ueqOHM \fs -- ohm)
+        \item Admitance: $\hat{Y}_e \rightarrow Y$ (\ueqSIE \fs -- siemens)
+        \item Elektrická susceptance: $B_e \rightarrow B$ (\ueqSIE \fs -- siemens)
+        \item Elektrická indukčnost: $L_e \rightarrow L$ (\ueqHENRY \fs -- henry)
+        \item Elektrická kapacita: $C_e \rightarrow C$ (\ueqFARAD \fs -- farad)
+    \end{itemize}
+\end{dangerbox}
+
 \begin{dangerbox}{Úpozornění - Fázory}
     V tomto cvičení budeme pracovat s fázory. Fázory jsou komplexní čísla, která v sobě obsahují informaci o amplitudě a fázi příslušného harmonického signálu. Fázory budeme značit velkým písmenem se střížkou nad ním, například:
     $$
@@ -72,12 +86,53 @@ Pokud bychom tuto zátěž připojily k 3 fázovému systému, tak by byla nesym
 \end{center}
 
 Vzorce pro výpočet admitancí jsou  poté následující:
-$$
+\begin{equation}
     \hat{Y}_{1,2} = -j \frac{G}{\sqrt{3}},
-$$
-$$
+    \unit{(\uSIE)}
+\end{equation}
+\begin{equation}
     \hat{Y}_{1,3} = j \frac{G}{\sqrt{3}}.
+    \unit{(\uSIE)}
+\end{equation}
+
+
+\subsubsection{Indučnost a kapacita}
+Vyjádření indukčnosti:
 $$
+    \hat{Z}_{1,2} = j \omega L \Rightarrow \hat{Y}_{1,2} = \frac{1}{\hat{Z}_{1,2}} = \frac{1}{j \omega L} = -j \frac{G}{\sqrt{3}}
+$$
+$$
+    \frac{1}{j \omega L} = -j \frac{G}{\sqrt{3}}
+$$
+$$
+    \frac{1}{\omega L} = \frac{G}{\sqrt{3}}
+$$
+$$
+    \omega L = \frac{\sqrt{3}}{G}.
+$$
+
+Výsledný vztah pro indukčnost:
+\begin{equation}
+    L = \frac{\sqrt{3}}{\omega G}.
+    \unit{(\uHENRY)}
+\end{equation}
+
+Vyjádření kapacity:
+$$
+    \hat{Z}_{1,3} = \frac{1}{j \omega C} \Rightarrow \hat{Y}_{1,3} = \frac{1}{\hat{Z}_{1,3}} = j \omega C = j \frac{G}{\sqrt{3}}
+$$
+$$
+    j \omega C = j \frac{G}{\sqrt{3}}
+$$
+$$
+    \omega C = \frac{G}{\sqrt{3}}
+$$
+
+Výsledný vztah pro kapacitu:
+\begin{equation}
+    C = \frac{G}{\omega \sqrt{3}}.
+    \unit{(\uFARAD)}
+\end{equation}
 
 
 \subsubsection{Odvození \spicy \spicy \spicy}
@@ -549,11 +604,13 @@ Tyto admitance následně připojíme parallelně k odpovídajícím větvím. V
 
 
 \subsection{Přepočet výkonů na admitance}
-Zátěže jsou často zadány pomocí: činného výkonu, úhlu $\te{cos} (\varphi) \fs$ a informací, zda je zátěž induktivní nebo kapacitní. Tyto informace můžeme převést na admitanci $\hat{Y} \fs (\uSIE)$ následovně:
-$$
+Zátěže jsou často zadány pomocí: činného výkonu, úhlu $\te{cos} (\varphi) \fs$ a informací, zda je zátěž induktivní nebo kapacitní. Tyto informace můžeme převést na admitanci následovně:
+\begin{equation}
     \hat{Y} = \frac{P}{U^2} \cdot (1 - j \cdot \te{tg} (\pm \varphi)) = \frac{P}{U^2} \cdot (1 \mp j \cdot \te{tg} (\varphi)),
-$$
+    \unit{(S)}
+\end{equation}
 kde:\\
+$\hat{Y}$ - admitance (\ueqS),\\
 $P$ - činný výkon (\ueqW),\\
 $U$ - efektivní hodnota napětí (\ueqV),\\
 $j$ - imaginární jednotka,\\
