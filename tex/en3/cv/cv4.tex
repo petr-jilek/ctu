@@ -5,12 +5,6 @@
 
 \cvHead{4 - Symetrizace}
 
-\newcommand{\nodesThreeF}{
-    \node[anchor=south] at (3,5) {1};
-    \node[anchor=west] at (6,-0.1) {2};
-    \node[anchor=east] at (0,-0.1) {3};
-}
-
 \begin{document}
 
 \maketitle
@@ -597,6 +591,66 @@ Tyto admitance následně připojíme parallelně k odpovídajícím větvím. V
 \end{center}
 
 
+\subsubsection{Indučnost a kapacita}
+Pokud je symetrizační admitance záporná, tak se bude jednat o indukčnost. Jelikož symetrizační admitance má pouze imaginární složku (která je záporná), tak lze ji zadat jako:
+$$
+    \hat{Y}_s = -j Y_s.
+$$
+
+Poté můžeme vypočítat indukčnost:
+$$
+    \hat{Y}_s = \frac{1}{\hat{Z}_s} = \frac{1}{j \omega L} = -j Y_s
+$$
+$$
+    \frac{1}{j \omega L} = -j Y_s
+$$
+$$
+    j \omega L = \frac{1}{-j Y_s}
+$$
+$$
+    L = \frac{1}{-j j \omega Y_s} = \frac{1}{\omega Y_s}.
+$$
+
+Vzorec pro dopočítání symetrizační indukčnosti je tedy:
+\begin{equation}
+    L = \frac{1}{2 \pi f Y_s},
+    \unit{(\uHENRY)}
+\end{equation}
+kde:\\
+$L$ - indukčnost (\ueqHENRY),\\
+$f$ - frekvence (\ueqHZ),\\
+$Y_s$ - symetrizační admitance (\ueqS).\\
+
+Pokud je symetrizační admitance kladná, tak se bude jednat o kapacitu. Jelikož symetrizační admitance má pouze imaginární složku (která je kladná), tak lze ji zadat jako:
+$$
+    \hat{Y}_s = j Y_s.
+$$
+
+Poté můžeme vypočítat kapacitu:
+$$
+    \hat{Y}_s = \frac{1}{\hat{Z}_s} = \frac{1}{\frac{1}{j \omega C}} = j Y_s
+$$
+$$
+    \frac{1}{\frac{1}{j \omega C}} = j Y_s
+$$
+$$
+    j \omega C = j Y_s
+$$
+$$
+    C = \frac{Y_s}{\omega}.
+$$
+
+Vzorec pro dopočítání symetrizační kapacity je tedy:
+\begin{equation}
+    C = \frac{Y_s}{2 \pi f},
+    \unit{(\uFARAD)}
+\end{equation}
+kde:\\
+$C$ - kapacita (\ueqFARAD),\\
+$f$ - frekvence (\ueqHZ),\\
+$Y_s$ - symetrizační admitance (\ueqS).\\
+
+
 
 \subsection{Přepočet výkonů na admitance}
 Zátěže jsou často zadány pomocí: činného výkonu, úhlu $\te{cos} (\varphi) \fs$ a informací, zda je zátěž induktivní nebo kapacitní. Tyto informace můžeme převést na admitanci následovně:
@@ -718,7 +772,7 @@ Dále vytvoříme tabulku symetrizace:
 
 Symetrizační admitance:
 $$
-    Y_{s,1,2} = j 0.296 + j \frac{0.175}{\sqrt{3}} - j \frac{0.163}{\sqrt{3}} = j 0.236 + j 0.101 - j 0.094 = j 0.303 \fs \uSIE,
+    Y_{s,1,2} = j 0.296 + j \frac{0.175}{\sqrt{3}} - j \frac{0.163}{\sqrt{3}} = j 0.296 + j 0.101 - j 0.094 = j 0.303 \fs \uSIE,
 $$
 $$
     Y_{s,1,3} = j 0.131 - j \frac{0.394}{\sqrt{3}} + j \frac{0.163}{\sqrt{3}} = j 0.131 - j 0.227 + j 0.094 = -j 0.002 \fs \uSIE,
