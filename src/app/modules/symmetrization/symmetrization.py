@@ -96,17 +96,15 @@ def get_latex_file_assignment(input: SymmetrizationInput) -> str:
         return "induktivní" if inductive else "kapacitní"
 
     latex_str += (
-        f"\\item $U = {common_utils.float_to_str(input.U, decimals=0)} \\uV$,\n"
+        f"\\item $U = {common_utils.float_to_str(input.U, decimals=0)} \\fs \\uV$,\n"
     )
     latex_str += (
-        f"\\item $f = {common_utils.float_to_str(input.f, decimals=0)} \\uHZ$,\n"
+        f"\\item $f = {common_utils.float_to_str(input.f, decimals=0)} \\fs \\uHZ$,\n"
     )
-    latex_str += (
-        f"\\item $\\cos (\\varphi) = {common_utils.float_to_str(input.cos_phi)}$,\n"
-    )
-    latex_str += f"\\item $P_{{1,2}} = {common_utils.float_to_str(input.P_12 / 1000, decimals=0)} \\uKW$, {inductive_to_str(input.P_12_inductive)},\n"
-    latex_str += f"\\item $P_{{1,3}} = {common_utils.float_to_str(input.P_13 / 1000, decimals=0)} \\uKW$, {inductive_to_str(input.P_13_inductive)},\n"
-    latex_str += f"\\item $P_{{2,3}} = {common_utils.float_to_str(input.P_23 / 1000, decimals=0)} \\uKW$, {inductive_to_str(input.P_23_inductive)}."
+    latex_str += f"\\item $\\cos (\\varphi) = {common_utils.float_to_str(input.cos_phi,decimals=1)}$,\n"
+    latex_str += f"\\item $P_{{1,2}} = {common_utils.float_to_str(input.P_12 / 1000, decimals=0)} \\fs \\uKW$, {inductive_to_str(input.P_12_inductive)},\n"
+    latex_str += f"\\item $P_{{1,3}} = {common_utils.float_to_str(input.P_13 / 1000, decimals=0)} \\fs \\uKW$, {inductive_to_str(input.P_13_inductive)},\n"
+    latex_str += f"\\item $P_{{2,3}} = {common_utils.float_to_str(input.P_23 / 1000, decimals=0)} \\fs \\uKW$, {inductive_to_str(input.P_23_inductive)}."
 
     latex_str += r"""
     \end{itemize}
@@ -120,5 +118,19 @@ def get_latex_file_assignment(input: SymmetrizationInput) -> str:
     return latex_str
 
 
-def get_latex_file_solution():
-    pass
+def get_latex_file_solution(
+    input: SymmetrizationInput, output: SymmetrizationOutput
+) -> str:
+    latex_str = "Nejprve získáme úhel $\varphi$:"
+    latex_str += f"$$\\varphi = \\arccos({common_utils.float_to_str(input.cos_phi, decimals=1)}) = {common_utils.float_to_str(output.phi, decimals=3)}$$"
+
+    latex_str += "Dále vypočítáme $\\te{tg} (\\varphi)$:"
+    latex_str += "$$\\te{tg} (\\varphi) = \\tg (\\varphi) = "
+    latex_str += f"{common_utils.float_to_str(output.tan_phi, decimals=3)}$$"
+
+    latex_str += "Nyní vypočítáme komplexní admitance $Y_{1,2}$, $Y_{1,3}$ a $Y_{2,3}$:"
+    latex_str += (
+        "$$Y_{1,2} = \\frac{P_{1,2}}{U^2} \\left(1 + j \\tg (\\varphi) \\right) = "
+    )
+
+    return latex_str
