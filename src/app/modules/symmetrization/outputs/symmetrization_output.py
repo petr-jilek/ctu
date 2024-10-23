@@ -7,9 +7,9 @@ class SymmetrizationOutput:
         self,
         phi: float,
         tan_phi: float,
-        Y_1_complex: complex,
-        Y_2_complex: complex,
-        Y_3_complex: complex,
+        Y_12_complex: complex,
+        Y_13_complex: complex,
+        Y_23_complex: complex,
         Y_s_12: float,
         Y_s_13: float,
         Y_s_23: float,
@@ -19,9 +19,9 @@ class SymmetrizationOutput:
     ):
         self.phi = phi
         self.tan_phi = tan_phi
-        self.Y_1_complex = Y_1_complex
-        self.Y_2_complex = Y_2_complex
-        self.Y_3_complex = Y_3_complex
+        self.Y_12_complex = Y_12_complex
+        self.Y_13_complex = Y_13_complex
+        self.Y_23_complex = Y_23_complex
         self.Y_s_12 = Y_s_12
         self.Y_s_13 = Y_s_13
         self.Y_s_23 = Y_s_23
