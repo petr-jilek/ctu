@@ -220,7 +220,35 @@ $$
 $$
 
 \begin{notebox}{Poznámka}
-    Jedná se o pravotočivý trojfázový systém. Tudíž fáze napětí se posouvají o $120^\circ$ po směru hodinových ručiček. Nicméně násobení operátorem $\hat{a}$ způsobí posun o $120^\circ$ proti směru hodinových ručiček. Tudíž pokud například chceme získat fázor napětí 2, tak musíme vynásobit fázor napětí 1 operátorem dvakrát, tedy $\hat{a}^2$.
+    Jedná se o pravotočivý trojfázový systém. Tudíž fáze napětí se posouvají o $120^\circ$ po směru hodinových ručiček. Nicméně násobení operátorem $\hat{a}$ způsobí posun o $120^\circ$ proti směru hodinových ručiček. Tudíž pokud například chceme získat fázor napětí 2, tak musíme vynásobit fázor napětí 1 operátorem dvakrát, tedy $\hat{a}^2$. Časový průběh napětí je znázorněn na následujícím grafu:
+
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                    title = {Závislot napětí v čase},
+                    axis lines = middle,
+                    xlabel = $t$,
+                    ylabel = {$u(t)$},
+                    samples=100,
+                    domain=0:20,
+                    xmin=0,
+                    xmax=20,
+                    ymin=-250,
+                    ymax=250,
+                    legend pos=outer north east,
+                    grid=both
+                ]
+                \addplot[color=red, thick] {230 * sin((2 * 50 * x) * 180 / 1000)};
+                \addlegendentry{$u_1 (t)$}
+
+                \addplot[color=green, thick] {230 * sin((2 * 50 * x) * 180 / 1000 - 120)};
+                \addlegendentry{$u_2 (t)$}
+
+                \addplot[color=blue, thick] {230 * sin((2 * 50 * x) * 180 / 1000 - 240)};
+                \addlegendentry{$u_3 (t)$}
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
 \end{notebox}
 
 Dálě napíšeme rovnice pro proudy:
