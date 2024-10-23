@@ -113,7 +113,7 @@ def get_latex_file_assignment(input: SymmetrizationInput) -> str:
 
     latex_str += "Proveďte výpočet symetrizačních admitancí $Y_{s,1,2}$, $Y_{s,1,3}$ a $Y_{s,2,3}$. "
     latex_str += "Nakreslete schéma zapojení symetrizačních admitancí. "
-    latex_str += "Vypočtěte hodnoty indukčnosti, nebo kapacity pro každou symetrizační admitanci."
+    # latex_str += "Vypočtěte hodnoty indukčnosti, nebo kapacity pro každou symetrizační admitanci."
 
     return latex_str
 
@@ -124,14 +124,23 @@ def get_latex_file_solution(
     def inductive_sign_str(inductive):
         return "-" if inductive else "+"
 
-    latex_str = "Nejprve získáme úhel $\\varphi$:"
-    latex_str += f"$$ \\varphi = \\arccos({common_utils.float_to_str(input.cos_phi, decimals=1)}) = {common_utils.float_to_str(output.phi, decimals=3)}$$"
+    latex_str = r"""
+    
+    Nejprve získáme úhel $\varphi$:
+    """
+    latex_str += f"$$ \\varphi = \\arccos({common_utils.float_to_str(input.cos_phi, decimals=1)}) = {common_utils.float_to_str(output.phi, decimals=3)} \\fs \\te{{rad}}$$"
 
-    latex_str += "Dále vypočítáme $\\te{tg} (\\varphi)$:"
+    latex_str += r"""
+    
+    Dále vypočítáme $\te{tg} (\varphi)$:
+    """
     latex_str += "$$\\te{tg} (\\varphi) = \\te{tg} (\\varphi) = "
     latex_str += f"{common_utils.float_to_str(output.tan_phi, decimals=3)}$$"
 
-    latex_str += "Nyní vypočítáme komplexní admitance $Y_{1,2}$, $Y_{1,3}$ a $Y_{2,3}$:"
+    latex_str += r"""
+
+    Nyní vypočítáme komplexní admitance $Y_{1,2}$, $Y_{1,3}$ a $Y_{2,3}$:
+    """
     latex_str += f"$$Y_{{1,2}} = \\frac{{P_{{1,2}}}}{{U^2}} \\cdot \\left(1 {inductive_sign_str(input.P_12_inductive)} j \\cdot \\te{{tg}} (\\varphi) \\right) = "
     latex_str += (
         f"\\frac{{ {common_utils.float_to_str(input.P_12, decimals=0)} }}"
@@ -157,6 +166,8 @@ def get_latex_file_solution(
     )
 
     latex_str += r"""
+
+    Dále vytvoříme tabulku symetrizace:
     \begin{table}[H]
     \centering
     \begin{tabular}{l c c c}
@@ -211,6 +222,7 @@ def get_latex_file_solution(
     """
 
     latex_str += r"""
+
     Symetrizační admitance:
     """
 
@@ -256,7 +268,10 @@ def get_latex_file_solution(
     )
     latex_str += f"{common_utils.float_to_str(output.Y_s_23)}j \\fs \\uSIE.$$"
 
-    latex_str += "Výsledné zapojení bude vypadat následovně:"
+    latex_str += r"""
+
+    Výsledné zapojení bude vypadat následovně:
+    """
 
     latex_str += r"""
     \begin{center}
@@ -279,7 +294,7 @@ def get_latex_file_solution(
         (0,0) to [short, -] (0,-2)
         (0,-2) to [
         """
-    latex_str += "capacitor" if output.icr_23.is_inductance else "cute inductor"
+    latex_str += "cute inductor" if output.icr_13.is_inductance else "capacitor"
     latex_str += r"""
         , -, l_=$\hat{Y}_{s,2,3}$] (6,-2)
         (6,-2) to [short, -] (6,0)
@@ -287,7 +302,7 @@ def get_latex_file_solution(
         (3,5) to [short, -] (14/3,6)
         (14/3,6) to [
         """
-    latex_str += "capacitor" if output.icr_12.is_inductance else "cute inductor"
+    latex_str += "cute inductor" if output.icr_23.is_inductance else "capacitor"
     latex_str += r"""
         , -, l_=$\hat{Y}_{s,1,2}$] (23/3,1)
         (23/3,1) to [short, -] (6,0);
