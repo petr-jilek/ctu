@@ -17,9 +17,14 @@ symmetrization_input = SymmetrizationInput(
 symmetrization_output = symmetrization.symmetrize(symmetrization_input)
 
 assignment_latex = symmetrization.get_latex_file_assignment(symmetrization_input)
+solution_latex = symmetrization.get_latex_file_solution(
+    symmetrization_input, symmetrization_output
+)
 
-if not path_consts.OUT_FOLDER_PATH.exists():
-    path_consts.OUT_FOLDER_PATH.mkdir()
+folder_path = path_consts.ROOT_FOLDER_PATH / "tex" / "en3" / "res"
 
-with open(path_consts.OUT_FOLDER_PATH / "symmetrization_assignment_1.tex", "w") as f:
+with open(folder_path / "symmetrization_assignment_1.tex", "w") as f:
     f.write(assignment_latex)
+
+with open(folder_path / "symmetrization_solution_1.tex", "w") as f:
+    f.write(solution_latex)

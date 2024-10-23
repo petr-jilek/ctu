@@ -1,6 +1,6 @@
 import math
 
-from ...shared.utils import common_utils
+from ...shared.utils import common_utils, latex_utils
 from .inputs.symmetrization_input import SymmetrizationInput
 from .outputs.inductance_capacitance_output import InductanceCapacitanceOutput
 from .outputs.symmetrization_output import SymmetrizationOutput
@@ -121,16 +121,77 @@ def get_latex_file_assignment(input: SymmetrizationInput) -> str:
 def get_latex_file_solution(
     input: SymmetrizationInput, output: SymmetrizationOutput
 ) -> str:
-    latex_str = "Nejprve získáme úhel $\varphi$:"
-    latex_str += f"$$\\varphi = \\arccos({common_utils.float_to_str(input.cos_phi, decimals=1)}) = {common_utils.float_to_str(output.phi, decimals=3)}$$"
+    def inductive_sign_str(inductive):
+        return "-" if inductive else "+"
+
+    latex_str = "Nejprve získáme úhel $\\varphi$:"
+    latex_str += f"$$ \\varphi = \\arccos({common_utils.float_to_str(input.cos_phi, decimals=1)}) = {common_utils.float_to_str(output.phi, decimals=3)}$$"
 
     latex_str += "Dále vypočítáme $\\te{tg} (\\varphi)$:"
-    latex_str += "$$\\te{tg} (\\varphi) = \\tg (\\varphi) = "
+    latex_str += "$$\\te{tg} (\\varphi) = \\te{tg} (\\varphi) = "
     latex_str += f"{common_utils.float_to_str(output.tan_phi, decimals=3)}$$"
 
     latex_str += "Nyní vypočítáme komplexní admitance $Y_{1,2}$, $Y_{1,3}$ a $Y_{2,3}$:"
+    latex_str += f"$$Y_{{1,2}} = \\frac{{P_{{1,2}}}}{{U^2}} \\cdot \\left(1 {inductive_sign_str(input.P_12_inductive)} j \\cdot \\te{{tg}} (\\varphi) \\right) =$$"
     latex_str += (
-        "$$Y_{1,2} = \\frac{P_{1,2}}{U^2} \\left(1 + j \\tg (\\varphi) \\right) = "
+        f"$$\\frac{{ {common_utils.float_to_str(input.P_12, decimals=0)} }}"
+        f"{{ {common_utils.float_to_str(input.U, decimals=0)}^2 }} \\cdot"
+        f" \\left(1 {inductive_sign_str(input.P_12_inductive)} j \\cdot {common_utils.float_to_str(output.tan_phi, decimals=3)} \\right) ="
+        f" ({common_utils.complex_to_str(output.Y_1_complex)}) \\fs \\uSIE.$$"
     )
 
+    latex_str += f"$$Y_{{1,3}} = \\frac{{P_{{1,3}}}}{{U^2}} \\cdot \\left(1 {inductive_sign_str(input.P_13_inductive)} j \\cdot \\te{{tg}} (\\varphi) \\right) =$$"
+    latex_str += (
+        f"$$\\frac{{ {common_utils.float_to_str(input.P_13, decimals=0)} }}"
+        f"{{ {common_utils.float_to_str(input.U, decimals=0)}^2 }} \\cdot"
+        f" \\left(1 {inductive_sign_str(input.P_13_inductive)} j \\cdot {common_utils.float_to_str(output.tan_phi, decimals=3)} \\right) ="
+        f" ({common_utils.complex_to_str(output.Y_2_complex)}) \\fs \\uSIE.$$"
+    )
+
+    latex_str += f"$$Y_{{2,3}} = \\frac{{P_{{2,3}}}}{{U^2}} \\cdot \\left(1 {inductive_sign_str(input.P_23_inductive)} j \\cdot \\te{{tg}} (\\varphi) \\right) =$$"
+    latex_str += (
+        f"$$\\frac{{ {common_utils.float_to_str(input.P_23, decimals=0)} }}"
+        f"{{ {common_utils.float_to_str(input.U, decimals=0)}^2 }} \\cdot"
+        f" \\left(1 {inductive_sign_str(input.P_23_inductive)} j \\cdot {common_utils.float_to_str(output.tan_phi, decimals=3)} \\right) ="
+        f" ({common_utils.complex_to_str(output.Y_3_complex)}) \\fs \\uSIE.$$"
+    )
+
+    latex_str += r"""
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{l c c c}
+    """
+
+    latex_str += latex_utils.array_to_latex_table(
+        [
+            ["Větev", "1--2", "1--3", "2--3"],
+            [
+                "Kompenzace jalového výkonu",
+                f"${common_utils.float_to_str(output.Y_1_complex.imag * (-1))}j$",
+                f"${common_utils.float_to_str(output.Y_2_complex.imag * (-1))}j$",
+                f"${common_utils.float_to_str(output.Y_3_complex.imag * (-1))}j$",
+            ],
+        ]
+    )
+
+    latex_str += r"""
+    \end{tabular}
+    \end{table}
+    """
+
     return latex_str
+
+
+# \begin{table}[H]
+#     \centering
+#     \begin{tabular}{l c c c}
+#         \hline
+#         Větev                      & 1--2                          & 1--3                          & 2--3                          \\
+#         \hline                                                                                                                     \\
+#         Kompenzace jalového výkonu & $-j B_{1,2}$                  & $-j B_{1,3}$                  & $-j B_{2,3}$                  \\~\\
+#         Symetrizace 1--2           & 0                             & $-j \frac{G_{1,2}}{\sqrt{3}}$ & $j \frac{G_{1,2}}{\sqrt{3}}$  \\~\\
+#         Symetrizace 1--3           & $j \frac{G_{1,3}}{\sqrt{3}}$  & 0                             & $-j \frac{G_{1,3}}{\sqrt{3}}$ \\~\\
+#         Symetrizace 2--3           & $-j \frac{G_{2,3}}{\sqrt{3}}$ & $j \frac{G_{2,3}}{\sqrt{3}}$  & 0                             \\~\\
+#         \hline
+#     \end{tabular}
+# \end{table}

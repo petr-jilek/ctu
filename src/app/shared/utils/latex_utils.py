@@ -1,4 +1,4 @@
-def array_to_latex_table(arr, caption):
+def array_to_latex_table(arr):
     """
     Converts a 2D array to a LaTeX table.
 
