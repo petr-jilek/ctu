@@ -765,23 +765,23 @@ Proveďte symetrizaci zátěže.
 \subsubsection{Řešení}
 Nejprve získáme úhel $\varphi$:
 $$
-    \varphi = \te{arccos} (0.8) \approx 0.644 \fs \te{rad}.
+    \varphi = \te{arccos} (0,8) \approx 0,644 \fs \te{rad}.
 $$
 
 Dále vypočítáme $\te{tg} (\varphi)$:
 $$
-    \te{tg} (\varphi) = \te{tg} (0.644) \approx 0.751.
+    \te{tg} (\varphi) = \te{tg} (0,644) \approx 0,751.
 $$
 
 Následně získáme admitance:
 $$
-    Y_{1,2} = \frac{P_{1,2}}{U^2} \cdot (1 - j \cdot \te{tg} (\varphi)) = \frac{63 \fs 000}{400^2} \cdot (1 - j \cdot 0.751) = (0.394 - j \cdot 0.296) \fs \uSIE,
+    Y_{1,2} = \frac{P_{1,2}}{U^2} \cdot (1 - j \cdot \te{tg} (\varphi)) = \frac{63 \fs 000}{400^2} \cdot (1 - j \cdot 0,751) = (0,394 - j \cdot 0,296) \fs \uSIE,
 $$
 $$
-    Y_{1,3} = \frac{P_{1,3}}{U^2} \cdot (1 - j \cdot \te{tg} (\varphi)) = \frac{28 \fs 000}{400^2} \cdot (1 - j \cdot 0.751) = (0.175 - j \cdot 0.131) \fs \uSIE,
+    Y_{1,3} = \frac{P_{1,3}}{U^2} \cdot (1 - j \cdot \te{tg} (\varphi)) = \frac{28 \fs 000}{400^2} \cdot (1 - j \cdot 0,751) = (0,175 - j \cdot 0,131) \fs \uSIE,
 $$
 $$
-    Y_{2,3} = \frac{P_{2,3}}{U^2} \cdot (1 + j \cdot \te{tg} (\varphi)) = \frac{26 \fs 000}{400^2} \cdot (1 + j \cdot 0.751) = (0.163 + j \cdot 0.122) \fs \uSIE.
+    Y_{2,3} = \frac{P_{2,3}}{U^2} \cdot (1 + j \cdot \te{tg} (\varphi)) = \frac{26 \fs 000}{400^2} \cdot (1 + j \cdot 0,751) = (0,163 + j \cdot 0,122) \fs \uSIE.
 $$
 
 Dále vytvoříme tabulku symetrizace:
@@ -791,23 +791,23 @@ Dále vytvoříme tabulku symetrizace:
         \hline
         Větev                      & 1--2                        & 1--3                        & 2--3                        \\
         \hline                                                                                                               \\
-        Kompenzace jalového výkonu & $j 0.296$                   & $j 0.131$                   & $-j 0.122$                  \\~\\
-        Symetrizace 1--2           & 0                           & $-j \frac{0.394}{\sqrt{3}}$ & $j \frac{0.394}{\sqrt{3}}$  \\~\\
-        Symetrizace 1--3           & $j \frac{0.175}{\sqrt{3}}$  & 0                           & $-j \frac{0.175}{\sqrt{3}}$ \\~\\
-        Symetrizace 2--3           & $-j \frac{0.163}{\sqrt{3}}$ & $j \frac{0.163}{\sqrt{3}}$  & 0                           \\~\\
+        Kompenzace jalového výkonu & $j 0,296$                   & $j 0,131$                   & $-j 0,122$                  \\~\\
+        Symetrizace 1--2           & 0                           & $-j \frac{0,394}{\sqrt{3}}$ & $j \frac{0,394}{\sqrt{3}}$  \\~\\
+        Symetrizace 1--3           & $j \frac{0,175}{\sqrt{3}}$  & 0                           & $-j \frac{0,175}{\sqrt{3}}$ \\~\\
+        Symetrizace 2--3           & $-j \frac{0,163}{\sqrt{3}}$ & $j \frac{0,163}{\sqrt{3}}$  & 0                           \\~\\
         \hline
     \end{tabular}
 \end{table}
 
 Symetrizační admitance:
 $$
-    Y_{s,1,2} = j 0.296 + j \frac{0.175}{\sqrt{3}} - j \frac{0.163}{\sqrt{3}} = j 0.296 + j 0.101 - j 0.094 = j 0.303 \fs \uSIE,
+    Y_{s,1,2} = j 0,296 + j \frac{0,175}{\sqrt{3}} - j \frac{0,163}{\sqrt{3}} = j 0,296 + j 0,101 - j 0,094 = j 0,303 \fs \uSIE,
 $$
 $$
-    Y_{s,1,3} = j 0.131 - j \frac{0.394}{\sqrt{3}} + j \frac{0.163}{\sqrt{3}} = j 0.131 - j 0.227 + j 0.094 = -j 0.002 \fs \uSIE,
+    Y_{s,1,3} = j 0,131 - j \frac{0,394}{\sqrt{3}} + j \frac{0,163}{\sqrt{3}} = j 0,131 - j 0,227 + j 0,094 = -j 0,002 \fs \uSIE,
 $$
 $$
-    Y_{s,2,3} = -j 0.122 + j \frac{0.394}{\sqrt{3}} - j \frac{0.175}{\sqrt{3}} = -j 0.122 + j 0.227 - j 0.101 = j 0.004 \fs \uSIE.
+    Y_{s,2,3} = -j 0,122 + j \frac{0,394}{\sqrt{3}} - j \frac{0,175}{\sqrt{3}} = -j 0,122 + j 0,227 - j 0,101 = j 0,004 \fs \uSIE.
 $$
 
 Výsledné zapojení bude vypadat následovně:
