@@ -9,7 +9,169 @@
 
 \maketitle
 \tableofcontents
+\vspace{1cm}
+
+\begin{dangerbox}{Úprava značení}
+    \begin{itemize}
+        \item Elektrické napětí: $U_e \rightarrow U$ (\ueqV \fs -- volt)
+        \item Elektrická proudová hustota: $J_e \rightarrow J$ (\ueqAandMinvsq \fs -- ampér na metr čtvereční)
+        \item Intenzita elektrického pole: $E_e \rightarrow E$ (\ueqVandMinv \fs -- volt na metr)
+    \end{itemize}
+\end{dangerbox}
+
 \newpage
+
+
+
+
+\section{\emoji{snowflake} Topná sezóna \spicy \spicy \spicy}
+Průměrná venkonví teplota v topné sezóně je $\overline{T}_{out} = 5 \fs \uCELS$. Vnitřní teplota je $T_{in} = 20 \fs \uCELS$. Doba topné sezóny je 200 dní. Celková plocha je $S = 300 \fs \uMsq$. Součinitel prostupu tepla je $U_\vartheta = 0,5 \fs \uWandMinvsqKinv$. Jaký množství tepla projde stěnami za celou topnou sezónu?
+
+
+
+\subsection{Řešení}
+Celkové množství tepla, které projde stěnami za celou topnou sezónu $Q$ vypočteme jako:
+$$
+    Q = \int_{t_1}^{t_2} \dot{Q} \cdot dt,
+$$
+kde:\\
+$\dot{Q}$ je tepelný tok (\ueqW),\\
+$t_1$ je začátek topné sezóny (\uH),\\
+$t_2$ je konec topné sezóny (\uH).\\
+
+Integrál můžeme rozepsat jako:
+$$
+    Q = \int_{t_1}^{t_2} U_\vartheta \cdot S \cdot (T_{in} - T_{out} (t)) \cdot dt = U_\vartheta \cdot S \cdot \int_{t_1}^{t_2} (T_{in} - T_{out} (t)) \cdot dt =
+$$
+$$
+    = U_\vartheta \cdot S \cdot T_{in} \cdot \int_{t_1}^{t_2} dt - U_\vartheta \cdot S \cdot \int_{t_1}^{t_2} T_{out} (t) \cdot dt =
+$$
+$$
+    = U_\vartheta \cdot S \cdot T_{in} \cdot (t_2 - t_1) - U_\vartheta \cdot S \cdot \int_{t_1}^{t_2} T_{out} (t) \cdot dt.
+$$
+
+Nyní uděláme odbočku, kde vyjádříme průměrnou venkovní teplotu $\overline{T}_{out}$ jako:
+$$
+    \overline{T}_{out} = \frac{1}{t_2 - t_1} \cdot \int_{t_1}^{t_2} T_{out} (t) \cdot dt.
+$$
+
+Vyjádříme daný integrál:
+$$
+    \int_{t_1}^{t_2} T_{out} (t) \cdot dt = \overline{T}_{out} \cdot (t_2 - t_1).
+$$
+
+Dosadíme zpět do původní rovnice:
+$$
+    Q = U_\vartheta \cdot S \cdot T_{in} \cdot (t_2 - t_1) - U_\vartheta \cdot S \cdot \overline{T}_{out} \cdot (t_2 - t_1) =
+$$
+$$
+    = U_\vartheta \cdot S \cdot (T_{in} - \overline{T}_{out}) \cdot (t_2 - t_1).
+$$
+
+Nyní můžeme dosadit a vypočítat:
+$$
+    Q = 0,5 \cdot 300 \cdot (20 - 5) \cdot (200 \cdot 24 \cdot 3 \fs 600 - 0) =
+$$
+$$
+    = 0,5 \cdot 300 \cdot 15 \cdot 200 \cdot 24 \cdot 3 \fs 600 = 38,9 \fs \uGJ.
+$$
+
+\newpage
+
+
+
+
+\section{\emoji{factory} Cihlová pec \spicy \spicy \spicy}
+U cihlové pece je vysoký rozdíl teplot, tudíž tepelnou vodivost je třeba uvažovat jako proměnnou. Tepelnou vodivost $\lambda$ můžeme zapsat jako:
+$$
+    \lambda (x) = \lambda_0 + \lambda_1 \cdot T,
+$$
+
+Pro zeď o tloušťce $d$ budeme uvažovat následující zjednodušející předpoklady:
+\begin{itemize}
+    \item $\frac{\partial T}{\partial t}$ = 0,
+    \item $\vec{v}$ = 0,
+    \item $\dot{Q}_V$ = 0,
+    \item $\lambda (x) = \lambda_0 + \lambda_1 \cdot T$,
+    \item $T = T(x)$ - teplota závislá pouze na ose x.
+\end{itemize}
+
+Poté Fourierova-Kirchhoffova rovnice bude mít tvar:
+$$
+    0 = \frac{d}{dx} \left ( \lambda (T) \cdot \frac{dT}{dx} \right ).
+$$
+
+Fourieruv zákon pro tepelný tok bude mít tvar:
+$$
+    \dot{q} = - \lambda (T) \cdot \frac{dT}{dx}.
+$$
+
+Vynásobme rovnici mínus jedna:
+$$
+    - \dot{q} = \lambda (T) \cdot \frac{dT}{dx}.
+$$
+
+Pokud dosadíme do Fourierova-Kirchhoffovy rovnice, dostaneme:
+$$
+    0 = \frac{d}{dx} \left ( - \dot{q} \right ).
+$$
+
+Z toho vidíme, že měrný tepelný tok $\dot{q}$ je konstantní a nezávisí na poloze x. Můžeme tedy rozepsat Fourierův zákon jako:
+$$
+    - \dot{q} = \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot \frac{dT}{dx}.
+$$
+
+Můžeme řešit tuto diferenciální rovnici separací proměnných:
+$$
+    - \dot{q} \cdot dx = \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot dT.
+$$
+
+Nyní meze budou jak pro x, tak pro T:
+\begin{itemize}
+    \item $x = 0 \Rightarrow T = T_1$,
+    \item $x = d \Rightarrow T = T_2$.
+\end{itemize}
+
+Rovnici můžeme integrovat:
+$$
+    - \int_{0}^{d} \dot{q} \cdot dx = \int_{T_1}^{T_2} \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot dT
+$$
+$$
+    - \dot{q} \cdot \left[ x \right]_{0}^{d} = \lambda_0 \cdot \left[ T \right]_{T_1}^{T_2} + \frac{\lambda_1}{2} \cdot \left[ T^2 \right]_{T_1}^{T_2}
+$$
+$$
+    - \dot{q} \cdot d = \lambda_0 \cdot (T_2 - T_1) + \frac{\lambda_1}{2} \cdot (T_2^2 - T_1^2)
+$$
+$$
+    - \dot{q} \cdot d = \lambda_0 \cdot (T_2 - T_1) + \frac{\lambda_1}{2} \cdot (T_2 - T_1) \cdot (T_2 + T_1)
+$$
+$$
+    - \dot{q} \cdot d = (T_2 - T_1) \cdot \left( \lambda_0 + \frac{\lambda_1}{2} \cdot (T_2 + T_1) \right).
+$$
+
+Nyní odvoďme střední hodnotu tepelné vodivosti $\overline{\lambda}$:
+$$
+    \overline{\lambda} = \frac{1}{T_2 - T_1} \cdot \int_{T_1}^{T_2} \lambda (T) \cdot dT = \frac{1}{T_2 - T_1} \cdot \int_{T_1}^{T_2} \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot dT
+$$
+$$
+    = \frac{1}{T_2 - T_1} \cdot \left[ \lambda_0 \cdot T + \frac{\lambda_1}{2} \cdot T^2 \right]_{T_1}^{T_2} = \frac{1}{T_2 - T_1} \cdot \left( \lambda_0 \cdot (T_2 - T_1) + \frac{\lambda_1}{2} \cdot (T_2^2 - T_1^2) \right) =
+$$
+$$
+    = \lambda_0 + \frac{\lambda_1}{2} \cdot (T_2 + T_1).
+$$
+
+Nyní můžeme videt, že člen v závorce u vyřešené diferenciální rovnice je roven střední hodnotě tepelné vodivosti $\overline{\lambda}$:
+$$
+    - \dot{q} \cdot d = (T_2 - T_1) \cdot \overline{\lambda}.
+$$
+
+Nyní můžeme odvodit vztah pro měrný tepelný tok $\dot{q}$:
+$$
+    \dot{q} = \frac{T_1 - T_2}{d} \cdot \overline{\lambda}.
+$$
+
+\newpage
+
 
 
 
@@ -23,10 +185,11 @@ Budou platit následující předpoklady:
 \end{itemize}
 
 
+
 \subsection{Řešení}
-Foruier-Kirchhoffova rovnice:
+Fourier-Kirchhoffova rovnice:
 \begin{equation}
-    \rho \cdot c \cdot \vec{v} \cdot \vec{\nabla} T = \dot{Q}_v,
+    \rho \cdot c \cdot \vec{v} \cdot \vec{\nabla} T = \dot{Q}_V,
     \unit{(\ueqWandMinvcu)}
 \end{equation}
 kde:\\
@@ -34,7 +197,7 @@ $\rho$ -- hustota (\ueqKGandMinvcu),\\
 $c$ -- měrná tepelná kapacita (\ueqJandKGinvKinv),\\
 $\vec{v}$ -- rychlost (\ueqMandSinv),\\
 $\vec{\nabla} T$ -- gradient teploty (\ueqKandMinv),\\
-$\dot{Q}_v$ -- objemový zdroj tepla (\ueqWandMinvcu).\\
+$\dot{Q}_V$ -- objemový zdroj tepla (\ueqWandMinvcu).\\
 
 Vektor rychlosti $\vec{v}$ je:
 $$
@@ -43,19 +206,19 @@ $$
 
 Vektor rychlosti $\vec{v}$ má pouze složku $v$, protože voda teče pouze ve směru osy $x$. Můžeme tedy rovnici zjednodušit na:
 $$
-    \rho \cdot c \cdot v \cdot \frac{dT}{dx} = Q_v.
+    \rho \cdot c \cdot v \cdot \frac{dT}{dx} = \dot{Q}_V.
 $$
 
-Dále je třeba vyjádřit rychlost $v$ a objemový zdroj tepla $Q_v$. Rychlost $v$ je:
+Dále je třeba vyjádřit rychlost $v$ a objemový zdroj tepla $\dot{Q}_V$. Rychlost $v$ je:
 $$
     v = \frac{\dot{V}}{S} = \frac{\dot{V}}{d \cdot b},
 $$
 kde:\\
 $\dot{V}$ -- objemový průtok (\ueqMcuSinv).\\
 
-Objemový zdroj tepla $Q_v$ můžeme vyjádřit pomocí intenzity elektrického pole $E$ a proudové hustoty $J$:
+Objemový zdroj tepla $\dot{Q}_V$ můžeme vyjádřit pomocí intenzity elektrického pole $E$ a proudové hustoty $J$:
 $$
-    Q_v = E \cdot J,
+    \dot{Q}_V = E \cdot J,
 $$
 kde:\\
 $E$ -- intenzita elektrického pole (\ueqVandMinv),\\
@@ -70,7 +233,7 @@ $\sigma_e$ -- měrná elektrická vodivost (\ueqOHMandMinv).\\
 
 Dostaneme tedy:
 $$
-    Q_v = E \cdot \sigma_e \cdot E = \sigma_e \cdot E^2.
+    \dot{Q}_V = E \cdot \sigma_e \cdot E = \sigma_e \cdot E^2.
 $$
 
 Intenzitu elektrického pole $E$ můžeme vyjádřit pomocí napětí $U$ a vzdálenosti mezi deskami $d$:
@@ -80,7 +243,7 @@ $$
 
 Dostaneme tedy:
 $$
-    Q_v = \sigma_e \cdot \left( \frac{U}{d} \right)^2.
+    \dot{Q}_V = \sigma_e \cdot \left( \frac{U}{d} \right)^2.
 $$
 
 Zde je třeba uvažovat měrnou elektrickou vodivost $\sigma_e$ jako proměrnou závislou na teplotě. U kovů se vzrůstající teplotou se měrná elektrická vodivost snižuje, jelikož volné nostiče náboje mají problém se v rozpohybované krystalové mřížce kvůli teplotě pohybovat. Naopak u iontových roztoku jako třeba u vody se měrná elektrická vodivost zvyšuje s teplotou. Nahradíme tedy $\sigma_e$ lineární funkcí teploty $\sigma_e(T)$:

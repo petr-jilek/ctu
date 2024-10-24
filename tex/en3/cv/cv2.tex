@@ -13,7 +13,9 @@
 
 
 
+
 \section{\emoji{brick} Zeď \spicy \spicy}
+
 
 
 \subsection{Fourierova-Kirchhoffova rovnice \spicy \spicy \spicy}
@@ -21,7 +23,7 @@ Pro zeď o tloušťce $d$ budeme uvažovat následující zjednodušející pře
 \begin{itemize}
     \item $\frac{\partial T}{\partial t}$ = 0,
     \item $\vec{v}$ = 0,
-    \item $Q_v$ = 0,
+    \item $\dot{Q}_V$ = 0,
     \item $\lambda$ = konstanta,
     \item $T = T(x)$ - teplota závislá pouze na x.
 \end{itemize}
@@ -31,7 +33,7 @@ $$
     0 = \nabla \cdot \left( \lambda \cdot \vec{\nabla} T \right) = \lambda \cdot \frac{d^2 T}{d x^2}.
 $$
 
-Rovnici můžeme vydělit $\lambda$ ($\lambda > 0$) a získáme:
+Rovnici můžeme vydělit $\lambda$ ($\lambda > 0$, záporné tepelné vodivosti nemají fyzikální smysl) a získáme:
 $$
     \frac{d^2 T}{d x^2} = 0.
 $$
@@ -51,25 +53,24 @@ $$
     T(x) = c_1 \cdot x + c_2.
 $$
 
-S okrajovými podmínkami:
+Pro úplné řešení je třeba definovat okrajové podmínky. Pro zeď o tloušťce $d$ budeme uvažovat následující okrajové podmínky:
 \begin{itemize}
-    \item $T(0) = T_1$:
+    \item Teplota na začátku zdi $T(0) = T_1$:
           $$
               T_1 = T(0) = c_1 \cdot 0 + c_2 = c_2 \Rightarrow c_2 = T_1.
           $$
-    \item $T(d) = T_2$:
+    \item Teplota na konci zdi $T(d) = T_2$:
           $$
               T_2 = T(d) = c_1 \cdot d + c_2 \Rightarrow c_1 = \frac{T_2 - c_2}{d} = \frac{T_2 - T_1}{d}.
           $$
 \end{itemize}
 
-Řešení je tedy:
+Úplné řešení bude tedy:
 $$
     T(x) = \frac{T_2 - T_1}{d} \cdot x + T_1.
 $$
 
 Tuto situaci můžeme znázornit následujícím obrázkem:
-
 \begin{center}
     \begin{tikzpicture}
         % Variables
@@ -105,11 +106,16 @@ Tuto situaci můžeme znázornit následujícím obrázkem:
 \end{center}
 
 
+
 \subsection{Fourieruv zákon \spicy \spicy \spicy}
-Nyní dosadíme řešení z předchozího příkladu do Fourierova zákona, kde za gradient teploty dosadíme derivaci teploty podle osy x, čímž získáme měrný tepelný tok $q_x$:
+Nyní dosadíme řešení z předchozího příkladu do Fourierova zákona, kde za gradient teploty dosadíme derivaci teploty podle osy x, čímž získáme měrný tepelný tok $q$:
 $$
-    \dot{q_x} = - \lambda \cdot \frac{dT(x)}{dx} = - \lambda \cdot \frac{d}{dx} \left( \frac{T_2 - T_1}{d} \cdot x + T_1 \right) = - \lambda \cdot \frac{T_2 - T_1}{d} = \lambda \cdot \frac{T_1 - T_2}{d} = \frac{\Delta T}{\frac{d}{\lambda}}.
+    \dot{q} = - \lambda \cdot \frac{dT(x)}{dx} = - \lambda \cdot \frac{d}{dx} \left( \frac{T_2 - T_1}{d} \cdot x + T_1 \right) =
 $$
+$$
+    = - \lambda \cdot \frac{T_2 - T_1}{d} = \lambda \cdot \frac{T_1 - T_2}{d} = \frac{\Delta T}{\frac{d}{\lambda}}.
+$$
+
 
 
 \subsection{Tepelný odpor}
@@ -119,21 +125,21 @@ Dolní výraz z předchozí sekce $\frac{d}{\lambda}$ je tepelný odpor:
     \unit{(\ueqMsqKandWinv)}
 \end{equation}
 
-Měrný tepelný tok $q_x$ můžeme tedy zapsat jako:
+Měrný tepelný tok $q$ můžeme tedy zapsat jako:
 \begin{equation}
-    \dot{q_x} = \frac{\Delta T}{R_{\vartheta}}.
+    \dot{q} = \frac{\Delta T}{R_{\vartheta}}.
     \unit{(\ueqWandMinvsq)}
 \end{equation}
 
-Tepelný tok $\dot{Q_x}$ dostaneme vynásobením měrného tepelného toku plochou průřezu $S$:
+Tepelný tok $\dot{Q}$ dostaneme vynásobením měrného tepelného toku plochou průřezu $S$:
 \begin{equation}
-    \dot{Q_x} = \dot{q_x} \cdot S.
+    \dot{Q} = \dot{q} \cdot S.
     \unit{(\ueqW)}
 \end{equation}
 
-Tepelný tok $\dot{Q_x}$ můžeme dále rozepsat:
+Tepelný tok $\dot{Q}$ můžeme dále rozepsat:
 $$
-    \dot{Q_x} = \dot{q_x} \cdot S = \lambda \frac{T_1 - T_2}{d} \cdot S = \lambda \frac{\Delta T}{d} \cdot S = \frac{\Delta T}{\frac{d}{\lambda \cdot S}}.
+    \dot{Q} = \dot{q} \cdot S = \lambda \cdot \frac{T_1 - T_2}{d} \cdot S = \lambda \cdot \frac{\Delta T}{d} \cdot S = \frac{\Delta T}{\frac{d}{\lambda \cdot S}}.
 $$
 
 Dolní výraz $\frac{d}{\lambda \cdot S}$ je absolutní tepelný odpor:
@@ -142,62 +148,7 @@ Dolní výraz $\frac{d}{\lambda \cdot S}$ je absolutní tepelný odpor:
     \unit{(\ueqKandWinv)}
 \end{equation}
 
-\textit{Poznámka}\\
-
-Výpočet tepelného odporu je analogický jako výpočet elektrického odporu. Elektrický odpor $R_e$ vypočteme jako:
-\begin{equation}
-    R_e = \frac{l}{\sigma_e \cdot S},
-    \unit{(\ueqOHM)}
-\end{equation}
-kde:\\
-$l$ -- délka vodiče (\ueqM),\\
-$\sigma_e$ -- měrná elektrická vodivost (\ueqSIEandMinv),\\
-$S$ -- průřez vodiče (\ueqMsq).\\
-
-Analogie jsou:
-\begin{itemize}
-    \item $R_{\vartheta A}$ -- absolutní tepelný odpor (\ueqKandWinv) $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM),
-    \item $d$ -- tloušťka stěny (\ueqM) $\rightarrow$ $l$ -- délka vodiče (m),
-    \item $\lambda$ -- tepelná vodivost (\ueqWandMinvKinv) $\rightarrow$ $\sigma_e$ -- měrná elektrická vodivost (\ueqSIEandMinv),
-    \item $S$ -- plocha průřezu (\ueqMsq) $\rightarrow$ $S$ -- průřez vodiče (m2).
-\end{itemize}
-
-Výpočet tepelného toku je analogický s Ohmovým zákonem:
-\begin{equation}
-    I = \frac{U}{R_e},
-    \unit{(\ueqA)}
-\end{equation}
-kde:\\
-$I$ -- proud (\ueqA),\\
-$U$ -- napětí (\ueqV),\\
-$R_e$ -- elektrický odpor (\ueqOHM).\\
-
-Analogie jsou:
-\begin{itemize}
-    \item $\dot{Q_x}$ -- tepelný tok (\ueqW) $\rightarrow$ $I$ -- proud (\ueqA),
-    \item $\Delta T$ -- rozdíl teplot (\ueqK) $\rightarrow$ $U$ -- napětí (\ueqV),
-    \item $R_{\vartheta A}$ -- absolutní tepelný odpor (\ueqKandWinv) $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM).
-\end{itemize}
-
-Elektrické schéma můžeme znázornit následujícím obrázkem:
-
-\begin{center}
-    \begin{tikzpicture}
-        \draw[thick] (0.5,-1) -- (1.5,-1) node[midway, below] {$U$};
-        \draw[thick] (1,0) -- (1,-1);
-        \draw[thick] (1,0) -- (2.5,0);
-        \draw[thick] (2.5,-0.3) rectangle (3.5,0.3) node[midway] {$R_e$};
-        \draw[thick] (3.5,0) -- (5,0);
-        \draw[thick] (5,0) -- (5,-1);
-        \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$0$};
-
-        % Triangle arrow
-        \draw[-{Triangle}] (2,0.7) -- (4,.7) node[midway, above] {$I$};
-    \end{tikzpicture}
-\end{center}
-
-Analogicky můžeme vytvořit tepelné schéma:
-
+Tento případ lze reprezentovat tepelným obvodem následovně:
 \begin{center}
     \begin{tikzpicture}
         \draw[thick] (0.5,-1) -- (1.5,-1) node[midway, below] {$T_1$};
@@ -207,11 +158,66 @@ Analogicky můžeme vytvořit tepelné schéma:
         \draw[thick] (3.5,0) -- (5,0);
         \draw[thick] (5,0) -- (5,-1);
         \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$T_2$};
-
-        % Triangle arrow
-        \draw[-{Triangle}] (2,0.7) -- (4,.7) node[midway, above] {$\dot{Q_x}$};
+        \draw[-{Triangle}] (2,0.7) -- (4,.7) node[midway, above] {$\dot{Q}$};
     \end{tikzpicture}
 \end{center}
+
+\begin{notebox}{Poznámka}
+    Výpočet tepelného odporu je analogický jako výpočet elektrického odporu. Elektrický odpor $R_e$ vypočteme jako:
+    \begin{equation}
+        R_e = \frac{l}{\sigma_e \cdot S},
+        \unit{(\ueqOHM)}
+    \end{equation}
+    kde:\\
+    $l$ -- délka vodiče (\ueqM),\\
+    $\sigma_e$ -- měrná elektrická vodivost (\ueqSIEandMinv),\\
+    $S$ -- průřez vodiče (\ueqMsq).\\
+
+    Analogie jsou:
+    \begin{itemize}
+        \item $R_{\vartheta A}$ -- absolutní tepelný odpor (\ueqKandWinv)\\ $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM),
+        \item $d$ -- tloušťka stěny (\ueqM)\\ $\rightarrow$ $l$ -- délka vodiče (m),
+        \item $\lambda$ -- tepelná vodivost (\ueqWandMinvKinv)\\ $\rightarrow$ $\sigma_e$ -- měrná elektrická vodivost (\ueqSIEandMinv),
+        \item $S$ -- plocha průřezu (\ueqMsq)\\ $\rightarrow$ $S$ -- průřez vodiče (\ueqMsq).
+    \end{itemize}
+\end{notebox}
+
+\begin{notebox}{Poznámka}
+    Výpočet tepelného toku je analogický s Ohmovým zákonem pro elektrický proud, kde elektrický proud $I_e$ vypočteme jako:
+    \begin{equation}
+        I_e = \frac{U_e}{R_e},
+        \unit{(\ueqA)}
+    \end{equation}
+    kde:\\
+    $I_e$ -- elektrický proud (\ueqA),\\
+    $U_e$ -- elektrické napětí (\ueqV),\\
+    $R_e$ -- elektrický odpor (\ueqOHM).\\
+
+    Analogie jsou:
+    \begin{itemize}
+        \item $\dot{Q}$ -- tepelný tok (\ueqW)\\ $\rightarrow$ $I_e$ -- elektrický proud (\ueqA),
+        \item $\Delta T$ -- rozdíl teplot (\ueqK)\\ $\rightarrow$ $U_e$ -- elektrické napětí (\ueqV),
+        \item $R_{\vartheta A}$ -- absolutní tepelný odpor (\ueqKandWinv)\\ $\rightarrow$ $R_e$ -- elektrický odpor (\ueqOHM).
+    \end{itemize}
+
+    Elektrické schéma můžeme znázornit následujícím obrázkem:
+
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[thick] (0.5,-1) -- (1.5,-1) node[midway, below] {$U$};
+            \draw[thick] (1,0) -- (1,-1);
+            \draw[thick] (1,0) -- (2.5,0);
+            \draw[thick] (2.5,-0.3) rectangle (3.5,0.3) node[midway] {$R_e$};
+            \draw[thick] (3.5,0) -- (5,0);
+            \draw[thick] (5,0) -- (5,-1);
+            \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$0$};
+
+            % Triangle arrow
+            \draw[-{Triangle}] (2,0.7) -- (4,.7) node[midway, above] {$I$};
+        \end{tikzpicture}
+    \end{center}
+\end{notebox}
+
 
 
 \subsection{Součinitel prostupu tepla}
@@ -221,9 +227,9 @@ Součinitel prostupu tepla $U_\vartheta$ je inverzní hodnota tepelného odporu:
     \unit{(\ueqWandMinvsqKinv)}
 \end{equation}
 
-Měrný tepelný tok $q_x$ se poté může zapsat jako:
+Měrný tepelný tok $q$ se poté může zapsat jako:
 \begin{equation}
-    \dot{q_x} = U_\vartheta \cdot \Delta T.
+    \dot{q} = U_\vartheta \cdot \Delta T.
     \unit{(\ueqWandMinvsq)}
 \end{equation}
 
@@ -233,25 +239,31 @@ Prostup tepla $U_{\vartheta A}$ je inverzní hodnota absolutního tepelného odp
     \unit{(\ueqWandKinv)}
 \end{equation}
 
-Tepelný tok $\dot{Q_x}$ se poté může zapsat jako:
+Tepelný tok $\dot{Q}$ se poté může zapsat jako:
 \begin{equation}
-    \dot{Q_x} = U_{\vartheta A} \cdot \Delta T.
+    \dot{Q} = U_{\vartheta A} \cdot \Delta T.
     \unit{(\ueqW)}
 \end{equation}
 
 
-\subsection{Číselný příklad}
-Teplota na začátku zdi je $T_1 = 20 \fs \uCELS$, teplota na konci zdi je $T_2 = -10 \fs \uCELS$. Zeď má tloušťku $d_{cihla} = 45 \fs \uCM$ a je tvořená obyčejnou cihlou s tepelná vodivostí $\lambda_{cihla} = 0,8 \fs \uWandMinvKinv$. Plocha průřezu zdi je $S = 20 \fs \uMsq$.
 
+\subsection{Číselný příklad}
+Teplota na začátku zdi je $T_1 = 20 \fs \uCELS$, teplota na konci zdi je $T_2 = -10 \fs \uCELS$. Zeď je tvořená obyčejnou cihlou s tepelná vodivostí $\lambda_{cihla} = 0,8 \fs \uWandMinvKinv$ a má tloušťku $d_{cihla} = 45 \fs \uCM$. Plocha průřezu zdi je $S = 20 \fs \uMsq$.
 \begin{enumerate}[a)]
-    \item Vypočítejte $R_{\vartheta}$, $R_{\vartheta A}$, $U_\vartheta$, $U_{\vartheta A}$, $\dot{q_x}$ a $\dot{Q_x}$.
-    \item Uvažujte polystyrénovou izolaci s tepelnou vodivostí $\lambda_{izol} = 0,04 \fs \uWandMinvKinv$. Vypočítejte tloušťku izolace $d_{izol}$, která zajistí stejný měrný tepelný odpor (tím také zajistí stejný měrný tepelný tok).
+    \item Vypočítejte $R_{\vartheta}$, $R_{\vartheta A}$, $U_\vartheta$, $U_{\vartheta A}$, $\dot{q}$ a $\dot{Q}$.
+    \item Uvažujte polystyrénovou izolaci s tepelnou vodivostí $\lambda_{izol} = 0,04 \fs \uWandMinvKinv$. Vypočítejte tloušťku izolace $d_{izol}$, která zajistí stejný měrný tepelný odpor jako cihlová zeď (tím také zajistí stejný měrný tepelný tok pro stejný rozdíl teplot).
 \end{enumerate}
 
+
 \subsubsection{a}
+Tloušťka zdi v metrech je:
+$$
+    d_{cihla} = 45 \fs \uCM = 0,45 \fs \uM.
+$$
+
 Tepelný odpor $R_{\vartheta}$ vypočteme jako:
 $$
-    R_{\vartheta} = \frac{d_{cihla}}{\lambda_{cihla}} = \frac{0,45 \fs \uM}{0,8 \fs \uWandMinvKinv} = 0,5625 \fs \uMsqKandWinv.
+    R_{\vartheta} = \frac{d_{cihla}}{\lambda_{cihla}} = \frac{0,45}{0,8} = 0,5625 \fs \uMsqKandWinv.
 $$
 
 Absolutní tepelný odpor $R_{\vartheta A}$ vypočteme jako:
@@ -269,20 +281,21 @@ $$
     U_{\vartheta A} = \frac{1}{R_{\vartheta A}} = \frac{1}{0,028} \approx 35,714 \fs \uKandWinv.
 $$
 
-Měrný tepelný tok $\dot{q_x}$ vypočteme jako:
+Měrný tepelný tok $\dot{q}$ vypočteme jako:
 $$
-    \dot{q_x} = \frac{\Delta T}{R_{\vartheta}} = \frac{T_1 - T_2}{R_{\vartheta}} = \frac{20 - (-10)}{0,5625} = \frac{30}{0,5625} \approx 53,33 \fs \uWandMinvsq.
+    \dot{q} = \frac{\Delta T}{R_{\vartheta}} = \frac{T_1 - T_2}{R_{\vartheta}} = \frac{20 - (-10)}{0,5625} = \frac{30}{0,5625} \approx 53,333 \fs \uWandMinvsq.
 $$
 
-Tepelný tok $\dot{Q_x}$ vypočteme jako:
+Tepelný tok $\dot{Q}$ vypočteme jako:
 $$
-    \dot{Q_x} = \dot{q_x} \cdot S = 53,33 \fs \uWandMinvsq \cdot 20 \fs \uMsq = 1066,6 \fs \uW \approx 1 \fs \uKW.
+    \dot{Q} = \dot{q} \cdot S = 53,333 \cdot 20 = 1066,66 \fs \uW \approx 1 \fs \uKW.
 $$
+
 
 \subsubsection{b}
 Aby se měrné tepelné odpory rovnaly, musí platit:
 $$
-    R_{\vartheta,cihla} = R_{\vartheta,izol}.
+    R_{\vartheta,cihla} = R_{\vartheta,izol}
 $$
 $$
     \frac{d_{cihla}}{\lambda_{cihla}} = \frac{d_{izol}}{\lambda_{izol}}.
@@ -290,21 +303,22 @@ $$
 
 Tloušťku izolace $d_{izol}$ vypočteme jako:
 $$
-    d_{izol} = \frac{d_{cihla} \cdot \lambda_{izol}}{\lambda_{cihla}} = \frac{0,45 \fs \uM \cdot 0,04 \fs \uWandMinvKinv}{0,8 \fs \uWandMinvKinv} = 0,0225 \fs \uM = 2,25 \fs \uCM.
+    d_{izol} = \frac{d_{cihla} \cdot \lambda_{izol}}{\lambda_{cihla}} = \frac{0,45 \cdot 0,04}{0,8} = 0,0225 \fs \uM = 2,25 \fs \uCM.
 $$
 
 \newpage
 
 
 
+
 \section{\emoji{building-construction} Skládaná zeď \spicy \spicy}
 
 
+
 \subsection{Tepelné schéma}
-U skládané zdi máme několik vrstev zdi s různou tepelnou vodivostí a tloušťkou. Navíc počítáme se součinitely přestupu tepla na začátku (ze vnitř do zdi) a na konci (ze zdi ven).
+U skládané zdi máme několik vrstev zdi s různou tepelnou vodivostí a tloušťkou. Navíc počítáme se součiniteli přestupu tepla na začátku (z vnitřka do zdi) a na konci (ze zdi ven).
 
-Mějme tedy n vrstev zdi, kde $i$-tá vrstva má tepelnou vodivost $\lambda_i$ a tloušťku $d_i$. Mějme součinitel přestupu tepla na začátku $\alpha_{\vartheta,in}$ a na konci $\alpha_{\vartheta,out}$. Potom můžeme pro tuto situaci nakreslit následující tepelné schéma:
-
+Mějme tedy $n$ vrstev zdi, kde $i$-tá vrstva má tepelnou vodivost $\lambda_i$ a tloušťku $d_i$. Mějme součinitel přestupu tepla na začátku $\alpha_{\vartheta,in}$ a na konci $\alpha_{\vartheta,out}$. Potom můžeme pro tuto situaci nakreslit následující tepelné schéma:
 \begin{center}
     \begin{tikzpicture}
         \draw[thick] (0.5,-2) -- (1.5,-2) node[midway, below] {$T_1$};
@@ -328,7 +342,7 @@ Mějme tedy n vrstev zdi, kde $i$-tá vrstva má tepelnou vodivost $\lambda_i$ a
         \draw[thick] (9.5,-2) -- (10.5,-2) node[midway, below] {$T_2$};
 
         % Triangle arrow
-        \draw[-{Triangle}] (3,0.7) -- (8,.7) node[midway, above] {$\dot{Q_x}$};
+        \draw[-{Triangle}] (3,0.7) -- (8,.7) node[midway, above] {$\dot{Q}$};
     \end{tikzpicture}
 \end{center}
 
@@ -370,45 +384,45 @@ $$
     U_{\vartheta A,\Sigma} = U_{\vartheta,\Sigma} \cdot S.
 $$
 
-Měrný tepelný tok $\dot{q_x}$ zdi s přechody vypočteme pomocí měrných odporů jako:
+Měrný tepelný tok $\dot{q}$ zdi s přechody vypočteme pomocí měrných odporů jako:
 $$
-    \dot{q_x} = \frac{\Delta T}{R_{\vartheta,\Sigma}} = \frac{T_1 - T_2}{R_{\vartheta,\Sigma}}.
-$$
-
-Pomocí součinitele prostupu tepla $U_{\vartheta,\Sigma}$ můžeme vypočítat měrný tepelný tok $\dot{q_x}$ jako:
-$$
-    \dot{q_x} = U_{\vartheta,\Sigma} \cdot \Delta T = U_{\vartheta,\Sigma} \cdot (T_1 - T_2).
+    \dot{q} = \frac{\Delta T}{R_{\vartheta,\Sigma}} = \frac{T_1 - T_2}{R_{\vartheta,\Sigma}}.
 $$
 
-Celkový tepelný tok $\dot{Q_x}$ zdi s přechody vypočteme jako:
+Pomocí součinitele prostupu tepla $U_{\vartheta,\Sigma}$ můžeme vypočítat měrný tepelný tok $\dot{q}$ jako:
 $$
-    \dot{Q_x} = \dot{q_x} \cdot S.
+    \dot{q} = U_{\vartheta,\Sigma} \cdot \Delta T = U_{\vartheta,\Sigma} \cdot (T_1 - T_2).
 $$
+
+Celkový tepelný tok $\dot{Q}$ zdi s přechody vypočteme jako:
+$$
+    \dot{Q} = \dot{q} \cdot S.
+$$
+
 
 
 \subsection{Číselný příklad}
-Teplota na začátku zdi je $T_1 = 20 \fs \uCELS$, teplota na konci zdi je $T_2 = -10 \fs \uCELS$. Plocha průřezu zdi je $S = 20 \fs \uMsq$. Uvažujme dvouvrstvou zeď složenou z cihly a polystyrénu. Parametry cihly jsou:
+Teplota na začátku zdi je $T_1 = 20 \fs \uCELS$, teplota na konci zdi je $T_2 = -10 \fs \uCELS$. Plocha průřezu zdi je $S = 20 \fs \uMsq$. Uvažujme dvouvrstvou zeď složenou z cihly a izolace. Parametry cihly jsou:
 \begin{itemize}
     \item $\lambda_{cihla} = 0,8 \fs \uWandMinvKinv$,
     \item $d_{cihla} = 45 \fs \uCM$.
 \end{itemize}
 
-Parametry polystyrénu jsou:
+Parametry izolace jsou:
 \begin{itemize}
     \item $\lambda_{izol} = 0,04 \fs \uWandMinvKinv$,
     \item $d_{izol} = 5 \fs \uCM$.
 \end{itemize}
 
 Uvažujte, že izolace je na konci zdi (z venčí). Zanedbejte součinitele přestupu tepla na začátku a na konci zdi.
-
 \begin{enumerate}[a)]
-    \item Nakreslete tepelné schéma a vypočítejte celkový tepelný odpor $R_{\vartheta,\Sigma}$, celkový absolutní tepelný odpor $R_{\vartheta A,\Sigma}$, součinitel prostupu tepla $U_{\vartheta,\Sigma}$, absolutní součinitel prostupu tepla $U_{\vartheta A,\Sigma}$, měrný tepelný tok $\dot{q_x}$ a tepelný tok $\dot{Q_x}$.
-    \item Nakreslete graf závislosti teploty na ose x pro případ izolace z venčí a pro případ izolace zevnitř. Diskutujte výhody a nevýhody obou případů.
+    \item Nakreslete tepelné schéma a vypočítejte $R_{\vartheta,\Sigma}$, $R_{\vartheta A,\Sigma}$, $U_{\vartheta,\Sigma}$, $U_{\vartheta A,\Sigma}$, $\dot{q}$ a $\dot{Q}$.
+    \item Vypočítejte teplotní spády v cihle $T_{cihla}$ a v izolaci $T_{izol}$ a nakreslete graf závislosti teploty na ose x pro případ izolace z venčí a pro případ izolace zevnitř.
 \end{enumerate}
+
 
 \subsubsection{a}
 Tepelné schéma bude vypadat následovně:
-
 \begin{center}
     \begin{tikzpicture}
         \draw[thick] (0.5,-2) -- (1.5,-2) node[midway, below] {$T_1$};
@@ -424,28 +438,28 @@ Tepelné schéma bude vypadat následovně:
         \draw[thick] (5.5,-2) -- (6.5,-2) node[midway, below] {$T_2$};
 
         % Triangle arrow
-        \draw[-{Triangle}] (2.5,0.7) -- (4.5,.7) node[midway, above] {$\dot{Q_x}$};
+        \draw[-{Triangle}] (2.5,0.7) -- (4.5,.7) node[midway, above] {$\dot{Q}$};
     \end{tikzpicture}
 \end{center}
 
+Tloušťka cihly v metrech je:
+$$
+    d_{cihla} = 45 \fs \uCM = 0,45 \fs \uM.
+$$
+
+Tloušťka izolace v metrech je:
+$$
+    d_{izol} = 5 \fs \uCM = 0,05 \fs \uM.
+$$
+
 Tepelný odpor cihly $R_{\vartheta,cihla}$ vypočteme jako:
 $$
-    R_{\vartheta,cihla} = \frac{d_{cihla}}{\lambda_{cihla}} = \frac{0,45 \fs \uM}{0,8 \fs \uWandMinvKinv} = 0,5625 \fs \uMsqKandWinv.
+    R_{\vartheta,cihla} = \frac{d_{cihla}}{\lambda_{cihla}} = \frac{0,45}{0,8} = 0,5625 \fs \uMsqKandWinv.
 $$
 
 Tepelný odpor izolace $R_{\vartheta,izol}$ vypočteme jako:
 $$
-    R_{\vartheta,izol} = \frac{d_{izol}}{\lambda_{izol}} = \frac{0,05 \fs \uM}{0,04 \fs \uWandMinvKinv} = 1,25 \fs \uMsqKandWinv.
-$$
-
-Absolutní tepelný odpor cihly $R_{\vartheta A,cihla}$ vypočteme jako:
-$$
-    R_{\vartheta A,cihla} = \frac{R_{\vartheta,cihla}}{S} = \frac{0,5625}{20} \approx 0,028 \fs \uKandWinv.
-$$
-
-Absolutní tepelný odpor izolace $R_{\vartheta A,izol}$ vypočteme jako:
-$$
-    R_{\vartheta A,izol} = \frac{R_{\vartheta,izol}}{S} = \frac{1,25}{20} = 0,063 \fs \uKandWinv.
+    R_{\vartheta,izol} = \frac{d_{izol}}{\lambda_{izol}} = \frac{0,05}{0,04} = 1,25 \fs \uMsqKandWinv.
 $$
 
 Celkový tepelný odpor $R_{\vartheta,\Sigma}$ vypočteme jako:
@@ -455,43 +469,52 @@ $$
 
 Celkový absolutní tepelný odpor $R_{\vartheta A,\Sigma}$ vypočteme jako:
 $$
-    R_{\vartheta A,\Sigma} = R_{\vartheta A,cihla} + R_{\vartheta A,izol} = 0,028 + 0,063 = 0,091 \fs \uKandWinv.
+    R_{\vartheta A,\Sigma} = \frac{R_{\vartheta,\Sigma}}{S} = \frac{1,8125}{20} \approx 0,091 \fs \uKandWinv.
 $$
 
 Součinitel prostupu tepla $U_{\vartheta,\Sigma}$ vypočteme jako:
 $$
-    U_{\vartheta,\Sigma} = \frac{1}{R_{\vartheta,\Sigma}} = \frac{1}{1,8125} \approx 0,5517 \fs \uWandMinvsqKinv.
+    U_{\vartheta,\Sigma} = \frac{1}{R_{\vartheta,\Sigma}} = \frac{1}{1,8125} \approx 0,552 \fs \uWandMinvsqKinv.
 $$
 
-Absolutní součinitel prostupu tepla $U_{\vartheta A,\Sigma}$ vypočteme jako:
+Prostup tepla $U_{\vartheta A,\Sigma}$ vypočteme jako:
 $$
-    U_{\vartheta A,\Sigma} = U_{\vartheta,\Sigma} \cdot S = 0,5517 \fs \uWandMinvsqKinv \cdot 20 \fs \uMsq = 11,034 \fs \uKandWinv.
-$$
-
-Měrný tepelný tok $\dot{q_x}$ vypočteme jako:
-$$
-    \dot{q_x} = \frac{\Delta T}{R_{\vartheta,\Sigma}} = \frac{T_1 - T_2}{R_{\vartheta,\Sigma}} = \frac{20 - (-10)}{1,8125} = \frac{30}{1,8125} \approx 16,55 \fs \uWandMinvsq.
+    U_{\vartheta A,\Sigma} = U_{\vartheta,\Sigma} \cdot S \approx 0,552 \cdot 20 = 11,04 \fs \uWandKinv.
 $$
 
-Tepelný tok $\dot{Q_x}$ vypočteme jako:
+Měrný tepelný tok $\dot{q}$ vypočteme jako:
 $$
-    \dot{Q_x} = \dot{q_x} \cdot S = 16,55 \uWandMinvsq \cdot 20 \fs \uMsq = 331 \fs \uW = 0,331 \fs \uKW.
+    \dot{q} = \frac{\Delta T}{R_{\vartheta,\Sigma}} = \frac{T_1 - T_2}{R_{\vartheta,\Sigma}} = \frac{20 - (-10)}{1,8125} = \frac{30}{1,8125} \approx 16,55 \fs \uWandMinvsq.
+$$
+
+Tepelný tok $\dot{Q}$ vypočteme jako:
+$$
+    \dot{Q} = \dot{q} \cdot S \approx 16,55 \fs \uWandMinvsq \cdot 20 \fs \uMsq = 331 \fs \uW = 0,331 \fs \uKW.
 $$
 
 
 \subsubsection{b}
 Změnu teploty v cihle vypočteme jako:
 $$
-    \Delta T_{cihla} = \dot{q_x} \cdot R_{\vartheta,cihla} = 16,55 \fs \uWandMinvsq \cdot 0,5625 \fs \uMsqKandWinv = 9,31 \fs \uK.
+    \Delta T_{cihla} = \dot{q} \cdot R_{\vartheta,cihla} \approx 16,55 \cdot 0,5625 = 9,31 \fs \uK.
 $$
 
 Změnu teploty v izolaci vypočteme jako:
 $$
-    \Delta T_{izol} = \dot{q_x} \cdot R_{\vartheta,izol} = 16,55 \fs \uWandMinvsq \cdot 1,25 \fs \uMsqKandWinv = 20,69 \fs \uK.
+    \Delta T_{izol} = \dot{q} \cdot R_{\vartheta,izol} \approx 16,55 \cdot 1,25 = 20,69 \fs \uK.
 $$
 
-Obrázek pro případ izolace z venčí bude vypadat následovně:
+\begin{notebox}{Poznámka}
+    Součet změn teplot v cihle a izolaci musí být roven rozdílu teplot na začátku a na konci zdi:
+    $$
+        \Delta T_{cihla} + \Delta T_{izol} = \Delta T = T_1 - T_2 = 20 - (-10) = 30.
+    $$
+    $$
+        9,31 + 20,69 = 30.
+    $$
+\end{notebox}
 
+Obrázek pro případ izolace z venčí bude vypadat následovně:
 \begin{center}
     \begin{tikzpicture}
         % Variables
@@ -525,16 +548,17 @@ Obrázek pro případ izolace z venčí bude vypadat následovně:
         \draw[dashed] (\dOne + \dTwo,\TTwo) -- (3,\TTwo) node[anchor=east] {$T_2 = -10 \fs \uCELS$};
         \draw[dashed] (\dOne + \dTwo, \TTwo - 1) -- (\dOne + \dTwo, \TTwo - 2) node[anchor=north] {$d_{cihla} + d_{izol}$};
 
-        % % Labels
+        % Labels
         \node[anchor=north] at (0, \TTwo - 1) {$0$};
         \node[anchor=north] at (\dOne, \TTwo - 1) {$d_{cihla}$};
     \end{tikzpicture}
 \end{center}
 
-Výhody toho položení je, že pokud je zeď zevnitř, tak funguje jako akumulátor tepla. Je to vhodné pro dlouhodobé vytápění. Nevýhodou je, že pokud se například jedná o chalupu, kam se jezdí pouze na víkend, tak nějákou dobu trvá, než se teplo naakumuluje a v místnoti bude teplo. Tento typ izolace se používá časteji.\\
+\begin{notebox}{Poznámka}
+    Výhody toho položení je, že pokud je zeď zevnitř, tak funguje jako akumulátor tepla. Je to vhodné pro dlouhodobé vytápění. Nevýhodou je, že pokud se například jedná o chalupu, kam se jezdí pouze na víkend, tak nějakou dobu trvá, než se teplo naakumuluje a v místnosti bude teplo. Tento typ izolace se používá častěji.
+\end{notebox}
 
 Obrázek pro případ izolace zevnitř bude vypadat následovně:
-
 \begin{center}
     \begin{tikzpicture}
         % Variables
@@ -568,39 +592,41 @@ Obrázek pro případ izolace zevnitř bude vypadat následovně:
         \draw[dashed] (\dOne + \dTwo,\TTwo) -- (4,\TTwo) node[anchor=east] {$T_2 = -10 \fs \uCELS$};
         \draw[dashed] (\dOne + \dTwo, \TTwo - 1) -- (\dOne + \dTwo, \TTwo - 2) node[anchor=north] {$d_{izol} + d_{cihla}$};
 
-        % % Labels
+        % Labels
         \node[anchor=north] at (0, \TTwo - 1) {$0$};
         \node[anchor=north] at (\dTwo, \TTwo - 1) {$d_{izol}$};
     \end{tikzpicture}
 \end{center}
 
-Toto položení se rychleji vytopí, ale také se rychleji ochladí, jelikož izolace nefunguje jako dobrý akumulátor tepla. Pokud například zasvítí slunce, tak se místnost rychleji zahřeje. Je zde riziko kondenzace a tvoření vlhkosti a plísní.
+\begin{notebox}{Poznámka}
+    Toto položení se rychleji vytopí, ale také se rychleji ochladí, jelikož izolace nefunguje jako dobrý akumulátor tepla. Pokud například zasvítí slunce, tak se místnost rychleji zahřeje. Je zde riziko kondenzace a tvoření vlhkosti a plísní.
+\end{notebox}
 
 \newpage
 
 
 
+
 \section{\emoji{scroll} PENB \spicy \spicy}
 Mějme dům s plochou střechou o parametrech:
-
 \begin{itemize}
-    \item plocha střechy $S_{strecha} = 100 \fs \uMsq$,
-    \item součinitel prostupu tepla střechy $U_{\vartheta,strecha} = 0,3 \fs \uWandMinvsqKinv$,
-    \item plocha podlahy $S_{podlaha} = 100 \fs \uMsq$,
-    \item měrný součinitel prostupu tepla podlahy $U_{\vartheta,podlaha} = 0,8 \fs \uWandMinvsqKinv$,
-    \item plocha obvodových stěn $S_{zed} = 4 \cdot 10 \cdot 3 \fs \uMsq$ (4 stěny o výšce 2 metry a délce 10 metrů),
-    \item obvodová stěna je tvořena cihlou s tepelnou vodivostí $\lambda_{cihla} = 0,8 \fs \uWandMinvKinv$ a tloušťkou $d_{cihla} = 45 \fs \uCM$.
+    \item plocha střechy $S_{str} = 100 \fs \uMsq$,
+    \item součinitel prostupu tepla střechy $U_{\vartheta,str} = 0,3 \fs \uWandMinvsqKinv$,
+    \item plocha podlahy $S_{pod} = 100 \fs \uMsq$,
+    \item měrný součinitel prostupu tepla podlahy $U_{\vartheta,pod} = 0,8 \fs \uWandMinvsqKinv$,
+    \item plocha obvodových stěn $S_{zed} = 4 \cdot 10 \cdot 3 \fs \uMsq$ (4 stěny o délce 10 metrů a výšce 3 metry),
+    \item obvodová stěna je tvořena cihlou s tepelnou vodivostí $\lambda_{cihla} = 0,8 \fs \uWandMinvKinv$ a má tloušťkou $d_{cihla} = 45 \fs \uCM$.
 \end{itemize}
 
 Zanedbejte součinitele přestupu tepla, ztráty tepla na oknech a dveřích. Berte v úvahu, že venkovní teplota je okolo celého domu včetně podlahy stejná.
-
 \begin{enumerate}[a)]
-    \item Vypočítejte průměrný měrný součinitel prostupu tepla $U_{\vartheta,avg}$ pro celý dům.
+    \item Vypočítejte průměrný součinitel prostupu tepla $U_{\vartheta,avg}$ pro celý dům.
     \item Vypočítejte jak silnou izolaci $d_{izol}$ s tepelnou vodivostí $\lambda_{izol} = 0,04 \fs \uWandMinvKinv$ musíte použít, aby průměrný součinitel prostupu tepla $U_{\vartheta,avg}^{*}$ byl $0,5 \fs \uWandMinvsqKinv$.
 \end{enumerate}
 
 
-\subsubsection{a}
+
+\subsection{a}
 Plochu obvodových stěn $S_{zed}$ vypočteme jako:
 $$
     S_{zed} = 4 \cdot 10 \cdot 3 = 120 \fs \uMsq.
@@ -608,17 +634,17 @@ $$
 
 Celkovou plochu $S_{\Sigma}$ vypočteme jako:
 $$
-    S_{\Sigma} = S_{strecha} + S_{podlaha} + S_{zed} = 100 + 100 + 120 = 320 \fs \uMsq.
+    S_{\Sigma} = S_{str} + S_{pod} + S_{zed} = 100 + 100 + 120 = 320 \fs \uMsq.
 $$
 
 Součinitel prostupu tepla zdi $U_{\vartheta,cihla}$ vypočteme jako:
 $$
-    U_{\vartheta,cihla} = \frac{\lambda_{cihla}}{d_{cihla}} = \frac{0,8 \fs \uWandMinvKinv}{0,45 \fs \uM} = 1,778 \fs \uWandMinvsqKinv.
+    U_{\vartheta,cihla} = \frac{\lambda_{cihla}}{d_{cihla}} = \frac{0,8}{0,45} = 1,778 \fs \uWandMinvsqKinv.
 $$
 
 Průměrný součinitel prostupu tepla $U_{\vartheta,avg}$ vypočteme jako:
 $$
-    U_{\vartheta,avg} = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,strecha} \cdot S_{strecha} + U_{\vartheta,podlaha} \cdot S_{podlaha} + U_{\vartheta,cihla} \cdot S_{zed}) =
+    U_{\vartheta,avg} = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,str} \cdot S_{str} + U_{\vartheta,pod} \cdot S_{pod} + U_{\vartheta,cihla} \cdot S_{zed}) =
 $$
 $$
     = \frac{1}{320} \cdot \left( 0,3 \cdot 100 + 0,8 \cdot 100 + 1,778 \cdot 120 \right) = \frac{1}{320} \cdot (30 + 80 + 213,36) =
@@ -628,7 +654,8 @@ $$
 $$
 
 
-\subsubsection{b}
+
+\subsection{b}
 Součinitel prostupu tepla zdi s izolací $U_{\vartheta,zed}$ vypočteme jako:
 $$
     U_{\vartheta,zed} = \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1}
@@ -636,226 +663,81 @@ $$
 
 Průměrný součinitel prostupu tepla $U_{\vartheta,avg}^{*}$ vypočteme jako:
 $$
-    U_{\vartheta,avg}^{*} = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,strecha} \cdot S_{strecha} + U_{\vartheta,podlaha} \cdot S_{podlaha} + U_{\vartheta,zed} \cdot S_{zed}) =
+    U_{\vartheta,avg}^{*} = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,str} \cdot S_{str} + U_{\vartheta,pod} \cdot S_{pod} + U_{\vartheta,zed} \cdot S_{zed}) =
 $$
 $$
-    = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,strecha} \cdot S_{strecha} + U_{\vartheta,podlaha} \cdot S_{podlaha} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
+    = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,str} \cdot S_{str} + U_{\vartheta,pod} \cdot S_{pod} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
 $$
 
 Nyní je třeba vyřešit rovnici pro $d_{izol}$:
 $$
-    U_{\vartheta,avg}^{*} = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,strecha} \cdot S_{strecha} + U_{\vartheta,podlaha} \cdot S_{podlaha} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
+    U_{\vartheta,avg}^{*} = \frac{1}{S_{\Sigma}} \cdot (U_{\vartheta,str} \cdot S_{str} + U_{\vartheta,pod} \cdot S_{pod} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
 $$
 $$
-    U_{\vartheta,avg}^{*} \cdot S_{\Sigma} =  (U_{\vartheta,strecha} \cdot S_{strecha} + U_{\vartheta,podlaha} \cdot S_{podlaha} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
+    U_{\vartheta,avg}^{*} \cdot S_{\Sigma} =  (U_{\vartheta,str} \cdot S_{str} + U_{\vartheta,pod} \cdot S_{pod} + \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed})
 $$
 $$
-    U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,strecha} \cdot S_{strecha} - U_{\vartheta,podlaha} \cdot S_{podlaha} = \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed}
+    U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,str} \cdot S_{str} - U_{\vartheta,pod} \cdot S_{pod} = \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} \cdot S_{zed}
 $$
 $$
-    \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} = \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,strecha} \cdot S_{strecha} - u_{podlaha} \cdot S_{podlaha}}{S_{zed}}
+    \left( \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} \right)^{-1} = \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,str} \cdot S_{str} - u_{pod} \cdot S_{pod}}{S_{zed}}
 $$
 $$
-    \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} = \left( \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,strecha} \cdot S_{strecha} - U_{\vartheta,podlaha} \cdot S_{podlaha}}{S_{zed}} \right)^{-1}
+    \frac{d_{izol}}{\lambda_{izol}} + \frac{d_{cihla}}{\lambda_{cihla}} = \left( \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,str} \cdot S_{str} - U_{\vartheta,pod} \cdot S_{pod}}{S_{zed}} \right)^{-1}
 $$
 $$
-    \frac{d_{izol}}{\lambda_{izol}} = \left( \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,strecha} \cdot S_{strecha} - U_{\vartheta,podlaha} \cdot S_{podlaha}}{S_{zed}} \right)^{-1} - \frac{d_{cihla}}{\lambda_{cihla}}
+    \frac{d_{izol}}{\lambda_{izol}} = \left( \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,str} \cdot S_{str} - U_{\vartheta,pod} \cdot S_{pod}}{S_{zed}} \right)^{-1} - \frac{d_{cihla}}{\lambda_{cihla}}
 $$
 $$
-    d_{izol} = \lambda_{izol} \cdot \left( \left( \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,strecha} \cdot S_{strecha} - U_{\vartheta,podlaha} \cdot S_{podlaha}}{S_{zed}} \right)^{-1} - \frac{d_{cihla}}{\lambda_{cihla}} \right)
-$$
-
-Nyní můžeme dosadit a vypočítat:
-$$
-    d_{izol} = 0,04 \cdot \left( \left( \frac{0,5 \cdot 320 - 0,3 \cdot 100 - 0,8 \cdot 100}{120} \right)^{-1} - \frac{0,45}{0,8} \right) =
+    d_{izol} = \lambda_{izol} \cdot \left( \left( \frac{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,str} \cdot S_{str} - U_{\vartheta,pod} \cdot S_{pod}}{S_{zed}} \right)^{-1} - \frac{d_{cihla}}{\lambda_{cihla}} \right)
 $$
 $$
-    = 0,04 \cdot \left( \left( \frac{160 - 30 - 80}{120} \right)^{-1} - \frac{0,45}{0,8} \right) =
-$$
-$$
-    = 0,04 \cdot \left( \left( \frac{50}{120} \right)^{-1} - \frac{0,45}{0,8} \right) = 0,04 \cdot (2,4 - 0,5625) =
-$$
-$$
-    0,04 \cdot 1,8375 = 0,0735 \fs \uM = 7,35 \fs \uCM.
-$$
-
-\newpage
-
-
-
-\section{\emoji{snowflake} Topná sezóna \spicy \spicy \spicy}
-Průměrná venkonví teplota v topné sezóně je $\overline{T}_{out} = 5 \fs \uCELS$. Vnitřní teplota je $T_{in} = 20 \fs \uCELS$. Doba topné sezóny je 200 dní. Celková plocha je $S = 300 \fs \uMsq$. Součinitel prostupu tepla je $U_\vartheta = 0,5 \fs \uWandMinvsqKinv$. Jaký množství tepla projde stěnami za celou topnou sezónu?
-
-\subsection{Řešení}
-Celkové množství tepla, které projde stěnami za celou topnou sezónu $Q$ vypočteme jako:
-$$
-    Q = \int_{t_1}^{t_2} \dot{Q} \cdot dt,
-$$
-kde:\\
-$\dot{Q}$ je tepelný tok (\ueqW),\\
-$t_1$ je začátek topné sezóny (\uH),\\
-$t_2$ je konec topné sezóny (\uH).
-
-Integrál můžeme rozepsat jako:
-$$
-    Q = \int_{t_1}^{t_2} U_\vartheta \cdot S \cdot (T_{in} - T_{out} (t)) \cdot dt = U_\vartheta \cdot S \cdot \int_{t_1}^{t_2} (T_{in} - T_{out} (t)) \cdot dt =
-$$
-$$
-    = U_\vartheta \cdot S \cdot T_{in} \cdot \int_{t_1}^{t_2} dt - U_\vartheta \cdot S \cdot \int_{t_1}^{t_2} T_{out} (t) \cdot dt =
-$$
-$$
-    = U_\vartheta \cdot S \cdot T_{in} \cdot (t_2 - t_1) - U_\vartheta \cdot S \cdot \int_{t_1}^{t_2} T_{out} (t) \cdot dt.
-$$
-
-Nyní uděláme odbočku, kde vyjádříme průměrnou venkovní teplotu $\overline{T}_{out}$ jako:
-$$
-    \overline{T}_{out} = \frac{1}{t_2 - t_1} \cdot \int_{t_1}^{t_2} T_{out} (t) \cdot dt.
-$$
-
-Vyjádříme daný integrál:
-$$
-    \int_{t_1}^{t_2} T_{out} (t) \cdot dt = \overline{T}_{out} \cdot (t_2 - t_1).
-$$
-
-Dosadíme zpět do původní rovnice:
-$$
-    Q = U_\vartheta \cdot S \cdot T_{in} \cdot (t_2 - t_1) - U_\vartheta \cdot S \cdot \overline{T}_{out} \cdot (t_2 - t_1) =
-$$
-$$
-    = U_\vartheta \cdot S \cdot (T_{in} - \overline{T}_{out}) \cdot (t_2 - t_1).
+    d_{izol} = \lambda_{izol} \cdot \left( \frac{S_{zed}}{U_{\vartheta,avg}^{*} \cdot S_{\Sigma} - U_{\vartheta,str} \cdot S_{str} - U_{\vartheta,pod} \cdot S_{pod}} - \frac{d_{cihla}}{\lambda_{cihla}} \right)
 $$
 
 Nyní můžeme dosadit a vypočítat:
 $$
-    Q = 0,5 \cdot 300 \cdot (20 - 5) \cdot (200 \cdot 24 \cdot 3 \fs 600 - 0) = 0,5 \cdot 300 \cdot 15 \cdot 200 \cdot 24 \cdot 3 \fs 600 =
+    d_{izol} = 0,04 \cdot \left( \frac{120}{0,5 \cdot 320 - 0,3 \cdot 100 - 0,8 \cdot 100} - \frac{0,45}{0,8} \right) =
 $$
 $$
-    = 38,9 \fs \uGJ.
-$$
-
-\newpage
-
-
-
-\section{\emoji{factory} Cihlová pec \spicy \spicy \spicy \spicy}
-U cihlové pece je vysoký rozdíl teplot, tudíž tepelnou vodivost je třeba uvažovat jako proměnnou. Tepelnou vodivost $\lambda$ můžeme zapsat jako:
-$$
-    \lambda (x) = \lambda_0 + \lambda_1 \cdot T,
-$$
-
-Pro zeď o tloušťce $d$ budeme uvažovat následující zjednodušející předpoklady:
-\begin{itemize}
-    \item $\frac{\partial T}{\partial t}$ = 0,
-    \item $\vec{v}$ = 0,
-    \item $Q_v$ = 0,
-    \item $\lambda (x) = \lambda_0 + \lambda_1 \cdot T$,
-    \item $T = T(x)$ - teplota závislá pouze na ose x.
-\end{itemize}
-
-Poté Fourierova-Kirchhoffova rovnice bude mít tvar:
-$$
-    0 = \frac{d}{dx} \left ( \lambda (T) \cdot \frac{dT}{dx} \right ).
-$$
-
-Fourieruv zákon pro tepelný tok bude mít tvar:
-$$
-    \dot{q_x} = - \lambda (T) \cdot \frac{dT}{dx}.
-$$
-
-Vynásobme rovnici mínus jedna:
-$$
-    - \dot{q_x} = \lambda (T) \cdot \frac{dT}{dx}.
-$$
-
-Pokud dosadíme do Fourierova-Kirchhoffovy rovnice, dostaneme:
-$$
-    0 = \frac{d}{dx} \left ( - \dot{q_x} \right ).
-$$
-
-Z toho vidíme, že měrný tepelný tok $\dot{q_x}$ je konstantní a nezávisí na poloze x. Můžeme tedy rozepsat Fourierův zákon jako:
-$$
-    - \dot{q_x} = \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot \frac{dT}{dx}.
-$$
-
-Můžeme řešit tuto diferenciální rovnici separací proměnných:
-$$
-    - \dot{q_x} \cdot dx = \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot dT.
-$$
-
-Nyní meze budou jak pro x, tak pro T:
-\begin{itemize}
-    \item $x = 0 \Rightarrow T = T_1$,
-    \item $x = d \Rightarrow T = T_2$.
-\end{itemize}
-
-Rovnici můžeme integrovat:
-$$
-    - \int_{0}^{d} \dot{q_x} \cdot dx = \int_{T_1}^{T_2} \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot dT
+    = 0,04 \cdot \left( \frac{120}{160 - 30 - 80} - \frac{0,45}{0,8} \right) = 0,04 \cdot \left( \frac{120}{50} - \frac{0,45}{0,8} \right) =
 $$
 $$
-    - \dot{q_x} \left[ x \right]_{0}^{d} = \lambda_0 \left[ T \right]_{T_1}^{T_2} + \frac{\lambda_1}{2} \left[ T^2 \right]_{T_1}^{T_2}
-$$
-$$
-    - \dot{q_x} \cdot d = \lambda_0 \cdot (T_2 - T_1) + \frac{\lambda_1}{2} \cdot (T_2^2 - T_1^2)
-$$
-$$
-    - \dot{q_x} \cdot d = \lambda_0 \cdot (T_2 - T_1) + \frac{\lambda_1}{2} \cdot (T_2 - T_1) \cdot (T_2 + T_1)
-$$
-$$
-    - \dot{q_x} \cdot d = (T_2 - T_1) \cdot \left( \lambda_0 + \frac{\lambda_1}{2} \cdot (T_2 + T_1) \right).
-$$
-
-Nyní odvoďme střední hodnotu tepelné vodivosti $\overline{\lambda}$:
-$$
-    \overline{\lambda} = \frac{1}{T_2 - T_1} \cdot \int_{T_1}^{T_2} \lambda (T) \cdot dT = \frac{1}{T_2 - T_1} \cdot \int_{T_1}^{T_2} \left( \lambda_0 + \lambda_1 \cdot T \right) \cdot dT
-$$
-$$
-    = \frac{1}{T_2 - T_1} \cdot \left[ \lambda_0 \cdot T + \frac{\lambda_1}{2} \cdot T^2 \right]_{T_1}^{T_2} = \frac{1}{T_2 - T_1} \cdot \left( \lambda_0 \cdot (T_2 - T_1) + \frac{\lambda_1}{2} \cdot (T_2^2 - T_1^2) \right) =
-$$
-$$
-    = \lambda_0 + \frac{\lambda_1}{2} \cdot (T_2 + T_1).
-$$
-
-Nyní můžeme videt, že člen v závorce u vyřešené diferenciální rovnice je roven střední hodnotě tepelné vodivosti $\overline{\lambda}$:
-$$
-    - \dot{q_x} \cdot d = (T_2 - T_1) \cdot \overline{\lambda}.
-$$
-
-Nyní můžeme odvodit vztah pro měrný tepelný tok $\dot{q_x}$:
-$$
-    \dot{q_x} = \frac{T_1 - T_2}{d} \cdot \overline{\lambda}.
+    0,04 \cdot (2,4 - 0,5625) = 0,04 \cdot 1,8375 = 0,0735 \fs \uM = 7,35 \fs \uCM.
 $$
 
 \newpage
+
 
 
 
 \section{\emoji{sun} Sálavá clona \spicy \spicy}
 Mějme dvě desky. První deska má teplotu $T_1$ a druhá deska má teplotu $T_2$. Obě desky mají stejnou plochu $S$ a stejnou emisivitu $\varepsilon$.
-
 \begin{enumerate}[a)]
-    \item Jaký je sálavý výkon $P_{1 \rightarrow 2} \fs (\uW)$ sálání první desky na druhou desku?
-    \item Dejme mezi desky sálavou clonu o stejné ploše $S$ a emisivitě $\varepsilon$. Jaký je sálavý výkon $P_{1 \rightarrow 2} \fs (\uW)$ sálání první desky na druhou desku přes clonu a jaký je poměr tohoto výkonu k výkonu z bodu a)?
+    \item Jaký je sálavý výkon $P_{1 \rightarrow 2,a} \fs (\uW)$ sálání první desky na druhou desku?
+    \item Dejme mezi desky sálavou clonu o stejné ploše $S$ a stejné emisivitě $\varepsilon$. Jaký je sálavý výkon $P_{1 \rightarrow 2,b} \fs (\uW)$ sálání první desky na druhou desku přes clonu a jaký je poměr tohoto výkonu k výkonu z bodu a)?
 \end{enumerate}
 
 
+
 \subsection{a}
-Sálavý výkon $P_{1 \rightarrow 2}$ můžeme vypočítat pomocí:
+Sálavý výkon $P_{1 \rightarrow 2,a}$ můžeme vypočítat pomocí:
 $$
-    P_{1 \rightarrow 2} = \frac{S \cdot \sigma \left( T_1^4 - T_2^4 \right)}{\frac{1}{\varepsilon_1} + \frac{1}{\varepsilon_2} - 1},
+    P_{1 \rightarrow 2,a} = \frac{S \cdot \sigma \left( T_1^4 - T_2^4 \right)}{\frac{1}{\varepsilon_1} + \frac{1}{\varepsilon_2} - 1},
 $$
 kde:\\
-$S$ je plocha desek (\ueqMsq),\\
-$\sigma$ je Stefanova-Boltzmannova konstanta ($5,67 \cdot 10^{-8} \fs \uWandMinvsqKinv$),\\
-$T_1$ je teplota první desky (\uK),\\
-$T_2$ je teplota druhé desky (\uK),\\
-$\varepsilon_1$ je emisivita první desky,\\
-$\varepsilon_2$ je emisivita druhé desky.\\
+$S$ -- plocha desek (\ueqMsq),\\
+$\sigma$ -- Stefanova-Boltzmannova konstanta ($5,67 \cdot 10^{-8} \fs \uWandMinvsqKinv$),\\
+$T_1$ -- teplota první desky (\uK),\\
+$T_2$ -- teplota druhé desky (\uK),\\
+$\varepsilon_1$ -- emisivita první desky,\\
+$\varepsilon_2$ -- emisivita druhé desky.\\
 
 Emisivity $\varepsilon_1$ a $\varepsilon_2$ jsou stejné, tudíž:
 $$
     P_{1 \rightarrow 2} = \frac{S \cdot \sigma \left( T_1^4 - T_2^4 \right)}{\frac{1}{\varepsilon} + \frac{1}{\varepsilon} - 1} = \frac{S \cdot \sigma \left( T_1^4 - T_2^4 \right)}{\frac{2}{\varepsilon} - 1} = k \cdot \left( T_1^4 - T_2^4 \right).
 $$
+
 
 
 \subsection{b}
@@ -869,13 +751,15 @@ $$
     P_{clona \rightarrow 2} = k \cdot \left( T_{clona}^4 - T_2^4 \right).
 $$
 
-Tyto výkony se musí rovnat:
+V rovnovážném stavu se tyto výkony musejí rovnat (pokud by nebyly rovny, tak by se teplota clony měnila):
 $$
     P_{1 \rightarrow clona} = P_{clona \rightarrow 2}
 $$
 $$
     k \cdot \left( T_1^4 - T_{clona}^4 \right) = k \cdot \left( T_{clona}^4 - T_2^4 \right)
 $$
+
+Nyní můžeme vyjádřit teplotu clony $T_{clona}$:
 $$
     T_1^4 - T_{clona}^4 = T_{clona}^4 - T_2^4
 $$
@@ -889,20 +773,46 @@ $$
     T_{clona} = \sqrt[4]{\frac{T_1^4 + T_2^4}{2}}.
 $$
 
-Sálavý výkon z destičky 1 na destičku 2 přes clonu:
+Sálavý výkon z destičky 1 na destičku 2 přes clonu je poté roven sálavému výkonu ze clony na destičku 2, který je zároveň roven sálavému výkonu z destičky 1 na clonu:
 $$
-    P_{1 \rightarrow 2} = k \cdot \left( T_1^4 - T_{clona}^4 \right) = k \cdot \left( T_1^4 - \frac{T_1^4 + T_2^4}{2} \right) =
+    P_{1 \rightarrow 2,b} = P_{1 \rightarrow clona} = P_{clona \rightarrow 2}.
+$$
+
+Ověřme výpočet pro obě možnosti. Sálavý výkon z destičky 1 na clonu:
+$$
+    P_{1 \rightarrow clona} = k \cdot \left( T_1^4 - T_{clona}^4 \right) = k \cdot \left( T_1^4 - \frac{T_1^4 + T_2^4}{2} \right) =
 $$
 $$
-    = k \cdot \frac{2 \cdot T_1^4 - T_1^4 - T_2^4}{2} = k \cdot \frac{T_1^4 - T_2^4}{2}.
+    = k \cdot \frac{2 \cdot T_1^4 - T_1^4 - T_2^4}{2} = k \cdot \frac{T_1^4 - T_2^4}{2} = \frac{k}{2} \cdot \left( T_1^4 - T_2^4 \right).
+$$
+
+Sálavý výkon z clony na destičku 2:
+$$
+    P_{clona \rightarrow 2} = k \cdot \left( T_{clona}^4 - T_2^4 \right) = k \cdot \left( \frac{T_1^4 + T_2^4}{2} - T_2^4 \right) =
+$$
+$$
+    = k \cdot \frac{T_1^4 + T_2^4 - 2 \cdot T_2^4}{2} = k \cdot \frac{T_1^4 - T_2^4}{2} = \frac{k}{2} \cdot \left( T_1^4 - T_2^4 \right).
+$$
+
+Výkony jsou si rovny, tudíž sálavý výkon z destičky 1 na destičku 2 přes clonu je roven:
+$$
+    P_{1 \rightarrow 2,b} = \frac{k}{2} \cdot \left( T_1^4 - T_2^4 \right).
 $$
 
 Poměr tohoto výkonu k výkonu z bodu a):
 $$
-    \frac{P_{1 \rightarrow 2,a}}{P_{1 \rightarrow 2,b}} = \frac{k \cdot \frac{T_1^4 - T_2^4}{2}}{k \cdot \left( T_1^4 - T_2^4 \right)} = \frac{1}{2}.
+    \frac{P_{1 \rightarrow 2,b}}{P_{1 \rightarrow 2,a}} = \frac{\frac{k}{2} \cdot \left( T_1^4 - T_2^4 \right)}{k \cdot \left( T_1^4 - T_2^4 \right)} = \frac{1}{2}.
 $$
 
+\begin{notebox}{Poznámka}
+    Pokud by takto za sebou bylo $n$ sálavých clon, tak poměr výkonů by byl roven:
+    $$
+        \frac{P_{1 \rightarrow 2,n}}{P_{1 \rightarrow 2,a}} = \frac{1}{2^n}.
+    $$
+\end{notebox}
+
 \newpage
+
 
 
 
@@ -910,16 +820,25 @@ $$
 Mějme destičku ve vesmíru, na kterou dopadá sluneční záření s následujícími parametry:
 \begin{itemize}
     \item plocha $S = 1 \fs \uMsq$,
-    \item intenzita slunečního záření $\dot{q} = 1348 \fs \uWandMinvsq$,
-    \item emisivita $\varepsilon$,
-    \item pohltivost $A$.
+    \item emisivita destičky $\varepsilon$,
+    \item pohltivost destičky $A$,
+    \item destička má stejnou teplotu na obou stranách (je nekonečně tenká).
 \end{itemize}
 
-Destička má stejnou teplotu na obouch stranách (je nekonečně tenká). Sluneční záření má intenzitu $\dot{q} = 1348 \fs \uWandMinvsq$. Stefanova-Boltzmannova konstanta je $\sigma = 5,67 \cdot 10^{-8} \fs \uWandMinvsqKinvquar$. Teplota vesmíru je $T_{space} = 3 \fs \uK$.\\
+Obecné parametry:
+\begin{itemize}
+    \item sluneční záření má intenzitu $\dot{q} = 1348 \fs \uWandMinvsq$,
+    \item Stefanova-Boltzmannova konstanta je $\sigma = 5,67 \cdot 10^{-8} \fs \uWandMinvsqKinvquar$,
+    \item teplota vesmíru je $T_{space} = 3 \fs \uK$.
+\end{itemize}
 
-Odvoďte vzorec pro rovnovážnou teplotu destičky $T$ v závislosti na úhlu natočení vůči slunci $\alpha$ a vypočítejte teplotu pro hodnoty $\alpha$: 0, 45 a 90 \ueqDEGREE.
+Odvoďte vzorec pro rovnovážnou teplotu destičky $T$ v závislosti na úhlu natočení vůči slunci $\alpha$ a vypočítejte teplotu pro hodnoty $\alpha$: 0\ueqDEGREE, 45\ueqDEGREE a 90\ueqDEGREE.
 
-\subsubsection{Řešení}
+Pokud úhel $\alpha$ je 0\ueqDEGREE, tak destička je kolmo na sluneční záření, tudíž na destičku dopadá nejvíce slunečního záření. Pokud je úhel $\alpha$ 90\ueqDEGREE, tak destička je rovnoběžná se slunečním zářením, tudíž na destičku dopadá nejméně slunečního záření (žádné).
+
+
+
+\subsection{Řešení}
 Tepelný to $\dot{Q}_{dop} \fs (\uW)$, který na destičku dopadne:
 $$
     \dot{Q}_{dop} = \dot{q} \cdot S \cdot \cos \alpha
@@ -930,12 +849,12 @@ $$
     \dot{Q}_{in} = A \cdot \dot{Q}_{dop} = A \cdot \dot{q} \cdot S \cdot \cos \alpha
 $$
 
-Tepelný tok, který destička vyzařuje:
+Tepelný tok, který destička vyzařuje (z obou stran):
 $$
     \dot{Q}_{out} = 2 \cdot S \cdot \varepsilon \cdot \sigma \cdot \left( T^4 - T_{space}^4 \right)
 $$
 
-Budeme hledat teplotu $T$, při které bude tepelný tok $\dot{Q}_{in}$ roven tepelnému toku $\dot{Q}_{out}$:
+V rovnovážném stavu platí, že tepelný tok, který destička příjme, je roven tepelnému toku, který vyzařuje:
 $$
     \dot{Q}_{in} = \dot{Q}_{out}
 $$
@@ -943,15 +862,17 @@ $$
     A \cdot \dot{q} \cdot S \cdot \cos \alpha = 2 \cdot S \cdot \varepsilon \cdot \sigma \cdot \left( T^4 - T_{space}^4 \right)
 $$
 
-Při tepelné rovnováze platí:
+Dále při tepelné rovnováze platí:
 $$
-    A = \varepsilon.
+    A = \varepsilon
 $$
 
-Dostaneme:
+Můžeme tedy zkrátit emisivitu $A$ a plochy $S$, čímž dostaneme:
 $$
     \dot{q} \cdot \cos \alpha = 2 \cdot \sigma \cdot \left( T^4 - T_{space}^4 \right)
 $$
+
+Nyní je třeba vyřešit rovnici pro teplotu $T$:
 $$
     \frac{\dot{q} \cdot \cos \alpha}{2 \cdot \sigma} = T^4 - T_{space}^4
 $$
@@ -967,14 +888,14 @@ $$
     T = \sqrt[4]{\frac{1348 \cdot \cos \alpha}{2 \cdot 5,67 \cdot 10^{-8}} + 3^4} = \sqrt[4]{1,189 \cdot 10^{10} \cdot \cos \alpha + 81}.
 $$
 
-Nyní můžeme vypočítat teplotu pro hodnoty $\alpha$: 0, 45 a 90 \ueqDEGREE. Pro $\alpha = 0$:
+Pro $\alpha = 0$:
 $$
     T = \sqrt[4]{1,189 \cdot 10^{10} \cdot \cos 0 \uDEGREE + 81} = \sqrt[4]{1,189 \cdot 10^{10} + 81} = 330,21 \fs \uK.
 $$
 
 Pro $\alpha = 45$:
 $$
-    T = \sqrt[4]{1,189 \cdot 10^{10} \cdot \cos 45 \uDEGREE + 81} = \sqrt[4]{1,189 \cdot 10^{10} \cdot \frac{\sqrt{2}}{2} + 81} = 302,79 \fs \uK.
+    T = \sqrt[4]{1,189 \cdot 10^{10} \cdot \cos 45 \uDEGREE + 81} = \sqrt[4]{1,189 \cdot 10^{10} \cdot \frac{\sqrt{2}}{2} + 81} = 302,81 \fs \uK.
 $$
 
 Pro $\alpha = 90$:

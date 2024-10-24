@@ -13,8 +13,10 @@
 \usepackage{amsfonts}
 \usepackage{hyperref} % Hyperlinks
 \usepackage{subfig}
+\usepackage{tcolorbox} % Colored boxes
 \usetikzlibrary{arrows.meta}
 
+% Unit in the right side of equation
 \makeatletter
 \providecommand\add@text{}
 \newcommand\unit[1]{
@@ -24,4 +26,17 @@
 }
 \makeatother
 
-\newcommand{\pushright}[1]{\ifmeasuring@#1\else\omit\hfill$\displaystyle#1$\fi\ignorespaces}
+% Colored boxes
+\newtcolorbox{notebox}[1]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    fonttitle=\bfseries,
+    title={#1}
+}
+
+\newtcolorbox{dangerbox}[1]{
+    colback=red!5!white,
+    colframe=red!75!black,
+    fonttitle=\bfseries,
+    title={#1}
+}

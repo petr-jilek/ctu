@@ -9,23 +9,32 @@
 
 \maketitle
 \tableofcontents
+\vspace{1cm}
 
-\section*{Úprava značení}
-
-\begin{itemize}
-    \item Absolutní tepelný odpor: $R_{\vartheta A} \rightarrow R \fs (\uKandWinv)$
-    \item Součinitel přestupu tepla: $\alpha_\vartheta \rightarrow \alpha \fs (\uWandMinvsqKinv)$
-\end{itemize}
+\begin{dangerbox}{Úprava značení}
+    \begin{itemize}
+        \item Absolutní tepelný odpor: $R_{\vartheta A} \rightarrow R \fs (\uKandWinv)$
+        \item Součinitel přestupu tepla: $\alpha_\vartheta \rightarrow \alpha \fs (\uWandMinvsqKinv)$
+    \end{itemize}
+\end{dangerbox}
 
 \newpage
+
 
 
 
 \section{\emoji{optical-disk} Válec \spicy \spicy \spicy}
 
 
-\subsection{Odvození tepelného odporu}
 
+\subsection{Odvození tepelného odporu}
+Tepelný odpor válce se skládá ze dvou částí:
+\begin{itemize}
+    \item tepelný odpor vedení tepla v materiálu válce $R_\lambda$,
+    \item tepelný odpor přestupu tepla z povrchu válce do okolí $R_\alpha$.
+\end{itemize}
+
+Ilustrace válce bude vypadat následovně:
 \begin{center}
     \begin{tikzpicture}
         % First circle
@@ -46,18 +55,11 @@
         \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$T_2$};
 
         % Triangle arrow
-        \draw[-{Triangle}] (2.4,0.7) -- (4.4,.7) node[midway, above] {$Q$};
+        \draw[-{Triangle}] (2.4,0.7) -- (4.4,.7) node[midway, above] {$\dot{Q}$};
     \end{tikzpicture}
 \end{center}
 
-Tepelný odpor válce se skládá ze dvou částí:
-\begin{itemize}
-    \item tepelný odpor vedení tepla v materiálu válce $R_\lambda$,
-    \item tepelný odpor přestupu tepla z povrchu válce do okolí $R_\alpha$.
-\end{itemize}
-
 Tepelné schéma válce bude vypadat následovně:
-
 \begin{center}
     \begin{tikzpicture}
         \draw[thick] (1,0) -- (1,-1);
@@ -69,9 +71,7 @@ Tepelné schéma válce bude vypadat následovně:
         \draw[thick] (4.5,0) -- (5,0);
         \draw[thick] (5,0) -- (5,-1);
         \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$T_2$};
-
-        % Triangle arrow
-        \draw[-{Triangle}] (2,0.7) -- (4,.7) node[midway, above] {$Q$};
+        \draw[-{Triangle}] (2,0.7) -- (4,.7) node[midway, above] {$\dot{Q}$};
     \end{tikzpicture}
 \end{center}
 
@@ -81,9 +81,9 @@ Pro odvození tepelného odporu $R_\lambda$ využijeme vztah pro absolutní tepe
     \unit{(\ueqKandWinv)}
 \end{equation}
 kde:\\
-$d$ - tloušťka materiálu (\uM),\\
-$\lambda$ - tepelná vodivost materiálu (\ueqWandMinvKinv),\\
-$S$ - plocha přenosu tepla (\ueqMsq).\\
+$d$ -- tloušťka materiálu (\uM),\\
+$\lambda$ -- tepelná vodivost materiálu (\ueqWandMinvKinv),\\
+$S$ -- plocha přenosu tepla (\ueqMsq).\\
 
 Zde $d$ nahradíme nekonečně malou částí poloměru válce:
 $$
@@ -95,8 +95,8 @@ $$
     S \rightarrow 2 \pi r \cdot l \cdot dr,
 $$
 kde:\\
-$r$ - poloměr válce (m),\\
-$l$ - délka válce (m).\\
+$r$ -- poloměr válce (m),\\
+$l$ -- délka válce (m).\\
 
 Tepelný odpor $dR_\lambda$ válce bude tedy:
 $$
@@ -129,24 +129,23 @@ $$
     \end{tikzpicture}
 \end{center}
 
-Pro získání celkového odporu $R_\lambda$ je třeba provést integraci od vnitřního poloměru izolace $r_1$ po vnější poloměr válce $r_2$:
+Pro získání celkového tepelného odporu $R_\lambda$ je třeba provést integraci od vnitřního poloměru izolace $r_1$ po vnější poloměr válce $r_2$:
 $$
-    R_\lambda = \int_{r_1}^{r_2} \frac{1}{\lambda \cdot 2 \pi r \cdot l} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \int_{r_1}^{r_2} \frac{1}{r} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left[ \ln |r| \right]_{r_1}^{r_2}
+    R_\lambda = \int_{r_1}^{r_2} \frac{1}{\lambda \cdot 2 \pi r \cdot l} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \int_{r_1}^{r_2} \frac{1}{r} dr = \frac{1}{\lambda \cdot 2 \pi \cdot l} \cdot \left[ \ln |r| \right]_{r_1}^{r_2}.
 $$
 
 Jelikož poloměry $r_1$ a $r_2$ jsou kladné (záporné poloměry nedávají fyzikální smysl), můžeme absolutní hodnotu u logaritmu zanedbat:
 $$
-    R_\lambda = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left[ \ln r \right]_{r_1}^{r_2} = \frac{1}{\lambda \cdot 2 \pi \cdot l} \left( \ln r_2 - \ln r_1 \right) = \frac{1}{\lambda \cdot 2 \pi \cdot l} \ln \frac{r_2}{r_1} = \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1}.
+    R_\lambda = \frac{1}{\lambda \cdot 2 \pi \cdot l} \cdot \left[ \ln r \right]_{r_1}^{r_2} = \frac{1}{\lambda \cdot 2 \pi \cdot l} \cdot \left( \ln r_2 - \ln r_1 \right) = \frac{1}{\lambda \cdot 2 \pi \cdot l} \cdot \ln \frac{r_2}{r_1} = \frac{1}{2 \pi l \lambda} \cdot \ln \frac{r_2}{r_1}.
 $$
 
-Pro odpor přenosu tepla z povrchu válce do okolí $R_\alpha$ využijeme vztah pro odpor přenosu tepla $R_\alpha$:
+Pro odpor přestupu tepla z povrchu válce do okolí $R_\alpha$ využijeme vztah pro odpor přestupu tepla $R_\alpha$:
 \begin{equation}
     R_\alpha = \frac{1}{\alpha \cdot S},
     \unit{(\ueqKandWinv)}
 \end{equation}
-
 kde:\\
-$\alpha$ - součinitel přestupu tepla (\ueqWandMinvsqKinv).\\
+$\alpha$ -- součinitel přestupu tepla (\ueqWandMinvsqKinv).\\
 
 Plochu $S$ nahradíme plochou válce:
 $$
@@ -160,12 +159,12 @@ $$
 
 Celkový tepelný odpor válce $R_{\vartheta, \Sigma}$ bude součtem obou odporů:
 $$
-    R_\Sigma = R_\lambda + R_\alpha = \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1} + \frac{1}{2 \pi l \alpha r_2}
+    R_\Sigma = R_\lambda + R_\alpha = \frac{1}{2 \pi l \lambda} \ln \frac{r_2}{r_1} + \frac{1}{2 \pi l \alpha r_2}.
 $$
 
 
-\subsection{Minimum tepelného odporu}
 
+\subsection{Minimum tepelného odporu}
 Pro nalezení extrému tepelného odporu $R_\Sigma$ podle poloměru válce $r_2$ je třeba zjistit, kdy bude derivace $R_\Sigma$ podle $r_2$ rovna nule:
 $$
     \frac{dR_\Sigma}{dr_2} = 0.
@@ -286,8 +285,7 @@ $$
     R_\Sigma \sim \ln r_2.
 $$
 
-Zde vidíme, že odpor roste logaritmicky s poloměrem válce $r_2$. Pokud porovnáme rychlost růstu objemu izolace a rychlost růstu odporu $R_\Sigma$, zjistíme, že objem izolace roste rychleji než odpor $R_\Sigma$. To znamená, že při dimenzování izolace je třeba brát v potaz i ekonomické hledisko, jelikož při velkém přidání izolace nám dramaticky může narůst cena, ale odpor $R_\Sigma$ se nám příliš nezmění.
-
+Na následujícím grafu je porovnání závislosti logaritmické funkce a kvadratické funkci:
 \begin{center}
     \begin{tikzpicture}
         \begin{axis}[
@@ -310,9 +308,15 @@ Zde vidíme, že odpor roste logaritmicky s poloměrem válce $r_2$. Pokud porov
     \end{tikzpicture}
 \end{center}
 
+\begin{notebox}{Poznámka}
+    Vidíme, že odpor roste logaritmicky s poloměrem válce $r_2$. Pokud porovnáme rychlost růstu objemu izolace a rychlost růstu odporu $R_\Sigma$, zjistíme, že objem izolace roste rychleji než odpor $R_\Sigma$. To znamená, že při dimenzování izolace je třeba brát v potaz i ekonomické hledisko, jelikož při velkém přidání izolace nám dramaticky může narůst cena, ale odpor $R_\Sigma$ se nám příliš nezmění.
+\end{notebox}
 
-\subsection{Číselný příklad 1 \spicy \spicy}
-Mějme izolovaný vodič v rozvaděči, kde tepelná vodivost izolace je $\lambda = 0.159 \fs \uWandMinvKinv$, součinitel přestupu tepla do okolí je $\alpha = 10 \fs \uWandMinvsqKinv$ Vypočítejte vnější poloměr válce $r_2$, kdy bude tepelný odpor $R_\Sigma$ minimální.
+
+
+\subsection{Číselný příklad 1}
+Mějme izolovaný vodič v rozvaděči, kde tepelná vodivost izolace je $\lambda = 0.159 \fs \uWandMinvKinv$, součinitel přestupu tepla do okolí je $\alpha = 10 \fs \uWandMinvsqKinv$ Vypočítejte vnější poloměr izolovaného vodiče $r_2$, kdy bude tepelný odpor $R_\Sigma$ minimální.
+
 
 \subsubsection{Řešení}
 Dosadíme do vzorce pro minimum tepelného odporu $R_\Sigma$:
@@ -320,11 +324,13 @@ $$
     r_2 = \frac{\lambda}{\alpha} = \frac{0.159}{10} = 0.0159 \fs \uM = 1,59 \fs \te{cm}.
 $$
 
-Z výsledku můžeme říct, že pokud máme vodič o poloměru $r_1$, který je menší, než $1,59 \fs \te{cm}$, pak pokud přidáme izolaci tak, aby vnější poloměr byl $1,59 \fs \te{cm}$, tak bude izolovaný vodič lépe odvádět teplo do okolí.
+Z výsledku můžeme říct, že pokud máme vodič o poloměru $r_1$, který je menší, než $1,59 \fs \te{cm}$, pak pokud přidáme izolaci tak, aby vnější poloměr byl $1,59 \fs \te{cm}$, tak bude izolovaný vodič nejlépe odvádět teplo do okolí.
 
 
-\subsection{Číselný příklad 2 \spicy \spicy}
+
+\subsection{Číselný příklad 2}
 Izolace horkovodního potrubí má tepelnou vodivost $\lambda = 0.02 \fs \uWandMinvKinv$ a součinitel přestupu tepla do okolí je $\alpha = 5 \fs \uWandMinvsqKinv$. Vypočítejte vnější poloměr válce $r_2$, kdy bude tepelný odpor $R_\Sigma$ minimální.
+
 
 \subsubsection{Řešení}
 Dosadíme do vzorce pro minimum tepelného odporu $R_\Sigma$:
@@ -338,11 +344,19 @@ Z výsledku můžeme říct, že by vnitřní poloměr potrubí $r_1$ měl být 
 
 
 
+
 \section{\emoji{soccer-ball} Koule \spicy \spicy \spicy}
 
 
-\subsection{Odvození tepelného odporu}
 
+\subsection{Odvození tepelného odporu}
+Tepelný odpor koule se skládá ze dvou částí:
+\begin{itemize}
+    \item odpor vedení tepla v materiálu koule $R_\lambda$,
+    \item odpor přenosu tepla z povrchu koule do okolí $R_\alpha$.
+\end{itemize}
+
+Ilustrace koule bude vypadat následovně:
 \begin{center}
     \begin{tikzpicture}
         % Draw the sphere
@@ -366,18 +380,11 @@ Z výsledku můžeme říct, že by vnitřní poloměr potrubí $r_1$ měl být 
         \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$T_2$};
 
         % Triangle arrow
-        \draw[-{Triangle}] (2.4,0.7) -- (4.4,.7) node[midway, above] {$Q$};
+        \draw[-{Triangle}] (2.4,0.7) -- (4.4,.7) node[midway, above] {$\dot{Q}$};
     \end{tikzpicture}
 \end{center}
 
-Tepelný odpor koule se skládá ze dvou částí:
-\begin{itemize}
-    \item odpor vedení tepla v materiálu koule $R_\lambda$,
-    \item odpor přenosu tepla z povrchu koule do okolí $R_\alpha$.
-\end{itemize}
-
 Tepelné schéma koule bude vypadat následovně:
-
 \begin{center}
     \begin{tikzpicture}
         \draw[thick] (1,0) -- (1,-1);
@@ -389,16 +396,13 @@ Tepelné schéma koule bude vypadat následovně:
         \draw[thick] (4.5,0) -- (5,0);
         \draw[thick] (5,0) -- (5,-1);
         \draw[thick] (5.5,-1) -- (4.5,-1) node[midway, below] {$T_2$};
-
-        % Triangle arrow
-        \draw[-{Triangle}] (2.4,0.7) -- (4.4,.7) node[midway, above] {$Q$};
+        \draw[-{Triangle}] (2,0.7) -- (4,.7) node[midway, above] {$\dot{Q}$};
     \end{tikzpicture}
 \end{center}
 
-
-Pro odvození tepelného odporu $R_{\lambda}$ využijeme vztah pro tepelný odpor $R$:
+Pro odvození tepelného odporu $R_{\lambda}$ využijeme vztah pro absolutní tepelný odpor $R$:
 $$
-    R_{\vartheta} = \frac{d}{\lambda \cdot S},
+    R = \frac{d}{\lambda \cdot S},
 $$
 kde:\\
 $d$ - tloušťka materiálu (\ueqM),\\
@@ -420,14 +424,14 @@ $$
     dR_\lambda = \frac{dr}{\lambda \cdot 4 \pi r^2}.
 $$
 
-Pro získání celkového odporu $R_{\lambda}$ je třeba provést integraci od vnitřního poloměru izolace $r_1$ po vnější poloměr koule $r_2$:
+Pro získání celkového odporu $R_{\lambda}$ je třeba provést integraci od vnitřního poloměru $r_1$ po vnější poloměr koule $r_2$:
 $$
-    R_\lambda = \int_{r_1}^{r_2} \frac{1}{\lambda \cdot 4 \pi r^2} dr = \frac{1}{\lambda \cdot 4 \pi} \int_{r_1}^{r_2} \frac{1}{r^2} dr = \frac{1}{\lambda \cdot 4 \pi} \left[ -\frac{1}{r} \right]_{r_1}^{r_2}
+    R_\lambda = \int_{r_1}^{r_2} \frac{1}{\lambda \cdot 4 \pi r^2} dr = \frac{1}{\lambda \cdot 4 \pi} \int_{r_1}^{r_2} \frac{1}{r^2} dr = \frac{1}{\lambda \cdot 4 \pi} \cdot \left[ -\frac{1}{r} \right]_{r_1}^{r_2}.
 $$
 
 Po dosazení mezí integrace dostaneme:
 $$
-    R_\lambda = \frac{1}{\lambda \cdot 4 \pi} \left( -\frac{1}{r_2} + \frac{1}{r_1} \right) = \frac{1}{\lambda \cdot 4 \pi} \left( \frac{1}{r_1} - \frac{1}{r_2} \right) = \frac{1}{4 \pi \lambda} \left( \frac{1}{r_1} - \frac{1}{r_2} \right)
+    R_\lambda = \frac{1}{\lambda \cdot 4 \pi} \cdot \left( -\frac{1}{r_2} + \frac{1}{r_1} \right) = \frac{1}{\lambda \cdot 4 \pi} \cdot \left( \frac{1}{r_1} - \frac{1}{r_2} \right) = \frac{1}{4 \pi \lambda} \cdot \left( \frac{1}{r_1} - \frac{1}{r_2} \right).
 $$
 
 Pro odpor přenosu tepla z povrchu koule do okolí $R_{\alpha}$ využijeme vztah pro odpor přenosu tepla $R_{\alpha}$:
@@ -462,11 +466,17 @@ $$
     \lim_{r_2 \to \infty} R_\Sigma = \frac{1}{4 \pi \lambda r_1}.
 $$
 
-Zde vidíme, že koule nelze úplně izolovat, jelikož při nekonečné izolaci bude mít koule stále nějaký odpor.
+\begin{notebox}{Poznámka}
+    Limita odporu koule pro $r_2$ jdoucí do nekonečna je:
+    $$
+        \lim_{r_2 \to \infty} R_\Sigma = \frac{1}{4 \pi \lambda r_1}.
+    $$
+    Toto znamená, že koule bude mít vždy nějaký konečný tepelný odpor, který nelze překonat přidáním izolace. Koule tedy nelze úplně tepelné izolovat.
+\end{notebox}
+
 
 
 \subsection{Minimum tepelného odporu}
-
 Pro nalezení extrému tepelného odporu $R_\Sigma$ podle poloměru koule $r_2$ je třeba zjistit, kdy bude derivace $R_\Sigma$ podle $r_2$ rovna nule:
 $$
     \frac{dR_\Sigma}{dr_2} = 0.
@@ -531,7 +541,6 @@ $$
 $$
 
 Hodnoty $\alpha$ a $\lambda$ jsou kladné, tudíž druhá derivace je kladná. To znamená, že se jedná o minimum.
-
 \begin{center}
     \begin{tikzpicture}
         \begin{axis}[
@@ -554,8 +563,8 @@ Hodnoty $\alpha$ a $\lambda$ jsou kladné, tudíž druhá derivace je kladná. T
 \end{center}
 
 
-\subsection{Ekonomie}
 
+\subsection{Ekonomie}
 Nyní můžeme porovnat rozdíl v rychlosti růstu tepelného odporu $R_\Sigma$ a objemu izolace v závislosti na poloměru koule $r_2$.
 $$
     V = \frac{4}{3} \pi (r_2^3 - r_1^3).
@@ -569,8 +578,10 @@ $$
 Rychlost růstu objemu izolace je kubická a jde do někonečna, zatímco tepelný odpor dosáhne limitní hodnoty.
 
 
+
 \subsection{Číselný příklad}
 Mějme izolovanou kouli, kde tepelná vodivost izolace je $\lambda = 0.159 \fs \uWandMinvKinv$, součinitel přestupu tepla do okolí je $\alpha = 10 \fs \uWandMinvsqKinv$ Vypočítejte vnější poloměr koule $r_2$, kdy bude tepelný odpor $R_\Sigma$ minimální.
+
 
 \subsubsection{Řešení}
 Dosadíme do vzorce pro minimum tepelného odporu $R_\Sigma$:

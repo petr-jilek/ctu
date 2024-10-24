@@ -13,6 +13,7 @@
 
 
 
+
 \section{Značení}
 \begin{itemize}
     \item $t$ - čas (\ueqS \fs -- sekunda)
@@ -36,7 +37,7 @@
     \item $\dot{Q}$ - tepelný tok (\ueqW \fs -- watt)
     \item $q$ - měrná tepelná energie (\ueqJandMinvsq \fs -- joule na metr čtvereční)
     \item $Q$ - tepelná energie (\ueqJ \fs -- joule)
-    \item $Q_v$ - objemový zdroj tepla (\ueqWandMinvcu \fs -- watt na metr krychlový)
+    \item $\dot{Q}_V$ - objemový zdroj tepla (\ueqWandMinvcu \fs -- watt na metr krychlový)
     \item $c$ - měrná tepelná kapacita (\ueqJandKGinvKinv \fs -- joule na kilogram na kelvin)
     \item $\lambda$ - tepelná vodivost (\ueqWandMinvKinv \fs -- watt na metr na kelvin)
     \item $R_{\vartheta}$ - (měrný) tepelný odpor (\ueqMsqKandWinv \fs -- metr čtvereční kelvin na watt)
@@ -51,9 +52,16 @@
     \item $U_e$ - elektrické napětí (\ueqV \fs -- volt)
     \item $I_e$ - elektrický proud (\ueqA \fs -- ampér)
     \item $R_e$ - elektrický odpor (\ueqOHM \fs -- ohm)
+    \item $G_e$ - elektrická vodivost (\ueqSIE \fs -- siemens)
+    \item $\hat{Z}_e$ - impedance (\ueqOHM \fs -- ohm)
+    \item $\hat{Y}_e$ - admitance (\ueqSIE \fs -- siemens)
+    \item $B_e$ - elektrická susceptance (\ueqSIE \fs -- siemens)
+    \item $L_e$ - elektrická indukčnost (\ueqHENRY \fs -- henry)
+    \item $C_e$ - elektrická kapacita (\ueqFARAD \fs -- farad)
 \end{itemize}
 
 \newpage
+
 
 
 
@@ -81,7 +89,9 @@
 
 
 
+
 \section{Energie}
+
 
 
 \subsection{Potenciální energie}
@@ -97,6 +107,7 @@ $g$ -- gravitační zrychlení (\ueqMandSinvsq),\\
 $h$ -- výška (\ueqM).
 
 
+
 \subsection{Kinetická energie}
 Kinetická energie je energie, kterou má těleso v důsledku své rychlosti. Vztah pro výpočet kinetické energie je:
 \begin{equation}
@@ -107,6 +118,7 @@ kde:\\
 $E_k$ -- kinetická energie (\ueqJ),\\
 $m$ -- hmotnost (\ueqKG),\\
 $v$ -- rychlost (\ueqMandSinv).
+
 
 
 \subsection{Měrná tepelná kapacita}
@@ -120,6 +132,7 @@ $Q$ -- tepelná energie (\ueqJ),\\
 $m$ -- hmotnost (\ueqKG),\\
 $c$ -- měrná tepelná kapacita (\ueqJandKGinvKinv),\\
 $\Delta T$ -- rozdíl teplot (\ueqK).
+
 
 
 \subsection{Výkon}
@@ -137,13 +150,15 @@ $dt$ -- infinitesimální čas (\ueqS).
 
 
 
+
 \section{Sdílení tepla}
+
 
 
 \subsection{Fourierova-Kirchhoffova rovnice}
 Fourierova-Kirchhoffova rovnice je základní rovnicí pro popis toku tepla:
 \begin{equation}
-    \rho \cdot c \cdot \left( \frac{\partial T}{\partial t} + \vec{v} \cdot \vec{\nabla} T \right) = \nabla \cdot \left( \lambda \cdot \vec{\nabla} T \right) + Q_v,
+    \rho \cdot c \cdot \left( \frac{\partial T}{\partial t} + \vec{v} \cdot \vec{\nabla} T \right) = \nabla \cdot \left( \lambda \cdot \vec{\nabla} T \right) + \dot{Q}_V,
     \unit{(\ueqWandMinvcu)}
 \end{equation}
 kde:\\
@@ -155,7 +170,8 @@ $\vec{v}$ -- rychlost (\ueqMandSinv),\\
 $\vec{\nabla} T$ -- gradient teploty (\ueqKandMinv),\\
 $\nabla \cdot$ -- divergence (\ueqMinv),\\
 $\lambda$ -- tepelná vodivost (\ueqWandMinvKinv),\\
-$Q_v$ -- objemový zdroj tepla (\ueqWandMinvcu).
+$\dot{Q}_V$ -- objemový zdroj tepla (\ueqWandMinvcu).
+
 
 
 \subsection{Fourieruv zákon}
